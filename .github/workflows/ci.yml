@@ -19,7 +19,7 @@ jobs:
                 activate-environment: bocop-dev
                 environment-file: pkg/env/bocop-linux.yaml
                 auto-activate-base: false
-            -  run: python test_bocop.py 1
+            -  run: python test_bocop.py 0
 
 
 # TODO
