@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="classNLPSolver" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>NLPSolver</compoundname>
+    <derivedcompoundref refid="classNLPSolverIpopt" prot="public" virt="non-virtual">NLPSolverIpopt</derivedcompoundref>
+    <includes refid="NLPSolver_8h" local="no">NLPSolver.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classNLPSolver_1a954f61d848578b1222bb5aa6c5c9e288" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual NLPSolver::~NLPSolver</definition>
+        <argsstring>(void)=default</argsstring>
+        <name>~NLPSolver</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolver.h" line="21" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classNLPSolver_1ab4b7fca22dcf830413f6d37378d0b0cc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void NLPSolver::setOptionFile</definition>
+        <argsstring>(const std::string &amp;)</argsstring>
+        <name>setOptionFile</name>
+        <reimplementedby refid="classNLPSolverIpopt_1ab8a622473391b568d35fd2580a85569e">setOptionFile</reimplementedby>
+        <param>
+          <type>const std::string &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolver.h" line="23" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolver.h" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classNLPSolver_1a6ec6d43a59ab041ddfbe8f0a95ce920b" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void NLPSolver::setNLP</definition>
+        <argsstring>(NLP *)=0</argsstring>
+        <name>setNLP</name>
+        <reimplementedby refid="classNLPSolverIpopt_1a25bc20c4f0e835be6a87bd9cda6267b0">setNLP</reimplementedby>
+        <param>
+          <type><ref refid="classNLP" kindref="compound">NLP</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolver.h" line="24" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classNLPSolver_1aa3db7680cf8ca02b616fc9f02e07f0f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void NLPSolver::solve</definition>
+        <argsstring>(void)=0</argsstring>
+        <name>solve</name>
+        <reimplementedby refid="classNLPSolverIpopt_1abefede9fa35c786e04fccd5ef11a079c">solve</reimplementedby>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolver.h" line="25" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classNLPSolver" kindref="compound">NLPSolver</ref> implements the interface to a <ref refid="classNLP" kindref="compound">NLP</ref> solver. </para>    </briefdescription>
+    <detaileddescription>
+<para><hruler/>
+</para><para>It is generic and virtual, implemented by <ref refid="classNLPSolverIpopt" kindref="compound">NLPSolverIpopt</ref>. It compounds class <ref refid="classNLP" kindref="compound">NLP</ref> (the actual <ref refid="classNLP" kindref="compound">NLP</ref> problem to be solved) via the TNLP member of <ref refid="classNLPSolverIpopt" kindref="compound">NLPSolverIpopt</ref> </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="73">
+        <label>NLPSolver</label>
+        <link refid="classNLPSolver"/>
+      </node>
+      <node id="74">
+        <label>NLPSolverIpopt</label>
+        <link refid="classNLPSolverIpopt"/>
+        <childnode refid="73" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolver.h" line="19" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolver.h" bodystart="18" bodyend="28"/>
+    <listofallmembers>
+      <member refid="classNLPSolver_1a6ec6d43a59ab041ddfbe8f0a95ce920b" prot="public" virt="pure-virtual"><scope>NLPSolver</scope><name>setNLP</name></member>
+      <member refid="classNLPSolver_1ab4b7fca22dcf830413f6d37378d0b0cc" prot="public" virt="virtual"><scope>NLPSolver</scope><name>setOptionFile</name></member>
+      <member refid="classNLPSolver_1aa3db7680cf8ca02b616fc9f02e07f0f9" prot="public" virt="pure-virtual"><scope>NLPSolver</scope><name>solve</name></member>
+      <member refid="classNLPSolver_1a954f61d848578b1222bb5aa6c5c9e288" prot="public" virt="virtual"><scope>NLPSolver</scope><name>~NLPSolver</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

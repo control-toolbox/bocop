@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="NLPSolver_8h" kind="file" language="C++">
+    <compoundname>NLPSolver.h</compoundname>
+    <includes local="no">string</includes>
+    <includes refid="NLP_8h" local="no">NLP.h</includes>
+    <includedby refid="NLPSolverIpopt_8h" local="no">/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolverIpopt.h</includedby>
+    <incdepgraph>
+      <node id="257">
+        <label>string</label>
+      </node>
+      <node id="256">
+        <label>/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolver.h</label>
+        <link refid="NLPSolver.h"/>
+        <childnode refid="257" relation="include">
+        </childnode>
+        <childnode refid="258" relation="include">
+        </childnode>
+      </node>
+      <node id="259">
+        <label>vector</label>
+      </node>
+      <node id="258">
+        <label>NLP.h</label>
+        <link refid="NLP_8h_source"/>
+        <childnode refid="259" relation="include">
+        </childnode>
+        <childnode refid="257" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="260">
+        <label>/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolver.h</label>
+        <link refid="NLPSolver.h"/>
+        <childnode refid="261" relation="include">
+        </childnode>
+      </node>
+      <node id="261">
+        <label>/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolverIpopt.h</label>
+        <link refid="NLPSolverIpopt_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classNLPSolver" prot="public">NLPSolver</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>NLPSolver.h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;NLP.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="classNLPSolver" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classNLPSolver" kindref="compound">NLPSolver</ref></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~<ref refid="classNLPSolver" kindref="compound">NLPSolver</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setOptionFile(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;)<sp/>{};<sp/></highlight><highlight class="comment">//<sp/>not<sp/>used<sp/>atm...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setNLP(<ref refid="classNLP" kindref="compound">NLP</ref><sp/>*)<sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>note:<sp/>actual<sp/>NLP<sp/>is<sp/>in<sp/>the<sp/>TNLP<sp/>member<sp/>of<sp/>NLPSolverIpopt</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>solve(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>virtual<sp/>void<sp/>save(void)<sp/>=<sp/>0;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">//<sp/>NLPSolver.h<sp/>ends<sp/>here</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolver.h"/>
+  </compounddef>
+</doxygen>

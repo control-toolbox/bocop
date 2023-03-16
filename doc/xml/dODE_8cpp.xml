@@ -1,0 +1,320 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="dODE_8cpp" kind="file" language="C++">
+    <compoundname>dODE.cpp</compoundname>
+    <includes local="no">iostream</includes>
+    <includes refid="dODE_8h" local="no">dODE.h</includes>
+    <incdepgraph>
+      <node id="144">
+        <label>iterator</label>
+      </node>
+      <node id="134">
+        <label>dODE.h</label>
+        <link refid="dODE_8h_source"/>
+        <childnode refid="135" relation="include">
+        </childnode>
+      </node>
+      <node id="146">
+        <label>tools_interpolation.h</label>
+        <link refid="tools__interpolation_8h_source"/>
+        <childnode refid="139" relation="include">
+        </childnode>
+        <childnode refid="133" relation="include">
+        </childnode>
+        <childnode refid="141" relation="include">
+        </childnode>
+      </node>
+      <node id="147">
+        <label>cppad/cppad.hpp</label>
+      </node>
+      <node id="145">
+        <label>stdexcept</label>
+      </node>
+      <node id="137">
+        <label>string</label>
+      </node>
+      <node id="136">
+        <label>map</label>
+      </node>
+      <node id="138">
+        <label>tools.h</label>
+        <link refid="tools_8h_source"/>
+        <childnode refid="139" relation="include">
+        </childnode>
+        <childnode refid="133" relation="include">
+        </childnode>
+        <childnode refid="140" relation="include">
+        </childnode>
+        <childnode refid="137" relation="include">
+        </childnode>
+        <childnode refid="141" relation="include">
+        </childnode>
+        <childnode refid="142" relation="include">
+        </childnode>
+        <childnode refid="146" relation="include">
+        </childnode>
+      </node>
+      <node id="142">
+        <label>bufferAdaptor.h</label>
+        <link refid="bufferAdaptor_8h_source"/>
+        <childnode refid="143" relation="include">
+        </childnode>
+        <childnode refid="144" relation="include">
+        </childnode>
+        <childnode refid="145" relation="include">
+        </childnode>
+      </node>
+      <node id="141">
+        <label>vector</label>
+      </node>
+      <node id="140">
+        <label>sstream</label>
+      </node>
+      <node id="139">
+        <label>cstdlib</label>
+      </node>
+      <node id="133">
+        <label>iostream</label>
+      </node>
+      <node id="143">
+        <label>cstddef</label>
+      </node>
+      <node id="132">
+        <label>/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.cpp</label>
+        <link refid="dODE.cpp"/>
+        <childnode refid="133" relation="include">
+        </childnode>
+        <childnode refid="134" relation="include">
+        </childnode>
+      </node>
+      <node id="135">
+        <label>OCP.h</label>
+        <link refid="OCP_8h_source"/>
+        <childnode refid="136" relation="include">
+        </childnode>
+        <childnode refid="137" relation="include">
+        </childnode>
+        <childnode refid="138" relation="include">
+        </childnode>
+        <childnode refid="147" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>dODE.cpp</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;dODE.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>dODE::initialize()</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>For<sp/>now<sp/>we<sp/>impose<sp/>the<sp/>midpoint<sp/>formula<sp/>(+++use<sp/>a<sp/>function<sp/>setRKcoeffs<sp/>later<sp/>to<sp/>allow<sp/>for<sp/>different<sp/>formulas,<sp/>with<sp/>formula<sp/>name<sp/>taken<sp/>from<sp/>.def)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Midpoint<sp/>implicit<sp/>(1-stage,<sp/>order<sp/>2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>1/2<sp/><sp/>1/2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>rk_stages<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>butcher_a.resize(rk_stages,<sp/>std::vector&lt;double&gt;(rk_stages));</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>butcher_b.resize(rk_stages);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>butcher_c.resize(rk_stages);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>butcher_a[0][0]<sp/>=<sp/>0.5e0;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>butcher_b[0]<sp/>=<sp/>1e0;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>butcher_c[0]<sp/>=<sp/>0.5e0;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>dODE::setTimeGrids(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t0,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tf,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::size_t<sp/>discretisation_steps,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;time_step,<sp/>std::vector&lt;double&gt;<sp/>&amp;time_step_grid,<sp/>std::vector&lt;double&gt;<sp/>&amp;time_stage_grid)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>fill<sp/>time<sp/>step/stage<sp/>vectors</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>time_step_grid.resize(discretisation_steps<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>time_stage_grid.resize(discretisation_steps<sp/>*<sp/>rk_stages);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>time_step<sp/>=<sp/>(tf<sp/>-<sp/>t0)<sp/>/<sp/>discretisation_steps;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i=0;<sp/>i<sp/>&lt;<sp/>discretisation_steps;<sp/>++i)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>time_step_grid[i]<sp/>=<sp/>t0<sp/>+<sp/>i*time_step;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>j=0;<sp/>j<sp/>&lt;<sp/>rk_stages;<sp/>++j)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>time_stage_grid[i<sp/>*<sp/>rk_stages+j]<sp/>=<sp/>time_step_grid[i]<sp/>+<sp/>butcher_c[j]*time_step;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>time_step_grid[discretisation_steps]<sp/>=<sp/>tf;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>dODE::setInitialParam(<ref refid="classOCP" kindref="compound">OCP</ref><sp/>*ocp,<sp/>std::vector&lt;double&gt;<sp/>&amp;starting_point,<sp/>std::vector&lt;double&gt;<sp/>&amp;variables_lower_bounds,<sp/>std::vector&lt;double&gt;<sp/>&amp;variables_upper_bounds)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>set<sp/>parameters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>k<sp/>=<sp/>0;<sp/>k<sp/>&lt;<sp/>ocp-&gt;parametersSize();<sp/>++k)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>set<sp/>bounds</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>variables_lower_bounds.push_back(ocp-&gt;paramLowerBounds()[k]);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>variables_upper_bounds.push_back(ocp-&gt;paramUpperBounds()[k]);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>initialisation<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>std::stringstream<sp/>label;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>label<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;parameter.&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>k<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;.init&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>param_init_type<sp/>=<sp/>ocp-&gt;getDefinitionForKey(label.str());</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>set<sp/>initial<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(param_init_type.find(</highlight><highlight class="stringliteral">&quot;.sol&quot;</highlight><highlight class="normal">)<sp/>!=<sp/>std::string::npos)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>initialisation<sp/>from<sp/>.sol<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;todo:<sp/>init<sp/>param<sp/>from<sp/>sol<sp/>file&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>exit(1);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>initialisation<sp/>from<sp/>.def<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>starting_point.push_back(stod(param_init_type));</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>dODE::setRKStageVars(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>discretisation_steps,<sp/><ref refid="classOCP" kindref="compound">OCP</ref><sp/>*ocp,<sp/>std::vector&lt;double&gt;<sp/>&amp;starting_point,<sp/>std::vector&lt;double&gt;<sp/>&amp;variables_lower_bounds,<sp/>std::vector&lt;double&gt;<sp/>&amp;variables_upper_bounds)</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>set<sp/>RK<sp/>stage<sp/>variables<sp/>initialisation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>discretisation_steps;<sp/>++i)</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>RKStages();<sp/>++j)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>k<sp/>=<sp/>0;<sp/>k<sp/>&lt;<sp/>ocp-&gt;stateSize();<sp/>k++)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>variables_lower_bounds.push_back(std::numeric_limits&lt;double&gt;::lowest());</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>variables_upper_bounds.push_back(std::numeric_limits&lt;double&gt;::max());</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>starting_point.push_back(0e0);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Layout<sp/>of<sp/>C:<sp/>{boundarycond<sp/>[dynstep<sp/>(dynstage...dynstage)<sp/>pathcond]<sp/>...<sp/>[dynstep<sp/>(dynstage...dynstage)<sp/>pathcond]<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>dODE::setBoundaryConditionsBounds(<ref refid="classOCP" kindref="compound">OCP</ref><sp/>*ocp,<sp/>std::vector&lt;double&gt;<sp/>&amp;constraints_lower_bounds,<sp/>std::vector&lt;double&gt;<sp/>&amp;constraints_upper_bounds)</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>ocp-&gt;boundaryConditionsSize();<sp/>++i)</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>constraints_lower_bounds.push_back(ocp-&gt;boundaryLowerBounds()[i]);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>constraints_upper_bounds.push_back(ocp-&gt;boundaryUpperBounds()[i]);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>dODE::setDiscretisedConstraintsBounds(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>discretisation_steps,<sp/><ref refid="classOCP" kindref="compound">OCP</ref><sp/>*ocp,<sp/>std::vector&lt;double&gt;<sp/>&amp;constraints_lower_bounds,<sp/>std::vector&lt;double&gt;<sp/>&amp;constraints_upper_bounds)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>l<sp/>=<sp/>0;<sp/>l<sp/>&lt;<sp/>discretisation_steps;<sp/>++l)</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>1.<sp/>dynamics<sp/>constraint<sp/>at<sp/>time<sp/>step:<sp/>y_l<sp/>+<sp/>h<sp/>sum(b_j*k_j)<sp/>-<sp/>y_{l+1}<sp/>=<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>ocp-&gt;stateSize();<sp/>++i)</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>constraints_lower_bounds.push_back(0e0);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>constraints_upper_bounds.push_back(0e0);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>2.<sp/>loop<sp/>on<sp/>stages<sp/>for<sp/>k_j<sp/>equations:<sp/>f(...)<sp/>-<sp/>k_j<sp/>=<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>RKStages();<sp/>++j)</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>ocp-&gt;stateSize();<sp/>++i)</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constraints_lower_bounds.push_back(0e0);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constraints_upper_bounds.push_back(0e0);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>3.<sp/>path<sp/>constraints<sp/>(on<sp/>step<sp/>with<sp/>average<sp/>control)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>ocp-&gt;pathConstraintsSize();<sp/>++i)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>constraints_lower_bounds.push_back(ocp-&gt;pathLowerBounds()[i]);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>constraints_upper_bounds.push_back(ocp-&gt;pathUpperBounds()[i]);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>dODE::getParam(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/>x,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>param_offset,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>dimParam,<sp/>std::vector&lt;double&gt;&amp;<sp/>parameter)</highlight></codeline>
+<codeline lineno="127"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>index_x<sp/>=<sp/>param_offset;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>dimParam;<sp/>j++)</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>parameter[j]<sp/>=<sp/>x[index_x++];</highlight></codeline>
+<codeline lineno="131"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="comment">//<sp/>extract<sp/>multipliers<sp/>for<sp/>the<sp/>constraints<sp/>C(X)<sp/>of<sp/>(NLP)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Layout<sp/>of<sp/>C:<sp/>{boundarycond<sp/>[dynstep<sp/>(dynstage...dynstage)<sp/>pathcond]<sp/>...<sp/>[dynstep<sp/>(dynstage...dynstage)<sp/>pathcond]<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>dODE::getMultipliers(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/>lambda,<sp/>std::vector&lt;double&gt;&amp;<sp/>boundaryCondMultiplier,<sp/>std::vector&lt;std::vector&lt;double&gt;<sp/>&gt;&amp;<sp/><sp/>pathConstrMultiplier,<sp/>std::vector&lt;std::vector&lt;double&gt;<sp/>&gt;&amp;<sp/><sp/>adjointState)</highlight></codeline>
+<codeline lineno="136"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>retrieve<sp/>dimensions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dimState<sp/>=<sp/>adjointState.size();</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dimPathConstraints<sp/>=<sp/>pathConstrMultiplier.size();</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dimSteps<sp/>=<sp/>adjointState[0].size();</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dimStages<sp/>=<sp/>RKStages();</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>index_lambda<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>boundary<sp/>conditions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>boundaryCondMultiplier.size();<sp/>j++)</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>boundaryCondMultiplier[j]<sp/>=<sp/>lambda[index_lambda++];</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>loop<sp/>on<sp/>time<sp/>steps:<sp/>block<sp/>[dynstep<sp/>(dynstage<sp/>stage<sp/>1)<sp/>...<sp/>(dynstage<sp/>stage<sp/>s)<sp/>pathcond]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>dimSteps;<sp/>i++)</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>multipliers<sp/>for<sp/>dynamics<sp/>equation<sp/>a.k.a<sp/>&apos;adjoint<sp/>State&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>dimState;<sp/>j++)</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>adjointState[j][i]<sp/>=<sp/>lambda[index_lambda++];</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>skip<sp/>multipliers<sp/>for<sp/>stage<sp/>equations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>dimStages;<sp/>j++)</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>index_lambda<sp/>+=<sp/>dimState;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>multipliers<sp/>for<sp/>path<sp/>constraints</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k<sp/>=<sp/>0;<sp/>k<sp/>&lt;<sp/>dimPathConstraints;<sp/>k++)</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>pathConstrMultiplier[k][i]<sp/>=<sp/>lambda[index_lambda++];</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="comment">//<sp/>extract<sp/>components<sp/>from<sp/>constraints<sp/>C(X)<sp/>of<sp/>(NLP)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Layout<sp/>of<sp/>C:<sp/>{boundarycond<sp/>[dynstep<sp/>(dynstage...dynstage)<sp/>pathcond]<sp/>...<sp/>[dynstep<sp/>(dynstage...dynstage)<sp/>pathcond]<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="comment">//<sp/>where<sp/>boundarycond<sp/>is<sp/>the<sp/>constraint:<sp/>lb<sp/>&lt;=<sp/>\phi(y^0,Y^N)<sp/>&lt;=<sp/>ub</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight><highlight class="comment">//<sp/>dynstep<sp/>is<sp/>the<sp/>dynamics<sp/>equation:<sp/>y^{i+1}<sp/>-<sp/>(<sp/>y^i<sp/>+<sp/>sum_{i=1..s}<sp/>b_j<sp/>k_j<sp/>)<sp/>=<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="comment">//<sp/>dynstage<sp/>are<sp/>the<sp/>s<sp/>equations<sp/>at<sp/>stages:<sp/>k^i_j<sp/>-<sp/>f(t_i<sp/>+<sp/>c_i<sp/>h,<sp/>y^i<sp/>+<sp/>sum_{i=1..s}<sp/>a_lj<sp/>k_l,<sp/>u^i_j)<sp/>=<sp/>0<sp/><sp/><sp/><sp/><sp/>//check<sp/>indexes<sp/>for<sp/>a<sp/>+++</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="comment">//<sp/>pathcond<sp/>are<sp/>the<sp/>constraints<sp/>at<sp/>steps:<sp/>LB<sp/>&lt;=<sp/>g(t_i,<sp/>y^i,<sp/>u^i)<sp/>&lt;=<sp/>UB<sp/><sp/><sp/>with<sp/><sp/>u^i<sp/>e.g.<sp/>the<sp/>&apos;average&apos;<sp/>control<sp/>on<sp/>step</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>dODE::getConstraints(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/>g,<sp/>std::vector&lt;double&gt;&amp;<sp/>boundaryConditions,<sp/>std::vector&lt;std::vector&lt;double&gt;<sp/>&gt;&amp;<sp/><sp/>pathConstraints,<sp/>std::vector&lt;std::vector&lt;double&gt;<sp/>&gt;&amp;<sp/>dynEquations)</highlight></codeline>
+<codeline lineno="175"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>retrieve<sp/>dimensions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dimState<sp/>=<sp/>dynEquations.size();</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dimPathConstraints<sp/>=<sp/>pathConstraints.size();</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dimSteps<sp/>=<sp/>dynEquations[0].size();</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dimStages<sp/>=<sp/>RKStages();</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>index_g<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>boundary<sp/>conditions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>boundaryConditions.size();<sp/>j++)</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>boundaryConditions[j]<sp/>=<sp/>g[index_g++];</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>loop<sp/>on<sp/>time<sp/>steps:<sp/>block<sp/>[dynstep<sp/>(dynstage<sp/>stage<sp/>1)<sp/>...<sp/>(dynstage<sp/>stage<sp/>s)<sp/>pathcond]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>dimSteps;<sp/>i++)</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>dynamics<sp/>equation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>dimState;<sp/>j++)</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>dynEquations[j][i]<sp/>=<sp/>g[index_g++];</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>skip<sp/>stage<sp/>equations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>dimStages;<sp/>j++)</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>index_g<sp/>+=<sp/>dimState;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>path<sp/>constraints</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k<sp/>=<sp/>0;<sp/>k<sp/>&lt;<sp/>dimPathConstraints;<sp/>k++)</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>pathConstraints[k][i]<sp/>=<sp/>g[index_g++];</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight><highlight class="comment">//<sp/>dODE.cpp<sp/>ends<sp/>here</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.cpp"/>
+  </compounddef>
+</doxygen>

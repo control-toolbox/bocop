@@ -1,0 +1,258 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class dOCP &mdash; bocop 3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class NLP" href="NLP.html" />
+    <link rel="prev" title="Class OCP" href="OCP.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> bocop
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="OCP.html">Class OCP</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Class dOCP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NLP.html">Class NLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dOCPCppAD.html">Class dOCPCppAD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcp.html">Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">bocop</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Class dOCP</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/classes/dOCP.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-docp">
+<h1>Class dOCP<a class="headerlink" href="#class-docp" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp class">
+<dt id="_CPPv44dOCP">
+<span id="_CPPv34dOCP"></span><span id="_CPPv24dOCP"></span><span id="dOCP"></span><span class="target" id="classdOCP"></span><em class="property">class </em><code class="sig-name descname">dOCP</code> : <em class="property">public</em> <a class="reference internal" href="NLP.html#_CPPv43NLP" title="NLP">NLP</a><a class="headerlink" href="#_CPPv44dOCP" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classdOCP"><span class="std std-ref">dOCP</span></a> defines a discretized optimal control problem </p>
+<p></p>
+<p>It derives from class <a class="reference internal" href="NLP.html#classNLP"><span class="std std-ref">NLP</span></a> and compounds class <a class="reference internal" href="OCP.html#classOCP"><span class="std std-ref">OCP</span></a>. The discretized problem is built from the original control problem by direct transcription, with the state dynamics discretised by a generalized Runge Kutta formula (defined with Butcher tables) <strong>NB.currently hardcoded implicit midpoint…</strong> The objective and constraints functions for the <a class="reference internal" href="NLP.html#classNLP"><span class="std std-ref">NLP</span></a> solver are defined in dOCP_CppAD, with their derivatives.</p>
+<p>Direct transcription layout for <a class="reference internal" href="NLP.html#classNLP"><span class="std std-ref">NLP</span></a>:<ul class="simple">
+<li><p>general layout of variables X: { [STATE] [CONTROL] [PARAMETERS] [ODE_INTERNAL] }<p>more precisely X: {[state … state] [(controlstage … controlstage) …(controlstage … controlstage)] [parameters] [(kstage … kstage) … (kstage … kstage)] }</p>
+</p></li>
+<li><p>general layout of constraints C: { [BOUNDARY CONDITIONS] [DISCRETIZED ODE] [PATH CONSTRAINTS] }<p>more precisely C: {boundarycond [dynstep (dynstage…dynstage) pathcond] … [dynstep (dynstage…dynstage) pathcond] }</p>
+</p></li>
+</ul>
+</p>
+<p><em>Note: ideally, transcription should be as modular as possible to allow different formulations</em> </p>
+<p>Subclassed by <a class="reference internal" href="dOCPCppAD.html#classdOCPCppAD"><span class="std std-ref">dOCPCppAD</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Optimal Control Problem specific functions</p>
+<p>note: later this class could be abstracted and specified according to the transcription method used ? eg. full disc, direct collocation, CVP, … </p>
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4I0EN4dOCP13controlAtStepENSt6vectorIN1C10value_typeEEERK1CNSt6size_tE">
+<span id="_CPPv3I0EN4dOCP13controlAtStepERK1CNSt6size_tE"></span><span id="_CPPv2I0EN4dOCP13controlAtStepERK1CNSt6size_tE"></span>template&lt;typename <code class="sig-name descname">C</code>&gt;<br /><span class="target" id="classdOCP_1a0d2ed98a77d5b165b51e7bcf8fa09605"></span>auto <code class="sig-name descname">controlAtStep</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN4dOCP13controlAtStepENSt6vectorIN1C10value_typeEEERK1CNSt6size_tE" title="dOCP::controlAtStep::C">C</a> &amp;<em>v</em>, std::size_t <em>step</em><span class="sig-paren">)</span> -&gt; std::vector&lt;<em class="property">typename</em> <a class="reference internal" href="#_CPPv4I0EN4dOCP13controlAtStepENSt6vectorIN1C10value_typeEEERK1CNSt6size_tE" title="dOCP::controlAtStep::C">C</a>::value_type&gt;<a class="headerlink" href="#_CPPv4I0EN4dOCP13controlAtStepENSt6vectorIN1C10value_typeEEERK1CNSt6size_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>**+++ put this in dControl** </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="cpp var">
+<dt id="_CPPv4N4dOCP3ocpE">
+<span id="_CPPv3N4dOCP3ocpE"></span><span id="_CPPv2N4dOCP3ocpE"></span><span id="dOCP::ocp__OCPP"></span><span class="target" id="classdOCP_1af47fb45b1f0c48e707cbde8291a604b8"></span><a class="reference internal" href="OCP.html#_CPPv43OCP" title="OCP">OCP</a> *<code class="sig-name descname">ocp</code><a class="headerlink" href="#_CPPv4N4dOCP3ocpE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="OCP.html#classOCP"><span class="std std-ref">OCP</span></a> member </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="NLP.html" class="btn btn-neutral float-right" title="Class NLP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="OCP.html" class="btn btn-neutral float-left" title="Class OCP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, PM
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

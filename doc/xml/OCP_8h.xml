@@ -1,0 +1,290 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="OCP_8h" kind="file" language="C++">
+    <compoundname>OCP.h</compoundname>
+    <includes local="no">map</includes>
+    <includes local="no">string</includes>
+    <includes refid="tools_8h" local="no">tools.h</includes>
+    <includes local="no">cppad/cppad.hpp</includes>
+    <includedby refid="main_8cpp" local="no">/home/martinon/bocop/bocop3/bocop/src/main.cpp</includedby>
+    <includedby refid="dControl_8h" local="no">/home/martinon/bocop/bocop3/bocop/src/DOCP/dControl.h</includedby>
+    <includedby refid="dOCP_8h" local="no">/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h</includedby>
+    <includedby refid="dODE_8h" local="no">/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h</includedby>
+    <includedby refid="dState_8h" local="no">/home/martinon/bocop/bocop3/bocop/src/DOCP/dState.h</includedby>
+    <includedby refid="OCP_8cpp" local="no">/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.cpp</includedby>
+    <incdepgraph>
+      <node id="310">
+        <label>iterator</label>
+      </node>
+      <node id="312">
+        <label>tools_interpolation.h</label>
+        <link refid="tools__interpolation_8h_source"/>
+        <childnode refid="304" relation="include">
+        </childnode>
+        <childnode refid="305" relation="include">
+        </childnode>
+        <childnode refid="307" relation="include">
+        </childnode>
+      </node>
+      <node id="313">
+        <label>cppad/cppad.hpp</label>
+      </node>
+      <node id="311">
+        <label>stdexcept</label>
+      </node>
+      <node id="302">
+        <label>string</label>
+      </node>
+      <node id="301">
+        <label>map</label>
+      </node>
+      <node id="303">
+        <label>tools.h</label>
+        <link refid="tools_8h_source"/>
+        <childnode refid="304" relation="include">
+        </childnode>
+        <childnode refid="305" relation="include">
+        </childnode>
+        <childnode refid="306" relation="include">
+        </childnode>
+        <childnode refid="302" relation="include">
+        </childnode>
+        <childnode refid="307" relation="include">
+        </childnode>
+        <childnode refid="308" relation="include">
+        </childnode>
+        <childnode refid="312" relation="include">
+        </childnode>
+      </node>
+      <node id="308">
+        <label>bufferAdaptor.h</label>
+        <link refid="bufferAdaptor_8h_source"/>
+        <childnode refid="309" relation="include">
+        </childnode>
+        <childnode refid="310" relation="include">
+        </childnode>
+        <childnode refid="311" relation="include">
+        </childnode>
+      </node>
+      <node id="307">
+        <label>vector</label>
+      </node>
+      <node id="306">
+        <label>sstream</label>
+      </node>
+      <node id="304">
+        <label>cstdlib</label>
+      </node>
+      <node id="305">
+        <label>iostream</label>
+      </node>
+      <node id="309">
+        <label>cstddef</label>
+      </node>
+      <node id="300">
+        <label>/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h</label>
+        <link refid="OCP.h"/>
+        <childnode refid="301" relation="include">
+        </childnode>
+        <childnode refid="302" relation="include">
+        </childnode>
+        <childnode refid="303" relation="include">
+        </childnode>
+        <childnode refid="313" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="318">
+        <label>/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h</label>
+        <link refid="dODE_8h_source"/>
+        <childnode refid="315" relation="include">
+        </childnode>
+        <childnode refid="316" relation="include">
+        </childnode>
+      </node>
+      <node id="317">
+        <label>/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h</label>
+        <link refid="dOCPCppAD_8h_source"/>
+      </node>
+      <node id="316">
+        <label>/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h</label>
+        <link refid="dOCP_8h_source"/>
+        <childnode refid="317" relation="include">
+        </childnode>
+      </node>
+      <node id="315">
+        <label>/home/martinon/bocop/bocop3/bocop/src/DOCP/dControl.h</label>
+        <link refid="dControl_8h_source"/>
+        <childnode refid="316" relation="include">
+        </childnode>
+      </node>
+      <node id="319">
+        <label>/home/martinon/bocop/bocop3/bocop/src/DOCP/dState.h</label>
+        <link refid="dState_8h_source"/>
+        <childnode refid="316" relation="include">
+        </childnode>
+      </node>
+      <node id="314">
+        <label>/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h</label>
+        <link refid="OCP.h"/>
+        <childnode refid="315" relation="include">
+        </childnode>
+        <childnode refid="316" relation="include">
+        </childnode>
+        <childnode refid="318" relation="include">
+        </childnode>
+        <childnode refid="319" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classOCP" prot="public">OCP</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="OCP_8h_1a1f51f6beecdfc4352653f0ef730e01e6" prot="public" static="no">
+        <type>CppAD::AD&lt; double &gt;</type>
+        <definition>using double_ad =  CppAD::AD&lt;double&gt;</definition>
+        <argsstring></argsstring>
+        <name>double_ad</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="13" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>OCP.h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;tools.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cppad/cppad.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>double_ad<sp/>=<sp/>CppAD::AD&lt;double&gt;;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="classOCP" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classOCP" kindref="compound">OCP</ref></highlight></codeline>
+<codeline lineno="38"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><ref refid="classOCP" kindref="compound">OCP</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~<ref refid="classOCP" kindref="compound">OCP</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>initialize(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>load(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>save(std::ofstream&amp;<sp/>file_out);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>handle<sp/>definition<sp/>file<sp/>and<sp/>map</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>getDefinitionForKey(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>key,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>default_value<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>readDefinitionFile(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>definition_file);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>std::size_t<sp/>stateSize()<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>state_size;}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>std::size_t<sp/>controlSize()<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>control_size;}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>std::size_t<sp/>parametersSize()<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>parameters_size;}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>std::size_t<sp/>constantsSize()<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>constants_size;}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>std::size_t<sp/>boundaryConditionsSize()<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>boundary_conditions_size;}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>std::size_t<sp/>pathConstraintsSize()<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>path_constraints_size;}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>initialTime()<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>initial_time;}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>finalTime()<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>final_time;}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>getConstants()<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>constants;}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//std::stringstream<sp/>getFreeBounds()<sp/>{return<sp/>freebounds;}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>stateLowerBounds()<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>state_lower_bounds;}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>stateUpperBounds()<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>state_upper_bounds;}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>controlLowerBounds()<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>control_lower_bounds;}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>controlUpperBounds()<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>control_upper_bounds;}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>paramLowerBounds()<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>param_lower_bounds;}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>paramUpperBounds()<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>param_upper_bounds;}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>boundaryLowerBounds()<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>boundary_conditions_lower_bounds;}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>boundaryUpperBounds()<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>boundary_conditions_upper_bounds;}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>pathLowerBounds()<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>path_constraints_lower_bounds;}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>pathUpperBounds()<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>path_constraints_upper_bounds;}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setBounds(std::string<sp/>prefix,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::size_t<sp/>dim,<sp/>std::vector&lt;double&gt;<sp/>&amp;lower_bounds,<sp/>std::vector&lt;double&gt;<sp/>&amp;upper_bounds);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Variable&gt;<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classOCP_1ac20ec9b6662ce587ae0028e17c4d9fec" kindref="member">finalCost</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>initial_time,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>final_time,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Variable<sp/>*initial_state,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Variable<sp/>*final_state,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Variable<sp/>*parameters,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*constants,<sp/>Variable<sp/>&amp;final_cost);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Variable&gt;<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classOCP_1a0e25283d3a734841955d12356837d042" kindref="member">dynamics</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>time,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Variable<sp/>*state,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Variable<sp/>*control,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Variable<sp/>*parameters,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*constants,<sp/>Variable<sp/>*state_dynamics);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Variable&gt;<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classOCP_1a5361cfcf3f0b612a2a22478f7da1f633" kindref="member">boundaryConditions</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>initial_time,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>final_time,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Variable<sp/>*initial_state,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Variable<sp/>*final_state,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Variable<sp/>*parameters,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*constants,<sp/>Variable<sp/>*boundary_conditions);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Variable&gt;<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classOCP_1a52083e45d17e7f54eb3ccdb20858b541" kindref="member">pathConstraints</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>time,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Variable<sp/>*state,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Variable<sp/>*control,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Variable<sp/>*parameters,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*constants,<sp/>Variable<sp/>*path_constraints);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classOCP_1a5da3cb8a7c5a99d7eca8266fc141812d" kindref="member">preProcessing</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>std::stringstream<sp/>freebounds;<sp/></highlight><highlight class="comment">//getter<sp/>causes<sp/>error<sp/>deleted<sp/>function<sp/>-_-</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>dimensions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>std::size_t<sp/>state_size<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/>std::size_t<sp/>control_size<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>std::size_t<sp/>parameters_size<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>std::size_t<sp/>constants_size<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>std::size_t<sp/>boundary_conditions_size<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>std::size_t<sp/>path_constraints_size<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>initial<sp/>and<sp/>final<sp/>time</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>initial_time<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>final_time<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>constants</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>constants;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>bounds<sp/>for<sp/>variables<sp/>and<sp/>constraints</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>state_lower_bounds;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>state_upper_bounds;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>control_lower_bounds;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>control_upper_bounds;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>param_lower_bounds;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>param_upper_bounds;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>boundary_conditions_lower_bounds;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>boundary_conditions_upper_bounds;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>path_constraints_lower_bounds;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>path_constraints_upper_bounds;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>dictionary<sp/>of<sp/>(key,value)<sp/>from<sp/>.def<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>std::map&lt;std::string,<sp/>std::string&gt;<sp/>definition_map;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="comment">//<sp/>///////////////////////////////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="comment">//<sp/>///////////////////////////////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="comment">//<sp/>python<sp/>wrap</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="151"><highlight class="comment">#ifndef<sp/>SWIGPYTHON</highlight></codeline>
+<codeline lineno="152"><highlight class="comment"></highlight></codeline>
+<codeline lineno="153"><highlight class="comment">template<sp/>&lt;class<sp/>D&gt;</highlight></codeline>
+<codeline lineno="154"><highlight class="comment">class<sp/>OCPBase<sp/>:<sp/>public<sp/>OCP</highlight></codeline>
+<codeline lineno="155"><highlight class="comment">{</highlight></codeline>
+<codeline lineno="156"><highlight class="comment">public:</highlight></codeline>
+<codeline lineno="157"><highlight class="comment"><sp/><sp/>void<sp/>finalCost_impl(double<sp/>initial_time,<sp/>double<sp/>final_time,<sp/>const<sp/>double<sp/>*initial_state,<sp/>const<sp/>double<sp/>*final_state,<sp/>const<sp/>double<sp/>*parameters,<sp/>const<sp/>double<sp/>*constants,<sp/>double<sp/>&amp;final_cost)<sp/>final</highlight></codeline>
+<codeline lineno="158"><highlight class="comment"><sp/><sp/>{<sp/>static_cast&lt;D<sp/>*&gt;(this)-&gt;finalCost(initial_time,<sp/>final_time,<sp/>initial_state,<sp/>final_state,<sp/>parameters,<sp/>constants,<sp/>final_cost);<sp/>};</highlight></codeline>
+<codeline lineno="159"><highlight class="comment"></highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/><sp/>void<sp/>dynamics_impl(double<sp/>time,<sp/>const<sp/>double<sp/>*state,<sp/>const<sp/>double<sp/>*control,<sp/>const<sp/>double<sp/>*parameters,<sp/>const<sp/>double<sp/>*constants,<sp/>double<sp/>*state_dynamics)<sp/>final</highlight></codeline>
+<codeline lineno="161"><highlight class="comment"><sp/><sp/>{<sp/>static_cast&lt;D<sp/>*&gt;(this)-&gt;dynamics(time,<sp/>state,<sp/>control,<sp/>parameters,<sp/>constants,<sp/>state_dynamics);<sp/>};</highlight></codeline>
+<codeline lineno="162"><highlight class="comment"></highlight></codeline>
+<codeline lineno="163"><highlight class="comment"><sp/><sp/>void<sp/>boundaryConditions_impl(double<sp/>initial_time,<sp/>double<sp/>final_time,<sp/>const<sp/>double<sp/>*initial_state,<sp/>const<sp/>double<sp/>*final_state,<sp/>const<sp/>double<sp/>*parameters,<sp/>const<sp/>double<sp/>*constants,<sp/>double<sp/>*boundary_conditions)<sp/>final</highlight></codeline>
+<codeline lineno="164"><highlight class="comment"><sp/><sp/>{<sp/>static_cast&lt;D<sp/>*&gt;(this)-&gt;boundaryConditions(initial_time,<sp/>final_time,<sp/>initial_state,<sp/>final_state,<sp/>parameters,<sp/>constants,<sp/>boundary_conditions);<sp/>};</highlight></codeline>
+<codeline lineno="165"><highlight class="comment"></highlight></codeline>
+<codeline lineno="166"><highlight class="comment"><sp/><sp/>void<sp/>pathConstraints_impl(double<sp/>time,<sp/>const<sp/>double<sp/>*state,<sp/>const<sp/>double<sp/>*control,<sp/>const<sp/>double<sp/>*parameters,<sp/>const<sp/>double<sp/>*constants,<sp/>double<sp/>*path_constraints)<sp/>final</highlight></codeline>
+<codeline lineno="167"><highlight class="comment"><sp/><sp/>{<sp/>static_cast&lt;D<sp/>*&gt;(this)-&gt;pathConstraints(time,<sp/>state,<sp/>control,<sp/>parameters,<sp/>constants,<sp/>path_constraints);<sp/>};</highlight></codeline>
+<codeline lineno="168"><highlight class="comment"></highlight></codeline>
+<codeline lineno="169"><highlight class="comment">};</highlight></codeline>
+<codeline lineno="170"><highlight class="comment"></highlight></codeline>
+<codeline lineno="171"><highlight class="comment">#endif</highlight></codeline>
+<codeline lineno="172"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight><highlight class="comment">//<sp/>OCP.h<sp/>ends<sp/>here</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h"/>
+  </compounddef>
+</doxygen>

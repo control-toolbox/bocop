@@ -1,0 +1,919 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="classdOCPCppAD" kind="class" language="C++" prot="public">
+    <compoundname>dOCPCppAD</compoundname>
+    <basecompoundref refid="classdOCP" prot="public" virt="non-virtual">dOCP</basecompoundref>
+    <includes refid="dOCPCppAD_8h" local="no">dOCPCppAD.h</includes>
+      <sectiondef kind="user-defined">
+      <header>NLP functions and derivatives (overrides for NLP class)</header>
+      <memberdef kind="function" id="classdOCPCppAD_1a34aebc84922bd6a08b7bcda83e11f16e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool dOCPCppAD::evalObjective</definition>
+        <argsstring>(const double *variables, double &amp;objective) override</argsstring>
+        <name>evalObjective</name>
+        <reimplements refid="classNLP_1accc30c854eca5e3e5d3924156c907090">evalObjective</reimplements>
+        <param>
+          <type>const double *</type>
+          <declname>variables</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>objective</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Objective function for the nonlinear optimization problem </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="35" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.cpp" bodystart="39" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCPCppAD_1acc1921100fe4b9a5d58c7bc95db2d80e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool dOCPCppAD::evalConstraints</definition>
+        <argsstring>(const double *variables, double *constraints) override</argsstring>
+        <name>evalConstraints</name>
+        <reimplements refid="classNLP_1a3fb766d26ae7bb80b52bc53a0ba875b0">evalConstraints</reimplements>
+        <param>
+          <type>const double *</type>
+          <declname>variables</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>constraints</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constraints for the nonlinear problem. Equality constraints are handled by setting equal values for lower and upper bound. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="36" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.cpp" bodystart="56" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCPCppAD_1a6910e9653f6d83ff0b8ecc1c85d46c2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool dOCPCppAD::evalLagrangian</definition>
+        <argsstring>(const double *primal_dual_variables, double &amp;lagrangian) override</argsstring>
+        <name>evalLagrangian</name>
+        <reimplements refid="classNLP_1aacdce4e919dd809afb30cbfd17e87634">evalLagrangian</reimplements>
+        <param>
+          <type>const double *</type>
+          <declname>primal_dual_variables</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>lagrangian</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Lagrangian <formula id="1">$L(X,\lambda) = F(X) + \lambda . C(X)$</formula>. This function is not called directly but its Hessian is required by the <ref refid="classNLP" kindref="compound">NLP</ref> solver. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="37" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.cpp" bodystart="73" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCPCppAD_1aaf232b918566ee7a5d2ca790e8eb2a58" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool dOCPCppAD::evalObjectiveGradient</definition>
+        <argsstring>(const double *variables, double *grad_objective) override</argsstring>
+        <name>evalObjectiveGradient</name>
+        <reimplements refid="classNLP_1a193e829428b575b3ef0a6edcee7009b2">evalObjectiveGradient</reimplements>
+        <param>
+          <type>const double *</type>
+          <declname>variables</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>grad_objective</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gradient of the objective, computed by automatic differentiation (CppAD) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="39" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.cpp" bodystart="107" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCPCppAD_1a707fab3c603d799894fcd7fb0c9e84a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool dOCPCppAD::evalConstraintsJacobian</definition>
+        <argsstring>(const double *variables, double *jac_constraints) override</argsstring>
+        <name>evalConstraintsJacobian</name>
+        <reimplements refid="classNLP_1abf5dcf13856dd753f39030d0ae271ced">evalConstraintsJacobian</reimplements>
+        <param>
+          <type>const double *</type>
+          <declname>variables</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>jac_constraints</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Jacobian of the constraints, computed by automatic differentiation (CppAD) in sparse format. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="40" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.cpp" bodystart="193" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCPCppAD_1a6f6db476a0a17400828204cb1453a721" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool dOCPCppAD::evalLagrangianHessian</definition>
+        <argsstring>(const double *variables, double obj_factor, const double *lambda, double *lag_hessian) override</argsstring>
+        <name>evalLagrangianHessian</name>
+        <reimplements refid="classNLP_1a11fb6373e50dad8e0134876f689135e8">evalLagrangianHessian</reimplements>
+        <param>
+          <type>const double *</type>
+          <declname>variables</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>obj_factor</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>lambda</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>lag_hessian</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hessian of the Lagrangian, computed by automatic differentiation (CppAD) in sparse format. Note: currently Hessian is computed fully ie for both primal and dual variables, while only the derivatives wrt X are used. Todo: use cppad DYNAMIC type for the dual variables. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="41" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.cpp" bodystart="296" bodyend="326"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classdOCPCppAD_1a6273dcdca8ff84c57b8c80503a5da4df" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int dOCPCppAD::ad_retape</definition>
+        <argsstring></argsstring>
+        <name>ad_retape</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="69" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCPCppAD_1a13cbc77a875fba78a738bc0420b21b88" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double_ad &gt;</type>
+        <definition>std::vector&lt;double_ad&gt; dOCPCppAD::x_ad</definition>
+        <argsstring></argsstring>
+        <name>x_ad</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="71" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCPCppAD_1afd6be4e38e2d7e560ab161aa9ed653ba" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double_ad &gt;</type>
+        <definition>std::vector&lt;double_ad&gt; dOCPCppAD::objvalue_ad</definition>
+        <argsstring></argsstring>
+        <name>objvalue_ad</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="74" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCPCppAD_1a6722b603e12cf2f137481cfe32bc7004" prot="public" static="no" mutable="no">
+        <type>fun_ad</type>
+        <definition>fun_ad dOCPCppAD::f_obj</definition>
+        <argsstring></argsstring>
+        <name>f_obj</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="75" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCPCppAD_1a5cb8cf4b4bd093419085c636cd7a73aa" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; dOCPCppAD::grad</definition>
+        <argsstring></argsstring>
+        <name>grad</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="76" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCPCppAD_1a1b9b95d9e736fe280a4bfcc06ef43f44" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double_ad &gt;</type>
+        <definition>std::vector&lt;double_ad&gt; dOCPCppAD::g_ad</definition>
+        <argsstring></argsstring>
+        <name>g_ad</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="79" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCPCppAD_1a0f4d48180babf762b0b6f32057ae8cca" prot="public" static="no" mutable="no">
+        <type>fun_ad</type>
+        <definition>fun_ad dOCPCppAD::g_con</definition>
+        <argsstring></argsstring>
+        <name>g_con</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="80" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCPCppAD_1aa9a6c0a7dad33939de8c80e3943b41b3" prot="public" static="no" mutable="no">
+        <type>vector_ad&lt; std::set&lt; size_t &gt; &gt;</type>
+        <definition>vector_ad&lt;std::set&lt;size_t&gt; &gt; dOCPCppAD::pattern_jac</definition>
+        <argsstring></argsstring>
+        <name>pattern_jac</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="81" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCPCppAD_1a0a264fa0391553df14074e82c4f2c2f5" prot="public" static="no" mutable="no">
+        <type>vector_ad&lt; size_t &gt;</type>
+        <definition>vector_ad&lt;size_t&gt; dOCPCppAD::col_jac</definition>
+        <argsstring></argsstring>
+        <name>col_jac</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="82" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCPCppAD_1a423b37820115662b41637b2e5a3449c1" prot="public" static="no" mutable="no">
+        <type>vector_ad&lt; size_t &gt;</type>
+        <definition>vector_ad&lt;size_t&gt; dOCPCppAD::row_jac</definition>
+        <argsstring></argsstring>
+        <name>row_jac</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="82" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCPCppAD_1a1e2fe419a581d5f4c97de7d8e80410fd" prot="public" static="no" mutable="no">
+        <type>sparse_jac_work</type>
+        <definition>sparse_jac_work dOCPCppAD::work_jac</definition>
+        <argsstring></argsstring>
+        <name>work_jac</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="83" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCPCppAD_1aa35d9b2da7fe614a38eca9801c23d664" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; dOCPCppAD::x2</definition>
+        <argsstring></argsstring>
+        <name>x2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="84" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCPCppAD_1a38839d95076b29b58d485e607dd66272" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; dOCPCppAD::jac</definition>
+        <argsstring></argsstring>
+        <name>jac</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="85" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCPCppAD_1a3d83664e0e9486e6524d25efd4a70b38" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double_ad &gt;</type>
+        <definition>std::vector&lt;double_ad&gt; dOCPCppAD::lagvalue_ad</definition>
+        <argsstring></argsstring>
+        <name>lagvalue_ad</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="88" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCPCppAD_1a24f9e5e9c6ef028954f93a720c4d7550" prot="public" static="no" mutable="no">
+        <type>fun_ad</type>
+        <definition>fun_ad dOCPCppAD::h_lag</definition>
+        <argsstring></argsstring>
+        <name>h_lag</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="89" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCPCppAD_1af69dcb31cce01b79b8c33b16c75eacd0" prot="public" static="no" mutable="no">
+        <type>vector_ad&lt; std::set&lt; std::size_t &gt; &gt;</type>
+        <definition>vector_ad&lt;std::set&lt;std::size_t&gt; &gt; dOCPCppAD::pattern_hess</definition>
+        <argsstring></argsstring>
+        <name>pattern_hess</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="90" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCPCppAD_1afcd66f1f70c4eb2035c16c91166f101d" prot="public" static="no" mutable="no">
+        <type>vector_ad&lt; std::size_t &gt;</type>
+        <definition>vector_ad&lt;std::size_t&gt; dOCPCppAD::col_hess</definition>
+        <argsstring></argsstring>
+        <name>col_hess</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="91" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCPCppAD_1a38e2a53c4c442862df6881b4d0fe02b8" prot="public" static="no" mutable="no">
+        <type>vector_ad&lt; std::size_t &gt;</type>
+        <definition>vector_ad&lt;std::size_t&gt; dOCPCppAD::row_hess</definition>
+        <argsstring></argsstring>
+        <name>row_hess</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="91" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCPCppAD_1aae12c901b093ed2509b80f582b10ca7e" prot="public" static="no" mutable="no">
+        <type>sparse_hess_work</type>
+        <definition>sparse_hess_work dOCPCppAD::work_hess</definition>
+        <argsstring></argsstring>
+        <name>work_hess</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="92" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCPCppAD_1ae3756929fa3ba24769fb50bddb06da4e" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; dOCPCppAD::xlf2</definition>
+        <argsstring></argsstring>
+        <name>xlf2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="93" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCPCppAD_1af7a16bf166bf3aef4fdfb8fdbbf0190c" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; dOCPCppAD::hess</definition>
+        <argsstring></argsstring>
+        <name>hess</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="93" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdOCPCppAD_1a6daf06f2b74436c3bcbe5855cadbd02d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dOCPCppAD::dOCPCppAD</definition>
+        <argsstring>(void)</argsstring>
+        <name>dOCPCppAD</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="28" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.cpp" bodystart="18" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCPCppAD_1acb89b0219e34dd1e923659f920256439" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dOCPCppAD::~dOCPCppAD</definition>
+        <argsstring>(void)</argsstring>
+        <name>~dOCPCppAD</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="29" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.cpp" bodystart="21" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCPCppAD_1a06d705d061ab0e733e7b42093dc6c5c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void dOCPCppAD::initialize</definition>
+        <argsstring>(void) override</argsstring>
+        <name>initialize</name>
+        <reimplements refid="classNLP_1a41c57c28509ed3e4e688a618d663a62e">initialize</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="31" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.cpp" bodystart="24" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCPCppAD_1ab4e3a2819bd3296690f7a822ab103715" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t dOCPCppAD::jacobianNonZeroEntries</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>jacobianNonZeroEntries</name>
+        <reimplements refid="classNLP_1ac5d6174373e7c916ad2fb90ca0a1ae4d">jacobianNonZeroEntries</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="44" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCPCppAD_1a27f444860d9b7ebf0949d4d1a0530d2b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>const std::size_t *</type>
+        <definition>const std::size_t* dOCPCppAD::jacobianRowIndices</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>jacobianRowIndices</name>
+        <reimplements refid="classNLP_1af258447020822eee584c270e768ecee7">jacobianRowIndices</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="45" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCPCppAD_1a220c19e5ec9794d96f6541fe29eaa251" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>const std::size_t *</type>
+        <definition>const std::size_t* dOCPCppAD::jacobianColIndices</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>jacobianColIndices</name>
+        <reimplements refid="classNLP_1a4a20391b3cef8b5c4b9c465d54e6c29f">jacobianColIndices</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="46" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCPCppAD_1a7a2449ecb51f28f2b53f6707ca4fbf9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool dOCPCppAD::setConstraintsJacobianSparsityPattern</definition>
+        <argsstring>(int *row_indices, int *col_indices, int jacobian_nonzero) override</argsstring>
+        <name>setConstraintsJacobianSparsityPattern</name>
+        <reimplements refid="classNLP_1a1313b08fe19bd0454b968c5c7d1ba9bf">setConstraintsJacobianSparsityPattern</reimplements>
+        <param>
+          <type>int *</type>
+          <declname>row_indices</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>col_indices</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>jacobian_nonzero</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="47" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.cpp" bodystart="172" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCPCppAD_1a56e0dd0ba7a6bb14a5a23272b33266d9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t dOCPCppAD::hessianNonZeroEntries</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>hessianNonZeroEntries</name>
+        <reimplements refid="classNLP_1aa93c92d2837660540540d8e8d12fae75">hessianNonZeroEntries</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="49" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCPCppAD_1a357ada85d6601ea93b0a7e179b76627e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>const std::size_t *</type>
+        <definition>const std::size_t* dOCPCppAD::hessianRowIndices</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>hessianRowIndices</name>
+        <reimplements refid="classNLP_1a6ef75d9960953802e97b59bf2df10966">hessianRowIndices</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="50" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCPCppAD_1a8f88ee9a6a96c57a6734ca6bc7580e97" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>const std::size_t *</type>
+        <definition>const std::size_t* dOCPCppAD::hessianColIndices</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>hessianColIndices</name>
+        <reimplements refid="classNLP_1a508f6d65522703fb6575b61d92744038">hessianColIndices</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="51" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCPCppAD_1afb5845e48ae781f76d86eb6aa82393b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool dOCPCppAD::setLagrangianHessianSparsityPattern</definition>
+        <argsstring>(int *row_indices, int *col_indices, int hessian_nonzero) override</argsstring>
+        <name>setLagrangianHessianSparsityPattern</name>
+        <reimplements refid="classNLP_1a78b9ec832522a3c514154a5f5877dcfb">setLagrangianHessianSparsityPattern</reimplements>
+        <param>
+          <type>int *</type>
+          <declname>row_indices</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>col_indices</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>hessian_nonzero</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="52" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.cpp" bodystart="276" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCPCppAD_1a200e47ceee6059f0f6eb3d28fd56e48b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Variable</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool dOCPCppAD::evalObjective_t</definition>
+        <argsstring>(const Variable &amp;v, Variable &amp;o)</argsstring>
+        <name>evalObjective_t</name>
+        <param>
+          <type>const Variable &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>Variable &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="55" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="100" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCPCppAD_1a88c1d31aadbe995c8b7c8faa781ad1a5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Variable</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool dOCPCppAD::evalConstraints_t</definition>
+        <argsstring>(const Variable &amp;v, Variable &amp;g)</argsstring>
+        <name>evalConstraints_t</name>
+        <param>
+          <type>const Variable &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>Variable &amp;</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="56" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="121" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCPCppAD_1ae0e5079d0622d79d0724e7339d513f36" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Variable</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool dOCPCppAD::evalLagrangian_t</definition>
+        <argsstring>(const Variable &amp;primal_dual_v, Variable &amp;lag)</argsstring>
+        <name>evalLagrangian_t</name>
+        <param>
+          <type>const Variable &amp;</type>
+          <declname>primal_dual_v</declname>
+        </param>
+        <param>
+          <type>Variable &amp;</type>
+          <declname>lag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="57" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="212" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCPCppAD_1ac9f5c4839601e3811250ff296cb42493" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dOCPCppAD::initializeObjectiveGradient</definition>
+        <argsstring>(const double *x)</argsstring>
+        <name>initializeObjectiveGradient</name>
+        <param>
+          <type>const double *</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="58" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.cpp" bodystart="91" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCPCppAD_1adf0473549d706837ea45d19683b1085b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dOCPCppAD::initializeConstraintsJacobian</definition>
+        <argsstring>(const double *x)</argsstring>
+        <name>initializeConstraintsJacobian</name>
+        <param>
+          <type>const double *</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="59" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.cpp" bodystart="125" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCPCppAD_1a8c61b9f49da23421958282bc4422b2fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dOCPCppAD::initializeLagrangianHessian</definition>
+        <argsstring>(const double *x)</argsstring>
+        <name>initializeLagrangianHessian</name>
+        <param>
+          <type>const double *</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="60" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.cpp" bodystart="222" bodyend="274"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classdOCPCppAD" kindref="compound">dOCPCppAD</ref> implements the direct transcription that rewrites <ref refid="classOCP" kindref="compound">OCP</ref> as an <ref refid="classNLP" kindref="compound">NLP</ref>, providing the required functions and derivatives </para>    </briefdescription>
+    <detaileddescription>
+<para><hruler/>
+</para><para>It derives from the generic class <ref refid="classdOCP" kindref="compound">dOCP</ref> and interfaces with the automatic differentiation tool CppAD<itemizedlist>
+<listitem><para>uses a generalized Runge Kutta formula (defined with Butcher tables)</para></listitem><listitem><para>defines <ref refid="classNLP" kindref="compound">NLP</ref> functions: Objective F, Constraints G and derivatives gradF, jacG (sparse), hessL (sparse)</para></listitem></itemizedlist>
+</para><para>Note: here and at the <ref refid="classOCP" kindref="compound">OCP</ref> level several functions are defined with templates, for both double and CppAD::AD&lt;double&gt; </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="55">
+        <label>NLP</label>
+        <link refid="classNLP"/>
+      </node>
+      <node id="54">
+        <label>dOCP</label>
+        <link refid="classdOCP"/>
+        <childnode refid="55" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>dOCPCppAD</label>
+        <link refid="classdOCPCppAD"/>
+        <childnode refid="54" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="58">
+        <label>NLP</label>
+        <link refid="classNLP"/>
+      </node>
+      <node id="57">
+        <label>dOCP</label>
+        <link refid="classdOCP"/>
+        <childnode refid="58" relation="public-inheritance">
+        </childnode>
+        <childnode refid="59" relation="usage">
+          <edgelabel>xd</edgelabel>
+        </childnode>
+        <childnode refid="60" relation="usage">
+          <edgelabel>ocp</edgelabel>
+        </childnode>
+        <childnode refid="61" relation="usage">
+          <edgelabel>ud</edgelabel>
+        </childnode>
+        <childnode refid="62" relation="usage">
+          <edgelabel>rk</edgelabel>
+        </childnode>
+      </node>
+      <node id="62">
+        <label>dODE</label>
+        <link refid="classdODE"/>
+      </node>
+      <node id="60">
+        <label>OCP</label>
+        <link refid="classOCP"/>
+      </node>
+      <node id="56">
+        <label>dOCPCppAD</label>
+        <link refid="classdOCPCppAD"/>
+        <childnode refid="57" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="61">
+        <label>dControl</label>
+        <link refid="classdControl"/>
+      </node>
+      <node id="59">
+        <label>dState</label>
+        <link refid="classdState"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" line="26" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h" bodystart="25" bodyend="97"/>
+    <listofallmembers>
+      <member refid="classdOCPCppAD_1a6273dcdca8ff84c57b8c80503a5da4df" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>ad_retape</name></member>
+      <member refid="classdOCPCppAD_1afcd66f1f70c4eb2035c16c91166f101d" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>col_hess</name></member>
+      <member refid="classdOCPCppAD_1a0a264fa0391553df14074e82c4f2c2f5" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>col_jac</name></member>
+      <member refid="classdOCP_1a27221c0c62f1aed2d79d15b64525bcaf" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>constraintsLowerBounds</name></member>
+      <member refid="classdOCP_1ac49cf792ff00da0f89f0299686d780c5" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>constraintsSize</name></member>
+      <member refid="classdOCP_1a83514f90afb125f54728d25ddf0d92d6" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>constraintsUpperBounds</name></member>
+      <member refid="classdOCP_1afb37d1f992f33d6de17190b1c07aa5c9" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>controlAtStage</name></member>
+      <member refid="classdOCP_1a210cef245133bf5ac12907469d7c7ffc" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>controlAtStage</name></member>
+      <member refid="classdOCP_1a1cab217fb330407630ee40e6df3fd4ed" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>controlAtStep</name></member>
+      <member refid="classdOCP_1a0d2ed98a77d5b165b51e7bcf8fa09605" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>controlAtStep</name></member>
+      <member refid="classdOCP_1a0bc445bb68d814d63ee2c61c0c05cbf1" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>discretisation_steps</name></member>
+      <member refid="classdOCP_1a9ced7829a08743190b8f6b9416d9e6e5" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>discretisationSteps</name></member>
+      <member refid="classdOCP_1a380dcb7b19680113c79fbaa39533b02d" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>dOCP</name></member>
+      <member refid="classdOCPCppAD_1a6daf06f2b74436c3bcbe5855cadbd02d" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>dOCPCppAD</name></member>
+      <member refid="classdOCPCppAD_1acc1921100fe4b9a5d58c7bc95db2d80e" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>evalConstraints</name></member>
+      <member refid="classdOCPCppAD_1a88c1d31aadbe995c8b7c8faa781ad1a5" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>evalConstraints_t</name></member>
+      <member refid="classdOCPCppAD_1a707fab3c603d799894fcd7fb0c9e84a6" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>evalConstraintsJacobian</name></member>
+      <member refid="classdOCPCppAD_1a6910e9653f6d83ff0b8ecc1c85d46c2b" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>evalLagrangian</name></member>
+      <member refid="classdOCPCppAD_1ae0e5079d0622d79d0724e7339d513f36" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>evalLagrangian_t</name></member>
+      <member refid="classdOCPCppAD_1a6f6db476a0a17400828204cb1453a721" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>evalLagrangianHessian</name></member>
+      <member refid="classdOCPCppAD_1a34aebc84922bd6a08b7bcda83e11f16e" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>evalObjective</name></member>
+      <member refid="classdOCPCppAD_1a200e47ceee6059f0f6eb3d28fd56e48b" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>evalObjective_t</name></member>
+      <member refid="classdOCPCppAD_1aaf232b918566ee7a5d2ca790e8eb2a58" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>evalObjectiveGradient</name></member>
+      <member refid="classdOCPCppAD_1a6722b603e12cf2f137481cfe32bc7004" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>f_obj</name></member>
+      <member refid="classdOCPCppAD_1a1b9b95d9e736fe280a4bfcc06ef43f44" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>g_ad</name></member>
+      <member refid="classdOCPCppAD_1a0f4d48180babf762b0b6f32057ae8cca" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>g_con</name></member>
+      <member refid="classdOCP_1a1b7fa520e0ad10f0d547c6f26beaaf1f" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>getParameters</name></member>
+      <member refid="classdOCP_1af71992a8486dbe41d42412c1cb8df665" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>getParameters</name></member>
+      <member refid="classdOCPCppAD_1a5cb8cf4b4bd093419085c636cd7a73aa" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>grad</name></member>
+      <member refid="classdOCPCppAD_1a24f9e5e9c6ef028954f93a720c4d7550" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>h_lag</name></member>
+      <member refid="classdOCPCppAD_1af7a16bf166bf3aef4fdfb8fdbbf0190c" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>hess</name></member>
+      <member refid="classdOCPCppAD_1a8f88ee9a6a96c57a6734ca6bc7580e97" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>hessianColIndices</name></member>
+      <member refid="classdOCPCppAD_1a56e0dd0ba7a6bb14a5a23272b33266d9" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>hessianNonZeroEntries</name></member>
+      <member refid="classdOCPCppAD_1a357ada85d6601ea93b0a7e179b76627e" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>hessianRowIndices</name></member>
+      <member refid="classdOCPCppAD_1a06d705d061ab0e733e7b42093dc6c5c0" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>initialize</name></member>
+      <member refid="classdOCPCppAD_1adf0473549d706837ea45d19683b1085b" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>initializeConstraintsJacobian</name></member>
+      <member refid="classdOCPCppAD_1a8c61b9f49da23421958282bc4422b2fb" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>initializeLagrangianHessian</name></member>
+      <member refid="classdOCPCppAD_1ac9f5c4839601e3811250ff296cb42493" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>initializeObjectiveGradient</name></member>
+      <member refid="classdOCPCppAD_1a38839d95076b29b58d485e607dd66272" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>jac</name></member>
+      <member refid="classdOCPCppAD_1a220c19e5ec9794d96f6541fe29eaa251" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>jacobianColIndices</name></member>
+      <member refid="classdOCPCppAD_1ab4e3a2819bd3296690f7a822ab103715" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>jacobianNonZeroEntries</name></member>
+      <member refid="classdOCPCppAD_1a27f444860d9b7ebf0949d4d1a0530d2b" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>jacobianRowIndices</name></member>
+      <member refid="classdOCP_1a685790c3cd5bd6255e7e2266e9d0d4e5" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>kComponent</name></member>
+      <member refid="classdOCP_1a2f8b9e85ae24c7089bb3be0de4e8d228" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>kComponent</name></member>
+      <member refid="classdOCPCppAD_1a3d83664e0e9486e6524d25efd4a70b38" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>lagvalue_ad</name></member>
+      <member refid="classdOCPCppAD_1afd6be4e38e2d7e560ab161aa9ed653ba" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>objvalue_ad</name></member>
+      <member refid="classdOCP_1af47fb45b1f0c48e707cbde8291a604b8" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>ocp</name></member>
+      <member refid="classdOCPCppAD_1af69dcb31cce01b79b8c33b16c75eacd0" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>pattern_hess</name></member>
+      <member refid="classdOCPCppAD_1aa9a6c0a7dad33939de8c80e3943b41b3" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>pattern_jac</name></member>
+      <member refid="classdOCP_1a11c557844b150c96f6a3dfc572864154" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>rk</name></member>
+      <member refid="classdOCP_1a92d6cbb96ae98df7f3c003e576dca161" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>RKStages</name></member>
+      <member refid="classdOCPCppAD_1a38e2a53c4c442862df6881b4d0fe02b8" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>row_hess</name></member>
+      <member refid="classdOCPCppAD_1a423b37820115662b41637b2e5a3449c1" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>row_jac</name></member>
+      <member refid="classdOCPCppAD_1a7a2449ecb51f28f2b53f6707ca4fbf9e" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>setConstraintsJacobianSparsityPattern</name></member>
+      <member refid="classdOCPCppAD_1afb5845e48ae781f76d86eb6aa82393b6" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>setLagrangianHessianSparsityPattern</name></member>
+      <member refid="classdOCP_1a6e07c2f2b4323aed12489b9f6efbf693" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>setOCP</name></member>
+      <member refid="classdOCP_1a68cd456edbb53a4c0bf0bcc7c62f3500" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>setSolutionFile</name></member>
+      <member refid="classdOCP_1ad4566529253105c7faec6d78a905aeaf" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>solution_file</name></member>
+      <member refid="classdOCP_1a27a57a8b3e38c72fa1f106ed9286cc7b" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>solutionFile</name></member>
+      <member refid="classdOCP_1acde0ccf480e633f8d6d8676b38ebcae6" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>starting_point</name></member>
+      <member refid="classdOCP_1a21717e4e3dceae7db4f2e91c763f12ce" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>startingPoint</name></member>
+      <member refid="classdOCP_1a639dcac887b3efc0251c7015d1f9db27" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>stateAtStage</name></member>
+      <member refid="classdOCP_1a00ba6cb9c9c1edef7e375f3ee713907a" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>stateAtStage</name></member>
+      <member refid="classdOCP_1af6fd86dfd94f38a8bee8d97c49fbd260" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>stateAtStep</name></member>
+      <member refid="classdOCP_1a69fb3c40b52df366368fbceb4ad728ac" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>stateAtStep</name></member>
+      <member refid="classdOCP_1a36bfb72240d8b7bd0c3b6763c153c125" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>time_stage_grid</name></member>
+      <member refid="classdOCP_1ada3b295c7f049239757c826e12e47107" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>time_step</name></member>
+      <member refid="classdOCP_1a015cb4bcb1a4eac057a81b3ee852abfc" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>time_step_grid</name></member>
+      <member refid="classdOCP_1ae75314e9d7f76fb38117f16036769738" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>timeAtStage</name></member>
+      <member refid="classdOCP_1ab40bce7acc0b321de5741e47cf52e1bd" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>timeAtStep</name></member>
+      <member refid="classdOCP_1a206c4e56f7c02e2326cb54dd55db28cc" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>timeStep</name></member>
+      <member refid="classdOCP_1a4734fa3896396b025811dca7d0aa2576" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>ud</name></member>
+      <member refid="classdOCP_1a95ed8d25a72dcfb9d740c9dac78071cc" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>variablesLowerBounds</name></member>
+      <member refid="classdOCP_1a288727523c41ea99a8dd83d87e5a5ac5" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>variablesSize</name></member>
+      <member refid="classdOCP_1ac1bb98dc8fbe78ff860f0ca24a47e52b" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>variablesUpperBounds</name></member>
+      <member refid="classdOCPCppAD_1aae12c901b093ed2509b80f582b10ca7e" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>work_hess</name></member>
+      <member refid="classdOCPCppAD_1a1e2fe419a581d5f4c97de7d8e80410fd" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>work_jac</name></member>
+      <member refid="classdOCP_1ab91a553f7d62e1db2062882277750fa3" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>writeSolution</name></member>
+      <member refid="classdOCPCppAD_1aa35d9b2da7fe614a38eca9801c23d664" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>x2</name></member>
+      <member refid="classdOCPCppAD_1a13cbc77a875fba78a738bc0420b21b88" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>x_ad</name></member>
+      <member refid="classdOCP_1a0c6c694d98d9da8cbf38795e6fcc4396" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>xd</name></member>
+      <member refid="classdOCPCppAD_1ae3756929fa3ba24769fb50bddb06da4e" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>xlf2</name></member>
+      <member refid="classdOCP_1ae1141ee92552debb72eb5a127db568c2" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>~dOCP</name></member>
+      <member refid="classdOCPCppAD_1acb89b0219e34dd1e923659f920256439" prot="public" virt="non-virtual"><scope>dOCPCppAD</scope><name>~dOCPCppAD</name></member>
+      <member refid="classNLP_1a0a1dd711bd99d7a66b61c72d11630cde" prot="public" virt="virtual"><scope>dOCPCppAD</scope><name>~NLP</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

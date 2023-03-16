@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="classbcp_1_1CSVRow" kind="class" language="C++" prot="public">
+    <compoundname>bcp::CSVRow</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classbcp_1_1CSVRow_1abb8328e34d63efbb01743c5839499db5" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; bcp::CSVRow::m_data</definition>
+        <argsstring></argsstring>
+        <name>m_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" line="94" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classbcp_1_1CSVRow_1a7f5478bad2788c11cc8376bfb7fed58f" prot="private" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char bcp::CSVRow::m_separator</definition>
+        <argsstring></argsstring>
+        <name>m_separator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" line="95" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classbcp_1_1CSVRow_1a188fa80d855ba2f7a3cb4aeb1a2134a8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>bcp::CSVRow::CSVRow</definition>
+        <argsstring>(const char separator)</argsstring>
+        <name>CSVRow</name>
+        <param>
+          <type>const char</type>
+          <declname>separator</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" line="87" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" bodystart="87" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1CSVRow_1a4cf9c38ee384a8c8e97102856c9ca810" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string const &amp;</type>
+        <definition>std::string const&amp; bcp::CSVRow::operator[]</definition>
+        <argsstring>(size_t index) const </argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" line="89" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" bodystart="89" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1CSVRow_1ac585f50c35889a5bb34386b1da024c14" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t bcp::CSVRow::size</definition>
+        <argsstring>() const </argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" line="90" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" bodystart="90" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1CSVRow_1aa62f0be2e3532ebf0e5558f49a29fca3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void bcp::CSVRow::readNextRow</definition>
+        <argsstring>(std::istream &amp;str)</argsstring>
+        <name>readNextRow</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" line="91" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" bodystart="104" bodyend="115"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" line="84" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" bodystart="83" bodyend="97"/>
+    <listofallmembers>
+      <member refid="classbcp_1_1CSVRow_1a188fa80d855ba2f7a3cb4aeb1a2134a8" prot="public" virt="non-virtual"><scope>bcp::CSVRow</scope><name>CSVRow</name></member>
+      <member refid="classbcp_1_1CSVRow_1abb8328e34d63efbb01743c5839499db5" prot="private" virt="non-virtual"><scope>bcp::CSVRow</scope><name>m_data</name></member>
+      <member refid="classbcp_1_1CSVRow_1a7f5478bad2788c11cc8376bfb7fed58f" prot="private" virt="non-virtual"><scope>bcp::CSVRow</scope><name>m_separator</name></member>
+      <member refid="classbcp_1_1CSVRow_1a4cf9c38ee384a8c8e97102856c9ca810" prot="public" virt="non-virtual"><scope>bcp::CSVRow</scope><name>operator[]</name></member>
+      <member refid="classbcp_1_1CSVRow_1aa62f0be2e3532ebf0e5558f49a29fca3" prot="public" virt="non-virtual"><scope>bcp::CSVRow</scope><name>readNextRow</name></member>
+      <member refid="classbcp_1_1CSVRow_1ac585f50c35889a5bb34386b1da024c14" prot="public" virt="non-virtual"><scope>bcp::CSVRow</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

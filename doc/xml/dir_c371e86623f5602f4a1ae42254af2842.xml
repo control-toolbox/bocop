@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="dir_c371e86623f5602f4a1ae42254af2842" kind="dir">
+    <compoundname>/home/martinon/bocop/bocop3/bocop/src</compoundname>
+    <innerdir refid="dir_a7bc164523d42b359aca2e9e633c329d">/home/martinon/bocop/bocop3/bocop/src/AD</innerdir>
+    <innerdir refid="dir_a99e230c655bc5b0a0628c8b49a5bc90">/home/martinon/bocop/bocop3/bocop/src/DOCP</innerdir>
+    <innerdir refid="dir_896a54b75c7e262a4c015ea5075db761">/home/martinon/bocop/bocop3/bocop/src/NLP</innerdir>
+    <innerdir refid="dir_bff5f52d7335ca89bd26ef567e56aadd">/home/martinon/bocop/bocop3/bocop/src/OCP</innerdir>
+    <innerdir refid="dir_0e0dcf0fda0f81688a2ca3e6f32089ad">/home/martinon/bocop/bocop3/bocop/src/tools</innerdir>
+    <innerfile refid="main_8cpp">main.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/"/>
+  </compounddef>
+</doxygen>

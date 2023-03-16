@@ -1,0 +1,406 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="classdODE" kind="class" language="C++" prot="public">
+    <compoundname>dODE</compoundname>
+    <includes refid="dODE_8h" local="no">dODE.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classdODE_1a1b376363b5f6894129c395d9e8ee1ed4" prot="public" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t dODE::rk_stages</definition>
+        <argsstring></argsstring>
+        <name>rk_stages</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" line="51" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdODE_1a2331ead321dcb5661bf496a397912693" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; dODE::butcher_b</definition>
+        <argsstring></argsstring>
+        <name>butcher_b</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" line="52" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdODE_1a4b5028d0a061e8db11a997a967ea1e0c" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; dODE::butcher_c</definition>
+        <argsstring></argsstring>
+        <name>butcher_c</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" line="53" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdODE_1ae7b9b6a09157831f77d2a7b691e58233" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;double&gt; &gt; dODE::butcher_a</definition>
+        <argsstring></argsstring>
+        <name>butcher_a</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" line="54" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdODE_1a8609a7a0452af409a2bd1fc3c0f98c7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dODE::initialize</definition>
+        <argsstring>()</argsstring>
+        <name>initialize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" line="19" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.cpp" bodystart="9" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classdODE_1a3522fa72ca9c45b85eb24798e3b0724a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dODE::setTimeGrids</definition>
+        <argsstring>(const double t0, const double tf, const std::size_t discretisation_steps, double &amp;time_step, std::vector&lt; double &gt; &amp;time_step_grid, std::vector&lt; double &gt; &amp;time_stage_grid)</argsstring>
+        <name>setTimeGrids</name>
+        <param>
+          <type>const double</type>
+          <declname>t0</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>tf</declname>
+        </param>
+        <param>
+          <type>const std::size_t</type>
+          <declname>discretisation_steps</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>time_step</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>time_step_grid</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>time_stage_grid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" line="21" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.cpp" bodystart="26" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classdODE_1ab133acaef3ae87dbba6c9d996555279a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dODE::setInitialParam</definition>
+        <argsstring>(OCP *ocp, std::vector&lt; double &gt; &amp;starting_point, std::vector&lt; double &gt; &amp;variables_lower_bounds, std::vector&lt; double &gt; &amp;variables_upper_bounds)</argsstring>
+        <name>setInitialParam</name>
+        <param>
+          <type><ref refid="classOCP" kindref="compound">OCP</ref> *</type>
+          <declname>ocp</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>starting_point</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>variables_lower_bounds</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>variables_upper_bounds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" line="23" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.cpp" bodystart="44" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classdODE_1a2c05a911c3e7c6dd91034bfd9f1d5872" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dODE::setRKStageVars</definition>
+        <argsstring>(size_t discretisation_steps, OCP *ocp, std::vector&lt; double &gt; &amp;starting_point, std::vector&lt; double &gt; &amp;variables_lower_bounds, std::vector&lt; double &gt; &amp;variables_upper_bounds)</argsstring>
+        <name>setRKStageVars</name>
+        <param>
+          <type>size_t</type>
+          <declname>discretisation_steps</declname>
+        </param>
+        <param>
+          <type><ref refid="classOCP" kindref="compound">OCP</ref> *</type>
+          <declname>ocp</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>starting_point</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>variables_lower_bounds</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>variables_upper_bounds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" line="24" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.cpp" bodystart="72" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classdODE_1afda25919ff7303e6c1e5d1b7a0ad2abe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dODE::setBoundaryConditionsBounds</definition>
+        <argsstring>(OCP *ocp, std::vector&lt; double &gt; &amp;constraints_lower_bounds, std::vector&lt; double &gt; &amp;constraints_upper_bounds)</argsstring>
+        <name>setBoundaryConditionsBounds</name>
+        <param>
+          <type><ref refid="classOCP" kindref="compound">OCP</ref> *</type>
+          <declname>ocp</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>constraints_lower_bounds</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>constraints_upper_bounds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" line="27" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.cpp" bodystart="87" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classdODE_1a1a6638519d4b326d5718272bcb8a6a57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dODE::setDiscretisedConstraintsBounds</definition>
+        <argsstring>(size_t discretisation_steps, OCP *ocp, std::vector&lt; double &gt; &amp;constraints_lower_bounds, std::vector&lt; double &gt; &amp;constraints_upper_bounds)</argsstring>
+        <name>setDiscretisedConstraintsBounds</name>
+        <param>
+          <type>size_t</type>
+          <declname>discretisation_steps</declname>
+        </param>
+        <param>
+          <type><ref refid="classOCP" kindref="compound">OCP</ref> *</type>
+          <declname>ocp</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>constraints_lower_bounds</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>constraints_upper_bounds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" line="28" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.cpp" bodystart="96" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classdODE_1aa9388188914f73219c2911916bfa3374" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dODE::getParam</definition>
+        <argsstring>(const double *x, size_t param_offset, size_t dimParam, std::vector&lt; double &gt; &amp;parameter)</argsstring>
+        <name>getParam</name>
+        <param>
+          <type>const double *</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>param_offset</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>dimParam</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>parameter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" line="30" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.cpp" bodystart="126" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classdODE_1ad6e317224f145914b1fd759bbd42cbbc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dODE::getMultipliers</definition>
+        <argsstring>(const double *lambda, std::vector&lt; double &gt; &amp;boundaryCondMultiplier, std::vector&lt; std::vector&lt; double &gt; &gt; &amp;pathConstrMultiplier, std::vector&lt; std::vector&lt; double &gt; &gt; &amp;adjointState)</argsstring>
+        <name>getMultipliers</name>
+        <param>
+          <type>const double *</type>
+          <declname>lambda</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>boundaryCondMultiplier</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+          <declname>pathConstrMultiplier</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+          <declname>adjointState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" line="31" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.cpp" bodystart="135" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="classdODE_1a832a2766ecdc2dff108e92ccc48de484" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dODE::getConstraints</definition>
+        <argsstring>(const double *g, std::vector&lt; double &gt; &amp;boundaryConditions, std::vector&lt; std::vector&lt; double &gt; &gt; &amp;pathConstraints, std::vector&lt; std::vector&lt; double &gt; &gt; &amp;dynEquations)</argsstring>
+        <name>getConstraints</name>
+        <param>
+          <type>const double *</type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>boundaryConditions</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+          <declname>pathConstraints</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+          <declname>dynEquations</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" line="32" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.cpp" bodystart="174" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="classdODE_1ad9c74a93231bf3670136d5fb0d109fd2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+        <definition>const std::vector&lt;std::vector&lt;double&gt; &gt;&amp; dODE::butcherA</definition>
+        <argsstring>(void)</argsstring>
+        <name>butcherA</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" line="39" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classdODE_1a2776cf6b87d302724047da69b270e740" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::vector&lt; double &gt; &amp;</type>
+        <definition>const std::vector&lt;double&gt;&amp; dODE::butcherB</definition>
+        <argsstring>(void)</argsstring>
+        <name>butcherB</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" line="40" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" bodystart="40" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classdODE_1a9a6e8bf7590798234e0e5b3c8bd8e6f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::vector&lt; double &gt; &amp;</type>
+        <definition>const std::vector&lt;double&gt;&amp; dODE::butcherC</definition>
+        <argsstring>(void)</argsstring>
+        <name>butcherC</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" line="41" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" bodystart="41" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classdODE_1a10d7c852ab373eeb2cfb60c42c03395a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::size_t</type>
+        <definition>const std::size_t dODE::RKStages</definition>
+        <argsstring>(void)</argsstring>
+        <name>RKStages</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" line="42" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" bodystart="42" bodyend="42"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classdODE" kindref="compound">dODE</ref> implements the discretization of the ODE from <ref refid="classOCP" kindref="compound">OCP</ref><linebreak/>
+It uses a generalized Runge Kutta formula defined in the Butcher format to build the set of discrete constraints corresponding to the continuous ODE </para>    </briefdescription>
+    <detaileddescription>
+<para><hruler/>
+ </para>    </detaileddescription>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" line="16" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h" bodystart="15" bodyend="56"/>
+    <listofallmembers>
+      <member refid="classdODE_1ae7b9b6a09157831f77d2a7b691e58233" prot="public" virt="non-virtual"><scope>dODE</scope><name>butcher_a</name></member>
+      <member refid="classdODE_1a2331ead321dcb5661bf496a397912693" prot="public" virt="non-virtual"><scope>dODE</scope><name>butcher_b</name></member>
+      <member refid="classdODE_1a4b5028d0a061e8db11a997a967ea1e0c" prot="public" virt="non-virtual"><scope>dODE</scope><name>butcher_c</name></member>
+      <member refid="classdODE_1ad9c74a93231bf3670136d5fb0d109fd2" prot="public" virt="non-virtual"><scope>dODE</scope><name>butcherA</name></member>
+      <member refid="classdODE_1a2776cf6b87d302724047da69b270e740" prot="public" virt="non-virtual"><scope>dODE</scope><name>butcherB</name></member>
+      <member refid="classdODE_1a9a6e8bf7590798234e0e5b3c8bd8e6f1" prot="public" virt="non-virtual"><scope>dODE</scope><name>butcherC</name></member>
+      <member refid="classdODE_1a832a2766ecdc2dff108e92ccc48de484" prot="public" virt="non-virtual"><scope>dODE</scope><name>getConstraints</name></member>
+      <member refid="classdODE_1ad6e317224f145914b1fd759bbd42cbbc" prot="public" virt="non-virtual"><scope>dODE</scope><name>getMultipliers</name></member>
+      <member refid="classdODE_1aa9388188914f73219c2911916bfa3374" prot="public" virt="non-virtual"><scope>dODE</scope><name>getParam</name></member>
+      <member refid="classdODE_1a8609a7a0452af409a2bd1fc3c0f98c7d" prot="public" virt="non-virtual"><scope>dODE</scope><name>initialize</name></member>
+      <member refid="classdODE_1a1b376363b5f6894129c395d9e8ee1ed4" prot="public" virt="non-virtual"><scope>dODE</scope><name>rk_stages</name></member>
+      <member refid="classdODE_1a10d7c852ab373eeb2cfb60c42c03395a" prot="public" virt="non-virtual"><scope>dODE</scope><name>RKStages</name></member>
+      <member refid="classdODE_1afda25919ff7303e6c1e5d1b7a0ad2abe" prot="public" virt="non-virtual"><scope>dODE</scope><name>setBoundaryConditionsBounds</name></member>
+      <member refid="classdODE_1a1a6638519d4b326d5718272bcb8a6a57" prot="public" virt="non-virtual"><scope>dODE</scope><name>setDiscretisedConstraintsBounds</name></member>
+      <member refid="classdODE_1ab133acaef3ae87dbba6c9d996555279a" prot="public" virt="non-virtual"><scope>dODE</scope><name>setInitialParam</name></member>
+      <member refid="classdODE_1a2c05a911c3e7c6dd91034bfd9f1d5872" prot="public" virt="non-virtual"><scope>dODE</scope><name>setRKStageVars</name></member>
+      <member refid="classdODE_1a3522fa72ca9c45b85eb24798e3b0724a" prot="public" virt="non-virtual"><scope>dODE</scope><name>setTimeGrids</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

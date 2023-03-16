@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="CMakeLists_8txt" kind="file" language="C++">
+    <compoundname>CMakeLists.txt</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="CMakeLists_8txt_1a06b4b92442a5fccc21939c6b2bbe2217" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>include_directories</definition>
+        <argsstring>(AD DOCP NLP OCP tools) set(BOCOP_HEADERS AD/dOCPCppAD.h DOCP/dOCP.h DOCP/dODE.h DOCP/dControl.h DOCP/dState.h DOCP/solution.h NLP/NLP.h NLP/NLPSolver.h NLP/NLPSolverIpopt.h OCP/OCP.h tools/bufferAdaptor.h tools/tools.h tools/tools_interpolation.h) set(BOCOP_SOURCES AD/dOCPCppAD.cpp DOCP/dOCP.cpp DOCP/dODE.cpp DOCP/dControl.cpp DOCP/dState.cpp DOCP/solution.cpp NLP/NLPSolverIpopt.cpp OCP/OCP.cpp tools/tools.cpp tools/tools_interpolation.cpp) file(TO_CMAKE_PATH&quot;$</argsstring>
+        <name>include_directories</name>
+        <param>
+          <type>AD DOCP <ref refid="classNLP" kindref="compound">NLP</ref> <ref refid="classOCP" kindref="compound">OCP</ref></type>
+          <declname>tools</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/CMakeLists.txt" line="5" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/CMakeLists.txt" bodystart="5" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="CMakeLists_8txt_1a7b38141d79ba425e9b027f5d698f055e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>PROBLEM_DIR</type>
+        <definition>PROBLEM_DIR set</definition>
+        <argsstring>(PROBLEM_SOURCES ${PROBLEM_DIR}/problem.cpp) if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES) message(STATUS&quot;Setting build type to &apos;RelWithDebInfo&apos; as none was specified.&quot;) set(CMAKE_BUILD_TYPE RelWithDebInfo CACHE STRING&quot;Choose the type of build.&quot;FORCE) set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS&quot;Debug&quot;&quot;Release&quot;&quot;MinSizeRel&quot;&quot;RelWithDebInfo&quot;) else() message(STATUS&quot;Build type</argsstring>
+        <name>set</name>
+        <param>
+          <type>PROBLEM_SOURCES ${PROBLEM_DIR}/problem.</type>
+          <declname>cpp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/CMakeLists.txt" line="38" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/CMakeLists.txt" bodystart="38" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="CMakeLists_8txt_1ae1482158b1f0239d3018422a793bbb6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>endif</definition>
+        <argsstring>() set(CMAKE_CXX_STANDARD 11) set(CMAKE_CXX_STANDARD_REQUIRED ON)() if(PROBLEM_DIR) set(LIBRARY_OUTPUT_PATH $</argsstring>
+        <name>endif</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/CMakeLists.txt" line="50" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/CMakeLists.txt" bodystart="50" bodyend="78"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">##<sp/>#################################################################</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">##<sp/>Sources</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">##<sp/>#################################################################</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal">include_directories(AD<sp/>DOCP<sp/><ref refid="classNLP" kindref="compound">NLP</ref><sp/><ref refid="classOCP" kindref="compound">OCP</ref><sp/>tools)</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">set</highlight><highlight class="normal">(BOCOP_HEADERS</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/>AD/<ref refid="classdOCPCppAD" kindref="compound">dOCPCppAD</ref>.h</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/>DOCP/<ref refid="classdOCP" kindref="compound">dOCP</ref>.h</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/>DOCP/<ref refid="classdODE" kindref="compound">dODE</ref>.h</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/>DOCP/<ref refid="classdControl" kindref="compound">dControl</ref>.h<sp/><sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/>DOCP/<ref refid="classdState" kindref="compound">dState</ref>.h</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>DOCP/solution.h</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><ref refid="classNLP" kindref="compound">NLP</ref>/<ref refid="classNLP" kindref="compound">NLP</ref>.h</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><ref refid="classNLP" kindref="compound">NLP</ref>/<ref refid="classNLPSolver" kindref="compound">NLPSolver</ref>.h</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><ref refid="classNLP" kindref="compound">NLP</ref>/<ref refid="classNLPSolverIpopt" kindref="compound">NLPSolverIpopt</ref>.h</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><ref refid="classOCP" kindref="compound">OCP</ref>/<ref refid="classOCP" kindref="compound">OCP</ref>.h</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>tools/bufferAdaptor.h</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>tools/tools.h</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>tools/tools_interpolation.h</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">set</highlight><highlight class="normal">(BOCOP_SOURCES</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>AD/<ref refid="classdOCPCppAD" kindref="compound">dOCPCppAD</ref>.cpp</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>DOCP/<ref refid="classdOCP" kindref="compound">dOCP</ref>.cpp</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>DOCP/<ref refid="classdODE" kindref="compound">dODE</ref>.cpp</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>DOCP/<ref refid="classdControl" kindref="compound">dControl</ref>.cpp<sp/><sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>DOCP/<ref refid="classdState" kindref="compound">dState</ref>.cpp</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>DOCP/solution.cpp</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><ref refid="classNLP" kindref="compound">NLP</ref>/<ref refid="classNLPSolverIpopt" kindref="compound">NLPSolverIpopt</ref>.cpp</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><ref refid="classOCP" kindref="compound">OCP</ref>/<ref refid="classOCP" kindref="compound">OCP</ref>.cpp</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>tools/tools.cpp</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>tools/tools_interpolation.cpp</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>beware<sp/>of<sp/>the<sp/>/<sp/>\<sp/>mashup<sp/>on<sp/>windows<sp/>/<sp/>msys<sp/>-_-</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal">file(TO_CMAKE_PATH<sp/></highlight><highlight class="stringliteral">&quot;${PROBLEM_DIR}&quot;</highlight><highlight class="normal"><sp/>PROBLEM_DIR)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">set</highlight><highlight class="normal">(PROBLEM_SOURCES<sp/>${PROBLEM_DIR}/problem.cpp)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal">##<sp/>###################################################################</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">##<sp/>Default<sp/>build<sp/>type<sp/>(RelWithDebInfo)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">##<sp/>###################################################################</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(NOT<sp/>CMAKE_BUILD_TYPE<sp/>AND<sp/>NOT<sp/>CMAKE_CONFIGURATION_TYPES)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>message(STATUS<sp/></highlight><highlight class="stringliteral">&quot;Setting<sp/>build<sp/>type<sp/>to<sp/>&apos;RelWithDebInfo&apos;<sp/>as<sp/>none<sp/>was<sp/>specified.&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>set(CMAKE_BUILD_TYPE<sp/>RelWithDebInfo<sp/>CACHE<sp/>STRING<sp/>&quot;Choose<sp/>the<sp/>type<sp/>of<sp/>build.&quot;<sp/>FORCE)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>set_property(CACHE<sp/>CMAKE_BUILD_TYPE<sp/>PROPERTY<sp/>STRINGS<sp/>&quot;Debug&quot;<sp/>&quot;Release&quot;<sp/>&quot;MinSizeRel&quot;<sp/>&quot;RelWithDebInfo&quot;)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">else()</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>message(STATUS<sp/>&quot;Build<sp/>type:<sp/>${CMAKE_BUILD_TYPE}</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="50"><highlight class="stringliteral">endif()</highlight></codeline>
+<codeline lineno="51"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="52"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="53"><highlight class="stringliteral">##<sp/>#################################################################</highlight></codeline>
+<codeline lineno="54"><highlight class="stringliteral">##<sp/>Build<sp/>setup</highlight></codeline>
+<codeline lineno="55"><highlight class="stringliteral">##<sp/>#################################################################</highlight></codeline>
+<codeline lineno="56"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="57"><highlight class="stringliteral">set(CMAKE_CXX_STANDARD<sp/>11)</highlight></codeline>
+<codeline lineno="58"><highlight class="stringliteral">set(CMAKE_CXX_STANDARD_REQUIRED<sp/>ON)</highlight></codeline>
+<codeline lineno="59"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="60"><highlight class="stringliteral">#<sp/>adjust<sp/>according<sp/>to<sp/>platform...</highlight></codeline>
+<codeline lineno="61"><highlight class="stringliteral">#linux</highlight></codeline>
+<codeline lineno="62"><highlight class="stringliteral">#add_definitions(-Wfatal-errors)</highlight></codeline>
+<codeline lineno="63"><highlight class="stringliteral">#set(CMAKE_CXX_FLAGS_DEBUG<sp/>&quot;</highlight><highlight class="normal">-Wall<sp/>-Wconversion<sp/>-Wno-sign-conversion<sp/>-Wdouble-promotion<sp/>-pedantic<sp/>-g<sp/>-pg</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="64"><highlight class="stringliteral">#set(CMAKE_CXX_FLAGS_RELEASE<sp/>&quot;</highlight><highlight class="normal">-O<sp/>-DNDEBUG<sp/>-w</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="65"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="66"><highlight class="stringliteral">#windows:<sp/>Statically<sp/>link<sp/>the<sp/>runtime<sp/>libraries<sp/>if<sp/>ipopt<sp/>lib<sp/>is<sp/>static</highlight></codeline>
+<codeline lineno="67"><highlight class="stringliteral">#NB.<sp/>set_property(TARGET<sp/>bocop<sp/>PROPERTY<sp/>MSVC_RUNTIME_LIBRARY<sp/>&quot;</highlight><highlight class="normal">MultiThreaded$&lt;$&lt;CONFIG:Debug&gt;:Debug&gt;</highlight><highlight class="stringliteral">&quot;)<sp/>does<sp/>not<sp/>work</highlight></codeline>
+<codeline lineno="68"><highlight class="stringliteral">#if(MSVC)</highlight></codeline>
+<codeline lineno="69"><highlight class="stringliteral">#<sp/>add_compile_options(<sp/>$&lt;$&lt;CONFIG:&gt;:/MT&gt;<sp/>$&lt;$&lt;CONFIG:Debug&gt;:/MTd&gt;<sp/>$&lt;$&lt;CONFIG:Release&gt;:/MT&gt;<sp/>)</highlight></codeline>
+<codeline lineno="70"><highlight class="stringliteral">#endif()</highlight></codeline>
+<codeline lineno="71"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="72"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="73"><highlight class="stringliteral">##<sp/>#################################################################</highlight></codeline>
+<codeline lineno="74"><highlight class="stringliteral">##<sp/>Build<sp/>core<sp/>library<sp/>and<sp/>executable<sp/>for<sp/>specified<sp/>problem</highlight></codeline>
+<codeline lineno="75"><highlight class="stringliteral">##<sp/>(call<sp/>without<sp/>PROBLEM_DIR<sp/>will<sp/>just<sp/>install<sp/>files)<sp/></highlight></codeline>
+<codeline lineno="76"><highlight class="stringliteral">##<sp/>#################################################################</highlight></codeline>
+<codeline lineno="77"><highlight class="stringliteral">if(PROBLEM_DIR)</highlight></codeline>
+<codeline lineno="78"><highlight class="stringliteral"><sp/><sp/>set(LIBRARY_OUTPUT_PATH<sp/>${PROJECT_SOURCE_DIR}/lib)</highlight></codeline>
+<codeline lineno="79"><highlight class="stringliteral"><sp/><sp/>set(EXECUTABLE_OUTPUT_PATH<sp/>${PROBLEM_DIR})<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="stringliteral">#<sp/><sp/>if(CMAKE_COMPILER_IS_GNUCXX)</highlight></codeline>
+<codeline lineno="81"><highlight class="stringliteral">#<sp/><sp/><sp/><sp/>add_library(bocopcore<sp/>SHARED<sp/>${BOCOP_SOURCES}<sp/>${BOCOP_HEADERS})</highlight></codeline>
+<codeline lineno="82"><highlight class="stringliteral">#<sp/><sp/><sp/><sp/>add_executable(bocop<sp/>${PROBLEM_SOURCES}<sp/>main.cpp)</highlight></codeline>
+<codeline lineno="83"><highlight class="stringliteral">#<sp/><sp/><sp/><sp/>target_link_libraries(bocop<sp/>bocopcore<sp/>${IPOPT_LIBRARIES})</highlight></codeline>
+<codeline lineno="84"><highlight class="stringliteral">#<sp/><sp/>endif</highlight></codeline>
+<codeline lineno="85"><highlight class="stringliteral">#<sp/><sp/>if(APPLE)</highlight></codeline>
+<codeline lineno="86"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>add_executable(bocop<sp/>${BOCOP_SOURCES}<sp/>${BOCOP_HEADERS}<sp/>${PROBLEM_SOURCES}<sp/>main.cpp)</highlight></codeline>
+<codeline lineno="87"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>target_link_libraries(bocop<sp/>${IPOPT_LIBRARIES})<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="88"><highlight class="stringliteral">#<sp/><sp/>endif</highlight></codeline>
+<codeline lineno="89"><highlight class="stringliteral">endif(PROBLEM_DIR)</highlight></codeline>
+<codeline lineno="90"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="91"><highlight class="stringliteral">######################################################################</highlight></codeline>
+<codeline lineno="92"><highlight class="stringliteral">###<sp/>CMakeLists.txt<sp/>ends<sp/>here</highlight></codeline>
+    </programlisting>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/CMakeLists.txt"/>
+  </compounddef>
+</doxygen>

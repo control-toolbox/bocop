@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="dir_6a7dacf840a6b467586c113d885c3720" kind="dir">
+    <compoundname>/home/martinon/bocop/bocop3/bocop</compoundname>
+    <innerdir refid="dir_c371e86623f5602f4a1ae42254af2842">/home/martinon/bocop/bocop3/bocop/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/martinon/bocop/bocop3/bocop/"/>
+  </compounddef>
+</doxygen>

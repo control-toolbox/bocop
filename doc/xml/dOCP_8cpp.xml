@@ -1,0 +1,304 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="dOCP_8cpp" kind="file" language="C++">
+    <compoundname>dOCP.cpp</compoundname>
+    <includes refid="dOCP_8h" local="no">dOCP.h</includes>
+    <includes refid="tools_8h" local="no">tools.h</includes>
+    <incdepgraph>
+      <node id="86">
+        <label>/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.cpp</label>
+        <link refid="dOCP.cpp"/>
+        <childnode refid="87" relation="include">
+        </childnode>
+        <childnode refid="91" relation="include">
+        </childnode>
+      </node>
+      <node id="97">
+        <label>iterator</label>
+      </node>
+      <node id="103">
+        <label>dODE.h</label>
+        <link refid="dODE_8h_source"/>
+        <childnode refid="100" relation="include">
+        </childnode>
+      </node>
+      <node id="99">
+        <label>tools_interpolation.h</label>
+        <link refid="tools__interpolation_8h_source"/>
+        <childnode refid="92" relation="include">
+        </childnode>
+        <childnode refid="93" relation="include">
+        </childnode>
+        <childnode refid="89" relation="include">
+        </childnode>
+      </node>
+      <node id="102">
+        <label>cppad/cppad.hpp</label>
+      </node>
+      <node id="98">
+        <label>stdexcept</label>
+      </node>
+      <node id="90">
+        <label>string</label>
+      </node>
+      <node id="101">
+        <label>map</label>
+      </node>
+      <node id="87">
+        <label>dOCP.h</label>
+        <link refid="dOCP_8h_source"/>
+        <childnode refid="88" relation="include">
+        </childnode>
+        <childnode refid="91" relation="include">
+        </childnode>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="89" relation="include">
+        </childnode>
+      </node>
+      <node id="107">
+        <label>fstream</label>
+      </node>
+      <node id="91">
+        <label>tools.h</label>
+        <link refid="tools_8h_source"/>
+        <childnode refid="92" relation="include">
+        </childnode>
+        <childnode refid="93" relation="include">
+        </childnode>
+        <childnode refid="94" relation="include">
+        </childnode>
+        <childnode refid="90" relation="include">
+        </childnode>
+        <childnode refid="89" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="99" relation="include">
+        </childnode>
+      </node>
+      <node id="95">
+        <label>bufferAdaptor.h</label>
+        <link refid="bufferAdaptor_8h_source"/>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+        <childnode refid="98" relation="include">
+        </childnode>
+      </node>
+      <node id="89">
+        <label>vector</label>
+      </node>
+      <node id="94">
+        <label>sstream</label>
+      </node>
+      <node id="88">
+        <label>NLP.h</label>
+        <link refid="NLP_8h_source"/>
+        <childnode refid="89" relation="include">
+        </childnode>
+        <childnode refid="90" relation="include">
+        </childnode>
+      </node>
+      <node id="105">
+        <label>dControl.h</label>
+        <link refid="dControl_8h_source"/>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="103" relation="include">
+        </childnode>
+      </node>
+      <node id="92">
+        <label>cstdlib</label>
+      </node>
+      <node id="104">
+        <label>dState.h</label>
+        <link refid="dState_8h_source"/>
+        <childnode refid="100" relation="include">
+        </childnode>
+      </node>
+      <node id="93">
+        <label>iostream</label>
+      </node>
+      <node id="96">
+        <label>cstddef</label>
+      </node>
+      <node id="106">
+        <label>solution.h</label>
+        <link refid="solution_8h_source"/>
+        <childnode refid="89" relation="include">
+        </childnode>
+        <childnode refid="90" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+        <childnode refid="93" relation="include">
+        </childnode>
+      </node>
+      <node id="100">
+        <label>OCP.h</label>
+        <link refid="OCP_8h_source"/>
+        <childnode refid="101" relation="include">
+        </childnode>
+        <childnode refid="90" relation="include">
+        </childnode>
+        <childnode refid="91" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>dOCP.cpp</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;dOCP.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;tools.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/>dOCP<sp/>implementation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">dOCP::dOCP(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>:<sp/><ref refid="classNLP" kindref="compound">NLP</ref>(),<sp/>rk(new<sp/><ref refid="classdODE" kindref="compound">dODE</ref>)</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>note:<sp/>ocp<sp/>is<sp/>not<sp/>initialized<sp/>here<sp/>since<sp/>it<sp/>is<sp/>supposed<sp/>to<sp/>be<sp/>created<sp/>before<sp/>dOCP<sp/>and<sp/>passed<sp/>to<sp/>it<sp/>by<sp/>setOCP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal">dOCP::~dOCP(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">{}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>dOCP::initialize(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!ocp)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;dOCP::initialize()<sp/>:<sp/>Error:<sp/>OCP<sp/>is<sp/>not<sp/>set.&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>exit(1);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>default<sp/>solution<sp/>name</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>solution_file<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;problem.sol&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>PREPARE<sp/>NLP<sp/>TRANSCRIPTION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>rk-&gt;initialize();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>setup<sp/>time<sp/>discretization</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>discretisation_steps<sp/>=<sp/>stoi(ocp-&gt;getDefinitionForKey(</highlight><highlight class="stringliteral">&quot;time.steps&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>rk-&gt;setTimeGrids(ocp-&gt;initialTime(),<sp/>ocp-&gt;finalTime(),<sp/>discretisation_steps,<sp/>time_step,<sp/>time_step_grid,<sp/>time_stage_grid);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>setup<sp/>NLP<sp/>variables<sp/>bounds<sp/>and<sp/>initial<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>variables_offset_state<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>xd-&gt;setInitialState(time_step_grid,<sp/>ocp,<sp/>starting_point,<sp/>variables_lower_bounds,<sp/>variables_upper_bounds);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>variables_offset_control<sp/>=<sp/>starting_point.size();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>ud-&gt;setInitialControl(time_stage_grid,<sp/>ocp,<sp/>rk,<sp/>starting_point,<sp/>variables_lower_bounds,<sp/>variables_upper_bounds);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>variables_offset_param<sp/>=<sp/>starting_point.size();</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>rk-&gt;setInitialParam(ocp,<sp/>starting_point,<sp/>variables_lower_bounds,<sp/>variables_upper_bounds);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>rk-&gt;setRKStageVars(discretisation_steps,<sp/>ocp,<sp/>starting_point,<sp/>variables_lower_bounds,<sp/>variables_upper_bounds);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>variables_size<sp/>=<sp/>starting_point.size();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>setup<sp/>NLP<sp/>constraints<sp/>bounds</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>rk-&gt;setBoundaryConditionsBounds(ocp,<sp/>constraints_lower_bounds,<sp/>constraints_upper_bounds);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>rk-&gt;setDiscretisedConstraintsBounds(discretisation_steps,<sp/>ocp,<sp/>constraints_lower_bounds,<sp/>constraints_upper_bounds);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>constraints_size<sp/>=<sp/>constraints_lower_bounds.size();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>dOCP::writeSolution(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>status,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iter,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>objective,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>constraints_viol,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*variables,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*multipliers,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*constraints)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>recover<sp/>dimensions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dimState<sp/>=<sp/>ocp-&gt;stateSize();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dimControl<sp/>=<sp/>ocp-&gt;controlSize();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dimParameter<sp/>=<sp/>ocp-&gt;parametersSize();</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dimBoundaryConditions<sp/>=<sp/>ocp-&gt;boundaryConditionsSize();</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dimPathConstraints<sp/>=<sp/>ocp-&gt;pathConstraintsSize();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dimSteps<sp/>=<sp/>discretisationSteps();</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dimStages<sp/>=<sp/>RKStages();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>fill<sp/>solution<sp/>object</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>dOCPsolution<sp/>solution(dimState,<sp/>dimSteps,<sp/>dimControl,<sp/>dimParameter,<sp/>dimStages,<sp/>dimBoundaryConditions,<sp/>dimPathConstraints);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>solution.status<sp/>=<sp/>status;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>solution.iterations<sp/>=<sp/>iter;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>solution.constraint<sp/>=<sp/>constraints_viol;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>solution.objective<sp/>=<sp/>objective;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>xd-&gt;getState(variables,<sp/>variables_offset_state,<sp/>discretisationSteps(),<sp/>ocp-&gt;stateSize(),<sp/>*solution.state);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>ud-&gt;getControl(variables,<sp/>variables_offset_control,<sp/>discretisationSteps(),<sp/>RKStages(),<sp/>ocp-&gt;controlSize(),<sp/>*solution.control);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>rk-&gt;getParam(variables,<sp/>variables_offset_param,<sp/>ocp-&gt;parametersSize(),<sp/>*solution.parameter);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>rk-&gt;getMultipliers(multipliers,<sp/>*solution.boundary_conditions_multiplier,<sp/>*solution.path_constraints_multiplier,<sp/>*solution.adjoint_state);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>rk-&gt;getConstraints(constraints,<sp/>*solution.boundary_conditions,<sp/>*solution.path_constraints,<sp/>*solution.dyn_equations);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>(backup<sp/>and)<sp/>open<sp/>solution<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>exists;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>std::ifstream<sp/>file_check(solution_file.c_str());</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>exists<sp/>=<sp/>!file_check.fail();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>file_check.close();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(exists)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>newName<sp/>=<sp/>solution_file<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;.backup&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>rename(solution_file.c_str(),newName.c_str());</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>std::ofstream<sp/>file_out(solution_file.c_str(),<sp/>std::ios::out<sp/>|<sp/>std::ios::binary);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!file_out)</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/>std::endl<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;ERROR<sp/>&gt;&gt;&gt;<sp/>dOCP::writeSolution()<sp/>:<sp/>cannot<sp/>open<sp/>solution<sp/>file<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>solution_file<sp/>&lt;&lt;<sp/>std::endl<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>exit(1);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>file_out.precision(15);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>copy<sp/>of<sp/>.def<sp/>(will<sp/>be<sp/>saved<sp/>in<sp/>alphabetical<sp/>order<sp/>:p)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>ocp-&gt;save(file_out);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>status,<sp/>iter,<sp/>objective<sp/>and<sp/>constraints<sp/>violation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>file_out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;########################################################################&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>file_out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;#<sp/>SOLUTION&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>file_out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;########################################################################&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>file_out<sp/>&lt;&lt;<sp/>SOLVER_STATUS_TITLE<sp/>&lt;&lt;<sp/>solution.status<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>file_out<sp/>&lt;&lt;<sp/>SOLVER_ITERATIONS_TITLE<sp/>&lt;&lt;<sp/>solution.iterations<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>file_out<sp/>&lt;&lt;<sp/>OBJECTIVE_FUNCTION_TITLE<sp/>&lt;&lt;<sp/>solution.objective<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>file_out<sp/>&lt;&lt;<sp/>CONSTRAINT_VIOLATION_TITLE<sp/>&lt;&lt;<sp/>solution.constraint<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>file_out<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>times</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>bcp::writeDataBlock1D(file_out,<sp/>TIME_STEPS_TITLE,<sp/>time_step_grid);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/>bcp::writeDataBlock1D(file_out,<sp/>TIME_STAGES_TITLE,<sp/>time_stage_grid);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>variables</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>bcp::writeDataBlock2D(file_out,<sp/>STATE_TITLE,<sp/>*solution.state);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>bcp::writeDataBlock2D(file_out,<sp/>CONTROL_TITLE,<sp/>*solution.control);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>bcp::writeDataBlock1D(file_out,<sp/>PARAMETER_TITLE,<sp/>*solution.parameter);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>constraints</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/>bcp::writeDataBlock1D(file_out,<sp/>BOUNDARY_TITLE,<sp/>*solution.boundary_conditions);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>bcp::writeDataBlock2D(file_out,<sp/>PATH_CONSTRAINTS_TITLE,<sp/>*solution.path_constraints);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>multipliers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>file_out<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>bcp::writeDataBlock1D(file_out,<sp/>MULTI_BOUNDARY_CONDITION_TITLE,<sp/>*solution.boundary_conditions_multiplier);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>bcp::writeDataBlock2D(file_out,<sp/>MULTI_PATH_CONSTRAINTS_TITLE,<sp/>*solution.path_constraints_multiplier);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>bcp::writeDataBlock2D(file_out,<sp/>ADJOINT_STATE_TITLE,<sp/>*solution.adjoint_state);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//+++<sp/>ajouter<sp/>les<sp/>kstage</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="comment">//<sp/>dOCP.cpp<sp/>ends<sp/>here</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.cpp"/>
+  </compounddef>
+</doxygen>

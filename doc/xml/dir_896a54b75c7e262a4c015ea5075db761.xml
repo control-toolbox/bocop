@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="dir_896a54b75c7e262a4c015ea5075db761" kind="dir">
+    <compoundname>/home/martinon/bocop/bocop3/bocop/src/NLP</compoundname>
+    <innerfile refid="NLP_8h">NLP.h</innerfile>
+    <innerfile refid="NLPSolver_8h">NLPSolver.h</innerfile>
+    <innerfile refid="NLPSolverIpopt_8cpp">NLPSolverIpopt.cpp</innerfile>
+    <innerfile refid="NLPSolverIpopt_8h">NLPSolverIpopt.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/NLP/"/>
+  </compounddef>
+</doxygen>

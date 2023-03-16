@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="dState_8h" kind="file" language="C++">
+    <compoundname>dState.h</compoundname>
+    <includes refid="OCP_8h" local="no">OCP.h</includes>
+    <includedby refid="dOCP_8h" local="no">/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h</includedby>
+    <includedby refid="dState_8cpp" local="no">/home/martinon/bocop/bocop3/bocop/src/DOCP/dState.cpp</includedby>
+    <incdepgraph>
+      <node id="196">
+        <label>iterator</label>
+      </node>
+      <node id="198">
+        <label>tools_interpolation.h</label>
+        <link refid="tools__interpolation_8h_source"/>
+        <childnode refid="190" relation="include">
+        </childnode>
+        <childnode refid="191" relation="include">
+        </childnode>
+        <childnode refid="193" relation="include">
+        </childnode>
+      </node>
+      <node id="199">
+        <label>cppad/cppad.hpp</label>
+      </node>
+      <node id="197">
+        <label>stdexcept</label>
+      </node>
+      <node id="188">
+        <label>string</label>
+      </node>
+      <node id="187">
+        <label>map</label>
+      </node>
+      <node id="189">
+        <label>tools.h</label>
+        <link refid="tools_8h_source"/>
+        <childnode refid="190" relation="include">
+        </childnode>
+        <childnode refid="191" relation="include">
+        </childnode>
+        <childnode refid="192" relation="include">
+        </childnode>
+        <childnode refid="188" relation="include">
+        </childnode>
+        <childnode refid="193" relation="include">
+        </childnode>
+        <childnode refid="194" relation="include">
+        </childnode>
+        <childnode refid="198" relation="include">
+        </childnode>
+      </node>
+      <node id="194">
+        <label>bufferAdaptor.h</label>
+        <link refid="bufferAdaptor_8h_source"/>
+        <childnode refid="195" relation="include">
+        </childnode>
+        <childnode refid="196" relation="include">
+        </childnode>
+        <childnode refid="197" relation="include">
+        </childnode>
+      </node>
+      <node id="193">
+        <label>vector</label>
+      </node>
+      <node id="192">
+        <label>sstream</label>
+      </node>
+      <node id="190">
+        <label>cstdlib</label>
+      </node>
+      <node id="185">
+        <label>/home/martinon/bocop/bocop3/bocop/src/DOCP/dState.h</label>
+        <link refid="dState.h"/>
+        <childnode refid="186" relation="include">
+        </childnode>
+      </node>
+      <node id="191">
+        <label>iostream</label>
+      </node>
+      <node id="195">
+        <label>cstddef</label>
+      </node>
+      <node id="186">
+        <label>OCP.h</label>
+        <link refid="OCP_8h_source"/>
+        <childnode refid="187" relation="include">
+        </childnode>
+        <childnode refid="188" relation="include">
+        </childnode>
+        <childnode refid="189" relation="include">
+        </childnode>
+        <childnode refid="199" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="202">
+        <label>/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h</label>
+        <link refid="dOCPCppAD_8h_source"/>
+      </node>
+      <node id="201">
+        <label>/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h</label>
+        <link refid="dOCP_8h_source"/>
+        <childnode refid="202" relation="include">
+        </childnode>
+      </node>
+      <node id="200">
+        <label>/home/martinon/bocop/bocop3/bocop/src/DOCP/dState.h</label>
+        <link refid="dState.h"/>
+        <childnode refid="201" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classdState" prot="public">dState</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>dState.h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;OCP.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="classdState" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classdState" kindref="compound">dState</ref></highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setInitialState(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;<sp/>time_steps,<sp/><ref refid="classOCP" kindref="compound">OCP</ref><sp/>*ocp,<sp/>std::vector&lt;double&gt;<sp/>&amp;starting_point,<sp/>std::vector&lt;double&gt;<sp/>&amp;variables_lower_bounds,<sp/>std::vector&lt;double&gt;<sp/>&amp;variables_upper_bounds);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>getState(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/>x,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>state_offset,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>discretisation_steps,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>stateSize,<sp/>std::vector&lt;std::vector&lt;double&gt;<sp/>&gt;&amp;<sp/>state);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//<sp/>dState.h<sp/>ends<sp/>here</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dState.h"/>
+  </compounddef>
+</doxygen>

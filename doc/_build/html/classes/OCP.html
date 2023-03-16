@@ -1,0 +1,263 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class OCP &mdash; bocop 3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class dOCP" href="dOCP.html" />
+    <link rel="prev" title="Welcome to bocop’s documentation!" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> bocop
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Class OCP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dOCP.html">Class dOCP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NLP.html">Class NLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dOCPCppAD.html">Class dOCPCppAD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcp.html">Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">bocop</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Class OCP</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/classes/OCP.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-ocp">
+<h1>Class OCP<a class="headerlink" href="#class-ocp" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp class">
+<dt id="_CPPv43OCP">
+<span id="_CPPv33OCP"></span><span id="_CPPv23OCP"></span><span id="OCP"></span><span class="target" id="classOCP"></span><em class="property">class </em><code class="sig-name descname">OCP</code><a class="headerlink" href="#_CPPv43OCP" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classOCP"><span class="std std-ref">OCP</span></a> defines an optimal control problem of the general form <div class="math notranslate nohighlight">
+\[\begin{split} \begin{array}{l} Min\ g_0(t_0,t_f,x(t_0),x(t_f),p,c)\\ \dot x(t) = f(t,x,u,p,c)\\ \phi_l \le \phi(t_0,t_f,x(t_0),x(t_f),p,c) \le \phi_u\\ g_l \le g(t,x,u,p,c) \le g_u \end{array} \end{split}\]</div>
+ +++ state control param constant. </p>
+<p></p>
+<p>The actual functions are defined for each problem in a file <em>problem.cpp</em>. Functions are defined using templates, for both basic double and ADdouble from CppAD since derivatives are required to solve the discretized problem.</p>
+<p>Note that the class stores all parameters in a single dictionnary, which can include values not directly part of <a class="reference internal" href="#classOCP"><span class="std std-ref">OCP</span></a> but rather intended for use in classes using <a class="reference internal" href="#classOCP"><span class="std std-ref">OCP</span></a> objects (ex: time discretisation parameters for a direct transcription method, <a class="reference internal" href="NLP.html#classNLP"><span class="std std-ref">NLP</span></a> solver options, …) </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Optimal Control Problem specific functions (problem.cpp)</p>
+<dl class="cpp function">
+<dt id="_CPPv4I0EN3OCP9finalCostEvddPK8VariablePK8VariablePK8VariablePKdR8Variable">
+<span id="_CPPv3I0EN3OCP9finalCostEddPK8VariablePK8VariablePK8VariablePKdR8Variable"></span><span id="_CPPv2I0EN3OCP9finalCostEddPK8VariablePK8VariablePK8VariablePKdR8Variable"></span>template&lt;typename <code class="sig-name descname">Variable</code>&gt;<br /><span class="target" id="classOCP_1ac20ec9b6662ce587ae0028e17c4d9fec"></span>void <code class="sig-name descname">finalCost</code><span class="sig-paren">(</span>double <em>initial_time</em>, double <em>final_time</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN3OCP9finalCostEvddPK8VariablePK8VariablePK8VariablePKdR8Variable" title="OCP::finalCost::Variable">Variable</a> *<em>initial_state</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN3OCP9finalCostEvddPK8VariablePK8VariablePK8VariablePKdR8Variable" title="OCP::finalCost::Variable">Variable</a> *<em>final_state</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN3OCP9finalCostEvddPK8VariablePK8VariablePK8VariablePKdR8Variable" title="OCP::finalCost::Variable">Variable</a> *<em>parameters</em>, <em class="property">const</em> double *<em>constants</em>, <a class="reference internal" href="#_CPPv4I0EN3OCP9finalCostEvddPK8VariablePK8VariablePK8VariablePKdR8Variable" title="OCP::finalCost::Variable">Variable</a> &amp;<em>final_cost</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3OCP9finalCostEvddPK8VariablePK8VariablePK8VariablePKdR8Variable" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Final cost <span class="math notranslate nohighlight">\(g_0\)</span> (Mayer) </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4I0EN3OCP8dynamicsEvdPK8VariablePK8VariablePK8VariablePKdP8Variable">
+<span id="_CPPv3I0EN3OCP8dynamicsEdPK8VariablePK8VariablePK8VariablePKdP8Variable"></span><span id="_CPPv2I0EN3OCP8dynamicsEdPK8VariablePK8VariablePK8VariablePKdP8Variable"></span>template&lt;typename <code class="sig-name descname">Variable</code>&gt;<br /><span class="target" id="classOCP_1a0e25283d3a734841955d12356837d042"></span>void <code class="sig-name descname">dynamics</code><span class="sig-paren">(</span>double <em>time</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN3OCP8dynamicsEvdPK8VariablePK8VariablePK8VariablePKdP8Variable" title="OCP::dynamics::Variable">Variable</a> *<em>state</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN3OCP8dynamicsEvdPK8VariablePK8VariablePK8VariablePKdP8Variable" title="OCP::dynamics::Variable">Variable</a> *<em>control</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN3OCP8dynamicsEvdPK8VariablePK8VariablePK8VariablePKdP8Variable" title="OCP::dynamics::Variable">Variable</a> *<em>parameters</em>, <em class="property">const</em> double *<em>constants</em>, <a class="reference internal" href="#_CPPv4I0EN3OCP8dynamicsEvdPK8VariablePK8VariablePK8VariablePKdP8Variable" title="OCP::dynamics::Variable">Variable</a> *<em>state_dynamics</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3OCP8dynamicsEvdPK8VariablePK8VariablePK8VariablePKdP8Variable" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>State dynamics <span class="math notranslate nohighlight">\(f\)</span> </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4I0EN3OCP18boundaryConditionsEvddPK8VariablePK8VariablePK8VariablePKdP8Variable">
+<span id="_CPPv3I0EN3OCP18boundaryConditionsEddPK8VariablePK8VariablePK8VariablePKdP8Variable"></span><span id="_CPPv2I0EN3OCP18boundaryConditionsEddPK8VariablePK8VariablePK8VariablePKdP8Variable"></span>template&lt;typename <code class="sig-name descname">Variable</code>&gt;<br /><span class="target" id="classOCP_1a5361cfcf3f0b612a2a22478f7da1f633"></span>void <code class="sig-name descname">boundaryConditions</code><span class="sig-paren">(</span>double <em>initial_time</em>, double <em>final_time</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN3OCP18boundaryConditionsEvddPK8VariablePK8VariablePK8VariablePKdP8Variable" title="OCP::boundaryConditions::Variable">Variable</a> *<em>initial_state</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN3OCP18boundaryConditionsEvddPK8VariablePK8VariablePK8VariablePKdP8Variable" title="OCP::boundaryConditions::Variable">Variable</a> *<em>final_state</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN3OCP18boundaryConditionsEvddPK8VariablePK8VariablePK8VariablePKdP8Variable" title="OCP::boundaryConditions::Variable">Variable</a> *<em>parameters</em>, <em class="property">const</em> double *<em>constants</em>, <a class="reference internal" href="#_CPPv4I0EN3OCP18boundaryConditionsEvddPK8VariablePK8VariablePK8VariablePKdP8Variable" title="OCP::boundaryConditions::Variable">Variable</a> *<em>boundary_conditions</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3OCP18boundaryConditionsEvddPK8VariablePK8VariablePK8VariablePKdP8Variable" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Boundary conditions <span class="math notranslate nohighlight">\(\phi\)</span> at initial and final time </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4I0EN3OCP15pathConstraintsEvdPK8VariablePK8VariablePK8VariablePKdP8Variable">
+<span id="_CPPv3I0EN3OCP15pathConstraintsEdPK8VariablePK8VariablePK8VariablePKdP8Variable"></span><span id="_CPPv2I0EN3OCP15pathConstraintsEdPK8VariablePK8VariablePK8VariablePKdP8Variable"></span>template&lt;typename <code class="sig-name descname">Variable</code>&gt;<br /><span class="target" id="classOCP_1a52083e45d17e7f54eb3ccdb20858b541"></span>void <code class="sig-name descname">pathConstraints</code><span class="sig-paren">(</span>double <em>time</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN3OCP15pathConstraintsEvdPK8VariablePK8VariablePK8VariablePKdP8Variable" title="OCP::pathConstraints::Variable">Variable</a> *<em>state</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN3OCP15pathConstraintsEvdPK8VariablePK8VariablePK8VariablePKdP8Variable" title="OCP::pathConstraints::Variable">Variable</a> *<em>control</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN3OCP15pathConstraintsEvdPK8VariablePK8VariablePK8VariablePKdP8Variable" title="OCP::pathConstraints::Variable">Variable</a> *<em>parameters</em>, <em class="property">const</em> double *<em>constants</em>, <a class="reference internal" href="#_CPPv4I0EN3OCP15pathConstraintsEvdPK8VariablePK8VariablePK8VariablePKdP8Variable" title="OCP::pathConstraints::Variable">Variable</a> *<em>path_constraints</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3OCP15pathConstraintsEvdPK8VariablePK8VariablePK8VariablePKdP8Variable" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Path constraints <span class="math notranslate nohighlight">\(g\)</span> (includes both mixed and pure state constraints) </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N3OCP13preProcessingEv">
+<span id="_CPPv3N3OCP13preProcessingEv"></span><span id="_CPPv2N3OCP13preProcessingEv"></span><span id="OCP::preProcessing__void"></span><span class="target" id="classOCP_1a5da3cb8a7c5a99d7eca8266fc141812d"></span>void <code class="sig-name descname">preProcessing</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3OCP13preProcessingEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Prepocessing operations (performed once before the optimisation) </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dOCP.html" class="btn btn-neutral float-right" title="Class dOCP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to bocop’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, PM
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

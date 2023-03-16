@@ -1,0 +1,712 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="classbcp_1_1buffer__adaptor" kind="class" language="C++" prot="public">
+    <compoundname>bcp::buffer_adaptor</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename</type>
+        <declname>T</declname>
+        <defname>T</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classbcp_1_1buffer__adaptor_1a4021166a97f611c904b1e451a6dd1e81" prot="public" static="no">
+        <type>buffer_adaptor&lt; T &gt;</type>
+        <definition>using bcp::buffer_adaptor&lt; T &gt;::self_type =  buffer_adaptor&lt;T&gt;</definition>
+        <argsstring></argsstring>
+        <name>self_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="21" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classbcp_1_1buffer__adaptor_1a8b7ffe3fe0831a6a51547c01a773ad92" prot="public" static="no">
+        <type>std::size_t</type>
+        <definition>using bcp::buffer_adaptor&lt; T &gt;::size_type =  std::size_t</definition>
+        <argsstring></argsstring>
+        <name>size_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="22" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classbcp_1_1buffer__adaptor_1ae17c4128e0c69032221dbcdcb3cd3372" prot="public" static="no">
+        <type>T</type>
+        <definition>using bcp::buffer_adaptor&lt; T &gt;::value_type =  T</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="23" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classbcp_1_1buffer__adaptor_1a1b9eb4e7e84ed613108c723257515a9f" prot="public" static="no">
+        <type>T *</type>
+        <definition>using bcp::buffer_adaptor&lt; T &gt;::pointer =  T*</definition>
+        <argsstring></argsstring>
+        <name>pointer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="24" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classbcp_1_1buffer__adaptor_1a1e2c6dba50428acd0f7a07d5d2103e14" prot="public" static="no">
+        <type>const T *</type>
+        <definition>using bcp::buffer_adaptor&lt; T &gt;::const_pointer =  const T*</definition>
+        <argsstring></argsstring>
+        <name>const_pointer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="25" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classbcp_1_1buffer__adaptor_1a7d06e6fd4fcb46a3985f791e61a12560" prot="public" static="no">
+        <type>value_type &amp;</type>
+        <definition>using bcp::buffer_adaptor&lt; T &gt;::reference =  value_type&amp;</definition>
+        <argsstring></argsstring>
+        <name>reference</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="26" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classbcp_1_1buffer__adaptor_1a6043b92771f9c18021beb5a553aa909f" prot="public" static="no">
+        <type>const value_type &amp;</type>
+        <definition>using bcp::buffer_adaptor&lt; T &gt;::const_reference =  const value_type&amp;</definition>
+        <argsstring></argsstring>
+        <name>const_reference</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="27" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classbcp_1_1buffer__adaptor_1a4ad68b1a329c2a26f1499d9ae396aa3b" prot="public" static="no">
+        <type>std::ptrdiff_t</type>
+        <definition>using bcp::buffer_adaptor&lt; T &gt;::difference_type =  std::ptrdiff_t</definition>
+        <argsstring></argsstring>
+        <name>difference_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="28" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classbcp_1_1buffer__adaptor_1a26a4b9e2d447cc9314cc6336adef8601" prot="public" static="no">
+        <type>pointer</type>
+        <definition>using bcp::buffer_adaptor&lt; T &gt;::iterator =  pointer</definition>
+        <argsstring></argsstring>
+        <name>iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="30" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classbcp_1_1buffer__adaptor_1ad54431cc8cb8f3d4934f3d43c8a4ff0b" prot="public" static="no">
+        <type>const_pointer</type>
+        <definition>using bcp::buffer_adaptor&lt; T &gt;::const_iterator =  const_pointer</definition>
+        <argsstring></argsstring>
+        <name>const_iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="31" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classbcp_1_1buffer__adaptor_1a63a720de49a746985495f7fc0c345995" prot="public" static="no">
+        <type>std::reverse_iterator&lt; iterator &gt;</type>
+        <definition>using bcp::buffer_adaptor&lt; T &gt;::reverse_iterator =  std::reverse_iterator&lt;iterator&gt;</definition>
+        <argsstring></argsstring>
+        <name>reverse_iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="32" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classbcp_1_1buffer__adaptor_1a34dadd0f60bf2e948175ef1f6fec107e" prot="public" static="no">
+        <type>std::reverse_iterator&lt; const_iterator &gt;</type>
+        <definition>using bcp::buffer_adaptor&lt; T &gt;::const_reverse_iterator =  std::reverse_iterator&lt;const_iterator&gt;</definition>
+        <argsstring></argsstring>
+        <name>const_reverse_iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="33" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classbcp_1_1buffer__adaptor_1a52738b9cc4f28a6c03cd67b8d3139518" prot="private" static="no" mutable="no">
+        <type>size_type</type>
+        <definition>size_type bcp::buffer_adaptor&lt; T &gt;::m_size</definition>
+        <argsstring></argsstring>
+        <name>m_size</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="72" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classbcp_1_1buffer__adaptor_1a7c43f58e38e48acde491c78de014cf2f" prot="private" static="no" mutable="no">
+        <type>pointer</type>
+        <definition>pointer bcp::buffer_adaptor&lt; T &gt;::m_begin</definition>
+        <argsstring></argsstring>
+        <name>m_begin</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="73" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classbcp_1_1buffer__adaptor_1a4ec847a35b63b72aabd1d425503e081c" prot="private" static="no" mutable="no">
+        <type>pointer</type>
+        <definition>pointer bcp::buffer_adaptor&lt; T &gt;::m_end</definition>
+        <argsstring></argsstring>
+        <name>m_end</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="74" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1afb27912be4ebf5a59a54aaee07296589" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>bcp::buffer_adaptor&lt; T &gt;::buffer_adaptor</definition>
+        <argsstring>(size_type n, T *)</argsstring>
+        <name>buffer_adaptor</name>
+        <param>
+          <type>size_type</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <defname>t</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="35" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="78" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1a6ce70b380201daf5dbde0e0b7e0e4241" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>bcp::buffer_adaptor&lt; T &gt;::buffer_adaptor</definition>
+        <argsstring>(size_type n, const T *)</argsstring>
+        <name>buffer_adaptor</name>
+        <param>
+          <type>size_type</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>const T *</type>
+          <defname>t</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="36" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="82" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1ad87d7c4ac6b516088c0144868f9fcec4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>bcp::buffer_adaptor&lt; T &gt;::~buffer_adaptor</definition>
+        <argsstring>(void)</argsstring>
+        <name>~buffer_adaptor</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="38" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="86" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1ae02ab93e77f71202ebfda2d66ad55725" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>reference</type>
+        <definition>auto bcp::buffer_adaptor&lt; T &gt;::operator[]</definition>
+        <argsstring>(size_type idx)</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>size_type</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="40" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="94" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1aea302d62aae1e8367d336d3dadd9ae25" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_reference</type>
+        <definition>auto bcp::buffer_adaptor&lt; T &gt;::operator[]</definition>
+        <argsstring>(size_type idx) const </argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>size_type</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="41" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="100" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1a1c1377fbb4724b7ff95f712ef59577f9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>reference</type>
+        <definition>auto bcp::buffer_adaptor&lt; T &gt;::at</definition>
+        <argsstring>(size_type idx)</argsstring>
+        <name>at</name>
+        <param>
+          <type>size_type</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="43" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="106" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1a11b2a1cc22edc840341774b669f5998f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_reference</type>
+        <definition>auto bcp::buffer_adaptor&lt; T &gt;::at</definition>
+        <argsstring>(size_type idx) const </argsstring>
+        <name>at</name>
+        <param>
+          <type>size_type</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="44" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="115" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1a39b72bf06a227cfac3aa89f2183c5e2e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>pointer</type>
+        <definition>auto bcp::buffer_adaptor&lt; T &gt;::data</definition>
+        <argsstring>(void)</argsstring>
+        <name>data</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="46" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="124" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1aedcec5d97e86fbc506bfe3fe1cb6a791" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_pointer</type>
+        <definition>auto bcp::buffer_adaptor&lt; T &gt;::data</definition>
+        <argsstring>(void) const </argsstring>
+        <name>data</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="47" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="130" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1a521bd4a8e640ad9ed4ac09c2efa18de3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>iterator</type>
+        <definition>auto bcp::buffer_adaptor&lt; T &gt;::begin</definition>
+        <argsstring>(void)</argsstring>
+        <name>begin</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="49" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="136" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1a9285df420cb24d7417c92dcc83a7348a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_iterator</type>
+        <definition>auto bcp::buffer_adaptor&lt; T &gt;::begin</definition>
+        <argsstring>(void) const </argsstring>
+        <name>begin</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="50" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="142" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1adc067adc7f469c7562e633bfc7eb3164" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_iterator</type>
+        <definition>auto bcp::buffer_adaptor&lt; T &gt;::cbegin</definition>
+        <argsstring>(void) const </argsstring>
+        <name>cbegin</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="51" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="148" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1ab725d571ca379d9f43883f016eda358e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>iterator</type>
+        <definition>auto bcp::buffer_adaptor&lt; T &gt;::end</definition>
+        <argsstring>(void)</argsstring>
+        <name>end</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="52" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="154" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1af96eaf56ddd17346bf28ef0e3fd87b3c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_iterator</type>
+        <definition>auto bcp::buffer_adaptor&lt; T &gt;::end</definition>
+        <argsstring>(void) const </argsstring>
+        <name>end</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="53" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="160" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1aa5adeacff7eff7f09f1124e396ed38c7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_iterator</type>
+        <definition>auto bcp::buffer_adaptor&lt; T &gt;::cend</definition>
+        <argsstring>(void) const </argsstring>
+        <name>cend</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="54" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="166" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1a5fcc39c08c27e6bea7e30feec48d7e9b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>reverse_iterator</type>
+        <definition>auto bcp::buffer_adaptor&lt; T &gt;::rbegin</definition>
+        <argsstring>(void)</argsstring>
+        <name>rbegin</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="56" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="172" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1af167ea83e2a5927a39f0fbef85d5775d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_reverse_iterator</type>
+        <definition>auto bcp::buffer_adaptor&lt; T &gt;::rbegin</definition>
+        <argsstring>(void) const </argsstring>
+        <name>rbegin</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="57" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="178" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1a1991f1ad65ec15b7eee05f9349760c96" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_reverse_iterator</type>
+        <definition>auto bcp::buffer_adaptor&lt; T &gt;::crbegin</definition>
+        <argsstring>(void) const </argsstring>
+        <name>crbegin</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="58" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="184" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1a771223cfa385ddf29cbfc9883c0401c9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>reverse_iterator</type>
+        <definition>auto bcp::buffer_adaptor&lt; T &gt;::rend</definition>
+        <argsstring>(void)</argsstring>
+        <name>rend</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="59" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="190" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1a8e1fbeedbd2d5c2050cf563413790c6c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_reverse_iterator</type>
+        <definition>auto bcp::buffer_adaptor&lt; T &gt;::rend</definition>
+        <argsstring>(void) const </argsstring>
+        <name>rend</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="60" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="196" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1a3012a71dec984db3f0a203a8c6a8febe" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_reverse_iterator</type>
+        <definition>auto bcp::buffer_adaptor&lt; T &gt;::crend</definition>
+        <argsstring>(void) const </argsstring>
+        <name>crend</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="61" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="202" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1a7a50720c9500beec6d5f6000a7d79b8a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>auto bcp::buffer_adaptor&lt; T &gt;::empty</definition>
+        <argsstring>(void) const </argsstring>
+        <name>empty</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="63" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="208" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1ae8f7a6f2cdcc4d531a449a0c551ebbcf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_type</type>
+        <definition>auto bcp::buffer_adaptor&lt; T &gt;::size</definition>
+        <argsstring>(void) const </argsstring>
+        <name>size</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="64" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="214" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1ab9cb085027fd29707f79c258747a012c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>reference</type>
+        <definition>auto bcp::buffer_adaptor&lt; T &gt;::front</definition>
+        <argsstring>(void)</argsstring>
+        <name>front</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="66" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="220" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1a842e7970a43a8c00ffc9ab9f2bca9a20" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_reference</type>
+        <definition>auto bcp::buffer_adaptor&lt; T &gt;::front</definition>
+        <argsstring>(void) const </argsstring>
+        <name>front</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="67" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="226" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1a65595cf9fff39277a51756b7a75d2eb8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>reference</type>
+        <definition>auto bcp::buffer_adaptor&lt; T &gt;::back</definition>
+        <argsstring>(void)</argsstring>
+        <name>back</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="68" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="232" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="function" id="classbcp_1_1buffer__adaptor_1a03437a823d706d9f4dd80a4abd6b33cb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_reference</type>
+        <definition>auto bcp::buffer_adaptor&lt; T &gt;::back</definition>
+        <argsstring>(void) const </argsstring>
+        <name>back</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="69" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="238" bodyend="241"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="19" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" bodystart="18" bodyend="75"/>
+    <listofallmembers>
+      <member refid="classbcp_1_1buffer__adaptor_1a1c1377fbb4724b7ff95f712ef59577f9" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>at</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a11b2a1cc22edc840341774b669f5998f" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>at</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a65595cf9fff39277a51756b7a75d2eb8" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>back</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a03437a823d706d9f4dd80a4abd6b33cb" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>back</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a521bd4a8e640ad9ed4ac09c2efa18de3" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>begin</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a9285df420cb24d7417c92dcc83a7348a" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>begin</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1afb27912be4ebf5a59a54aaee07296589" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>buffer_adaptor</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a6ce70b380201daf5dbde0e0b7e0e4241" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>buffer_adaptor</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1adc067adc7f469c7562e633bfc7eb3164" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>cbegin</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1aa5adeacff7eff7f09f1124e396ed38c7" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>cend</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1ad54431cc8cb8f3d4934f3d43c8a4ff0b" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>const_iterator</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a1e2c6dba50428acd0f7a07d5d2103e14" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>const_pointer</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a6043b92771f9c18021beb5a553aa909f" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>const_reference</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a34dadd0f60bf2e948175ef1f6fec107e" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>const_reverse_iterator</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a1991f1ad65ec15b7eee05f9349760c96" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>crbegin</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a3012a71dec984db3f0a203a8c6a8febe" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>crend</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a39b72bf06a227cfac3aa89f2183c5e2e" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>data</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1aedcec5d97e86fbc506bfe3fe1cb6a791" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>data</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a4ad68b1a329c2a26f1499d9ae396aa3b" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>difference_type</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a7a50720c9500beec6d5f6000a7d79b8a" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>empty</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1ab725d571ca379d9f43883f016eda358e" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>end</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1af96eaf56ddd17346bf28ef0e3fd87b3c" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>end</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1ab9cb085027fd29707f79c258747a012c" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>front</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a842e7970a43a8c00ffc9ab9f2bca9a20" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>front</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a26a4b9e2d447cc9314cc6336adef8601" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>iterator</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a7c43f58e38e48acde491c78de014cf2f" prot="private" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>m_begin</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a4ec847a35b63b72aabd1d425503e081c" prot="private" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>m_end</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a52738b9cc4f28a6c03cd67b8d3139518" prot="private" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>m_size</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1ae02ab93e77f71202ebfda2d66ad55725" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>operator[]</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1aea302d62aae1e8367d336d3dadd9ae25" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>operator[]</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a1b9eb4e7e84ed613108c723257515a9f" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>pointer</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a5fcc39c08c27e6bea7e30feec48d7e9b" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>rbegin</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1af167ea83e2a5927a39f0fbef85d5775d" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>rbegin</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a7d06e6fd4fcb46a3985f791e61a12560" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>reference</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a771223cfa385ddf29cbfc9883c0401c9" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>rend</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a8e1fbeedbd2d5c2050cf563413790c6c" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>rend</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a63a720de49a746985495f7fc0c345995" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>reverse_iterator</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a4021166a97f611c904b1e451a6dd1e81" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>self_type</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1ae8f7a6f2cdcc4d531a449a0c551ebbcf" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>size</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1a8b7ffe3fe0831a6a51547c01a773ad92" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>size_type</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1ae17c4128e0c69032221dbcdcb3cd3372" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>value_type</name></member>
+      <member refid="classbcp_1_1buffer__adaptor_1ad87d7c4ac6b516088c0144868f9fcec4" prot="public" virt="non-virtual"><scope>bcp::buffer_adaptor</scope><name>~buffer_adaptor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

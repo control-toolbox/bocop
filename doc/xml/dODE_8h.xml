@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="dODE_8h" kind="file" language="C++">
+    <compoundname>dODE.h</compoundname>
+    <includes refid="OCP_8h" local="no">OCP.h</includes>
+    <includedby refid="dControl_8h" local="no">/home/martinon/bocop/bocop3/bocop/src/DOCP/dControl.h</includedby>
+    <includedby refid="dOCP_8h" local="no">/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h</includedby>
+    <includedby refid="dODE_8cpp" local="no">/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.cpp</includedby>
+    <incdepgraph>
+      <node id="160">
+        <label>iterator</label>
+      </node>
+      <node id="149">
+        <label>/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h</label>
+        <link refid="dODE.h"/>
+        <childnode refid="150" relation="include">
+        </childnode>
+      </node>
+      <node id="162">
+        <label>tools_interpolation.h</label>
+        <link refid="tools__interpolation_8h_source"/>
+        <childnode refid="154" relation="include">
+        </childnode>
+        <childnode refid="155" relation="include">
+        </childnode>
+        <childnode refid="157" relation="include">
+        </childnode>
+      </node>
+      <node id="163">
+        <label>cppad/cppad.hpp</label>
+      </node>
+      <node id="161">
+        <label>stdexcept</label>
+      </node>
+      <node id="152">
+        <label>string</label>
+      </node>
+      <node id="151">
+        <label>map</label>
+      </node>
+      <node id="153">
+        <label>tools.h</label>
+        <link refid="tools_8h_source"/>
+        <childnode refid="154" relation="include">
+        </childnode>
+        <childnode refid="155" relation="include">
+        </childnode>
+        <childnode refid="156" relation="include">
+        </childnode>
+        <childnode refid="152" relation="include">
+        </childnode>
+        <childnode refid="157" relation="include">
+        </childnode>
+        <childnode refid="158" relation="include">
+        </childnode>
+        <childnode refid="162" relation="include">
+        </childnode>
+      </node>
+      <node id="158">
+        <label>bufferAdaptor.h</label>
+        <link refid="bufferAdaptor_8h_source"/>
+        <childnode refid="159" relation="include">
+        </childnode>
+        <childnode refid="160" relation="include">
+        </childnode>
+        <childnode refid="161" relation="include">
+        </childnode>
+      </node>
+      <node id="157">
+        <label>vector</label>
+      </node>
+      <node id="156">
+        <label>sstream</label>
+      </node>
+      <node id="154">
+        <label>cstdlib</label>
+      </node>
+      <node id="155">
+        <label>iostream</label>
+      </node>
+      <node id="159">
+        <label>cstddef</label>
+      </node>
+      <node id="150">
+        <label>OCP.h</label>
+        <link refid="OCP_8h_source"/>
+        <childnode refid="151" relation="include">
+        </childnode>
+        <childnode refid="152" relation="include">
+        </childnode>
+        <childnode refid="153" relation="include">
+        </childnode>
+        <childnode refid="163" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="164">
+        <label>/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h</label>
+        <link refid="dODE.h"/>
+        <childnode refid="165" relation="include">
+        </childnode>
+        <childnode refid="166" relation="include">
+        </childnode>
+      </node>
+      <node id="167">
+        <label>/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h</label>
+        <link refid="dOCPCppAD_8h_source"/>
+      </node>
+      <node id="166">
+        <label>/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h</label>
+        <link refid="dOCP_8h_source"/>
+        <childnode refid="167" relation="include">
+        </childnode>
+      </node>
+      <node id="165">
+        <label>/home/martinon/bocop/bocop3/bocop/src/DOCP/dControl.h</label>
+        <link refid="dControl_8h_source"/>
+        <childnode refid="166" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classdODE" prot="public">dODE</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>dODE.h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;OCP.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="classdODE" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classdODE" kindref="compound">dODE</ref></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>initialize();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setTimeGrids(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t0,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tf,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::size_t<sp/>discretisation_steps,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;time_step,<sp/>std::vector&lt;double&gt;<sp/>&amp;time_step_grid,<sp/>std::vector&lt;double&gt;<sp/>&amp;time_stage_grid);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setInitialParam(<ref refid="classOCP" kindref="compound">OCP</ref><sp/>*ocp,<sp/>std::vector&lt;double&gt;<sp/>&amp;starting_point,<sp/>std::vector&lt;double&gt;<sp/>&amp;variables_lower_bounds,<sp/>std::vector&lt;double&gt;<sp/>&amp;variables_upper_bounds);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setRKStageVars(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>discretisation_steps,<sp/><ref refid="classOCP" kindref="compound">OCP</ref><sp/>*ocp,<sp/>std::vector&lt;double&gt;<sp/>&amp;starting_point,<sp/>std::vector&lt;double&gt;<sp/>&amp;variables_lower_bounds,<sp/>std::vector&lt;double&gt;<sp/>&amp;variables_upper_bounds);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+++<sp/>merge<sp/>as<sp/>setConstraints</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setBoundaryConditionsBounds(<ref refid="classOCP" kindref="compound">OCP</ref><sp/>*ocp,<sp/>std::vector&lt;double&gt;<sp/>&amp;constraints_lower_bounds,<sp/>std::vector&lt;double&gt;<sp/>&amp;constraints_upper_bounds);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setDiscretisedConstraintsBounds(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>discretisation_steps,<sp/><ref refid="classOCP" kindref="compound">OCP</ref><sp/>*ocp,<sp/>std::vector&lt;double&gt;<sp/>&amp;constraints_lower_bounds,<sp/>std::vector&lt;double&gt;<sp/>&amp;constraints_upper_bounds);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>getParam(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/>x,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>param_offset,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>dimParam,<sp/>std::vector&lt;double&gt;&amp;<sp/>parameter);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>getMultipliers(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/>lambda,<sp/>std::vector&lt;double&gt;&amp;<sp/>boundaryCondMultiplier,<sp/>std::vector&lt;std::vector&lt;double&gt;<sp/>&gt;&amp;<sp/><sp/>pathConstrMultiplier,<sp/>std::vector&lt;std::vector&lt;double&gt;<sp/>&gt;&amp;<sp/><sp/>adjointState);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>getConstraints(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/>g,<sp/>std::vector&lt;double&gt;&amp;<sp/>boundaryConditions,<sp/>std::vector&lt;std::vector&lt;double&gt;<sp/>&gt;&amp;<sp/><sp/>pathConstraints,<sp/>std::vector&lt;std::vector&lt;double&gt;<sp/>&gt;&amp;<sp/>dynEquations);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//void<sp/>getBoundaryConditions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//void<sp/>getPathConstraints</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>getters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::vector&lt;double&gt;&gt;&amp;<sp/>butcherA(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>butcher_a;<sp/>};</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>butcherB(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>butcher_b;<sp/>}<sp/>;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;<sp/>butcherC(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>butcher_c;<sp/>}<sp/>;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::size_t<sp/>RKStages(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rk_stages;<sp/>};</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>coefficients<sp/>for<sp/>the<sp/>generalized<sp/>Runge<sp/>Kutta<sp/>method<sp/>(using<sp/>butcher<sp/>notations)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>c1<sp/><sp/><sp/>a11<sp/>...<sp/>a1s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>.<sp/><sp/><sp/><sp/>.<sp/><sp/><sp/><sp/><sp/><sp/><sp/>.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>cs<sp/><sp/><sp/>as1<sp/>...<sp/>ass</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>b1<sp/>...<sp/>bs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>std::size_t<sp/>rk_stages;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>butcher_b;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>butcher_c;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>std::vector&lt;std::vector&lt;double&gt;&gt;<sp/>butcher_a;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment">//<sp/>dODE.h<sp/>ends<sp/>here</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h"/>
+  </compounddef>
+</doxygen>

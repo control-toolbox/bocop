@@ -1,0 +1,1064 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="classdOCP" kind="class" language="C++" prot="public">
+    <compoundname>dOCP</compoundname>
+    <basecompoundref refid="classNLP" prot="public" virt="non-virtual">NLP</basecompoundref>
+    <derivedcompoundref refid="classdOCPCppAD" prot="public" virt="non-virtual">dOCPCppAD</derivedcompoundref>
+    <includes refid="dOCP_8h" local="no">dOCP.h</includes>
+      <sectiondef kind="user-defined">
+      <header>direct transcription parts</header>
+      <memberdef kind="variable" id="classdOCP_1a11c557844b150c96f6a3dfc572864154" prot="public" static="no" mutable="no">
+        <type><ref refid="classdODE" kindref="compound">dODE</ref> *</type>
+        <definition>dODE* dOCP::rk</definition>
+        <argsstring></argsstring>
+        <name>rk</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="68" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCP_1a0c6c694d98d9da8cbf38795e6fcc4396" prot="public" static="no" mutable="no">
+        <type><ref refid="classdState" kindref="compound">dState</ref> *</type>
+        <definition>dState* dOCP::xd</definition>
+        <argsstring></argsstring>
+        <name>xd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="69" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCP_1a4734fa3896396b025811dca7d0aa2576" prot="public" static="no" mutable="no">
+        <type><ref refid="classdControl" kindref="compound">dControl</ref> *</type>
+        <definition>dControl* dOCP::ud</definition>
+        <argsstring></argsstring>
+        <name>ud</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="70" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Optimal Control Problem specific functions</header>
+      <description><para>note: later this class could be abstracted and specified according to the transcription method used ? eg. full disc, direct collocation, CVP, ... </para></description>
+      <memberdef kind="function" id="classdOCP_1af6fd86dfd94f38a8bee8d97c49fbd260" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>view_t&lt; typename C::value_type &gt;</type>
+        <definition>view_t&lt;typename C::value_type&gt; dOCP::stateAtStep</definition>
+        <argsstring>(const C &amp;, std::size_t)</argsstring>
+        <name>stateAtStep</name>
+        <param>
+          <type>const C &amp;</type>
+        </param>
+        <param>
+          <type>std::size_t</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="99" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1afb37d1f992f33d6de17190b1c07aa5c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>view_t&lt; typename C::value_type &gt;</type>
+        <definition>view_t&lt;typename C::value_type&gt; dOCP::controlAtStage</definition>
+        <argsstring>(const C &amp;, std::size_t, std::size_t)</argsstring>
+        <name>controlAtStage</name>
+        <param>
+          <type>const C &amp;</type>
+        </param>
+        <param>
+          <type>std::size_t</type>
+        </param>
+        <param>
+          <type>std::size_t</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="100" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1a1b7fa520e0ad10f0d547c6f26beaaf1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>view_t&lt; typename C::value_type &gt;</type>
+        <definition>view_t&lt;typename C::value_type&gt; dOCP::getParameters</definition>
+        <argsstring>(const C &amp;)</argsstring>
+        <name>getParameters</name>
+        <param>
+          <type>const C &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="101" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1a685790c3cd5bd6255e7e2266e9d0d4e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>C::value_type</type>
+        <definition>C::value_type dOCP::kComponent</definition>
+        <argsstring>(const C &amp;, std::size_t, std::size_t, std::size_t)</argsstring>
+        <name>kComponent</name>
+        <param>
+          <type>const C &amp;</type>
+        </param>
+        <param>
+          <type>std::size_t</type>
+        </param>
+        <param>
+          <type>std::size_t</type>
+        </param>
+        <param>
+          <type>std::size_t</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="102" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1a639dcac887b3efc0251c7015d1f9db27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; typename C::value_type &gt;</type>
+        <definition>std::vector&lt;typename C::value_type&gt; dOCP::stateAtStage</definition>
+        <argsstring>(const C &amp;, std::size_t, std::size_t)</argsstring>
+        <name>stateAtStage</name>
+        <param>
+          <type>const C &amp;</type>
+        </param>
+        <param>
+          <type>std::size_t</type>
+        </param>
+        <param>
+          <type>std::size_t</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="103" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1a1cab217fb330407630ee40e6df3fd4ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; typename C::value_type &gt;</type>
+        <definition>std::vector&lt;typename C::value_type&gt; dOCP::controlAtStep</definition>
+        <argsstring>(const C &amp;, std::size_t)</argsstring>
+        <name>controlAtStep</name>
+        <param>
+          <type>const C &amp;</type>
+        </param>
+        <param>
+          <type>std::size_t</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="104" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classdOCP_1af47fb45b1f0c48e707cbde8291a604b8" prot="public" static="no" mutable="no">
+        <type><ref refid="classOCP" kindref="compound">OCP</ref> *</type>
+        <definition>OCP* dOCP::ocp</definition>
+        <argsstring></argsstring>
+        <name>ocp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="classOCP" kindref="compound">OCP</ref> member </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="65" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCP_1a0bc445bb68d814d63ee2c61c0c05cbf1" prot="public" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t dOCP::discretisation_steps</definition>
+        <argsstring></argsstring>
+        <name>discretisation_steps</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="75" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCP_1ada3b295c7f049239757c826e12e47107" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double dOCP::time_step</definition>
+        <argsstring></argsstring>
+        <name>time_step</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="76" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCP_1a015cb4bcb1a4eac057a81b3ee852abfc" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; dOCP::time_step_grid</definition>
+        <argsstring></argsstring>
+        <name>time_step_grid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="77" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCP_1a36bfb72240d8b7bd0c3b6763c153c125" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; dOCP::time_stage_grid</definition>
+        <argsstring></argsstring>
+        <name>time_stage_grid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="78" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCP_1acde0ccf480e633f8d6d8676b38ebcae6" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; dOCP::starting_point</definition>
+        <argsstring></argsstring>
+        <name>starting_point</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="81" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCP_1ad4566529253105c7faec6d78a905aeaf" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string dOCP::solution_file</definition>
+        <argsstring></argsstring>
+        <name>solution_file</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="84" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdOCP_1a74246f967cb9b82de0a47fd76ce56987" prot="private" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t dOCP::variables_size</definition>
+        <argsstring></argsstring>
+        <name>variables_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="114" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCP_1a36194760d1b4fcf36ec42e255b79ee37" prot="private" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t dOCP::constraints_size</definition>
+        <argsstring></argsstring>
+        <name>constraints_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="115" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCP_1ab973809df6be1ad7dfab4a41c15b08ae" prot="private" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t dOCP::variables_offset_state</definition>
+        <argsstring></argsstring>
+        <name>variables_offset_state</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="116" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCP_1acb012fb1c531bc7133676b2a25a2fae4" prot="private" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t dOCP::variables_offset_control</definition>
+        <argsstring></argsstring>
+        <name>variables_offset_control</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="117" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCP_1ad649673fffcc2c81ebe0d4a5ff5c90e0" prot="private" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t dOCP::variables_offset_param</definition>
+        <argsstring></argsstring>
+        <name>variables_offset_param</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="118" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCP_1a06ada17d741fbf0ba54bc1cf01723fc2" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; dOCP::variables_lower_bounds</definition>
+        <argsstring></argsstring>
+        <name>variables_lower_bounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="121" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCP_1a03b55e0e8adf12d0a5c7df17be5c39b1" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; dOCP::variables_upper_bounds</definition>
+        <argsstring></argsstring>
+        <name>variables_upper_bounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="122" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCP_1aa764a552e63052582e082dbfc8315448" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; dOCP::constraints_lower_bounds</definition>
+        <argsstring></argsstring>
+        <name>constraints_lower_bounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="123" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdOCP_1a2ca20d6dafbf430321ecd432ec20e65e" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; dOCP::constraints_upper_bounds</definition>
+        <argsstring></argsstring>
+        <name>constraints_upper_bounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="124" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdOCP_1a380dcb7b19680113c79fbaa39533b02d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dOCP::dOCP</definition>
+        <argsstring>(void)</argsstring>
+        <name>dOCP</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="43" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.cpp" bodystart="9" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1ae1141ee92552debb72eb5a127db568c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dOCP::~dOCP</definition>
+        <argsstring>(void)</argsstring>
+        <name>~dOCP</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="44" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.cpp" bodystart="14" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1aeb79cbe5d8d7f02108af1824889612ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void dOCP::initialize</definition>
+        <argsstring>(void) override</argsstring>
+        <name>initialize</name>
+        <reimplements refid="classNLP_1a41c57c28509ed3e4e688a618d663a62e">initialize</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="48" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.cpp" bodystart="17" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1a27a57a8b3e38c72fa1f106ed9286cc7b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string dOCP::solutionFile</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>solutionFile</name>
+        <reimplements refid="classNLP_1af6ba3744fb5c97e94c9e818d579329be">solutionFile</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="51" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1a68cd456edbb53a4c0bf0bcc7c62f3500" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void dOCP::setSolutionFile</definition>
+        <argsstring>(const std::string solfile) override</argsstring>
+        <name>setSolutionFile</name>
+        <reimplements refid="classNLP_1ac2183089c3d4d7f73c5a5eec0c72b52d">setSolutionFile</reimplements>
+        <param>
+          <type>const std::string</type>
+          <declname>solfile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="52" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="52" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1ab91a553f7d62e1db2062882277750fa3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void dOCP::writeSolution</definition>
+        <argsstring>(const int status, const int iter, const double objective, const double constraints_viol, const double *variables, const double *multipliers, const double *constraints) override</argsstring>
+        <name>writeSolution</name>
+        <reimplements refid="classNLP_1a16eeab6d375ce22c62731b5ddd49f6a7">writeSolution</reimplements>
+        <param>
+          <type>const int</type>
+          <declname>status</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>iter</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>objective</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>constraints_viol</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>variables</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>multipliers</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>constraints</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="53" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.cpp" bodystart="54" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1a288727523c41ea99a8dd83d87e5a5ac5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t dOCP::variablesSize</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>variablesSize</name>
+        <reimplements refid="classNLP_1aa3615b1ef4b86b180348188b4fc53bf7">variablesSize</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="56" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="56" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1ac49cf792ff00da0f89f0299686d780c5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t dOCP::constraintsSize</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>constraintsSize</name>
+        <reimplements refid="classNLP_1a7f28a342578c1a7991cc56e9aeebf698">constraintsSize</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="57" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="57" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1a21717e4e3dceae7db4f2e91c763f12ce" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; dOCP::startingPoint</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>startingPoint</name>
+        <reimplements refid="classNLP_1ac18c51f4b215b9d9a0133cff20301ba0">startingPoint</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="58" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="58" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1a95ed8d25a72dcfb9d740c9dac78071cc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; dOCP::variablesLowerBounds</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>variablesLowerBounds</name>
+        <reimplements refid="classNLP_1ad7684e29770fe5bf1691c68ae0cbbdb0">variablesLowerBounds</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="59" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1ac1bb98dc8fbe78ff860f0ca24a47e52b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; dOCP::variablesUpperBounds</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>variablesUpperBounds</name>
+        <reimplements refid="classNLP_1af78b52b7a7d93e4f2c07c9c44ac2088f">variablesUpperBounds</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="60" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1a27221c0c62f1aed2d79d15b64525bcaf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; dOCP::constraintsLowerBounds</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>constraintsLowerBounds</name>
+        <reimplements refid="classNLP_1ad31449accbda173919415bc8c7e1d50e">constraintsLowerBounds</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="61" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1a83514f90afb125f54728d25ddf0d92d6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; dOCP::constraintsUpperBounds</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>constraintsUpperBounds</name>
+        <reimplements refid="classNLP_1a46e50ed4fd827fc35cb4650d3594a0c2">constraintsUpperBounds</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="62" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="62" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1a6e07c2f2b4323aed12489b9f6efbf693" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dOCP::setOCP</definition>
+        <argsstring>(OCP *ocp)</argsstring>
+        <name>setOCP</name>
+        <param>
+          <type><ref refid="classOCP" kindref="compound">OCP</ref> *</type>
+          <declname>ocp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="72" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="72" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1a9ced7829a08743190b8f6b9416d9e6e5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t dOCP::discretisationSteps</definition>
+        <argsstring>()</argsstring>
+        <name>discretisationSteps</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="88" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="88" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1a92d6cbb96ae98df7f3c003e576dca161" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t dOCP::RKStages</definition>
+        <argsstring>()</argsstring>
+        <name>RKStages</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="89" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="89" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1a206c4e56f7c02e2326cb54dd55db28cc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double dOCP::timeStep</definition>
+        <argsstring>()</argsstring>
+        <name>timeStep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="90" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="90" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1ab40bce7acc0b321de5741e47cf52e1bd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double dOCP::timeAtStep</definition>
+        <argsstring>(std::size_t step) const </argsstring>
+        <name>timeAtStep</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>step</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="91" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="91" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1ae75314e9d7f76fb38117f16036769738" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double dOCP::timeAtStage</definition>
+        <argsstring>(std::size_t step, std::size_t stage) const </argsstring>
+        <name>timeAtStage</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>step</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>stage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="92" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="92" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1a69fb3c40b52df366368fbceb4ad728ac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto dOCP::stateAtStep</definition>
+        <argsstring>(const C &amp;v, std::size_t step) -&gt; view_t&lt; typename C::value_type &gt;</argsstring>
+        <name>stateAtStep</name>
+        <param>
+          <type>const C &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>step</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="134" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="134" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1a210cef245133bf5ac12907469d7c7ffc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto dOCP::controlAtStage</definition>
+        <argsstring>(const C &amp;v, std::size_t step, std::size_t stage) -&gt; view_t&lt; typename C::value_type &gt;</argsstring>
+        <name>controlAtStage</name>
+        <param>
+          <type>const C &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>step</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>stage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="146" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="146" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1af71992a8486dbe41d42412c1cb8df665" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto dOCP::getParameters</definition>
+        <argsstring>(const C &amp;v) -&gt; view_t&lt; typename C::value_type &gt;</argsstring>
+        <name>getParameters</name>
+        <param>
+          <type>const C &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="158" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="158" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1a2f8b9e85ae24c7089bb3be0de4e8d228" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto dOCP::kComponent</definition>
+        <argsstring>(const C &amp;v, std::size_t step, std::size_t stage, std::size_t index) -&gt; typename C::value_type</argsstring>
+        <name>kComponent</name>
+        <param>
+          <type>const C &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>step</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>stage</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="171" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="171" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1a00ba6cb9c9c1edef7e375f3ee713907a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto dOCP::stateAtStage</definition>
+        <argsstring>(const C &amp;v, std::size_t step, std::size_t stage) -&gt; std::vector&lt; typename C::value_type &gt;</argsstring>
+        <name>stateAtStage</name>
+        <param>
+          <type>const C &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>step</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>stage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="184" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="184" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="classdOCP_1a0d2ed98a77d5b165b51e7bcf8fa09605" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto dOCP::controlAtStep</definition>
+        <argsstring>(const C &amp;v, std::size_t step) -&gt; std::vector&lt; typename C::value_type &gt;</argsstring>
+        <name>controlAtStep</name>
+        <param>
+          <type>const C &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>step</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>**+++ put this in dControl** </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="206" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="206" bodyend="220"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classdOCP" kindref="compound">dOCP</ref> defines a discretized optimal control problem </para>    </briefdescription>
+    <detaileddescription>
+<para><hruler/>
+</para><para>It derives from class <ref refid="classNLP" kindref="compound">NLP</ref> and compounds class <ref refid="classOCP" kindref="compound">OCP</ref>. The discretized problem is built from the original control problem by direct transcription, with the state dynamics discretised by a generalized Runge Kutta formula (defined with Butcher tables) <bold>NB.currently hardcoded implicit midpoint...</bold> The objective and constraints functions for the <ref refid="classNLP" kindref="compound">NLP</ref> solver are defined in dOCP_CppAD, with their derivatives.</para><para>Direct transcription layout for <ref refid="classNLP" kindref="compound">NLP</ref>:<itemizedlist>
+<listitem><para>general layout of variables X: { [STATE] [CONTROL] [PARAMETERS] [ODE_INTERNAL] }<linebreak/>
+more precisely X: {[state ... state] [(controlstage ... controlstage) ...(controlstage ... controlstage)] [parameters] [(kstage ... kstage) ... (kstage ... kstage)] }</para></listitem><listitem><para>general layout of constraints C: { [BOUNDARY CONDITIONS] [DISCRETIZED ODE] [PATH CONSTRAINTS] }<linebreak/>
+more precisely C: {boundarycond [dynstep (dynstage...dynstage) pathcond] ... [dynstep (dynstage...dynstage) pathcond] }</para></listitem></itemizedlist>
+</para><para><emphasis>Note: ideally, transcription should be as modular as possible to allow different formulations</emphasis> </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="45">
+        <label>NLP</label>
+        <link refid="classNLP"/>
+      </node>
+      <node id="44">
+        <label>dOCP</label>
+        <link refid="classdOCP"/>
+        <childnode refid="45" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>dOCPCppAD</label>
+        <link refid="classdOCPCppAD"/>
+        <childnode refid="44" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="48">
+        <label>NLP</label>
+        <link refid="classNLP"/>
+      </node>
+      <node id="47">
+        <label>dOCP</label>
+        <link refid="classdOCP"/>
+        <childnode refid="48" relation="public-inheritance">
+        </childnode>
+        <childnode refid="49" relation="usage">
+          <edgelabel>xd</edgelabel>
+        </childnode>
+        <childnode refid="50" relation="usage">
+          <edgelabel>ocp</edgelabel>
+        </childnode>
+        <childnode refid="51" relation="usage">
+          <edgelabel>ud</edgelabel>
+        </childnode>
+        <childnode refid="52" relation="usage">
+          <edgelabel>rk</edgelabel>
+        </childnode>
+      </node>
+      <node id="52">
+        <label>dODE</label>
+        <link refid="classdODE"/>
+      </node>
+      <node id="50">
+        <label>OCP</label>
+        <link refid="classOCP"/>
+      </node>
+      <node id="51">
+        <label>dControl</label>
+        <link refid="classdControl"/>
+      </node>
+      <node id="49">
+        <label>dState</label>
+        <link refid="classdState"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" line="41" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h" bodystart="40" bodyend="127"/>
+    <listofallmembers>
+      <member refid="classdOCP_1aa764a552e63052582e082dbfc8315448" prot="private" virt="non-virtual"><scope>dOCP</scope><name>constraints_lower_bounds</name></member>
+      <member refid="classdOCP_1a36194760d1b4fcf36ec42e255b79ee37" prot="private" virt="non-virtual"><scope>dOCP</scope><name>constraints_size</name></member>
+      <member refid="classdOCP_1a2ca20d6dafbf430321ecd432ec20e65e" prot="private" virt="non-virtual"><scope>dOCP</scope><name>constraints_upper_bounds</name></member>
+      <member refid="classdOCP_1a27221c0c62f1aed2d79d15b64525bcaf" prot="public" virt="virtual"><scope>dOCP</scope><name>constraintsLowerBounds</name></member>
+      <member refid="classdOCP_1ac49cf792ff00da0f89f0299686d780c5" prot="public" virt="virtual"><scope>dOCP</scope><name>constraintsSize</name></member>
+      <member refid="classdOCP_1a83514f90afb125f54728d25ddf0d92d6" prot="public" virt="virtual"><scope>dOCP</scope><name>constraintsUpperBounds</name></member>
+      <member refid="classdOCP_1afb37d1f992f33d6de17190b1c07aa5c9" prot="public" virt="non-virtual"><scope>dOCP</scope><name>controlAtStage</name></member>
+      <member refid="classdOCP_1a210cef245133bf5ac12907469d7c7ffc" prot="public" virt="non-virtual"><scope>dOCP</scope><name>controlAtStage</name></member>
+      <member refid="classdOCP_1a1cab217fb330407630ee40e6df3fd4ed" prot="public" virt="non-virtual"><scope>dOCP</scope><name>controlAtStep</name></member>
+      <member refid="classdOCP_1a0d2ed98a77d5b165b51e7bcf8fa09605" prot="public" virt="non-virtual"><scope>dOCP</scope><name>controlAtStep</name></member>
+      <member refid="classdOCP_1a0bc445bb68d814d63ee2c61c0c05cbf1" prot="public" virt="non-virtual"><scope>dOCP</scope><name>discretisation_steps</name></member>
+      <member refid="classdOCP_1a9ced7829a08743190b8f6b9416d9e6e5" prot="public" virt="non-virtual"><scope>dOCP</scope><name>discretisationSteps</name></member>
+      <member refid="classdOCP_1a380dcb7b19680113c79fbaa39533b02d" prot="public" virt="non-virtual"><scope>dOCP</scope><name>dOCP</name></member>
+      <member refid="classNLP_1a3fb766d26ae7bb80b52bc53a0ba875b0" prot="public" virt="pure-virtual"><scope>dOCP</scope><name>evalConstraints</name></member>
+      <member refid="classNLP_1abf5dcf13856dd753f39030d0ae271ced" prot="public" virt="pure-virtual"><scope>dOCP</scope><name>evalConstraintsJacobian</name></member>
+      <member refid="classNLP_1aacdce4e919dd809afb30cbfd17e87634" prot="public" virt="pure-virtual"><scope>dOCP</scope><name>evalLagrangian</name></member>
+      <member refid="classNLP_1a11fb6373e50dad8e0134876f689135e8" prot="public" virt="pure-virtual"><scope>dOCP</scope><name>evalLagrangianHessian</name></member>
+      <member refid="classNLP_1accc30c854eca5e3e5d3924156c907090" prot="public" virt="pure-virtual"><scope>dOCP</scope><name>evalObjective</name></member>
+      <member refid="classNLP_1a193e829428b575b3ef0a6edcee7009b2" prot="public" virt="pure-virtual"><scope>dOCP</scope><name>evalObjectiveGradient</name></member>
+      <member refid="classdOCP_1a1b7fa520e0ad10f0d547c6f26beaaf1f" prot="public" virt="non-virtual"><scope>dOCP</scope><name>getParameters</name></member>
+      <member refid="classdOCP_1af71992a8486dbe41d42412c1cb8df665" prot="public" virt="non-virtual"><scope>dOCP</scope><name>getParameters</name></member>
+      <member refid="classNLP_1a508f6d65522703fb6575b61d92744038" prot="public" virt="pure-virtual"><scope>dOCP</scope><name>hessianColIndices</name></member>
+      <member refid="classNLP_1aa93c92d2837660540540d8e8d12fae75" prot="public" virt="pure-virtual"><scope>dOCP</scope><name>hessianNonZeroEntries</name></member>
+      <member refid="classNLP_1a6ef75d9960953802e97b59bf2df10966" prot="public" virt="pure-virtual"><scope>dOCP</scope><name>hessianRowIndices</name></member>
+      <member refid="classdOCP_1aeb79cbe5d8d7f02108af1824889612ad" prot="public" virt="virtual"><scope>dOCP</scope><name>initialize</name></member>
+      <member refid="classNLP_1a4a20391b3cef8b5c4b9c465d54e6c29f" prot="public" virt="pure-virtual"><scope>dOCP</scope><name>jacobianColIndices</name></member>
+      <member refid="classNLP_1ac5d6174373e7c916ad2fb90ca0a1ae4d" prot="public" virt="pure-virtual"><scope>dOCP</scope><name>jacobianNonZeroEntries</name></member>
+      <member refid="classNLP_1af258447020822eee584c270e768ecee7" prot="public" virt="pure-virtual"><scope>dOCP</scope><name>jacobianRowIndices</name></member>
+      <member refid="classdOCP_1a685790c3cd5bd6255e7e2266e9d0d4e5" prot="public" virt="non-virtual"><scope>dOCP</scope><name>kComponent</name></member>
+      <member refid="classdOCP_1a2f8b9e85ae24c7089bb3be0de4e8d228" prot="public" virt="non-virtual"><scope>dOCP</scope><name>kComponent</name></member>
+      <member refid="classdOCP_1af47fb45b1f0c48e707cbde8291a604b8" prot="public" virt="non-virtual"><scope>dOCP</scope><name>ocp</name></member>
+      <member refid="classdOCP_1a11c557844b150c96f6a3dfc572864154" prot="public" virt="non-virtual"><scope>dOCP</scope><name>rk</name></member>
+      <member refid="classdOCP_1a92d6cbb96ae98df7f3c003e576dca161" prot="public" virt="non-virtual"><scope>dOCP</scope><name>RKStages</name></member>
+      <member refid="classNLP_1a1313b08fe19bd0454b968c5c7d1ba9bf" prot="public" virt="pure-virtual"><scope>dOCP</scope><name>setConstraintsJacobianSparsityPattern</name></member>
+      <member refid="classNLP_1a78b9ec832522a3c514154a5f5877dcfb" prot="public" virt="pure-virtual"><scope>dOCP</scope><name>setLagrangianHessianSparsityPattern</name></member>
+      <member refid="classdOCP_1a6e07c2f2b4323aed12489b9f6efbf693" prot="public" virt="non-virtual"><scope>dOCP</scope><name>setOCP</name></member>
+      <member refid="classdOCP_1a68cd456edbb53a4c0bf0bcc7c62f3500" prot="public" virt="virtual"><scope>dOCP</scope><name>setSolutionFile</name></member>
+      <member refid="classdOCP_1ad4566529253105c7faec6d78a905aeaf" prot="public" virt="non-virtual"><scope>dOCP</scope><name>solution_file</name></member>
+      <member refid="classdOCP_1a27a57a8b3e38c72fa1f106ed9286cc7b" prot="public" virt="virtual"><scope>dOCP</scope><name>solutionFile</name></member>
+      <member refid="classdOCP_1acde0ccf480e633f8d6d8676b38ebcae6" prot="public" virt="non-virtual"><scope>dOCP</scope><name>starting_point</name></member>
+      <member refid="classdOCP_1a21717e4e3dceae7db4f2e91c763f12ce" prot="public" virt="virtual"><scope>dOCP</scope><name>startingPoint</name></member>
+      <member refid="classdOCP_1a639dcac887b3efc0251c7015d1f9db27" prot="public" virt="non-virtual"><scope>dOCP</scope><name>stateAtStage</name></member>
+      <member refid="classdOCP_1a00ba6cb9c9c1edef7e375f3ee713907a" prot="public" virt="non-virtual"><scope>dOCP</scope><name>stateAtStage</name></member>
+      <member refid="classdOCP_1af6fd86dfd94f38a8bee8d97c49fbd260" prot="public" virt="non-virtual"><scope>dOCP</scope><name>stateAtStep</name></member>
+      <member refid="classdOCP_1a69fb3c40b52df366368fbceb4ad728ac" prot="public" virt="non-virtual"><scope>dOCP</scope><name>stateAtStep</name></member>
+      <member refid="classdOCP_1a36bfb72240d8b7bd0c3b6763c153c125" prot="public" virt="non-virtual"><scope>dOCP</scope><name>time_stage_grid</name></member>
+      <member refid="classdOCP_1ada3b295c7f049239757c826e12e47107" prot="public" virt="non-virtual"><scope>dOCP</scope><name>time_step</name></member>
+      <member refid="classdOCP_1a015cb4bcb1a4eac057a81b3ee852abfc" prot="public" virt="non-virtual"><scope>dOCP</scope><name>time_step_grid</name></member>
+      <member refid="classdOCP_1ae75314e9d7f76fb38117f16036769738" prot="public" virt="non-virtual"><scope>dOCP</scope><name>timeAtStage</name></member>
+      <member refid="classdOCP_1ab40bce7acc0b321de5741e47cf52e1bd" prot="public" virt="non-virtual"><scope>dOCP</scope><name>timeAtStep</name></member>
+      <member refid="classdOCP_1a206c4e56f7c02e2326cb54dd55db28cc" prot="public" virt="non-virtual"><scope>dOCP</scope><name>timeStep</name></member>
+      <member refid="classdOCP_1a4734fa3896396b025811dca7d0aa2576" prot="public" virt="non-virtual"><scope>dOCP</scope><name>ud</name></member>
+      <member refid="classdOCP_1a06ada17d741fbf0ba54bc1cf01723fc2" prot="private" virt="non-virtual"><scope>dOCP</scope><name>variables_lower_bounds</name></member>
+      <member refid="classdOCP_1acb012fb1c531bc7133676b2a25a2fae4" prot="private" virt="non-virtual"><scope>dOCP</scope><name>variables_offset_control</name></member>
+      <member refid="classdOCP_1ad649673fffcc2c81ebe0d4a5ff5c90e0" prot="private" virt="non-virtual"><scope>dOCP</scope><name>variables_offset_param</name></member>
+      <member refid="classdOCP_1ab973809df6be1ad7dfab4a41c15b08ae" prot="private" virt="non-virtual"><scope>dOCP</scope><name>variables_offset_state</name></member>
+      <member refid="classdOCP_1a74246f967cb9b82de0a47fd76ce56987" prot="private" virt="non-virtual"><scope>dOCP</scope><name>variables_size</name></member>
+      <member refid="classdOCP_1a03b55e0e8adf12d0a5c7df17be5c39b1" prot="private" virt="non-virtual"><scope>dOCP</scope><name>variables_upper_bounds</name></member>
+      <member refid="classdOCP_1a95ed8d25a72dcfb9d740c9dac78071cc" prot="public" virt="virtual"><scope>dOCP</scope><name>variablesLowerBounds</name></member>
+      <member refid="classdOCP_1a288727523c41ea99a8dd83d87e5a5ac5" prot="public" virt="virtual"><scope>dOCP</scope><name>variablesSize</name></member>
+      <member refid="classdOCP_1ac1bb98dc8fbe78ff860f0ca24a47e52b" prot="public" virt="virtual"><scope>dOCP</scope><name>variablesUpperBounds</name></member>
+      <member refid="classdOCP_1ab91a553f7d62e1db2062882277750fa3" prot="public" virt="virtual"><scope>dOCP</scope><name>writeSolution</name></member>
+      <member refid="classdOCP_1a0c6c694d98d9da8cbf38795e6fcc4396" prot="public" virt="non-virtual"><scope>dOCP</scope><name>xd</name></member>
+      <member refid="classdOCP_1ae1141ee92552debb72eb5a127db568c2" prot="public" virt="non-virtual"><scope>dOCP</scope><name>~dOCP</name></member>
+      <member refid="classNLP_1a0a1dd711bd99d7a66b61c72d11630cde" prot="public" virt="virtual"><scope>dOCP</scope><name>~NLP</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

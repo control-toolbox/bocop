@@ -1,0 +1,285 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="solution_8h" kind="file" language="C++">
+    <compoundname>solution.h</compoundname>
+    <includes local="no">vector</includes>
+    <includes local="no">string</includes>
+    <includes local="no">fstream</includes>
+    <includes local="no">iostream</includes>
+    <includedby refid="dOCP_8h" local="no">/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h</includedby>
+    <includedby refid="solution_8cpp" local="no">/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.cpp</includedby>
+    <incdepgraph>
+      <node id="212">
+        <label>string</label>
+      </node>
+      <node id="213">
+        <label>fstream</label>
+      </node>
+      <node id="211">
+        <label>vector</label>
+      </node>
+      <node id="214">
+        <label>iostream</label>
+      </node>
+      <node id="210">
+        <label>/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h</label>
+        <link refid="solution.h"/>
+        <childnode refid="211" relation="include">
+        </childnode>
+        <childnode refid="212" relation="include">
+        </childnode>
+        <childnode refid="213" relation="include">
+        </childnode>
+        <childnode refid="214" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="217">
+        <label>/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h</label>
+        <link refid="dOCPCppAD_8h_source"/>
+      </node>
+      <node id="216">
+        <label>/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h</label>
+        <link refid="dOCP_8h_source"/>
+        <childnode refid="217" relation="include">
+        </childnode>
+      </node>
+      <node id="215">
+        <label>/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h</label>
+        <link refid="solution.h"/>
+        <childnode refid="216" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classdOCPsolution" prot="public">dOCPsolution</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="solution_8h_1aaf5322189c9d18a83a86df143b423ba7" prot="public" static="no">
+        <name>SOLVER_STATUS_TITLE</name>
+        <initializer>&quot;Solver status: &quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" line="9" column="9" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="solution_8h_1a6f706ddd8fefedd53302522dbebcd0e6" prot="public" static="no">
+        <name>SOLVER_ITERATIONS_TITLE</name>
+        <initializer>&quot;Solver iterations: &quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" line="10" column="9" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="solution_8h_1ae6ec0e45b1e3e1b4224c8832db4b23f6" prot="public" static="no">
+        <name>OBJECTIVE_FUNCTION_TITLE</name>
+        <initializer>&quot;Objective function: &quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" line="11" column="9" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="solution_8h_1aa3dbcb7086c6e71ee670cc543a7f3888" prot="public" static="no">
+        <name>CONSTRAINT_VIOLATION_TITLE</name>
+        <initializer>&quot;Constraints violation: &quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" line="12" column="9" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="solution_8h_1a6979de8baf7845888cd574c4d001d202" prot="public" static="no">
+        <name>TIME_STEPS_TITLE</name>
+        <initializer>&quot;# Time steps&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" line="14" column="9" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="solution_8h_1ab7ced54a3c50c4452ffc744a030a139b" prot="public" static="no">
+        <name>TIME_STAGES_TITLE</name>
+        <initializer>&quot;# Time stages&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" line="15" column="9" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="solution_8h_1af6737d62160ca5469ab3293849eeabea" prot="public" static="no">
+        <name>STATE_TITLE</name>
+        <initializer>&quot;# State&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" line="16" column="9" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="solution_8h_1ae1b910b70dc1dc9d62581cb6e040cdf8" prot="public" static="no">
+        <name>CONTROL_TITLE</name>
+        <initializer>&quot;# Control&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" line="17" column="9" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="solution_8h_1a60be5e4d0966d472044f3ea60d8eaeda" prot="public" static="no">
+        <name>PARAMETER_TITLE</name>
+        <initializer>&quot;# Parameters&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" line="18" column="9" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="solution_8h_1ae73af1a7ea6d518c28f9cd92878986a9" prot="public" static="no">
+        <name>MULTI_BOUNDARY_CONDITION_TITLE</name>
+        <initializer>&quot;# Multipliers associated to the boundary conditions&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" line="19" column="9" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="solution_8h_1a315f0a50833ac81ab5a1616881c86ef3" prot="public" static="no">
+        <name>MULTI_PATH_CONSTRAINTS_TITLE</name>
+        <initializer>&quot;# Multipliers associated to the path constraints&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" line="20" column="9" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="solution_8h_1a64e9af0305f482f45bcae54e137ab130" prot="public" static="no">
+        <name>ADJOINT_STATE_TITLE</name>
+        <initializer>&quot;# Adjoint state&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" line="21" column="9" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="solution_8h_1ad3a143511f49d7d410b0c0fd9f79eac6" prot="public" static="no">
+        <name>BOUNDARY_TITLE</name>
+        <initializer>&quot;# Boundary Conditions&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" line="22" column="9" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="solution_8h_1a7a7aa4dbb2b452848befbedd7e358772" prot="public" static="no">
+        <name>PATH_CONSTRAINTS_TITLE</name>
+        <initializer>&quot;# Path constraints&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" line="23" column="9" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//+++<sp/>test<sp/>part<sp/>should<sp/>be<sp/>removed<sp/>(at<sp/>least<sp/>splitted<sp/>to<sp/>tools)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SOLVER_STATUS_TITLE<sp/>&quot;Solver<sp/>status:<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SOLVER_ITERATIONS_TITLE<sp/>&quot;Solver<sp/>iterations:<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>OBJECTIVE_FUNCTION_TITLE<sp/>&quot;Objective<sp/>function:<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONSTRAINT_VIOLATION_TITLE<sp/>&quot;Constraints<sp/>violation:<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TIME_STEPS_TITLE<sp/>&quot;#<sp/>Time<sp/>steps&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TIME_STAGES_TITLE<sp/>&quot;#<sp/>Time<sp/>stages&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>STATE_TITLE<sp/>&quot;#<sp/>State&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONTROL_TITLE<sp/>&quot;#<sp/>Control&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PARAMETER_TITLE<sp/>&quot;#<sp/>Parameters&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MULTI_BOUNDARY_CONDITION_TITLE<sp/>&quot;#<sp/>Multipliers<sp/>associated<sp/>to<sp/>the<sp/>boundary<sp/>conditions&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MULTI_PATH_CONSTRAINTS_TITLE<sp/>&quot;#<sp/>Multipliers<sp/>associated<sp/>to<sp/>the<sp/>path<sp/>constraints&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADJOINT_STATE_TITLE<sp/>&quot;#<sp/>Adjoint<sp/>state&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BOUNDARY_TITLE<sp/>&quot;#<sp/>Boundary<sp/>Conditions&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PATH_CONSTRAINTS_TITLE<sp/>&quot;#<sp/>Path<sp/>constraints&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">dOCPsolution</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>status<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iterations<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>objective<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>constraint<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>time</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>*time_step_grid<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>*time_stages_grid<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>variables</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;std::vector&lt;double&gt;<sp/>&gt;<sp/>*state<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;std::vector&lt;double&gt;<sp/>&gt;<sp/>*control<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>*parameter<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;std::vector&lt;double&gt;<sp/>&gt;<sp/>*kstage<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>multipliers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>*boundary_conditions_multiplier<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;std::vector&lt;double&gt;<sp/>&gt;<sp/>*path_constraints_multiplier<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;std::vector&lt;double&gt;<sp/>&gt;<sp/>*adjoint_state<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>constraints<sp/>(bounds<sp/>info<sp/>should<sp/>be<sp/>retrievable<sp/>from<sp/>.def<sp/>copy)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>*boundary_conditions<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;std::vector&lt;double&gt;<sp/>&gt;<sp/>*path_constraints<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;std::vector&lt;double&gt;<sp/>&gt;<sp/>*dyn_equations<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>dOCPsolution(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>dOCPsolution();<sp/></highlight><highlight class="comment">//<sp/>built<sp/>with<sp/>unitary<sp/>size</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>~dOCPsolution();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>initSize(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>readFile(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>file_path);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>readColumn(std::vector&lt;double&gt;&amp;<sp/>v,<sp/>std::ifstream&amp;<sp/>in,<sp/>std::string<sp/>label);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>init(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/solution.h"/>
+  </compounddef>
+</doxygen>

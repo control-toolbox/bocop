@@ -1,0 +1,40 @@
+image: mambaorg/micromamba:latest
+
+before_script:
+  - micromamba install -y -n base -c conda-forge mamba
+  - mamba env create -f pkg/env/bocop-linux.yaml
+  - . /opt/conda/etc/profile.d/conda.sh
+  - conda activate bocop-dev
+
+test_examples:
+  stage: test
+  tags:
+    - ci.inria.fr
+    - small
+  script:
+    - python test_bocop.py 2
+  except:
+    - feature/doc
+
+pages:
+  stage: deploy
+  tags:
+    - ci.inria.fr
+    - small
+  script:
+    - mamba install doxygen -c conda-forge
+    - cd doc && doxygen && cd ..
+    - python -m pip install sphinx
+    - python -m pip install breathe
+    - python -m pip install sphinx_rtd_theme
+    - sphinx-build doc public
+  artifacts:
+    paths:
+      - public
+  only:
+    - feature/doc
+    - master
+
+
+# add a task to build and upload conda package on master
+# would this require additional dependencies ? (eg. conda build)

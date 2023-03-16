@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>Bocop3 main workflow</title>
+    <detaileddescription>
+<para><hruler/>
+</para><para>create <ref refid="classOCP" kindref="compound">OCP</ref> and initialize from .def file</para><para>create <ref refid="classdOCP" kindref="compound">dOCP</ref> from <ref refid="classOCP" kindref="compound">OCP</ref></para><para>create <ref refid="classNLPSolver" kindref="compound">NLPSolver</ref> (Ipopt)</para><para>call solve() from <ref refid="classNLPSolver" kindref="compound">NLPSolver</ref> </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

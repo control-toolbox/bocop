@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="dir_0e0dcf0fda0f81688a2ca3e6f32089ad" kind="dir">
+    <compoundname>/home/martinon/bocop/bocop3/bocop/src/tools</compoundname>
+    <innerfile refid="bufferAdaptor_8h">bufferAdaptor.h</innerfile>
+    <innerfile refid="tools_8cpp">tools.cpp</innerfile>
+    <innerfile refid="tools_8h">tools.h</innerfile>
+    <innerfile refid="tools__interpolation_8cpp">tools_interpolation.cpp</innerfile>
+    <innerfile refid="tools__interpolation_8h">tools_interpolation.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/tools/"/>
+  </compounddef>
+</doxygen>

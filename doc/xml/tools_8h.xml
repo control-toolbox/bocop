@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="tools_8h" kind="file" language="C++">
+    <compoundname>tools.h</compoundname>
+    <includes local="no">cstdlib</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">sstream</includes>
+    <includes local="no">string</includes>
+    <includes local="no">vector</includes>
+    <includes refid="bufferAdaptor_8h" local="no">bufferAdaptor.h</includes>
+    <includes refid="tools__interpolation_8h" local="no">tools_interpolation.h</includes>
+    <includedby refid="dOCPCppAD_8cpp" local="no">/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.cpp</includedby>
+    <includedby refid="dOCP_8cpp" local="no">/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.cpp</includedby>
+    <includedby refid="dOCP_8h" local="no">/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h</includedby>
+    <includedby refid="OCP_8h" local="no">/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h</includedby>
+    <includedby refid="tools_8cpp" local="yes">/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp</includedby>
+    <incdepgraph>
+      <node id="356">
+        <label>iterator</label>
+      </node>
+      <node id="358">
+        <label>tools_interpolation.h</label>
+        <link refid="tools__interpolation_8h_source"/>
+        <childnode refid="349" relation="include">
+        </childnode>
+        <childnode refid="350" relation="include">
+        </childnode>
+        <childnode refid="353" relation="include">
+        </childnode>
+      </node>
+      <node id="357">
+        <label>stdexcept</label>
+      </node>
+      <node id="352">
+        <label>string</label>
+      </node>
+      <node id="348">
+        <label>/home/martinon/bocop/bocop3/bocop/src/tools/tools.h</label>
+        <link refid="tools.h"/>
+        <childnode refid="349" relation="include">
+        </childnode>
+        <childnode refid="350" relation="include">
+        </childnode>
+        <childnode refid="351" relation="include">
+        </childnode>
+        <childnode refid="352" relation="include">
+        </childnode>
+        <childnode refid="353" relation="include">
+        </childnode>
+        <childnode refid="354" relation="include">
+        </childnode>
+        <childnode refid="358" relation="include">
+        </childnode>
+      </node>
+      <node id="354">
+        <label>bufferAdaptor.h</label>
+        <link refid="bufferAdaptor_8h_source"/>
+        <childnode refid="355" relation="include">
+        </childnode>
+        <childnode refid="356" relation="include">
+        </childnode>
+        <childnode refid="357" relation="include">
+        </childnode>
+      </node>
+      <node id="353">
+        <label>vector</label>
+      </node>
+      <node id="351">
+        <label>sstream</label>
+      </node>
+      <node id="349">
+        <label>cstdlib</label>
+      </node>
+      <node id="350">
+        <label>iostream</label>
+      </node>
+      <node id="355">
+        <label>cstddef</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="364">
+        <label>/home/martinon/bocop/bocop3/bocop/src/DOCP/dODE.h</label>
+        <link refid="dODE_8h_source"/>
+        <childnode refid="363" relation="include">
+        </childnode>
+        <childnode refid="360" relation="include">
+        </childnode>
+      </node>
+      <node id="361">
+        <label>/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h</label>
+        <link refid="dOCPCppAD_8h_source"/>
+      </node>
+      <node id="360">
+        <label>/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h</label>
+        <link refid="dOCP_8h_source"/>
+        <childnode refid="361" relation="include">
+        </childnode>
+      </node>
+      <node id="359">
+        <label>/home/martinon/bocop/bocop3/bocop/src/tools/tools.h</label>
+        <link refid="tools.h"/>
+        <childnode refid="360" relation="include">
+        </childnode>
+        <childnode refid="362" relation="include">
+        </childnode>
+      </node>
+      <node id="363">
+        <label>/home/martinon/bocop/bocop3/bocop/src/DOCP/dControl.h</label>
+        <link refid="dControl_8h_source"/>
+        <childnode refid="360" relation="include">
+        </childnode>
+      </node>
+      <node id="365">
+        <label>/home/martinon/bocop/bocop3/bocop/src/DOCP/dState.h</label>
+        <link refid="dState_8h_source"/>
+        <childnode refid="360" relation="include">
+        </childnode>
+      </node>
+      <node id="362">
+        <label>/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h</label>
+        <link refid="OCP_8h_source"/>
+        <childnode refid="363" relation="include">
+        </childnode>
+        <childnode refid="360" relation="include">
+        </childnode>
+        <childnode refid="364" relation="include">
+        </childnode>
+        <childnode refid="365" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespacebcp">bcp</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>tools.h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>+++<sp/>todo:<sp/>split<sp/>into<sp/>sub<sp/>files<sp/>tools_fileIO,<sp/>tools_interpolation<sp/>to<sp/>be<sp/>included<sp/>in<sp/>main<sp/>.h/.cpp</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdlib&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//<sp/>regroup<sp/>other<sp/>tools_<sp/>headers<sp/>here<sp/>so<sp/>we<sp/>only<sp/>have<sp/>to<sp/>include<sp/>tools.h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;bufferAdaptor.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;tools_interpolation.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacebcp" kindref="compound">bcp</ref></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//<sp/>read<sp/>data<sp/>files</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">std::size_t<sp/>readFileToVector(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>filename,<sp/>std::vector&lt;double&gt;&amp;<sp/>v,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>verbose<sp/>=<sp/>1);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>normalizedTimeInterpolation(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;&amp;);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>writeDataBlock1D(std::ofstream&amp;<sp/>file_out,<sp/>std::string<sp/>header,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;<sp/>&amp;datablock);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>writeDataBlock2D(std::ofstream&amp;<sp/>file_out,<sp/>std::string<sp/>header,<sp/>std::vector&lt;std::vector&lt;double&gt;<sp/>&gt;<sp/>&amp;datablock);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>readCSVToMatrix(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>filename,<sp/>std::vector&lt;std::vector&lt;double&gt;<sp/>&gt;<sp/>&amp;v,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>separator,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>headersRows=0,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>verbose=0);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>transpose(std::vector&lt;std::vector&lt;double&gt;<sp/>&gt;<sp/>&amp;mat);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">//<sp/>tools.h<sp/>ends<sp/>here</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/tools/tools.h"/>
+  </compounddef>
+</doxygen>

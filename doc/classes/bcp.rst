@@ -1,0 +1,5 @@
+Tools
+=====
+
+.. doxygennamespace:: bcp
+  :members:

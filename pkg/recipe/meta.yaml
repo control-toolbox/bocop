@@ -1,0 +1,52 @@
+# notes: the use of jinja commands {{...}} adds a hash to the package name
+{% set data = load_setup_py_data() %}
+
+package:
+  name: bocop
+  version: {{ data.get('version') }}
+
+source:
+    git_url: ../..
+
+build:
+  number: 2
+
+requirements:
+  # build step only executes setup.py then clean.py
+  # if we add tests we will need to add the bocop building requirements here
+  build:
+    - python
+    - numpy >=1.17
+    - matplotlib
+  #host:  if using compiler functions
+
+
+  # will have to build and link C++ bocop code and dependencies
+  # NB.  {{compiler('c')}} jinja commands are not compatible with noarch (same as selectors)
+  run:
+    - make
+    - cmake
+    - gxx_linux-64                  [linux]
+    - clangxx_osx-64                [osx]
+    - vs2015_runtime                [win]
+    - cppad
+    - ipopt                         [not win]
+    - dtk-forge::ipopt =3.12.13     [win]
+    - dtk-forge::mumps-seq =5.1.2   [win]
+    - python
+    - swig =4.0.*
+    - scipy
+    - matplotlib
+    - numpy >=1.17
+    - pysimpleguiqt
+    - ipywidgets
+    - ipympl
+    - jupyterlab
+    - nodejs
+
+# test import fails, but import after install works... seems like setup.py is not executed properly ?
+test:
+  source_files:
+    - test_bocop.py
+  commands:
+    - python test_bocop.py 1

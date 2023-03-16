@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="classdState" kind="class" language="C++" prot="public">
+    <compoundname>dState</compoundname>
+    <includes refid="dState_8h" local="no">dState.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdState_1a4e54eb7b1e2cf7241f28cbd810a0bc39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dState::setInitialState</definition>
+        <argsstring>(const std::vector&lt; double &gt; time_steps, OCP *ocp, std::vector&lt; double &gt; &amp;starting_point, std::vector&lt; double &gt; &amp;variables_lower_bounds, std::vector&lt; double &gt; &amp;variables_upper_bounds)</argsstring>
+        <name>setInitialState</name>
+        <param>
+          <type>const std::vector&lt; double &gt;</type>
+          <declname>time_steps</declname>
+        </param>
+        <param>
+          <type><ref refid="classOCP" kindref="compound">OCP</ref> *</type>
+          <declname>ocp</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>starting_point</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>variables_lower_bounds</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>variables_upper_bounds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dState.h" line="16" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dState.cpp" bodystart="9" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classdState_1a8e6be2ceb6d73182366076170c62644e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dState::getState</definition>
+        <argsstring>(const double *x, size_t state_offset, size_t discretisation_steps, size_t stateSize, std::vector&lt; std::vector&lt; double &gt; &gt; &amp;state)</argsstring>
+        <name>getState</name>
+        <param>
+          <type>const double *</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>state_offset</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>discretisation_steps</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>stateSize</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dState.h" line="18" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dState.cpp" bodystart="62" bodyend="68"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classdState" kindref="compound">dState</ref> implements the state variables handling in <ref refid="classdOCP" kindref="compound">dOCP</ref> </para>    </briefdescription>
+    <detaileddescription>
+<para><hruler/>
+ </para>    </detaileddescription>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dState.h" line="13" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dState.h" bodystart="12" bodyend="20"/>
+    <listofallmembers>
+      <member refid="classdState_1a8e6be2ceb6d73182366076170c62644e" prot="public" virt="non-virtual"><scope>dState</scope><name>getState</name></member>
+      <member refid="classdState_1a4e54eb7b1e2cf7241f28cbd810a0bc39" prot="public" virt="non-virtual"><scope>dState</scope><name>setInitialState</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

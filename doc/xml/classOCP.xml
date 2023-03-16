@@ -1,0 +1,953 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="classOCP" kind="class" language="C++" prot="public">
+    <compoundname>OCP</compoundname>
+    <includes refid="OCP_8h" local="no">OCP.h</includes>
+      <sectiondef kind="user-defined">
+      <header>getters</header>
+      <memberdef kind="function" id="classOCP_1a0d189377e4801096aaffb2abc05d1474" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t OCP::stateSize</definition>
+        <argsstring>()</argsstring>
+        <name>stateSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="54" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="54" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1a3ce7f4dc2dddaaf885f8c77053cde36b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t OCP::controlSize</definition>
+        <argsstring>()</argsstring>
+        <name>controlSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="55" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1af45229b662e8bbd94963b56531e8329a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t OCP::parametersSize</definition>
+        <argsstring>()</argsstring>
+        <name>parametersSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="56" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="56" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1a0958c53e9d4904da2dd24050f835f476" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t OCP::constantsSize</definition>
+        <argsstring>()</argsstring>
+        <name>constantsSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="57" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="57" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1ad64bcefadfd7cb037d3df4fad13cf905" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t OCP::boundaryConditionsSize</definition>
+        <argsstring>()</argsstring>
+        <name>boundaryConditionsSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="58" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="58" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1a13dc23a91db3a1485d772da697c24a1d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t OCP::pathConstraintsSize</definition>
+        <argsstring>()</argsstring>
+        <name>pathConstraintsSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="59" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1aa9074b400ee2bcf17af7d24331806fd5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double OCP::initialTime</definition>
+        <argsstring>()</argsstring>
+        <name>initialTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="60" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1af393ddb1c5aac4aa42f78555de581e26" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double OCP::finalTime</definition>
+        <argsstring>()</argsstring>
+        <name>finalTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="61" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1a4ed63de6dcfd92fafcc85fc90f4dc534" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; OCP::getConstants</definition>
+        <argsstring>()</argsstring>
+        <name>getConstants</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="62" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="62" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1acbdaf39e92e5e5a045e16f6a0ed0a298" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; OCP::stateLowerBounds</definition>
+        <argsstring>()</argsstring>
+        <name>stateLowerBounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="64" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="64" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1acf37d06d8c194fff22a699e95dbcb0c0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; OCP::stateUpperBounds</definition>
+        <argsstring>()</argsstring>
+        <name>stateUpperBounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="65" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1ad3cc9756e137765d71813bad3f51ef6f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; OCP::controlLowerBounds</definition>
+        <argsstring>()</argsstring>
+        <name>controlLowerBounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="66" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="66" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1af7ccbf79bfb5f6c80eacde4e7979dafd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; OCP::controlUpperBounds</definition>
+        <argsstring>()</argsstring>
+        <name>controlUpperBounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="67" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="67" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1a049fdbba558db7fd68be918d566bc11a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; OCP::paramLowerBounds</definition>
+        <argsstring>()</argsstring>
+        <name>paramLowerBounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="68" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="68" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1ae935ec5cf833d78b24f9cb623068a059" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; OCP::paramUpperBounds</definition>
+        <argsstring>()</argsstring>
+        <name>paramUpperBounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="69" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="69" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1abcaebafa32c190c391e546144a2837fa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; OCP::boundaryLowerBounds</definition>
+        <argsstring>()</argsstring>
+        <name>boundaryLowerBounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="70" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="70" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1a446dba720d84f19f741874f6f4c43361" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; OCP::boundaryUpperBounds</definition>
+        <argsstring>()</argsstring>
+        <name>boundaryUpperBounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="71" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="71" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1aa2a49f041591c6049dc4e3b962285358" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; OCP::pathLowerBounds</definition>
+        <argsstring>()</argsstring>
+        <name>pathLowerBounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="72" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="72" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1a843179d47feac54ef2af80d2c9237350" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; OCP::pathUpperBounds</definition>
+        <argsstring>()</argsstring>
+        <name>pathUpperBounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="73" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="73" bodyend="73"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>setters</header>
+      <memberdef kind="function" id="classOCP_1a0114c384b353a0114755b113e5e6572c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OCP::setBounds</definition>
+        <argsstring>(std::string prefix, const std::size_t dim, std::vector&lt; double &gt; &amp;lower_bounds, std::vector&lt; double &gt; &amp;upper_bounds)</argsstring>
+        <name>setBounds</name>
+        <param>
+          <type>std::string</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>const std::size_t</type>
+          <declname>dim</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>lower_bounds</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>upper_bounds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="78" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.cpp" bodystart="77" bodyend="106"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Optimal Control Problem specific functions (problem.cpp)</header>
+      <memberdef kind="function" id="classOCP_1ac20ec9b6662ce587ae0028e17c4d9fec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Variable</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>OCP::finalCost</definition>
+        <argsstring>(double initial_time, double final_time, const Variable *initial_state, const Variable *final_state, const Variable *parameters, const double *constants, Variable &amp;final_cost)</argsstring>
+        <name>finalCost</name>
+        <param>
+          <type>double</type>
+          <declname>initial_time</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>final_time</declname>
+        </param>
+        <param>
+          <type>const Variable *</type>
+          <declname>initial_state</declname>
+        </param>
+        <param>
+          <type>const Variable *</type>
+          <declname>final_state</declname>
+        </param>
+        <param>
+          <type>const Variable *</type>
+          <declname>parameters</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>constants</declname>
+        </param>
+        <param>
+          <type>Variable &amp;</type>
+          <declname>final_cost</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Final cost <formula id="3">$g_0$</formula> (Mayer) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="87" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1a0e25283d3a734841955d12356837d042" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Variable</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>OCP::dynamics</definition>
+        <argsstring>(double time, const Variable *state, const Variable *control, const Variable *parameters, const double *constants, Variable *state_dynamics)</argsstring>
+        <name>dynamics</name>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>const Variable *</type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type>const Variable *</type>
+          <declname>control</declname>
+        </param>
+        <param>
+          <type>const Variable *</type>
+          <declname>parameters</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>constants</declname>
+        </param>
+        <param>
+          <type>Variable *</type>
+          <declname>state_dynamics</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>State dynamics <formula id="4">$f$</formula> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="91" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1a5361cfcf3f0b612a2a22478f7da1f633" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Variable</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>OCP::boundaryConditions</definition>
+        <argsstring>(double initial_time, double final_time, const Variable *initial_state, const Variable *final_state, const Variable *parameters, const double *constants, Variable *boundary_conditions)</argsstring>
+        <name>boundaryConditions</name>
+        <param>
+          <type>double</type>
+          <declname>initial_time</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>final_time</declname>
+        </param>
+        <param>
+          <type>const Variable *</type>
+          <declname>initial_state</declname>
+        </param>
+        <param>
+          <type>const Variable *</type>
+          <declname>final_state</declname>
+        </param>
+        <param>
+          <type>const Variable *</type>
+          <declname>parameters</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>constants</declname>
+        </param>
+        <param>
+          <type>Variable *</type>
+          <declname>boundary_conditions</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Boundary conditions <formula id="5">$\phi$</formula> at initial and final time </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="95" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1a52083e45d17e7f54eb3ccdb20858b541" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Variable</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>OCP::pathConstraints</definition>
+        <argsstring>(double time, const Variable *state, const Variable *control, const Variable *parameters, const double *constants, Variable *path_constraints)</argsstring>
+        <name>pathConstraints</name>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>const Variable *</type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type>const Variable *</type>
+          <declname>control</declname>
+        </param>
+        <param>
+          <type>const Variable *</type>
+          <declname>parameters</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>constants</declname>
+        </param>
+        <param>
+          <type>Variable *</type>
+          <declname>path_constraints</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Path constraints <formula id="6">$g$</formula> (includes both mixed and pure state constraints) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="99" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1a5da3cb8a7c5a99d7eca8266fc141812d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>OCP::preProcessing</definition>
+        <argsstring>(void)</argsstring>
+        <name>preProcessing</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prepocessing operations (performed once before the optimisation) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="103" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classOCP_1af6cc602c8c69eb0fd3b4e92522f9a2ed" prot="public" static="no" mutable="no">
+        <type>std::stringstream</type>
+        <definition>std::stringstream OCP::freebounds</definition>
+        <argsstring></argsstring>
+        <name>freebounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="106" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classOCP_1acb330567b4b2a2629d87d20dd70ff0ca" prot="private" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t OCP::state_size</definition>
+        <argsstring></argsstring>
+        <name>state_size</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="111" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOCP_1a8f19b3bae842f7a8abe77cabd2df82ae" prot="private" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t OCP::control_size</definition>
+        <argsstring></argsstring>
+        <name>control_size</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="112" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOCP_1a9668629edc00a63f437a3e2e6843dc5d" prot="private" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t OCP::parameters_size</definition>
+        <argsstring></argsstring>
+        <name>parameters_size</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="113" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOCP_1ac528ccf98f3eb1e4ad11d7f33386a292" prot="private" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t OCP::constants_size</definition>
+        <argsstring></argsstring>
+        <name>constants_size</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="114" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOCP_1aa5bdeccc03b9e7277144d1dc574f3cfa" prot="private" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t OCP::boundary_conditions_size</definition>
+        <argsstring></argsstring>
+        <name>boundary_conditions_size</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="115" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOCP_1a11525358634b2b3eb48a42361d2ab179" prot="private" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t OCP::path_constraints_size</definition>
+        <argsstring></argsstring>
+        <name>path_constraints_size</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="116" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOCP_1a4f8aa7b723ab3fcc519ad4ebea8b3833" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double OCP::initial_time</definition>
+        <argsstring></argsstring>
+        <name>initial_time</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="119" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOCP_1a7a223f37d61664487de3b00678da89a0" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double OCP::final_time</definition>
+        <argsstring></argsstring>
+        <name>final_time</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="120" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOCP_1a88fe262c5d8dca1fb538a4407c59b5b8" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; OCP::constants</definition>
+        <argsstring></argsstring>
+        <name>constants</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="123" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOCP_1a306d3ed57547cadcac90685e702aad19" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; OCP::state_lower_bounds</definition>
+        <argsstring></argsstring>
+        <name>state_lower_bounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="127" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOCP_1aecfd30721c2136ef99e83d1d121b8156" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; OCP::state_upper_bounds</definition>
+        <argsstring></argsstring>
+        <name>state_upper_bounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="128" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOCP_1ae3cfb23e3b3b87f02daeeb947d67fe64" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; OCP::control_lower_bounds</definition>
+        <argsstring></argsstring>
+        <name>control_lower_bounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="129" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOCP_1af4c3a04eeff2e49206301cb930d5ba64" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; OCP::control_upper_bounds</definition>
+        <argsstring></argsstring>
+        <name>control_upper_bounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="130" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOCP_1a17bec93585ae9a05b11433bde6dfbdde" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; OCP::param_lower_bounds</definition>
+        <argsstring></argsstring>
+        <name>param_lower_bounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="131" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOCP_1af088816514bc9f88c53f6f4912238650" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; OCP::param_upper_bounds</definition>
+        <argsstring></argsstring>
+        <name>param_upper_bounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="132" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOCP_1a69d68322d470d90b4ffa6ac5d0a82eaa" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; OCP::boundary_conditions_lower_bounds</definition>
+        <argsstring></argsstring>
+        <name>boundary_conditions_lower_bounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="133" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOCP_1aa3be18369e31c4c7c1e647de2691a365" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; OCP::boundary_conditions_upper_bounds</definition>
+        <argsstring></argsstring>
+        <name>boundary_conditions_upper_bounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="134" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOCP_1a23f56c756c3af273bda6f175dc257879" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; OCP::path_constraints_lower_bounds</definition>
+        <argsstring></argsstring>
+        <name>path_constraints_lower_bounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="135" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOCP_1a92e6c792f884d4ca885f8d97e7568efe" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; OCP::path_constraints_upper_bounds</definition>
+        <argsstring></argsstring>
+        <name>path_constraints_upper_bounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="136" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classOCP_1aa4fbf025f5644a66ba49e40a74a642af" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, std::string &gt;</type>
+        <definition>std::map&lt;std::string, std::string&gt; OCP::definition_map</definition>
+        <argsstring></argsstring>
+        <name>definition_map</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="139" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classOCP_1a04d89a1bedff412be6df4c8b616e06b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OCP::OCP</definition>
+        <argsstring>(void)</argsstring>
+        <name>OCP</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="41" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.cpp" bodystart="16" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1a9afed21926d8f9df7e14bd087a0e422d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>OCP::~OCP</definition>
+        <argsstring>(void)</argsstring>
+        <name>~OCP</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="42" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.cpp" bodystart="19" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1afbd86c96b6d24ec1400eef77857c5a00" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void OCP::initialize</definition>
+        <argsstring>(void)</argsstring>
+        <name>initialize</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="44" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.cpp" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1ae5dc0c968b3017d09d8f3a18f0b8f828" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OCP::load</definition>
+        <argsstring>(const std::string &amp;)</argsstring>
+        <name>load</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <defname>problem_file</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="45" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.cpp" bodystart="109" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1aa13e3a27643d6466d8c256626405c9d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OCP::save</definition>
+        <argsstring>(std::ofstream &amp;file_out)</argsstring>
+        <name>save</name>
+        <param>
+          <type>std::ofstream &amp;</type>
+          <declname>file_out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="46" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.cpp" bodystart="148" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1a5c2f4c582b5fdd80fa23900fc3ef8052" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string &amp; OCP::getDefinitionForKey</definition>
+        <argsstring>(const std::string &amp;key, const std::string &amp;default_value=&quot;&quot;) const </argsstring>
+        <name>getDefinitionForKey</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>default_value</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="49" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.cpp" bodystart="56" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classOCP_1ad434291de611609dd8ee25da1d1a0c84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int OCP::readDefinitionFile</definition>
+        <argsstring>(const std::string &amp;definition_file)</argsstring>
+        <name>readDefinitionFile</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>definition_file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="50" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.cpp" bodystart="28" bodyend="53"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classOCP" kindref="compound">OCP</ref> defines an optimal control problem of the general form <formula id="2">\[ \begin{array}{l} Min\ g_0(t_0,t_f,x(t_0),x(t_f),p,c)\\ \dot x(t) = f(t,x,u,p,c)\\ \phi_l \le \phi(t_0,t_f,x(t_0),x(t_f),p,c) \le \phi_u\\ g_l \le g(t,x,u,p,c) \le g_u \end{array} \]</formula> +++ state control param constant. </para>    </briefdescription>
+    <detaileddescription>
+<para><hruler/>
+</para><para>The actual functions are defined for each problem in a file <emphasis>problem.cpp</emphasis>. Functions are defined using templates, for both basic double and ADdouble from CppAD since derivatives are required to solve the discretized problem.</para><para>Note that the class stores all parameters in a single dictionnary, which can include values not directly part of <ref refid="classOCP" kindref="compound">OCP</ref> but rather intended for use in classes using <ref refid="classOCP" kindref="compound">OCP</ref> objects (ex: time discretisation parameters for a direct transcription method, <ref refid="classNLP" kindref="compound">NLP</ref> solver options, ...) </para>    </detaileddescription>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" line="38" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/OCP/OCP.h" bodystart="37" bodyend="141"/>
+    <listofallmembers>
+      <member refid="classOCP_1a69d68322d470d90b4ffa6ac5d0a82eaa" prot="private" virt="non-virtual"><scope>OCP</scope><name>boundary_conditions_lower_bounds</name></member>
+      <member refid="classOCP_1aa5bdeccc03b9e7277144d1dc574f3cfa" prot="private" virt="non-virtual"><scope>OCP</scope><name>boundary_conditions_size</name></member>
+      <member refid="classOCP_1aa3be18369e31c4c7c1e647de2691a365" prot="private" virt="non-virtual"><scope>OCP</scope><name>boundary_conditions_upper_bounds</name></member>
+      <member refid="classOCP_1a5361cfcf3f0b612a2a22478f7da1f633" prot="public" virt="non-virtual"><scope>OCP</scope><name>boundaryConditions</name></member>
+      <member refid="classOCP_1ad64bcefadfd7cb037d3df4fad13cf905" prot="public" virt="non-virtual"><scope>OCP</scope><name>boundaryConditionsSize</name></member>
+      <member refid="classOCP_1abcaebafa32c190c391e546144a2837fa" prot="public" virt="non-virtual"><scope>OCP</scope><name>boundaryLowerBounds</name></member>
+      <member refid="classOCP_1a446dba720d84f19f741874f6f4c43361" prot="public" virt="non-virtual"><scope>OCP</scope><name>boundaryUpperBounds</name></member>
+      <member refid="classOCP_1a88fe262c5d8dca1fb538a4407c59b5b8" prot="private" virt="non-virtual"><scope>OCP</scope><name>constants</name></member>
+      <member refid="classOCP_1ac528ccf98f3eb1e4ad11d7f33386a292" prot="private" virt="non-virtual"><scope>OCP</scope><name>constants_size</name></member>
+      <member refid="classOCP_1a0958c53e9d4904da2dd24050f835f476" prot="public" virt="non-virtual"><scope>OCP</scope><name>constantsSize</name></member>
+      <member refid="classOCP_1ae3cfb23e3b3b87f02daeeb947d67fe64" prot="private" virt="non-virtual"><scope>OCP</scope><name>control_lower_bounds</name></member>
+      <member refid="classOCP_1a8f19b3bae842f7a8abe77cabd2df82ae" prot="private" virt="non-virtual"><scope>OCP</scope><name>control_size</name></member>
+      <member refid="classOCP_1af4c3a04eeff2e49206301cb930d5ba64" prot="private" virt="non-virtual"><scope>OCP</scope><name>control_upper_bounds</name></member>
+      <member refid="classOCP_1ad3cc9756e137765d71813bad3f51ef6f" prot="public" virt="non-virtual"><scope>OCP</scope><name>controlLowerBounds</name></member>
+      <member refid="classOCP_1a3ce7f4dc2dddaaf885f8c77053cde36b" prot="public" virt="non-virtual"><scope>OCP</scope><name>controlSize</name></member>
+      <member refid="classOCP_1af7ccbf79bfb5f6c80eacde4e7979dafd" prot="public" virt="non-virtual"><scope>OCP</scope><name>controlUpperBounds</name></member>
+      <member refid="classOCP_1aa4fbf025f5644a66ba49e40a74a642af" prot="private" virt="non-virtual"><scope>OCP</scope><name>definition_map</name></member>
+      <member refid="classOCP_1a0e25283d3a734841955d12356837d042" prot="public" virt="non-virtual"><scope>OCP</scope><name>dynamics</name></member>
+      <member refid="classOCP_1a7a223f37d61664487de3b00678da89a0" prot="private" virt="non-virtual"><scope>OCP</scope><name>final_time</name></member>
+      <member refid="classOCP_1ac20ec9b6662ce587ae0028e17c4d9fec" prot="public" virt="non-virtual"><scope>OCP</scope><name>finalCost</name></member>
+      <member refid="classOCP_1af393ddb1c5aac4aa42f78555de581e26" prot="public" virt="non-virtual"><scope>OCP</scope><name>finalTime</name></member>
+      <member refid="classOCP_1af6cc602c8c69eb0fd3b4e92522f9a2ed" prot="public" virt="non-virtual"><scope>OCP</scope><name>freebounds</name></member>
+      <member refid="classOCP_1a4ed63de6dcfd92fafcc85fc90f4dc534" prot="public" virt="non-virtual"><scope>OCP</scope><name>getConstants</name></member>
+      <member refid="classOCP_1a5c2f4c582b5fdd80fa23900fc3ef8052" prot="public" virt="non-virtual"><scope>OCP</scope><name>getDefinitionForKey</name></member>
+      <member refid="classOCP_1a4f8aa7b723ab3fcc519ad4ebea8b3833" prot="private" virt="non-virtual"><scope>OCP</scope><name>initial_time</name></member>
+      <member refid="classOCP_1afbd86c96b6d24ec1400eef77857c5a00" prot="public" virt="virtual"><scope>OCP</scope><name>initialize</name></member>
+      <member refid="classOCP_1aa9074b400ee2bcf17af7d24331806fd5" prot="public" virt="non-virtual"><scope>OCP</scope><name>initialTime</name></member>
+      <member refid="classOCP_1ae5dc0c968b3017d09d8f3a18f0b8f828" prot="public" virt="non-virtual"><scope>OCP</scope><name>load</name></member>
+      <member refid="classOCP_1a04d89a1bedff412be6df4c8b616e06b8" prot="public" virt="non-virtual"><scope>OCP</scope><name>OCP</name></member>
+      <member refid="classOCP_1a17bec93585ae9a05b11433bde6dfbdde" prot="private" virt="non-virtual"><scope>OCP</scope><name>param_lower_bounds</name></member>
+      <member refid="classOCP_1af088816514bc9f88c53f6f4912238650" prot="private" virt="non-virtual"><scope>OCP</scope><name>param_upper_bounds</name></member>
+      <member refid="classOCP_1a9668629edc00a63f437a3e2e6843dc5d" prot="private" virt="non-virtual"><scope>OCP</scope><name>parameters_size</name></member>
+      <member refid="classOCP_1af45229b662e8bbd94963b56531e8329a" prot="public" virt="non-virtual"><scope>OCP</scope><name>parametersSize</name></member>
+      <member refid="classOCP_1a049fdbba558db7fd68be918d566bc11a" prot="public" virt="non-virtual"><scope>OCP</scope><name>paramLowerBounds</name></member>
+      <member refid="classOCP_1ae935ec5cf833d78b24f9cb623068a059" prot="public" virt="non-virtual"><scope>OCP</scope><name>paramUpperBounds</name></member>
+      <member refid="classOCP_1a23f56c756c3af273bda6f175dc257879" prot="private" virt="non-virtual"><scope>OCP</scope><name>path_constraints_lower_bounds</name></member>
+      <member refid="classOCP_1a11525358634b2b3eb48a42361d2ab179" prot="private" virt="non-virtual"><scope>OCP</scope><name>path_constraints_size</name></member>
+      <member refid="classOCP_1a92e6c792f884d4ca885f8d97e7568efe" prot="private" virt="non-virtual"><scope>OCP</scope><name>path_constraints_upper_bounds</name></member>
+      <member refid="classOCP_1a52083e45d17e7f54eb3ccdb20858b541" prot="public" virt="non-virtual"><scope>OCP</scope><name>pathConstraints</name></member>
+      <member refid="classOCP_1a13dc23a91db3a1485d772da697c24a1d" prot="public" virt="non-virtual"><scope>OCP</scope><name>pathConstraintsSize</name></member>
+      <member refid="classOCP_1aa2a49f041591c6049dc4e3b962285358" prot="public" virt="non-virtual"><scope>OCP</scope><name>pathLowerBounds</name></member>
+      <member refid="classOCP_1a843179d47feac54ef2af80d2c9237350" prot="public" virt="non-virtual"><scope>OCP</scope><name>pathUpperBounds</name></member>
+      <member refid="classOCP_1a5da3cb8a7c5a99d7eca8266fc141812d" prot="public" virt="non-virtual"><scope>OCP</scope><name>preProcessing</name></member>
+      <member refid="classOCP_1ad434291de611609dd8ee25da1d1a0c84" prot="public" virt="non-virtual"><scope>OCP</scope><name>readDefinitionFile</name></member>
+      <member refid="classOCP_1aa13e3a27643d6466d8c256626405c9d1" prot="public" virt="non-virtual"><scope>OCP</scope><name>save</name></member>
+      <member refid="classOCP_1a0114c384b353a0114755b113e5e6572c" prot="public" virt="non-virtual"><scope>OCP</scope><name>setBounds</name></member>
+      <member refid="classOCP_1a306d3ed57547cadcac90685e702aad19" prot="private" virt="non-virtual"><scope>OCP</scope><name>state_lower_bounds</name></member>
+      <member refid="classOCP_1acb330567b4b2a2629d87d20dd70ff0ca" prot="private" virt="non-virtual"><scope>OCP</scope><name>state_size</name></member>
+      <member refid="classOCP_1aecfd30721c2136ef99e83d1d121b8156" prot="private" virt="non-virtual"><scope>OCP</scope><name>state_upper_bounds</name></member>
+      <member refid="classOCP_1acbdaf39e92e5e5a045e16f6a0ed0a298" prot="public" virt="non-virtual"><scope>OCP</scope><name>stateLowerBounds</name></member>
+      <member refid="classOCP_1a0d189377e4801096aaffb2abc05d1474" prot="public" virt="non-virtual"><scope>OCP</scope><name>stateSize</name></member>
+      <member refid="classOCP_1acf37d06d8c194fff22a699e95dbcb0c0" prot="public" virt="non-virtual"><scope>OCP</scope><name>stateUpperBounds</name></member>
+      <member refid="classOCP_1a9afed21926d8f9df7e14bd087a0e422d" prot="public" virt="virtual"><scope>OCP</scope><name>~OCP</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="dControl_8h" kind="file" language="C++">
+    <compoundname>dControl.h</compoundname>
+    <includes refid="OCP_8h" local="no">OCP.h</includes>
+    <includes refid="dODE_8h" local="no">dODE.h</includes>
+    <includedby refid="dControl_8cpp" local="no">/home/martinon/bocop/bocop3/bocop/src/DOCP/dControl.cpp</includedby>
+    <includedby refid="dOCP_8h" local="no">/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h</includedby>
+    <incdepgraph>
+      <node id="78">
+        <label>iterator</label>
+      </node>
+      <node id="82">
+        <label>dODE.h</label>
+        <link refid="dODE_8h_source"/>
+        <childnode refid="68" relation="include">
+        </childnode>
+      </node>
+      <node id="80">
+        <label>tools_interpolation.h</label>
+        <link refid="tools__interpolation_8h_source"/>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+      </node>
+      <node id="81">
+        <label>cppad/cppad.hpp</label>
+      </node>
+      <node id="79">
+        <label>stdexcept</label>
+      </node>
+      <node id="70">
+        <label>string</label>
+      </node>
+      <node id="69">
+        <label>map</label>
+      </node>
+      <node id="71">
+        <label>tools.h</label>
+        <link refid="tools_8h_source"/>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+      </node>
+      <node id="76">
+        <label>bufferAdaptor.h</label>
+        <link refid="bufferAdaptor_8h_source"/>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+      </node>
+      <node id="75">
+        <label>vector</label>
+      </node>
+      <node id="74">
+        <label>sstream</label>
+      </node>
+      <node id="67">
+        <label>/home/martinon/bocop/bocop3/bocop/src/DOCP/dControl.h</label>
+        <link refid="dControl.h"/>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+      </node>
+      <node id="72">
+        <label>cstdlib</label>
+      </node>
+      <node id="73">
+        <label>iostream</label>
+      </node>
+      <node id="77">
+        <label>cstddef</label>
+      </node>
+      <node id="68">
+        <label>OCP.h</label>
+        <link refid="OCP_8h_source"/>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="85">
+        <label>/home/martinon/bocop/bocop3/bocop/src/AD/dOCPCppAD.h</label>
+        <link refid="dOCPCppAD_8h_source"/>
+      </node>
+      <node id="84">
+        <label>/home/martinon/bocop/bocop3/bocop/src/DOCP/dOCP.h</label>
+        <link refid="dOCP_8h_source"/>
+        <childnode refid="85" relation="include">
+        </childnode>
+      </node>
+      <node id="83">
+        <label>/home/martinon/bocop/bocop3/bocop/src/DOCP/dControl.h</label>
+        <link refid="dControl.h"/>
+        <childnode refid="84" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classdControl" prot="public">dControl</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>dControl.h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;OCP.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;dODE.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="classdControl" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classdControl" kindref="compound">dControl</ref></highlight></codeline>
+<codeline lineno="14"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setInitialControl(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;<sp/>discretisation_stages,<sp/><ref refid="classOCP" kindref="compound">OCP</ref><sp/>*ocp,<sp/><ref refid="classdODE" kindref="compound">dODE</ref><sp/>*rk,<sp/>std::vector&lt;double&gt;<sp/>&amp;starting_point,<sp/>std::vector&lt;double&gt;<sp/>&amp;variables_lower_bounds,<sp/>std::vector&lt;double&gt;<sp/>&amp;variables_upper_bounds);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>getControl(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/>x,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>control_offset,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>dimSteps,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>dimStages,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>dimControl,<sp/>std::vector&lt;std::vector&lt;double&gt;<sp/>&gt;&amp;<sp/>control);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">//<sp/>dControl.h<sp/>ends<sp/>here</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dControl.h"/>
+  </compounddef>
+</doxygen>

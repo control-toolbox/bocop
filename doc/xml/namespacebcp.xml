@@ -1,0 +1,374 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="namespacebcp" kind="namespace" language="C++">
+    <compoundname>bcp</compoundname>
+    <innerclass refid="classbcp_1_1buffer__adaptor" prot="public">bcp::buffer_adaptor</innerclass>
+    <innerclass refid="classbcp_1_1CSVRow" prot="public">bcp::CSVRow</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="tools_8cpp_1ad012d7fe1a8b7dc39bafd56f78f95466" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t bcp::readFileToVector</definition>
+        <argsstring>(const std::string &amp;filename, std::vector&lt; double &gt; &amp;v, const int verbose)</argsstring>
+        <name>readFileToVector</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>verbose</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" line="18" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" bodystart="18" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="tools_8cpp_1acedc4a4288f3ececf274c6e381aaec28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::istream &amp;</type>
+        <definition>std::istream &amp; bcp::safeGetLine</definition>
+        <argsstring>(std::istream &amp;is, std::string &amp;str)</argsstring>
+        <name>safeGetLine</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>is</declname>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" line="49" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" bodystart="49" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="tools_8cpp_1abf8598553404fe2e996cd13c2f545fb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::istream &amp;</type>
+        <definition>std::istream &amp; bcp::operator&gt;&gt;</definition>
+        <argsstring>(std::istream &amp;file, CSVRow &amp;row)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>file</declname>
+          <defname>str</defname>
+        </param>
+        <param>
+          <type>CSVRow &amp;</type>
+          <declname>row</declname>
+          <defname>data</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Overload of operator&gt;&gt; for our little class CSVRow. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" line="99" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" bodystart="122" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="tools_8cpp_1a361c5ad0e86fdad46a7690f2df6c5a71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int bcp::readCSVToMatrix</definition>
+        <argsstring>(const std::string filename, std::vector&lt; std::vector&lt; double &gt; &gt; &amp;v, const char separator, const int headersRows, const int verbose)</argsstring>
+        <name>readCSVToMatrix</name>
+        <param>
+          <type>const std::string</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>const char</type>
+          <declname>separator</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>headersRows</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>verbose</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" line="128" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" bodystart="128" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="tools_8cpp_1a41021041e3a9850c095e59cd2a2c9266" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void bcp::transpose</definition>
+        <argsstring>(std::vector&lt; std::vector&lt; double &gt; &gt; &amp;mat)</argsstring>
+        <name>transpose</name>
+        <param>
+          <type>std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+          <declname>mat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" line="187" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" bodystart="187" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="tools_8cpp_1addd9552a585bb7b5f17d5fd9102791be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void bcp::writeDataBlock1D</definition>
+        <argsstring>(std::ofstream &amp;file_out, std::string header, const std::vector&lt; double &gt; &amp;datablock)</argsstring>
+        <name>writeDataBlock1D</name>
+        <param>
+          <type>std::ofstream &amp;</type>
+          <declname>file_out</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>datablock</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" line="202" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" bodystart="202" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="tools_8cpp_1a5bef95795f6c995243a3039c2e8460fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void bcp::writeDataBlock2D</definition>
+        <argsstring>(std::ofstream &amp;file_out, std::string header, std::vector&lt; std::vector&lt; double &gt; &gt; &amp;datablock)</argsstring>
+        <name>writeDataBlock2D</name>
+        <param>
+          <type>std::ofstream &amp;</type>
+          <declname>file_out</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+          <declname>datablock</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" line="212" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/tools.cpp" bodystart="212" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="tools_8h_1a0d5b26d682078dd493c3bff36e110622" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double bcp::normalizedTimeInterpolation</definition>
+        <argsstring>(const double, const std::vector&lt; double &gt; &amp;)</argsstring>
+        <name>normalizedTimeInterpolation</name>
+        <param>
+          <type>const double</type>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/tools.h" line="24" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="tools__interpolation_8cpp_1a8e294b26953619f8c150a5180bb4e5ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void bcp::interpolatelValuesOnGrid</definition>
+        <argsstring>(const std::vector&lt; double &gt; x_values, const std::vector&lt; double &gt; x_data, const std::vector&lt; double &gt; y_data, std::vector&lt; double &gt; &amp;y_values)</argsstring>
+        <name>interpolatelValuesOnGrid</name>
+        <param>
+          <type>const std::vector&lt; double &gt;</type>
+          <declname>x_values</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt;</type>
+          <declname>x_data</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt;</type>
+          <declname>y_data</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>y_values</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/tools_interpolation.cpp" line="7" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/tools_interpolation.cpp" bodystart="7" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="tools__interpolation_8cpp_1a5f3f7e961946abac0161dd24101db9d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double bcp::interpolation1Dlinear</definition>
+        <argsstring>(const double x_value, const std::vector&lt; double &gt; &amp;x_data, const std::vector&lt; double &gt; &amp;y_data, const std::size_t set_data_size, const int verbose)</argsstring>
+        <name>interpolation1Dlinear</name>
+        <param>
+          <type>const double</type>
+          <declname>x_value</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>x_data</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>y_data</declname>
+        </param>
+        <param>
+          <type>const std::size_t</type>
+          <declname>set_data_size</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>verbose</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/tools_interpolation.cpp" line="21" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/tools_interpolation.cpp" bodystart="21" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="tools__interpolation_8h_1a2696792b930339c55364f88daa9f7f4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Variable</type>
+          </param>
+        </templateparamlist>
+        <type>std::size_t</type>
+        <definition>std::size_t bcp::locateInArray</definition>
+        <argsstring>(const Variable value, const double *data, const std::size_t data_size, const int verbose=1)</argsstring>
+        <name>locateInArray</name>
+        <param>
+          <type>const Variable</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const std::size_t</type>
+          <declname>data_size</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>verbose</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/tools_interpolation.h" line="14" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/tools_interpolation.h" bodystart="25" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="tools__interpolation_8h_1a3cf1ee955057f75528c9294fd94b8f02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Variable</type>
+          </param>
+        </templateparamlist>
+        <type>std::size_t</type>
+        <definition>std::size_t bcp::locate</definition>
+        <argsstring>(const Variable x_value, const std::vector&lt; double &gt; &amp;x_data, const int verbose=1)</argsstring>
+        <name>locate</name>
+        <param>
+          <type>const Variable</type>
+          <declname>x_value</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>x_data</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>verbose</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/tools_interpolation.h" line="15" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/tools_interpolation.h" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="tools__interpolation_8h_1a8e22721d61cf8e7898b85fc03865d673" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Variable</type>
+          </param>
+        </templateparamlist>
+        <type>Variable</type>
+        <definition>Variable bcp::interpolation2Dbilinear</definition>
+        <argsstring>(const Variable x, const Variable y, const std::vector&lt; double &gt; &amp;x_data, const std::vector&lt; double &gt; &amp;y_data, const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;z_data, const int verbose=0)</argsstring>
+        <name>interpolation2Dbilinear</name>
+        <param>
+          <type>const Variable</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>const Variable</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>x_data</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>y_data</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+          <declname>z_data</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>verbose</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/tools/tools_interpolation.h" line="17" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/tools/tools_interpolation.h" bodystart="53" bodyend="88"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/tools/bufferAdaptor.h" line="15" column="1"/>
+  </compounddef>
+</doxygen>

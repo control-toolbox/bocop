@@ -1,0 +1,26 @@
+name: bocop-dev
+
+channels:
+  - dtk-forge
+  - conda-forge
+
+dependencies:
+  - make
+  - cmake >= 3.16.0
+  - gcc_linux-64
+  - gxx_linux-64
+  - cppad
+  - ipopt
+  - numpy
+  - python =3.7.*
+  - swig =4.0.*
+  - scipy =1.4.*
+  - matplotlib =3.1.*
+  - pysimpleguiqt
+  - doxygen
+  - sphinx_rtd_theme
+  - breathe
+  - ipywidgets
+  - ipympl
+  - jupyterlab
+  - nodejs

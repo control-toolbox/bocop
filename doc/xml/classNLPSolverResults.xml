@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="classNLPSolverResults" kind="class" language="C++" prot="public">
+    <compoundname>NLPSolverResults</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classNLPSolverResults_1a622d8901304cab00cb377aaedc956f67" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int NLPSolverResults::m_status</definition>
+        <argsstring></argsstring>
+        <name>m_status</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolverIpopt.h" line="49" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolverIpopt.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNLPSolverResults_1a646ee53abd2f25a56d983a652deec5b0" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double NLPSolverResults::m_objective</definition>
+        <argsstring></argsstring>
+        <name>m_objective</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolverIpopt.h" line="50" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolverIpopt.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNLPSolverResults_1add2bb70b00e75064e0c7927656701244" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double NLPSolverResults::m_constraint</definition>
+        <argsstring></argsstring>
+        <name>m_constraint</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolverIpopt.h" line="51" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolverIpopt.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNLPSolverResults_1a512e29038eede51086d8079599f8ceb4" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int NLPSolverResults::m_iterations</definition>
+        <argsstring></argsstring>
+        <name>m_iterations</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolverIpopt.h" line="52" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolverIpopt.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolverIpopt.h" line="47" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolverIpopt.h" bodystart="46" bodyend="53"/>
+    <listofallmembers>
+      <member refid="classNLPSolverResults_1add2bb70b00e75064e0c7927656701244" prot="public" virt="non-virtual"><scope>NLPSolverResults</scope><name>m_constraint</name></member>
+      <member refid="classNLPSolverResults_1a512e29038eede51086d8079599f8ceb4" prot="public" virt="non-virtual"><scope>NLPSolverResults</scope><name>m_iterations</name></member>
+      <member refid="classNLPSolverResults_1a646ee53abd2f25a56d983a652deec5b0" prot="public" virt="non-virtual"><scope>NLPSolverResults</scope><name>m_objective</name></member>
+      <member refid="classNLPSolverResults_1a622d8901304cab00cb377aaedc956f67" prot="public" virt="non-virtual"><scope>NLPSolverResults</scope><name>m_status</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

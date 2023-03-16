@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="dir_a99e230c655bc5b0a0628c8b49a5bc90" kind="dir">
+    <compoundname>/home/martinon/bocop/bocop3/bocop/src/DOCP</compoundname>
+    <innerfile refid="dControl_8cpp">dControl.cpp</innerfile>
+    <innerfile refid="dControl_8h">dControl.h</innerfile>
+    <innerfile refid="dOCP_8cpp">dOCP.cpp</innerfile>
+    <innerfile refid="dOCP_8h">dOCP.h</innerfile>
+    <innerfile refid="dODE_8cpp">dODE.cpp</innerfile>
+    <innerfile refid="dODE_8h">dODE.h</innerfile>
+    <innerfile refid="dState_8cpp">dState.cpp</innerfile>
+    <innerfile refid="dState_8h">dState.h</innerfile>
+    <innerfile refid="solution_8cpp">solution.cpp</innerfile>
+    <innerfile refid="solution_8h">solution.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/"/>
+  </compounddef>
+</doxygen>

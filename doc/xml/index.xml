@@ -1,0 +1,430 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.11">
+  <compound refid="classbcp_1_1buffer__adaptor" kind="class"><name>bcp::buffer_adaptor</name>
+    <member refid="classbcp_1_1buffer__adaptor_1a4021166a97f611c904b1e451a6dd1e81" kind="typedef"><name>self_type</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a8b7ffe3fe0831a6a51547c01a773ad92" kind="typedef"><name>size_type</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1ae17c4128e0c69032221dbcdcb3cd3372" kind="typedef"><name>value_type</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a1b9eb4e7e84ed613108c723257515a9f" kind="typedef"><name>pointer</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a1e2c6dba50428acd0f7a07d5d2103e14" kind="typedef"><name>const_pointer</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a7d06e6fd4fcb46a3985f791e61a12560" kind="typedef"><name>reference</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a6043b92771f9c18021beb5a553aa909f" kind="typedef"><name>const_reference</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a4ad68b1a329c2a26f1499d9ae396aa3b" kind="typedef"><name>difference_type</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a26a4b9e2d447cc9314cc6336adef8601" kind="typedef"><name>iterator</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1ad54431cc8cb8f3d4934f3d43c8a4ff0b" kind="typedef"><name>const_iterator</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a63a720de49a746985495f7fc0c345995" kind="typedef"><name>reverse_iterator</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a34dadd0f60bf2e948175ef1f6fec107e" kind="typedef"><name>const_reverse_iterator</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a52738b9cc4f28a6c03cd67b8d3139518" kind="variable"><name>m_size</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a7c43f58e38e48acde491c78de014cf2f" kind="variable"><name>m_begin</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a4ec847a35b63b72aabd1d425503e081c" kind="variable"><name>m_end</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1afb27912be4ebf5a59a54aaee07296589" kind="function"><name>buffer_adaptor</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a6ce70b380201daf5dbde0e0b7e0e4241" kind="function"><name>buffer_adaptor</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1ad87d7c4ac6b516088c0144868f9fcec4" kind="function"><name>~buffer_adaptor</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1ae02ab93e77f71202ebfda2d66ad55725" kind="function"><name>operator[]</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1aea302d62aae1e8367d336d3dadd9ae25" kind="function"><name>operator[]</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a1c1377fbb4724b7ff95f712ef59577f9" kind="function"><name>at</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a11b2a1cc22edc840341774b669f5998f" kind="function"><name>at</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a39b72bf06a227cfac3aa89f2183c5e2e" kind="function"><name>data</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1aedcec5d97e86fbc506bfe3fe1cb6a791" kind="function"><name>data</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a521bd4a8e640ad9ed4ac09c2efa18de3" kind="function"><name>begin</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a9285df420cb24d7417c92dcc83a7348a" kind="function"><name>begin</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1adc067adc7f469c7562e633bfc7eb3164" kind="function"><name>cbegin</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1ab725d571ca379d9f43883f016eda358e" kind="function"><name>end</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1af96eaf56ddd17346bf28ef0e3fd87b3c" kind="function"><name>end</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1aa5adeacff7eff7f09f1124e396ed38c7" kind="function"><name>cend</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a5fcc39c08c27e6bea7e30feec48d7e9b" kind="function"><name>rbegin</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1af167ea83e2a5927a39f0fbef85d5775d" kind="function"><name>rbegin</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a1991f1ad65ec15b7eee05f9349760c96" kind="function"><name>crbegin</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a771223cfa385ddf29cbfc9883c0401c9" kind="function"><name>rend</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a8e1fbeedbd2d5c2050cf563413790c6c" kind="function"><name>rend</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a3012a71dec984db3f0a203a8c6a8febe" kind="function"><name>crend</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a7a50720c9500beec6d5f6000a7d79b8a" kind="function"><name>empty</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1ae8f7a6f2cdcc4d531a449a0c551ebbcf" kind="function"><name>size</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1ab9cb085027fd29707f79c258747a012c" kind="function"><name>front</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a842e7970a43a8c00ffc9ab9f2bca9a20" kind="function"><name>front</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a65595cf9fff39277a51756b7a75d2eb8" kind="function"><name>back</name></member>
+    <member refid="classbcp_1_1buffer__adaptor_1a03437a823d706d9f4dd80a4abd6b33cb" kind="function"><name>back</name></member>
+  </compound>
+  <compound refid="classbcp_1_1CSVRow" kind="class"><name>bcp::CSVRow</name>
+    <member refid="classbcp_1_1CSVRow_1abb8328e34d63efbb01743c5839499db5" kind="variable"><name>m_data</name></member>
+    <member refid="classbcp_1_1CSVRow_1a7f5478bad2788c11cc8376bfb7fed58f" kind="variable"><name>m_separator</name></member>
+    <member refid="classbcp_1_1CSVRow_1a188fa80d855ba2f7a3cb4aeb1a2134a8" kind="function"><name>CSVRow</name></member>
+    <member refid="classbcp_1_1CSVRow_1a4cf9c38ee384a8c8e97102856c9ca810" kind="function"><name>operator[]</name></member>
+    <member refid="classbcp_1_1CSVRow_1ac585f50c35889a5bb34386b1da024c14" kind="function"><name>size</name></member>
+    <member refid="classbcp_1_1CSVRow_1aa62f0be2e3532ebf0e5558f49a29fca3" kind="function"><name>readNextRow</name></member>
+  </compound>
+  <compound refid="classdControl" kind="class"><name>dControl</name>
+    <member refid="classdControl_1a240707ad1519bd32e5e7656efa9a10ee" kind="function"><name>setInitialControl</name></member>
+    <member refid="classdControl_1a1e55c3364aff1fa44afc8152d7d30e4c" kind="function"><name>getControl</name></member>
+  </compound>
+  <compound refid="classdOCP" kind="class"><name>dOCP</name>
+    <member refid="classdOCP_1a11c557844b150c96f6a3dfc572864154" kind="variable"><name>rk</name></member>
+    <member refid="classdOCP_1a0c6c694d98d9da8cbf38795e6fcc4396" kind="variable"><name>xd</name></member>
+    <member refid="classdOCP_1a4734fa3896396b025811dca7d0aa2576" kind="variable"><name>ud</name></member>
+    <member refid="classdOCP_1af6fd86dfd94f38a8bee8d97c49fbd260" kind="function"><name>stateAtStep</name></member>
+    <member refid="classdOCP_1afb37d1f992f33d6de17190b1c07aa5c9" kind="function"><name>controlAtStage</name></member>
+    <member refid="classdOCP_1a1b7fa520e0ad10f0d547c6f26beaaf1f" kind="function"><name>getParameters</name></member>
+    <member refid="classdOCP_1a685790c3cd5bd6255e7e2266e9d0d4e5" kind="function"><name>kComponent</name></member>
+    <member refid="classdOCP_1a639dcac887b3efc0251c7015d1f9db27" kind="function"><name>stateAtStage</name></member>
+    <member refid="classdOCP_1a1cab217fb330407630ee40e6df3fd4ed" kind="function"><name>controlAtStep</name></member>
+    <member refid="classdOCP_1af47fb45b1f0c48e707cbde8291a604b8" kind="variable"><name>ocp</name></member>
+    <member refid="classdOCP_1a0bc445bb68d814d63ee2c61c0c05cbf1" kind="variable"><name>discretisation_steps</name></member>
+    <member refid="classdOCP_1ada3b295c7f049239757c826e12e47107" kind="variable"><name>time_step</name></member>
+    <member refid="classdOCP_1a015cb4bcb1a4eac057a81b3ee852abfc" kind="variable"><name>time_step_grid</name></member>
+    <member refid="classdOCP_1a36bfb72240d8b7bd0c3b6763c153c125" kind="variable"><name>time_stage_grid</name></member>
+    <member refid="classdOCP_1acde0ccf480e633f8d6d8676b38ebcae6" kind="variable"><name>starting_point</name></member>
+    <member refid="classdOCP_1ad4566529253105c7faec6d78a905aeaf" kind="variable"><name>solution_file</name></member>
+    <member refid="classdOCP_1a74246f967cb9b82de0a47fd76ce56987" kind="variable"><name>variables_size</name></member>
+    <member refid="classdOCP_1a36194760d1b4fcf36ec42e255b79ee37" kind="variable"><name>constraints_size</name></member>
+    <member refid="classdOCP_1ab973809df6be1ad7dfab4a41c15b08ae" kind="variable"><name>variables_offset_state</name></member>
+    <member refid="classdOCP_1acb012fb1c531bc7133676b2a25a2fae4" kind="variable"><name>variables_offset_control</name></member>
+    <member refid="classdOCP_1ad649673fffcc2c81ebe0d4a5ff5c90e0" kind="variable"><name>variables_offset_param</name></member>
+    <member refid="classdOCP_1a06ada17d741fbf0ba54bc1cf01723fc2" kind="variable"><name>variables_lower_bounds</name></member>
+    <member refid="classdOCP_1a03b55e0e8adf12d0a5c7df17be5c39b1" kind="variable"><name>variables_upper_bounds</name></member>
+    <member refid="classdOCP_1aa764a552e63052582e082dbfc8315448" kind="variable"><name>constraints_lower_bounds</name></member>
+    <member refid="classdOCP_1a2ca20d6dafbf430321ecd432ec20e65e" kind="variable"><name>constraints_upper_bounds</name></member>
+    <member refid="classdOCP_1a380dcb7b19680113c79fbaa39533b02d" kind="function"><name>dOCP</name></member>
+    <member refid="classdOCP_1ae1141ee92552debb72eb5a127db568c2" kind="function"><name>~dOCP</name></member>
+    <member refid="classdOCP_1aeb79cbe5d8d7f02108af1824889612ad" kind="function"><name>initialize</name></member>
+    <member refid="classdOCP_1a27a57a8b3e38c72fa1f106ed9286cc7b" kind="function"><name>solutionFile</name></member>
+    <member refid="classdOCP_1a68cd456edbb53a4c0bf0bcc7c62f3500" kind="function"><name>setSolutionFile</name></member>
+    <member refid="classdOCP_1ab91a553f7d62e1db2062882277750fa3" kind="function"><name>writeSolution</name></member>
+    <member refid="classdOCP_1a288727523c41ea99a8dd83d87e5a5ac5" kind="function"><name>variablesSize</name></member>
+    <member refid="classdOCP_1ac49cf792ff00da0f89f0299686d780c5" kind="function"><name>constraintsSize</name></member>
+    <member refid="classdOCP_1a21717e4e3dceae7db4f2e91c763f12ce" kind="function"><name>startingPoint</name></member>
+    <member refid="classdOCP_1a95ed8d25a72dcfb9d740c9dac78071cc" kind="function"><name>variablesLowerBounds</name></member>
+    <member refid="classdOCP_1ac1bb98dc8fbe78ff860f0ca24a47e52b" kind="function"><name>variablesUpperBounds</name></member>
+    <member refid="classdOCP_1a27221c0c62f1aed2d79d15b64525bcaf" kind="function"><name>constraintsLowerBounds</name></member>
+    <member refid="classdOCP_1a83514f90afb125f54728d25ddf0d92d6" kind="function"><name>constraintsUpperBounds</name></member>
+    <member refid="classdOCP_1a6e07c2f2b4323aed12489b9f6efbf693" kind="function"><name>setOCP</name></member>
+    <member refid="classdOCP_1a9ced7829a08743190b8f6b9416d9e6e5" kind="function"><name>discretisationSteps</name></member>
+    <member refid="classdOCP_1a92d6cbb96ae98df7f3c003e576dca161" kind="function"><name>RKStages</name></member>
+    <member refid="classdOCP_1a206c4e56f7c02e2326cb54dd55db28cc" kind="function"><name>timeStep</name></member>
+    <member refid="classdOCP_1ab40bce7acc0b321de5741e47cf52e1bd" kind="function"><name>timeAtStep</name></member>
+    <member refid="classdOCP_1ae75314e9d7f76fb38117f16036769738" kind="function"><name>timeAtStage</name></member>
+    <member refid="classdOCP_1a69fb3c40b52df366368fbceb4ad728ac" kind="function"><name>stateAtStep</name></member>
+    <member refid="classdOCP_1a210cef245133bf5ac12907469d7c7ffc" kind="function"><name>controlAtStage</name></member>
+    <member refid="classdOCP_1af71992a8486dbe41d42412c1cb8df665" kind="function"><name>getParameters</name></member>
+    <member refid="classdOCP_1a2f8b9e85ae24c7089bb3be0de4e8d228" kind="function"><name>kComponent</name></member>
+    <member refid="classdOCP_1a00ba6cb9c9c1edef7e375f3ee713907a" kind="function"><name>stateAtStage</name></member>
+    <member refid="classdOCP_1a0d2ed98a77d5b165b51e7bcf8fa09605" kind="function"><name>controlAtStep</name></member>
+  </compound>
+  <compound refid="classdOCPCppAD" kind="class"><name>dOCPCppAD</name>
+    <member refid="classdOCPCppAD_1a34aebc84922bd6a08b7bcda83e11f16e" kind="function"><name>evalObjective</name></member>
+    <member refid="classdOCPCppAD_1acc1921100fe4b9a5d58c7bc95db2d80e" kind="function"><name>evalConstraints</name></member>
+    <member refid="classdOCPCppAD_1a6910e9653f6d83ff0b8ecc1c85d46c2b" kind="function"><name>evalLagrangian</name></member>
+    <member refid="classdOCPCppAD_1aaf232b918566ee7a5d2ca790e8eb2a58" kind="function"><name>evalObjectiveGradient</name></member>
+    <member refid="classdOCPCppAD_1a707fab3c603d799894fcd7fb0c9e84a6" kind="function"><name>evalConstraintsJacobian</name></member>
+    <member refid="classdOCPCppAD_1a6f6db476a0a17400828204cb1453a721" kind="function"><name>evalLagrangianHessian</name></member>
+    <member refid="classdOCPCppAD_1a6273dcdca8ff84c57b8c80503a5da4df" kind="variable"><name>ad_retape</name></member>
+    <member refid="classdOCPCppAD_1a13cbc77a875fba78a738bc0420b21b88" kind="variable"><name>x_ad</name></member>
+    <member refid="classdOCPCppAD_1afd6be4e38e2d7e560ab161aa9ed653ba" kind="variable"><name>objvalue_ad</name></member>
+    <member refid="classdOCPCppAD_1a6722b603e12cf2f137481cfe32bc7004" kind="variable"><name>f_obj</name></member>
+    <member refid="classdOCPCppAD_1a5cb8cf4b4bd093419085c636cd7a73aa" kind="variable"><name>grad</name></member>
+    <member refid="classdOCPCppAD_1a1b9b95d9e736fe280a4bfcc06ef43f44" kind="variable"><name>g_ad</name></member>
+    <member refid="classdOCPCppAD_1a0f4d48180babf762b0b6f32057ae8cca" kind="variable"><name>g_con</name></member>
+    <member refid="classdOCPCppAD_1aa9a6c0a7dad33939de8c80e3943b41b3" kind="variable"><name>pattern_jac</name></member>
+    <member refid="classdOCPCppAD_1a0a264fa0391553df14074e82c4f2c2f5" kind="variable"><name>col_jac</name></member>
+    <member refid="classdOCPCppAD_1a423b37820115662b41637b2e5a3449c1" kind="variable"><name>row_jac</name></member>
+    <member refid="classdOCPCppAD_1a1e2fe419a581d5f4c97de7d8e80410fd" kind="variable"><name>work_jac</name></member>
+    <member refid="classdOCPCppAD_1aa35d9b2da7fe614a38eca9801c23d664" kind="variable"><name>x2</name></member>
+    <member refid="classdOCPCppAD_1a38839d95076b29b58d485e607dd66272" kind="variable"><name>jac</name></member>
+    <member refid="classdOCPCppAD_1a3d83664e0e9486e6524d25efd4a70b38" kind="variable"><name>lagvalue_ad</name></member>
+    <member refid="classdOCPCppAD_1a24f9e5e9c6ef028954f93a720c4d7550" kind="variable"><name>h_lag</name></member>
+    <member refid="classdOCPCppAD_1af69dcb31cce01b79b8c33b16c75eacd0" kind="variable"><name>pattern_hess</name></member>
+    <member refid="classdOCPCppAD_1afcd66f1f70c4eb2035c16c91166f101d" kind="variable"><name>col_hess</name></member>
+    <member refid="classdOCPCppAD_1a38e2a53c4c442862df6881b4d0fe02b8" kind="variable"><name>row_hess</name></member>
+    <member refid="classdOCPCppAD_1aae12c901b093ed2509b80f582b10ca7e" kind="variable"><name>work_hess</name></member>
+    <member refid="classdOCPCppAD_1ae3756929fa3ba24769fb50bddb06da4e" kind="variable"><name>xlf2</name></member>
+    <member refid="classdOCPCppAD_1af7a16bf166bf3aef4fdfb8fdbbf0190c" kind="variable"><name>hess</name></member>
+    <member refid="classdOCPCppAD_1a6daf06f2b74436c3bcbe5855cadbd02d" kind="function"><name>dOCPCppAD</name></member>
+    <member refid="classdOCPCppAD_1acb89b0219e34dd1e923659f920256439" kind="function"><name>~dOCPCppAD</name></member>
+    <member refid="classdOCPCppAD_1a06d705d061ab0e733e7b42093dc6c5c0" kind="function"><name>initialize</name></member>
+    <member refid="classdOCPCppAD_1ab4e3a2819bd3296690f7a822ab103715" kind="function"><name>jacobianNonZeroEntries</name></member>
+    <member refid="classdOCPCppAD_1a27f444860d9b7ebf0949d4d1a0530d2b" kind="function"><name>jacobianRowIndices</name></member>
+    <member refid="classdOCPCppAD_1a220c19e5ec9794d96f6541fe29eaa251" kind="function"><name>jacobianColIndices</name></member>
+    <member refid="classdOCPCppAD_1a7a2449ecb51f28f2b53f6707ca4fbf9e" kind="function"><name>setConstraintsJacobianSparsityPattern</name></member>
+    <member refid="classdOCPCppAD_1a56e0dd0ba7a6bb14a5a23272b33266d9" kind="function"><name>hessianNonZeroEntries</name></member>
+    <member refid="classdOCPCppAD_1a357ada85d6601ea93b0a7e179b76627e" kind="function"><name>hessianRowIndices</name></member>
+    <member refid="classdOCPCppAD_1a8f88ee9a6a96c57a6734ca6bc7580e97" kind="function"><name>hessianColIndices</name></member>
+    <member refid="classdOCPCppAD_1afb5845e48ae781f76d86eb6aa82393b6" kind="function"><name>setLagrangianHessianSparsityPattern</name></member>
+    <member refid="classdOCPCppAD_1a200e47ceee6059f0f6eb3d28fd56e48b" kind="function"><name>evalObjective_t</name></member>
+    <member refid="classdOCPCppAD_1a88c1d31aadbe995c8b7c8faa781ad1a5" kind="function"><name>evalConstraints_t</name></member>
+    <member refid="classdOCPCppAD_1ae0e5079d0622d79d0724e7339d513f36" kind="function"><name>evalLagrangian_t</name></member>
+    <member refid="classdOCPCppAD_1ac9f5c4839601e3811250ff296cb42493" kind="function"><name>initializeObjectiveGradient</name></member>
+    <member refid="classdOCPCppAD_1adf0473549d706837ea45d19683b1085b" kind="function"><name>initializeConstraintsJacobian</name></member>
+    <member refid="classdOCPCppAD_1a8c61b9f49da23421958282bc4422b2fb" kind="function"><name>initializeLagrangianHessian</name></member>
+  </compound>
+  <compound refid="classdOCPsolution" kind="class"><name>dOCPsolution</name>
+    <member refid="classdOCPsolution_1ad802e7facb62f9b24b6e02fa00893ef1" kind="variable"><name>status</name></member>
+    <member refid="classdOCPsolution_1ab84489875aa40361fc8b9750265b3d77" kind="variable"><name>iterations</name></member>
+    <member refid="classdOCPsolution_1a68f5e71fceae544dae755973b90ce650" kind="variable"><name>objective</name></member>
+    <member refid="classdOCPsolution_1a2df1ddba4f4e2f91b939ce7fd1c7746f" kind="variable"><name>constraint</name></member>
+    <member refid="classdOCPsolution_1a630354bf771dd228be4a51c5c9acc691" kind="variable"><name>time_step_grid</name></member>
+    <member refid="classdOCPsolution_1a432122319ffbbb7194eaa00cb1f4debf" kind="variable"><name>time_stages_grid</name></member>
+    <member refid="classdOCPsolution_1a96a803adf2c2343dee2f4c6948667228" kind="variable"><name>state</name></member>
+    <member refid="classdOCPsolution_1aad48a341e83ff3a6941bced58c4669ce" kind="variable"><name>control</name></member>
+    <member refid="classdOCPsolution_1aece2bda360ac08192cc86e66f1402eaf" kind="variable"><name>parameter</name></member>
+    <member refid="classdOCPsolution_1a012923c470505302b82d3cc1e67c44e9" kind="variable"><name>kstage</name></member>
+    <member refid="classdOCPsolution_1a34dc22f728d06689a0ade975fdd67d22" kind="variable"><name>boundary_conditions_multiplier</name></member>
+    <member refid="classdOCPsolution_1ac65195d92f1779af82f5a63d8725cea2" kind="variable"><name>path_constraints_multiplier</name></member>
+    <member refid="classdOCPsolution_1a82338fb7c62b5a596d5d2124b733413d" kind="variable"><name>adjoint_state</name></member>
+    <member refid="classdOCPsolution_1ae4eaf262b84c9ec7675ffb7ca84782d0" kind="variable"><name>boundary_conditions</name></member>
+    <member refid="classdOCPsolution_1a2459713175c712d4305082b73f709b7b" kind="variable"><name>path_constraints</name></member>
+    <member refid="classdOCPsolution_1a51a4f840674a1abb77f569f72070cc5e" kind="variable"><name>dyn_equations</name></member>
+    <member refid="classdOCPsolution_1a057e56059b720f5e7f3b10b923717f45" kind="function"><name>dOCPsolution</name></member>
+    <member refid="classdOCPsolution_1adfac6d78c21f13abd93021093f5397be" kind="function"><name>dOCPsolution</name></member>
+    <member refid="classdOCPsolution_1ac5a1273053beda00c661995881102ddd" kind="function"><name>~dOCPsolution</name></member>
+    <member refid="classdOCPsolution_1a99dde92b3338bf62070b86b1f5b48019" kind="function"><name>initSize</name></member>
+    <member refid="classdOCPsolution_1a3c3ba4e3a6a5bfed750bdd7f799054da" kind="function"><name>readFile</name></member>
+    <member refid="classdOCPsolution_1a8133aa9818b230ed9944a897d617dad9" kind="function"><name>readColumn</name></member>
+    <member refid="classdOCPsolution_1a9c242c6239cc06bd0eeadc7483757289" kind="function"><name>init</name></member>
+  </compound>
+  <compound refid="classdODE" kind="class"><name>dODE</name>
+    <member refid="classdODE_1a1b376363b5f6894129c395d9e8ee1ed4" kind="variable"><name>rk_stages</name></member>
+    <member refid="classdODE_1a2331ead321dcb5661bf496a397912693" kind="variable"><name>butcher_b</name></member>
+    <member refid="classdODE_1a4b5028d0a061e8db11a997a967ea1e0c" kind="variable"><name>butcher_c</name></member>
+    <member refid="classdODE_1ae7b9b6a09157831f77d2a7b691e58233" kind="variable"><name>butcher_a</name></member>
+    <member refid="classdODE_1a8609a7a0452af409a2bd1fc3c0f98c7d" kind="function"><name>initialize</name></member>
+    <member refid="classdODE_1a3522fa72ca9c45b85eb24798e3b0724a" kind="function"><name>setTimeGrids</name></member>
+    <member refid="classdODE_1ab133acaef3ae87dbba6c9d996555279a" kind="function"><name>setInitialParam</name></member>
+    <member refid="classdODE_1a2c05a911c3e7c6dd91034bfd9f1d5872" kind="function"><name>setRKStageVars</name></member>
+    <member refid="classdODE_1afda25919ff7303e6c1e5d1b7a0ad2abe" kind="function"><name>setBoundaryConditionsBounds</name></member>
+    <member refid="classdODE_1a1a6638519d4b326d5718272bcb8a6a57" kind="function"><name>setDiscretisedConstraintsBounds</name></member>
+    <member refid="classdODE_1aa9388188914f73219c2911916bfa3374" kind="function"><name>getParam</name></member>
+    <member refid="classdODE_1ad6e317224f145914b1fd759bbd42cbbc" kind="function"><name>getMultipliers</name></member>
+    <member refid="classdODE_1a832a2766ecdc2dff108e92ccc48de484" kind="function"><name>getConstraints</name></member>
+    <member refid="classdODE_1ad9c74a93231bf3670136d5fb0d109fd2" kind="function"><name>butcherA</name></member>
+    <member refid="classdODE_1a2776cf6b87d302724047da69b270e740" kind="function"><name>butcherB</name></member>
+    <member refid="classdODE_1a9a6e8bf7590798234e0e5b3c8bd8e6f1" kind="function"><name>butcherC</name></member>
+    <member refid="classdODE_1a10d7c852ab373eeb2cfb60c42c03395a" kind="function"><name>RKStages</name></member>
+  </compound>
+  <compound refid="classdState" kind="class"><name>dState</name>
+    <member refid="classdState_1a4e54eb7b1e2cf7241f28cbd810a0bc39" kind="function"><name>setInitialState</name></member>
+    <member refid="classdState_1a8e6be2ceb6d73182366076170c62644e" kind="function"><name>getState</name></member>
+  </compound>
+  <compound refid="classNLP" kind="class"><name>NLP</name>
+    <member refid="classNLP_1accc30c854eca5e3e5d3924156c907090" kind="function"><name>evalObjective</name></member>
+    <member refid="classNLP_1a3fb766d26ae7bb80b52bc53a0ba875b0" kind="function"><name>evalConstraints</name></member>
+    <member refid="classNLP_1aacdce4e919dd809afb30cbfd17e87634" kind="function"><name>evalLagrangian</name></member>
+    <member refid="classNLP_1a193e829428b575b3ef0a6edcee7009b2" kind="function"><name>evalObjectiveGradient</name></member>
+    <member refid="classNLP_1abf5dcf13856dd753f39030d0ae271ced" kind="function"><name>evalConstraintsJacobian</name></member>
+    <member refid="classNLP_1a11fb6373e50dad8e0134876f689135e8" kind="function"><name>evalLagrangianHessian</name></member>
+    <member refid="classNLP_1a0a1dd711bd99d7a66b61c72d11630cde" kind="function"><name>~NLP</name></member>
+    <member refid="classNLP_1a41c57c28509ed3e4e688a618d663a62e" kind="function"><name>initialize</name></member>
+    <member refid="classNLP_1af6ba3744fb5c97e94c9e818d579329be" kind="function"><name>solutionFile</name></member>
+    <member refid="classNLP_1ac2183089c3d4d7f73c5a5eec0c72b52d" kind="function"><name>setSolutionFile</name></member>
+    <member refid="classNLP_1a16eeab6d375ce22c62731b5ddd49f6a7" kind="function"><name>writeSolution</name></member>
+    <member refid="classNLP_1aa3615b1ef4b86b180348188b4fc53bf7" kind="function"><name>variablesSize</name></member>
+    <member refid="classNLP_1a7f28a342578c1a7991cc56e9aeebf698" kind="function"><name>constraintsSize</name></member>
+    <member refid="classNLP_1ac18c51f4b215b9d9a0133cff20301ba0" kind="function"><name>startingPoint</name></member>
+    <member refid="classNLP_1ad7684e29770fe5bf1691c68ae0cbbdb0" kind="function"><name>variablesLowerBounds</name></member>
+    <member refid="classNLP_1af78b52b7a7d93e4f2c07c9c44ac2088f" kind="function"><name>variablesUpperBounds</name></member>
+    <member refid="classNLP_1ad31449accbda173919415bc8c7e1d50e" kind="function"><name>constraintsLowerBounds</name></member>
+    <member refid="classNLP_1a46e50ed4fd827fc35cb4650d3594a0c2" kind="function"><name>constraintsUpperBounds</name></member>
+    <member refid="classNLP_1ac5d6174373e7c916ad2fb90ca0a1ae4d" kind="function"><name>jacobianNonZeroEntries</name></member>
+    <member refid="classNLP_1af258447020822eee584c270e768ecee7" kind="function"><name>jacobianRowIndices</name></member>
+    <member refid="classNLP_1a4a20391b3cef8b5c4b9c465d54e6c29f" kind="function"><name>jacobianColIndices</name></member>
+    <member refid="classNLP_1a1313b08fe19bd0454b968c5c7d1ba9bf" kind="function"><name>setConstraintsJacobianSparsityPattern</name></member>
+    <member refid="classNLP_1aa93c92d2837660540540d8e8d12fae75" kind="function"><name>hessianNonZeroEntries</name></member>
+    <member refid="classNLP_1a6ef75d9960953802e97b59bf2df10966" kind="function"><name>hessianRowIndices</name></member>
+    <member refid="classNLP_1a508f6d65522703fb6575b61d92744038" kind="function"><name>hessianColIndices</name></member>
+    <member refid="classNLP_1a78b9ec832522a3c514154a5f5877dcfb" kind="function"><name>setLagrangianHessianSparsityPattern</name></member>
+  </compound>
+  <compound refid="classNLPSolver" kind="class"><name>NLPSolver</name>
+    <member refid="classNLPSolver_1a954f61d848578b1222bb5aa6c5c9e288" kind="function"><name>~NLPSolver</name></member>
+    <member refid="classNLPSolver_1ab4b7fca22dcf830413f6d37378d0b0cc" kind="function"><name>setOptionFile</name></member>
+    <member refid="classNLPSolver_1a6ec6d43a59ab041ddfbe8f0a95ce920b" kind="function"><name>setNLP</name></member>
+    <member refid="classNLPSolver_1aa3db7680cf8ca02b616fc9f02e07f0f9" kind="function"><name>solve</name></member>
+  </compound>
+  <compound refid="classNLPSolverIpopt" kind="class"><name>NLPSolverIpopt</name>
+    <member refid="classNLPSolverIpopt_1af149d6595262c2e7e14ed907fb474464" kind="variable"><name>option_file</name></member>
+    <member refid="classNLPSolverIpopt_1aa6f12de9b4544770bd878f00ca2918d2" kind="variable"><name>tnlp</name></member>
+    <member refid="classNLPSolverIpopt_1a3f56d61fb95e88a8c9ddd1700e2e98f0" kind="variable"><name>app</name></member>
+    <member refid="classNLPSolverIpopt_1a0cb42cf64697dc2fa738726df430d9f9" kind="function"><name>NLPSolverIpopt</name></member>
+    <member refid="classNLPSolverIpopt_1a1cabb3971bab439a53254c37a2b49e3f" kind="function"><name>~NLPSolverIpopt</name></member>
+    <member refid="classNLPSolverIpopt_1ab8a622473391b568d35fd2580a85569e" kind="function"><name>setOptionFile</name></member>
+    <member refid="classNLPSolverIpopt_1a25bc20c4f0e835be6a87bd9cda6267b0" kind="function"><name>setNLP</name></member>
+    <member refid="classNLPSolverIpopt_1abefede9fa35c786e04fccd5ef11a079c" kind="function"><name>solve</name></member>
+  </compound>
+  <compound refid="classNLPSolverResults" kind="class"><name>NLPSolverResults</name>
+    <member refid="classNLPSolverResults_1a622d8901304cab00cb377aaedc956f67" kind="variable"><name>m_status</name></member>
+    <member refid="classNLPSolverResults_1a646ee53abd2f25a56d983a652deec5b0" kind="variable"><name>m_objective</name></member>
+    <member refid="classNLPSolverResults_1add2bb70b00e75064e0c7927656701244" kind="variable"><name>m_constraint</name></member>
+    <member refid="classNLPSolverResults_1a512e29038eede51086d8079599f8ceb4" kind="variable"><name>m_iterations</name></member>
+  </compound>
+  <compound refid="classOCP" kind="class"><name>OCP</name>
+    <member refid="classOCP_1a0d189377e4801096aaffb2abc05d1474" kind="function"><name>stateSize</name></member>
+    <member refid="classOCP_1a3ce7f4dc2dddaaf885f8c77053cde36b" kind="function"><name>controlSize</name></member>
+    <member refid="classOCP_1af45229b662e8bbd94963b56531e8329a" kind="function"><name>parametersSize</name></member>
+    <member refid="classOCP_1a0958c53e9d4904da2dd24050f835f476" kind="function"><name>constantsSize</name></member>
+    <member refid="classOCP_1ad64bcefadfd7cb037d3df4fad13cf905" kind="function"><name>boundaryConditionsSize</name></member>
+    <member refid="classOCP_1a13dc23a91db3a1485d772da697c24a1d" kind="function"><name>pathConstraintsSize</name></member>
+    <member refid="classOCP_1aa9074b400ee2bcf17af7d24331806fd5" kind="function"><name>initialTime</name></member>
+    <member refid="classOCP_1af393ddb1c5aac4aa42f78555de581e26" kind="function"><name>finalTime</name></member>
+    <member refid="classOCP_1a4ed63de6dcfd92fafcc85fc90f4dc534" kind="function"><name>getConstants</name></member>
+    <member refid="classOCP_1acbdaf39e92e5e5a045e16f6a0ed0a298" kind="function"><name>stateLowerBounds</name></member>
+    <member refid="classOCP_1acf37d06d8c194fff22a699e95dbcb0c0" kind="function"><name>stateUpperBounds</name></member>
+    <member refid="classOCP_1ad3cc9756e137765d71813bad3f51ef6f" kind="function"><name>controlLowerBounds</name></member>
+    <member refid="classOCP_1af7ccbf79bfb5f6c80eacde4e7979dafd" kind="function"><name>controlUpperBounds</name></member>
+    <member refid="classOCP_1a049fdbba558db7fd68be918d566bc11a" kind="function"><name>paramLowerBounds</name></member>
+    <member refid="classOCP_1ae935ec5cf833d78b24f9cb623068a059" kind="function"><name>paramUpperBounds</name></member>
+    <member refid="classOCP_1abcaebafa32c190c391e546144a2837fa" kind="function"><name>boundaryLowerBounds</name></member>
+    <member refid="classOCP_1a446dba720d84f19f741874f6f4c43361" kind="function"><name>boundaryUpperBounds</name></member>
+    <member refid="classOCP_1aa2a49f041591c6049dc4e3b962285358" kind="function"><name>pathLowerBounds</name></member>
+    <member refid="classOCP_1a843179d47feac54ef2af80d2c9237350" kind="function"><name>pathUpperBounds</name></member>
+    <member refid="classOCP_1a0114c384b353a0114755b113e5e6572c" kind="function"><name>setBounds</name></member>
+    <member refid="classOCP_1ac20ec9b6662ce587ae0028e17c4d9fec" kind="function"><name>finalCost</name></member>
+    <member refid="classOCP_1a0e25283d3a734841955d12356837d042" kind="function"><name>dynamics</name></member>
+    <member refid="classOCP_1a5361cfcf3f0b612a2a22478f7da1f633" kind="function"><name>boundaryConditions</name></member>
+    <member refid="classOCP_1a52083e45d17e7f54eb3ccdb20858b541" kind="function"><name>pathConstraints</name></member>
+    <member refid="classOCP_1a5da3cb8a7c5a99d7eca8266fc141812d" kind="function"><name>preProcessing</name></member>
+    <member refid="classOCP_1af6cc602c8c69eb0fd3b4e92522f9a2ed" kind="variable"><name>freebounds</name></member>
+    <member refid="classOCP_1acb330567b4b2a2629d87d20dd70ff0ca" kind="variable"><name>state_size</name></member>
+    <member refid="classOCP_1a8f19b3bae842f7a8abe77cabd2df82ae" kind="variable"><name>control_size</name></member>
+    <member refid="classOCP_1a9668629edc00a63f437a3e2e6843dc5d" kind="variable"><name>parameters_size</name></member>
+    <member refid="classOCP_1ac528ccf98f3eb1e4ad11d7f33386a292" kind="variable"><name>constants_size</name></member>
+    <member refid="classOCP_1aa5bdeccc03b9e7277144d1dc574f3cfa" kind="variable"><name>boundary_conditions_size</name></member>
+    <member refid="classOCP_1a11525358634b2b3eb48a42361d2ab179" kind="variable"><name>path_constraints_size</name></member>
+    <member refid="classOCP_1a4f8aa7b723ab3fcc519ad4ebea8b3833" kind="variable"><name>initial_time</name></member>
+    <member refid="classOCP_1a7a223f37d61664487de3b00678da89a0" kind="variable"><name>final_time</name></member>
+    <member refid="classOCP_1a88fe262c5d8dca1fb538a4407c59b5b8" kind="variable"><name>constants</name></member>
+    <member refid="classOCP_1a306d3ed57547cadcac90685e702aad19" kind="variable"><name>state_lower_bounds</name></member>
+    <member refid="classOCP_1aecfd30721c2136ef99e83d1d121b8156" kind="variable"><name>state_upper_bounds</name></member>
+    <member refid="classOCP_1ae3cfb23e3b3b87f02daeeb947d67fe64" kind="variable"><name>control_lower_bounds</name></member>
+    <member refid="classOCP_1af4c3a04eeff2e49206301cb930d5ba64" kind="variable"><name>control_upper_bounds</name></member>
+    <member refid="classOCP_1a17bec93585ae9a05b11433bde6dfbdde" kind="variable"><name>param_lower_bounds</name></member>
+    <member refid="classOCP_1af088816514bc9f88c53f6f4912238650" kind="variable"><name>param_upper_bounds</name></member>
+    <member refid="classOCP_1a69d68322d470d90b4ffa6ac5d0a82eaa" kind="variable"><name>boundary_conditions_lower_bounds</name></member>
+    <member refid="classOCP_1aa3be18369e31c4c7c1e647de2691a365" kind="variable"><name>boundary_conditions_upper_bounds</name></member>
+    <member refid="classOCP_1a23f56c756c3af273bda6f175dc257879" kind="variable"><name>path_constraints_lower_bounds</name></member>
+    <member refid="classOCP_1a92e6c792f884d4ca885f8d97e7568efe" kind="variable"><name>path_constraints_upper_bounds</name></member>
+    <member refid="classOCP_1aa4fbf025f5644a66ba49e40a74a642af" kind="variable"><name>definition_map</name></member>
+    <member refid="classOCP_1a04d89a1bedff412be6df4c8b616e06b8" kind="function"><name>OCP</name></member>
+    <member refid="classOCP_1a9afed21926d8f9df7e14bd087a0e422d" kind="function"><name>~OCP</name></member>
+    <member refid="classOCP_1afbd86c96b6d24ec1400eef77857c5a00" kind="function"><name>initialize</name></member>
+    <member refid="classOCP_1ae5dc0c968b3017d09d8f3a18f0b8f828" kind="function"><name>load</name></member>
+    <member refid="classOCP_1aa13e3a27643d6466d8c256626405c9d1" kind="function"><name>save</name></member>
+    <member refid="classOCP_1a5c2f4c582b5fdd80fa23900fc3ef8052" kind="function"><name>getDefinitionForKey</name></member>
+    <member refid="classOCP_1ad434291de611609dd8ee25da1d1a0c84" kind="function"><name>readDefinitionFile</name></member>
+  </compound>
+  <compound refid="classTNLPImpl" kind="class"><name>TNLPImpl</name>
+    <member refid="classTNLPImpl_1afd23133b2c500060f4bb51df85667ebd" kind="variable"><name>bocopNLP</name></member>
+    <member refid="classTNLPImpl_1a628cf3b7964fde5597c6a0041090a33d" kind="function"><name>get_nlp_info</name></member>
+    <member refid="classTNLPImpl_1afd1001b018f5e504111b1a818a93c1bd" kind="function"><name>get_bounds_info</name></member>
+    <member refid="classTNLPImpl_1a5b50a4ef695c65647fde8fdce2ae86ec" kind="function"><name>get_starting_point</name></member>
+    <member refid="classTNLPImpl_1af8904000adb23df677f3bf957d023375" kind="function"><name>finalize_solution</name></member>
+    <member refid="classTNLPImpl_1a5d1b63e3fc911b6afdf99754f4c3141a" kind="function"><name>eval_f</name></member>
+    <member refid="classTNLPImpl_1a5fc6685d11d6fbad9456cd6958fa765f" kind="function"><name>eval_grad_f</name></member>
+    <member refid="classTNLPImpl_1a934931a530152014ae66b42f10301782" kind="function"><name>eval_g</name></member>
+    <member refid="classTNLPImpl_1aeaeeaba0969d09200183610163cd83f6" kind="function"><name>eval_jac_g</name></member>
+    <member refid="classTNLPImpl_1a51ffd8d9a4d0c64337542418ffea5f44" kind="function"><name>eval_h</name></member>
+  </compound>
+  <compound refid="namespacebcp" kind="namespace"><name>bcp</name>
+    <member refid="tools_8cpp_1ad012d7fe1a8b7dc39bafd56f78f95466" kind="function"><name>readFileToVector</name></member>
+    <member refid="tools_8cpp_1acedc4a4288f3ececf274c6e381aaec28" kind="function"><name>safeGetLine</name></member>
+    <member refid="tools_8cpp_1abf8598553404fe2e996cd13c2f545fb3" kind="function"><name>operator&gt;&gt;</name></member>
+    <member refid="tools_8cpp_1a361c5ad0e86fdad46a7690f2df6c5a71" kind="function"><name>readCSVToMatrix</name></member>
+    <member refid="tools_8cpp_1a41021041e3a9850c095e59cd2a2c9266" kind="function"><name>transpose</name></member>
+    <member refid="tools_8cpp_1addd9552a585bb7b5f17d5fd9102791be" kind="function"><name>writeDataBlock1D</name></member>
+    <member refid="tools_8cpp_1a5bef95795f6c995243a3039c2e8460fd" kind="function"><name>writeDataBlock2D</name></member>
+    <member refid="tools_8h_1a0d5b26d682078dd493c3bff36e110622" kind="function"><name>normalizedTimeInterpolation</name></member>
+    <member refid="tools__interpolation_8cpp_1a8e294b26953619f8c150a5180bb4e5ba" kind="function"><name>interpolatelValuesOnGrid</name></member>
+    <member refid="tools__interpolation_8cpp_1a5f3f7e961946abac0161dd24101db9d0" kind="function"><name>interpolation1Dlinear</name></member>
+    <member refid="tools__interpolation_8h_1a2696792b930339c55364f88daa9f7f4f" kind="function"><name>locateInArray</name></member>
+    <member refid="tools__interpolation_8h_1a3cf1ee955057f75528c9294fd94b8f02" kind="function"><name>locate</name></member>
+    <member refid="tools__interpolation_8h_1a8e22721d61cf8e7898b85fc03865d673" kind="function"><name>interpolation2Dbilinear</name></member>
+  </compound>
+  <compound refid="dOCPCppAD_8cpp" kind="file"><name>dOCPCppAD.cpp</name>
+    <member refid="dOCPCppAD_8cpp_1a989b3a350abb50c44b793bfadb9a173c" kind="typedef"><name>view_t</name></member>
+  </compound>
+  <compound refid="dOCPCppAD_8h" kind="file"><name>dOCPCppAD.h</name>
+    <member refid="dOCPCppAD_8h_1a1f51f6beecdfc4352653f0ef730e01e6" kind="typedef"><name>double_ad</name></member>
+    <member refid="dOCPCppAD_8h_1ad003d42c09200ef0f8fc800ee72b8174" kind="typedef"><name>fun_ad</name></member>
+    <member refid="dOCPCppAD_8h_1a1714538cf1b76f7e0be2124058e6410d" kind="typedef"><name>vector_ad</name></member>
+    <member refid="dOCPCppAD_8h_1a0ce8b700ab6f44c5dcc3f993ffdc6d54" kind="typedef"><name>sparse_jac_work</name></member>
+    <member refid="dOCPCppAD_8h_1ad5d7353eee910ca3bf01a40573f274ba" kind="typedef"><name>sparse_hess_work</name></member>
+  </compound>
+  <compound refid="CMakeLists_8txt" kind="file"><name>CMakeLists.txt</name>
+    <member refid="CMakeLists_8txt_1a06b4b92442a5fccc21939c6b2bbe2217" kind="function"><name>include_directories</name></member>
+    <member refid="CMakeLists_8txt_1a7b38141d79ba425e9b027f5d698f055e" kind="function"><name>set</name></member>
+    <member refid="CMakeLists_8txt_1ae1482158b1f0239d3018422a793bbb6e" kind="function"><name>endif</name></member>
+  </compound>
+  <compound refid="dControl_8cpp" kind="file"><name>dControl.cpp</name>
+  </compound>
+  <compound refid="dControl_8h" kind="file"><name>dControl.h</name>
+  </compound>
+  <compound refid="dOCP_8cpp" kind="file"><name>dOCP.cpp</name>
+  </compound>
+  <compound refid="dOCP_8h" kind="file"><name>dOCP.h</name>
+    <member refid="dOCP_8h_1a989b3a350abb50c44b793bfadb9a173c" kind="typedef"><name>view_t</name></member>
+  </compound>
+  <compound refid="dODE_8cpp" kind="file"><name>dODE.cpp</name>
+  </compound>
+  <compound refid="dODE_8h" kind="file"><name>dODE.h</name>
+  </compound>
+  <compound refid="dState_8cpp" kind="file"><name>dState.cpp</name>
+  </compound>
+  <compound refid="dState_8h" kind="file"><name>dState.h</name>
+  </compound>
+  <compound refid="solution_8cpp" kind="file"><name>solution.cpp</name>
+  </compound>
+  <compound refid="solution_8h" kind="file"><name>solution.h</name>
+    <member refid="solution_8h_1aaf5322189c9d18a83a86df143b423ba7" kind="define"><name>SOLVER_STATUS_TITLE</name></member>
+    <member refid="solution_8h_1a6f706ddd8fefedd53302522dbebcd0e6" kind="define"><name>SOLVER_ITERATIONS_TITLE</name></member>
+    <member refid="solution_8h_1ae6ec0e45b1e3e1b4224c8832db4b23f6" kind="define"><name>OBJECTIVE_FUNCTION_TITLE</name></member>
+    <member refid="solution_8h_1aa3dbcb7086c6e71ee670cc543a7f3888" kind="define"><name>CONSTRAINT_VIOLATION_TITLE</name></member>
+    <member refid="solution_8h_1a6979de8baf7845888cd574c4d001d202" kind="define"><name>TIME_STEPS_TITLE</name></member>
+    <member refid="solution_8h_1ab7ced54a3c50c4452ffc744a030a139b" kind="define"><name>TIME_STAGES_TITLE</name></member>
+    <member refid="solution_8h_1af6737d62160ca5469ab3293849eeabea" kind="define"><name>STATE_TITLE</name></member>
+    <member refid="solution_8h_1ae1b910b70dc1dc9d62581cb6e040cdf8" kind="define"><name>CONTROL_TITLE</name></member>
+    <member refid="solution_8h_1a60be5e4d0966d472044f3ea60d8eaeda" kind="define"><name>PARAMETER_TITLE</name></member>
+    <member refid="solution_8h_1ae73af1a7ea6d518c28f9cd92878986a9" kind="define"><name>MULTI_BOUNDARY_CONDITION_TITLE</name></member>
+    <member refid="solution_8h_1a315f0a50833ac81ab5a1616881c86ef3" kind="define"><name>MULTI_PATH_CONSTRAINTS_TITLE</name></member>
+    <member refid="solution_8h_1a64e9af0305f482f45bcae54e137ab130" kind="define"><name>ADJOINT_STATE_TITLE</name></member>
+    <member refid="solution_8h_1ad3a143511f49d7d410b0c0fd9f79eac6" kind="define"><name>BOUNDARY_TITLE</name></member>
+    <member refid="solution_8h_1a7a7aa4dbb2b452848befbedd7e358772" kind="define"><name>PATH_CONSTRAINTS_TITLE</name></member>
+  </compound>
+  <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="main_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="NLP_8h" kind="file"><name>NLP.h</name>
+  </compound>
+  <compound refid="NLPSolver_8h" kind="file"><name>NLPSolver.h</name>
+  </compound>
+  <compound refid="NLPSolverIpopt_8cpp" kind="file"><name>NLPSolverIpopt.cpp</name>
+  </compound>
+  <compound refid="NLPSolverIpopt_8h" kind="file"><name>NLPSolverIpopt.h</name>
+    <member refid="NLPSolverIpopt_8h_1afa60b4b35da181eadd705c28824d515a" kind="function"><name>NLPSolverIpoptCreator</name></member>
+  </compound>
+  <compound refid="OCP_8cpp" kind="file"><name>OCP.cpp</name>
+  </compound>
+  <compound refid="OCP_8h" kind="file"><name>OCP.h</name>
+    <member refid="OCP_8h_1a1f51f6beecdfc4352653f0ef730e01e6" kind="typedef"><name>double_ad</name></member>
+  </compound>
+  <compound refid="bufferAdaptor_8h" kind="file"><name>bufferAdaptor.h</name>
+  </compound>
+  <compound refid="tools_8cpp" kind="file"><name>tools.cpp</name>
+  </compound>
+  <compound refid="tools_8h" kind="file"><name>tools.h</name>
+  </compound>
+  <compound refid="tools__interpolation_8cpp" kind="file"><name>tools_interpolation.cpp</name>
+  </compound>
+  <compound refid="tools__interpolation_8h" kind="file"><name>tools_interpolation.h</name>
+  </compound>
+  <compound refid="dir_a7bc164523d42b359aca2e9e633c329d" kind="dir"><name>/home/martinon/bocop/bocop3/bocop/src/AD</name>
+  </compound>
+  <compound refid="dir_6a7dacf840a6b467586c113d885c3720" kind="dir"><name>/home/martinon/bocop/bocop3/bocop</name>
+  </compound>
+  <compound refid="dir_a99e230c655bc5b0a0628c8b49a5bc90" kind="dir"><name>/home/martinon/bocop/bocop3/bocop/src/DOCP</name>
+  </compound>
+  <compound refid="dir_896a54b75c7e262a4c015ea5075db761" kind="dir"><name>/home/martinon/bocop/bocop3/bocop/src/NLP</name>
+  </compound>
+  <compound refid="dir_bff5f52d7335ca89bd26ef567e56aadd" kind="dir"><name>/home/martinon/bocop/bocop3/bocop/src/OCP</name>
+  </compound>
+  <compound refid="dir_c371e86623f5602f4a1ae42254af2842" kind="dir"><name>/home/martinon/bocop/bocop3/bocop/src</name>
+  </compound>
+  <compound refid="dir_0e0dcf0fda0f81688a2ca3e6f32089ad" kind="dir"><name>/home/martinon/bocop/bocop3/bocop/src/tools</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
+  </compound>
+</doxygenindex>

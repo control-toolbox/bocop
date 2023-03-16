@@ -1,0 +1,256 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="NLPSolverIpopt_8cpp" kind="file" language="C++">
+    <compoundname>NLPSolverIpopt.cpp</compoundname>
+    <includes refid="NLPSolverIpopt_8h" local="no">NLPSolverIpopt.h</includes>
+    <incdepgraph>
+      <node id="265">
+        <label>string</label>
+      </node>
+      <node id="264">
+        <label>NLPSolver.h</label>
+        <link refid="NLPSolver_8h_source"/>
+        <childnode refid="265" relation="include">
+        </childnode>
+        <childnode refid="266" relation="include">
+        </childnode>
+      </node>
+      <node id="270">
+        <label>IpIpoptData.hpp</label>
+      </node>
+      <node id="271">
+        <label>IpIpoptCalculatedQuantities.hpp</label>
+      </node>
+      <node id="269">
+        <label>IpTNLP.hpp</label>
+      </node>
+      <node id="267">
+        <label>vector</label>
+      </node>
+      <node id="263">
+        <label>NLPSolverIpopt.h</label>
+        <link refid="NLPSolverIpopt_8h_source"/>
+        <childnode refid="264" relation="include">
+        </childnode>
+        <childnode refid="268" relation="include">
+        </childnode>
+        <childnode refid="269" relation="include">
+        </childnode>
+        <childnode refid="270" relation="include">
+        </childnode>
+        <childnode refid="271" relation="include">
+        </childnode>
+      </node>
+      <node id="262">
+        <label>/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolverIpopt.cpp</label>
+        <link refid="NLPSolverIpopt.cpp"/>
+        <childnode refid="263" relation="include">
+        </childnode>
+      </node>
+      <node id="266">
+        <label>NLP.h</label>
+        <link refid="NLP_8h_source"/>
+        <childnode refid="267" relation="include">
+        </childnode>
+        <childnode refid="265" relation="include">
+        </childnode>
+      </node>
+      <node id="268">
+        <label>IpIpoptApplication.hpp</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classTNLPImpl" prot="public">TNLPImpl</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>NLPSolverIpopt</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;NLPSolverIpopt.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/>///////////////////////////////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TNLP<sp/>implementation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>///////////////////////////////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">TNLPImpl<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Ipopt::TNLP</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><ref refid="classNLP" kindref="compound">NLP</ref><sp/>*bocopNLP<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>initialisations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>get_nlp_info(Ipopt::Index&amp;<sp/>n,<sp/>Ipopt::Index&amp;<sp/>m,<sp/>Ipopt::Index&amp;<sp/>nnz_jac_g,<sp/>Ipopt::Index&amp;<sp/>nnz_h_lag,<sp/>IndexStyleEnum&amp;<sp/>Index_style);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>get_bounds_info(Ipopt::Index<sp/>n,<sp/>Ipopt::Number*<sp/>x_l,<sp/>Ipopt::Number*<sp/>x_u,<sp/>Ipopt::Index<sp/><sp/><sp/>m,<sp/>Ipopt::Number*<sp/>g_l,<sp/>Ipopt::Number*<sp/>g_u);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>get_starting_point(Ipopt::Index<sp/>n,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>init_x,<sp/>Ipopt::Number*<sp/>x,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>init_z,<sp/>Ipopt::Number*<sp/>z_L,<sp/>Ipopt::Number*<sp/>z_U,<sp/>Ipopt::Index<sp/>m,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>init_lambda,<sp/>Ipopt::Number*<sp/>lambda);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>post<sp/>optimisation<sp/>call</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>finalize_solution(Ipopt::SolverReturn<sp/>status,<sp/>Ipopt::Index<sp/>n,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ipopt::Number*<sp/>x,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ipopt::Number*<sp/>z_L,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ipopt::Number*<sp/>z_U,<sp/>Ipopt::Index<sp/>m,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ipopt::Number*<sp/>g,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ipopt::Number*<sp/>lambda,<sp/>Ipopt::Number<sp/>obj_value,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ipopt::IpoptData*<sp/>ip_data,<sp/>Ipopt::IpoptCalculatedQuantities*<sp/>ip_cq);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>objective</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>eval_f(Ipopt::Index<sp/>n,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ipopt::Number*<sp/>x,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>new_x,<sp/>Ipopt::Number&amp;<sp/>obj_value);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>eval_grad_f(Ipopt::Index<sp/>n,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ipopt::Number*<sp/>x,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>new_x,<sp/>Ipopt::Number*<sp/>grad_f);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>constraints</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>eval_g(Ipopt::Index<sp/>n,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ipopt::Number*<sp/>x,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>new_x,<sp/>Ipopt::Index<sp/>m,<sp/>Ipopt::Number*<sp/>g);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>eval_jac_g(Ipopt::Index<sp/>n,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ipopt::Number*<sp/>x,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>new_x,<sp/>Ipopt::Index<sp/>m,<sp/>Ipopt::Index<sp/>nele_jac,<sp/>Ipopt::Index*<sp/>iRow,<sp/>Ipopt::Index*<sp/>jCol,<sp/>Ipopt::Number*<sp/>values);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>lagrangian</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>eval_h(Ipopt::Index<sp/>n,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ipopt::Number*<sp/>x,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>new_x,<sp/>Ipopt::Number<sp/>obj_factor,<sp/>Ipopt::Index<sp/>m,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ipopt::Number*<sp/>lambda,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>new_lambda,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Ipopt::Index<sp/>nele_hess,<sp/>Ipopt::Index*<sp/>iRow,<sp/>Ipopt::Index*<sp/>jCol,<sp/>Ipopt::Number*<sp/>values);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">//<sp/>///////////////////////////////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>TNLPImpl::get_nlp_info(Ipopt::Index&amp;<sp/>n,<sp/>Ipopt::Index&amp;<sp/>m,<sp/>Ipopt::Index&amp;<sp/>nnz_jac_g,<sp/>Ipopt::Index&amp;<sp/>nnz_h_lag,<sp/>IndexStyleEnum&amp;<sp/>Index_style)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>n<sp/>=<sp/>(int)<sp/>bocopNLP-&gt;variablesSize();</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>m<sp/>=<sp/>(int)<sp/>bocopNLP-&gt;constraintsSize();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>nnz_jac_g<sp/>=<sp/>bocopNLP-&gt;jacobianNonZeroEntries();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>nnz_h_lag<sp/>=<sp/>bocopNLP-&gt;hessianNonZeroEntries();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>Index_style<sp/>=<sp/>TNLP::FORTRAN_STYLE;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>TNLPImpl::get_bounds_info(Ipopt::Index<sp/>n,<sp/>Ipopt::Number*<sp/>x_l,<sp/>Ipopt::Number*<sp/>x_u,<sp/>Ipopt::Index<sp/>m,<sp/>Ipopt::Number*<sp/>g_l,<sp/>Ipopt::Number*<sp/>g_u)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>v_l<sp/>=<sp/>bocopNLP-&gt;variablesLowerBounds();</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>std::copy(v_l.begin(),<sp/>v_l.end(),<sp/>x_l);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>v_u<sp/>=<sp/>bocopNLP-&gt;variablesUpperBounds();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>std::copy(v_u.begin(),<sp/>v_u.end(),<sp/>x_u);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>c_l<sp/>=<sp/>bocopNLP-&gt;constraintsLowerBounds();</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>std::copy(c_l.begin(),<sp/>c_l.end(),<sp/>g_l);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>c_u<sp/>=<sp/>bocopNLP-&gt;constraintsUpperBounds();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>std::copy(c_u.begin(),<sp/>c_u.end(),<sp/>g_u);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>TNLPImpl::get_starting_point(Ipopt::Index<sp/>n,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>init_x,<sp/>Ipopt::Number*<sp/>x,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>init_z,<sp/>Ipopt::Number*<sp/>z_L,<sp/>Ipopt::Number*<sp/>z_U,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Ipopt::Index<sp/>m,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>init_lambda,<sp/>Ipopt::Number*<sp/>lambda)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(init_x)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>start<sp/>=<sp/>bocopNLP-&gt;startingPoint();</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>std::copy(start.begin(),<sp/>start.end(),<sp/>x);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(init_z<sp/>||<sp/>init_lambda)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;asking<sp/>for<sp/>lambda<sp/>or<sp/>z<sp/>init...&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>TNLPImpl::eval_f(Ipopt::Index<sp/>n,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ipopt::Number*<sp/>x,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>new_x,<sp/>Ipopt::Number&amp;<sp/>obj_value)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>bocopNLP-&gt;evalObjective(x,<sp/>obj_value);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>TNLPImpl::eval_grad_f(Ipopt::Index<sp/>n,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ipopt::Number*<sp/>x,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>new_x,<sp/>Ipopt::Number*<sp/>grad_f)</highlight></codeline>
+<codeline lineno="92"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>bocopNLP-&gt;evalObjectiveGradient(x,<sp/>grad_f);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>TNLPImpl::eval_g(Ipopt::Index<sp/>n,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ipopt::Number*<sp/>x,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>new_x,<sp/>Ipopt::Index<sp/>m,<sp/>Ipopt::Number*<sp/>g)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>bocopNLP-&gt;evalConstraints(x,<sp/>g);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>TNLPImpl::eval_jac_g(Ipopt::Index<sp/>n,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ipopt::Number*<sp/>x,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>new_x,<sp/>Ipopt::Index<sp/>m,</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Ipopt::Index<sp/>nele_jac,<sp/>Ipopt::Index*<sp/>iRow,<sp/>Ipopt::Index*<sp/>jCol,<sp/>Ipopt::Number*<sp/>values)</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>res;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!values)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>In<sp/>this<sp/>case<sp/>Ipopt<sp/>retrieves<sp/>the<sp/>sparse<sp/>structure<sp/>of<sp/>the<sp/>jacobian.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>res<sp/>=<sp/>bocopNLP-&gt;setConstraintsJacobianSparsityPattern(iRow,<sp/>jCol,<sp/>nele_jac);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>res<sp/>=<sp/>bocopNLP-&gt;evalConstraintsJacobian(x,<sp/>values);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>res;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>TNLPImpl::eval_h(Ipopt::Index<sp/>n,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ipopt::Number*<sp/>x,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>new_x,<sp/>Ipopt::Number<sp/>obj_factor,<sp/>Ipopt::Index<sp/>m,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ipopt::Number*<sp/>lambda,</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>new_lambda,<sp/>Ipopt::Index<sp/>nele_hess,<sp/>Ipopt::Index*<sp/>iRow,<sp/>Ipopt::Index*<sp/>jCol,<sp/>Ipopt::Number*<sp/>values)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>res;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!values)</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>In<sp/>this<sp/>case<sp/>Ipopt<sp/>retrieves<sp/>the<sp/>sparse<sp/>structure<sp/>of<sp/>the<sp/>hessian.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>res<sp/>=<sp/>bocopNLP-&gt;setLagrangianHessianSparsityPattern(iRow,<sp/>jCol,<sp/>nele_hess);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>res<sp/>=<sp/>bocopNLP-&gt;evalLagrangianHessian(x,<sp/>obj_factor,<sp/>lambda,<sp/>values);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>res;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>TNLPImpl::finalize_solution(Ipopt::SolverReturn<sp/>status,<sp/>Ipopt::Index<sp/>n,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ipopt::Number*<sp/>x,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ipopt::Number*<sp/>z_L,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ipopt::Number*<sp/>z_U,<sp/>Ipopt::Index<sp/>m,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ipopt::Number*<sp/>g,</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ipopt::Number*<sp/>lambda,<sp/>Ipopt::Number<sp/>obj_value,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ipopt::IpoptData*<sp/>ip_data,<sp/>Ipopt::IpoptCalculatedQuantities*<sp/>ip_cq)</highlight></codeline>
+<codeline lineno="129"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>retrieve<sp/>solution<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+++<sp/>NB<sp/>use<sp/>a<sp/>class<sp/>for<sp/>the<sp/>NLP<sp/>solution<sp/>(maybe<sp/>reuse/expand<sp/>the<sp/>existing<sp/>one<sp/>?).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>set<sp/>it<sp/>here,<sp/>then<sp/>writesolution<sp/>can<sp/>be<sp/>called<sp/>from<sp/>NLP::save()<sp/>in<sp/>a<sp/>more<sp/>generic<sp/>way</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>status_int<sp/>=<sp/>(int)<sp/>status;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iter<sp/>=<sp/>ip_data-&gt;iter_count();</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>constraints_viol<sp/>=<sp/>(double)ip_cq-&gt;curr_nlp_constraint_violation(Ipopt::NORM_2);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>save<sp/>solution<sp/>(NB<sp/>reuse<sp/>this<sp/>for<sp/>intermediate<sp/>callback<sp/>to<sp/>save<sp/>iterations<sp/>!)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!bocopNLP-&gt;solutionFile().empty())</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>bocopNLP-&gt;writeSolution(status_int,<sp/>iter,<sp/>obj_value,<sp/>constraints_viol,<sp/>x,<sp/>lambda,<sp/>g);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="comment">//<sp/>///////////////////////////////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="comment">//<sp/>NLPSolverIpopt<sp/>implementation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="comment">//<sp/>///////////////////////////////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal">NLPSolverIpopt::NLPSolverIpopt(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>:<sp/><ref refid="classNLPSolver" kindref="compound">NLPSolver</ref>()</highlight></codeline>
+<codeline lineno="150"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//app<sp/>=<sp/>IpoptApplicationFactory();<sp/>Factory<sp/>does<sp/>not<sp/>seem<sp/>available<sp/>in<sp/>windows<sp/>conda<sp/>package<sp/>(older<sp/>version<sp/>?)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/>app<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Ipopt::IpoptApplication();</highlight></codeline>
+<codeline lineno="153"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal">NLPSolverIpopt::~NLPSolverIpopt(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="156"><highlight class="normal">{}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>NLPSolverIpopt::setOptionFile(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;file)</highlight></codeline>
+<codeline lineno="159"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/>option_file<sp/>=<sp/>file;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>NLPSolverIpopt::setNLP(<ref refid="classNLP" kindref="compound">NLP</ref><sp/>*bocopNLP)</highlight></codeline>
+<codeline lineno="164"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>tnlp_impl<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>TNLPImpl;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/>tnlp_impl-&gt;bocopNLP<sp/>=<sp/>bocopNLP;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/>tnlp<sp/>=<sp/>tnlp_impl;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>NLPSolverIpopt::solve(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="171"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/>Ipopt::ApplicationReturnStatus<sp/>status;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/>status<sp/>=<sp/>app-&gt;Initialize();</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(status<sp/>!=<sp/>Ipopt::Solve_Succeeded)</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Error<sp/>during<sp/>Ipopt<sp/>initialisation:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>status<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>exit(1);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/>app-&gt;OptimizeTNLP(tnlp);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight><highlight class="comment">//<sp/>NLPSolverIpopt.cpp<sp/>ends<sp/>here</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolverIpopt.cpp"/>
+  </compounddef>
+</doxygen>

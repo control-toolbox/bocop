@@ -1,0 +1,16 @@
+# conda constructor package for bocop
+# usage: constructor <path_to_this_script>
+# note: run 'constructor --clean' to clear cache
+
+name: bocop
+version: 3.1.0
+
+channels:
+  - https://conda.anaconda.org/dtk-forge
+  - https://conda.anaconda.org/conda-forge # yup, windows too
+  - https://conda.anaconda.org/pierremartinon
+
+specs:
+  - bocop
+
+installer_type: pkg [osx]

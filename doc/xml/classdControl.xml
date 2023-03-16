@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="classdControl" kind="class" language="C++" prot="public">
+    <compoundname>dControl</compoundname>
+    <includes refid="dControl_8h" local="no">dControl.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdControl_1a240707ad1519bd32e5e7656efa9a10ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dControl::setInitialControl</definition>
+        <argsstring>(const std::vector&lt; double &gt; discretisation_stages, OCP *ocp, dODE *rk, std::vector&lt; double &gt; &amp;starting_point, std::vector&lt; double &gt; &amp;variables_lower_bounds, std::vector&lt; double &gt; &amp;variables_upper_bounds)</argsstring>
+        <name>setInitialControl</name>
+        <param>
+          <type>const std::vector&lt; double &gt;</type>
+          <declname>discretisation_stages</declname>
+        </param>
+        <param>
+          <type><ref refid="classOCP" kindref="compound">OCP</ref> *</type>
+          <declname>ocp</declname>
+        </param>
+        <param>
+          <type><ref refid="classdODE" kindref="compound">dODE</ref> *</type>
+          <declname>rk</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>starting_point</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>variables_lower_bounds</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>variables_upper_bounds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dControl.h" line="17" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dControl.cpp" bodystart="9" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classdControl_1a1e55c3364aff1fa44afc8152d7d30e4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dControl::getControl</definition>
+        <argsstring>(const double *x, size_t control_offset, size_t dimSteps, size_t dimStages, size_t dimControl, std::vector&lt; std::vector&lt; double &gt; &gt; &amp;control)</argsstring>
+        <name>getControl</name>
+        <param>
+          <type>const double *</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>control_offset</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>dimSteps</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>dimStages</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>dimControl</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</type>
+          <declname>control</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dControl.h" line="19" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dControl.cpp" bodystart="51" bodyend="62"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classdControl" kindref="compound">dControl</ref> implements the control variables handling in <ref refid="classdOCP" kindref="compound">dOCP</ref> </para>    </briefdescription>
+    <detaileddescription>
+<para><hruler/>
+ </para>    </detaileddescription>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/DOCP/dControl.h" line="14" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/DOCP/dControl.h" bodystart="13" bodyend="21"/>
+    <listofallmembers>
+      <member refid="classdControl_1a1e55c3364aff1fa44afc8152d7d30e4c" prot="public" virt="non-virtual"><scope>dControl</scope><name>getControl</name></member>
+      <member refid="classdControl_1a240707ad1519bd32e5e7656efa9a10ee" prot="public" virt="non-virtual"><scope>dControl</scope><name>setInitialControl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

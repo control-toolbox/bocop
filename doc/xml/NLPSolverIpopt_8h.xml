@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="NLPSolverIpopt_8h" kind="file" language="C++">
+    <compoundname>NLPSolverIpopt.h</compoundname>
+    <includes refid="NLPSolver_8h" local="no">NLPSolver.h</includes>
+    <includes local="no">IpIpoptApplication.hpp</includes>
+    <includes local="no">IpTNLP.hpp</includes>
+    <includes local="no">IpIpoptData.hpp</includes>
+    <includes local="no">IpIpoptCalculatedQuantities.hpp</includes>
+    <includedby refid="main_8cpp" local="no">/home/martinon/bocop/bocop3/bocop/src/main.cpp</includedby>
+    <includedby refid="NLPSolverIpopt_8cpp" local="no">/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolverIpopt.cpp</includedby>
+    <incdepgraph>
+      <node id="275">
+        <label>string</label>
+      </node>
+      <node id="274">
+        <label>NLPSolver.h</label>
+        <link refid="NLPSolver_8h_source"/>
+        <childnode refid="275" relation="include">
+        </childnode>
+        <childnode refid="276" relation="include">
+        </childnode>
+      </node>
+      <node id="280">
+        <label>IpIpoptData.hpp</label>
+      </node>
+      <node id="281">
+        <label>IpIpoptCalculatedQuantities.hpp</label>
+      </node>
+      <node id="279">
+        <label>IpTNLP.hpp</label>
+      </node>
+      <node id="277">
+        <label>vector</label>
+      </node>
+      <node id="273">
+        <label>/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolverIpopt.h</label>
+        <link refid="NLPSolverIpopt.h"/>
+        <childnode refid="274" relation="include">
+        </childnode>
+        <childnode refid="278" relation="include">
+        </childnode>
+        <childnode refid="279" relation="include">
+        </childnode>
+        <childnode refid="280" relation="include">
+        </childnode>
+        <childnode refid="281" relation="include">
+        </childnode>
+      </node>
+      <node id="276">
+        <label>NLP.h</label>
+        <link refid="NLP_8h_source"/>
+        <childnode refid="277" relation="include">
+        </childnode>
+        <childnode refid="275" relation="include">
+        </childnode>
+      </node>
+      <node id="278">
+        <label>IpIpoptApplication.hpp</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classNLPSolverIpopt" prot="public">NLPSolverIpopt</innerclass>
+    <innerclass refid="classNLPSolverResults" prot="public">NLPSolverResults</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="NLPSolverIpopt_8h_1afa60b4b35da181eadd705c28824d515a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classNLPSolver" kindref="compound">NLPSolver</ref> *</type>
+        <definition>NLPSolver* NLPSolverIpoptCreator</definition>
+        <argsstring>(void)</argsstring>
+        <name>NLPSolverIpoptCreator</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolverIpopt.h" line="40" column="1" bodyfile="/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolverIpopt.h" bodystart="40" bodyend="43"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/><sp/>NLPSolverIpopt.h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;NLPSolver.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;IpIpoptApplication.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;IpTNLP.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;IpIpoptData.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;IpIpoptCalculatedQuantities.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="classNLPSolverIpopt" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classNLPSolverIpopt" kindref="compound">NLPSolverIpopt</ref><sp/>final<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classNLPSolver" kindref="compound">NLPSolver</ref></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="classNLPSolverIpopt" kindref="compound">NLPSolverIpopt</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="classNLPSolverIpopt" kindref="compound">NLPSolverIpopt</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setOptionFile(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>file);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setNLP(<ref refid="classNLP" kindref="compound">NLP</ref><sp/>*bocopNLP);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>solve(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>option_file;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>Ipopt::SmartPtr&lt;Ipopt::TNLP&gt;<sp/>tnlp;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>Ipopt::SmartPtr&lt;Ipopt::IpoptApplication&gt;<sp/>app;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">//<sp/>///////////////////////////////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="classNLPSolver" kindref="compound">NLPSolver</ref><sp/>*NLPSolverIpoptCreator(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classNLPSolverIpopt" kindref="compound">NLPSolverIpopt</ref>();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">//<sp/>+++<sp/>?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">NLPSolverResults</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>m_status<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>m_objective<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>m_constraint<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>m_iterations<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//<sp/>NLPSolverIpopt.h<sp/>ends<sp/>here</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/NLP/NLPSolverIpopt.h"/>
+  </compounddef>
+</doxygen>

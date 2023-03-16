@@ -1,0 +1,269 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class NLP &mdash; bocop 3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class dOCPCppAD" href="dOCPCppAD.html" />
+    <link rel="prev" title="Class dOCP" href="dOCP.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> bocop
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="OCP.html">Class OCP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dOCP.html">Class dOCP</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Class NLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dOCPCppAD.html">Class dOCPCppAD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcp.html">Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">bocop</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Class NLP</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/classes/NLP.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-nlp">
+<h1>Class NLP<a class="headerlink" href="#class-nlp" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp class">
+<dt id="_CPPv43NLP">
+<span id="_CPPv33NLP"></span><span id="_CPPv23NLP"></span><span id="NLP"></span><span class="target" id="classNLP"></span><em class="property">class </em><code class="sig-name descname">NLP</code><a class="headerlink" href="#_CPPv43NLP" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classNLP"><span class="std std-ref">NLP</span></a> defines a nonlinear programming problem of the general form <div class="math notranslate nohighlight">
+\[\begin{split} \begin{array}{l} Min\ F(X)\\ G_L \le G(X) \le G_U \end{array} \end{split}\]</div>
+ It provides functions for objective F and constraints C (and Lagrangian L) with their derivatives gradient_F, jacobian_G and hessian_L as well as some utility functions (set bounds, starting point,…) </p>
+<p></p>
+<p>Note: the class is virtual and its functions are typically overriden in <a class="reference internal" href="dOCP.html#classdOCP"><span class="std std-ref">dOCP</span></a> and <a class="reference internal" href="dOCPCppAD.html#classdOCPCppAD"><span class="std std-ref">dOCPCppAD</span></a> </p>
+<p>Subclassed by <a class="reference internal" href="dOCP.html#classdOCP"><span class="std std-ref">dOCP</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions and derivatives for the NLP solver</p>
+<dl class="cpp function">
+<dt id="_CPPv4N3NLP13evalObjectiveEPKdRd">
+<span id="_CPPv3N3NLP13evalObjectiveEPKdRd"></span><span id="_CPPv2N3NLP13evalObjectiveEPKdRd"></span><span id="NLP::evalObjective__doubleCP.doubleR"></span><span class="target" id="classNLP_1accc30c854eca5e3e5d3924156c907090"></span>bool <code class="sig-name descname">evalObjective</code><span class="sig-paren">(</span><em class="property">const</em> double *<em>variables</em>, double &amp;<em>objective</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N3NLP13evalObjectiveEPKdRd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Objective function for the nonlinear optimization problem </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N3NLP15evalConstraintsEPKdPd">
+<span id="_CPPv3N3NLP15evalConstraintsEPKdPd"></span><span id="_CPPv2N3NLP15evalConstraintsEPKdPd"></span><span id="NLP::evalConstraints__doubleCP.doubleP"></span><span class="target" id="classNLP_1a3fb766d26ae7bb80b52bc53a0ba875b0"></span>bool <code class="sig-name descname">evalConstraints</code><span class="sig-paren">(</span><em class="property">const</em> double *<em>variables</em>, double *<em>constraints</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N3NLP15evalConstraintsEPKdPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constraints for the nonlinear problem. Equality constraints are handled by setting equal values for lower and upper bound. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N3NLP14evalLagrangianEPKdRd">
+<span id="_CPPv3N3NLP14evalLagrangianEPKdRd"></span><span id="_CPPv2N3NLP14evalLagrangianEPKdRd"></span><span id="NLP::evalLagrangian__doubleCP.doubleR"></span><span class="target" id="classNLP_1aacdce4e919dd809afb30cbfd17e87634"></span>bool <code class="sig-name descname">evalLagrangian</code><span class="sig-paren">(</span><em class="property">const</em> double *<em>primal_dual_variables</em>, double &amp;<em>lagrangian</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N3NLP14evalLagrangianEPKdRd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Lagrangian <span class="math notranslate nohighlight">\(L(X,\lambda) = F(X) + \lambda . C(X)\)</span>. This function is not called directly but its Hessian is required by the <a class="reference internal" href="#classNLP"><span class="std std-ref">NLP</span></a> solver. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N3NLP21evalObjectiveGradientEPKdPd">
+<span id="_CPPv3N3NLP21evalObjectiveGradientEPKdPd"></span><span id="_CPPv2N3NLP21evalObjectiveGradientEPKdPd"></span><span id="NLP::evalObjectiveGradient__doubleCP.doubleP"></span><span class="target" id="classNLP_1a193e829428b575b3ef0a6edcee7009b2"></span>bool <code class="sig-name descname">evalObjectiveGradient</code><span class="sig-paren">(</span><em class="property">const</em> double *<em>variables</em>, double *<em>grad_objective</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N3NLP21evalObjectiveGradientEPKdPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gradient of the objective, computed by automatic differentiation (CppAD) </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N3NLP23evalConstraintsJacobianEPKdPd">
+<span id="_CPPv3N3NLP23evalConstraintsJacobianEPKdPd"></span><span id="_CPPv2N3NLP23evalConstraintsJacobianEPKdPd"></span><span id="NLP::evalConstraintsJacobian__doubleCP.doubleP"></span><span class="target" id="classNLP_1abf5dcf13856dd753f39030d0ae271ced"></span>bool <code class="sig-name descname">evalConstraintsJacobian</code><span class="sig-paren">(</span><em class="property">const</em> double *<em>variables</em>, double *<em>jac_constraints</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N3NLP23evalConstraintsJacobianEPKdPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Jacobian of the constraints, computed by automatic differentiation (CppAD) in sparse format. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N3NLP21evalLagrangianHessianEPKddPKdPd">
+<span id="_CPPv3N3NLP21evalLagrangianHessianEPKddPKdPd"></span><span id="_CPPv2N3NLP21evalLagrangianHessianEPKddPKdPd"></span><span id="NLP::evalLagrangianHessian__doubleCP.double.doubleCP.doubleP"></span><span class="target" id="classNLP_1a11fb6373e50dad8e0134876f689135e8"></span>bool <code class="sig-name descname">evalLagrangianHessian</code><span class="sig-paren">(</span><em class="property">const</em> double *<em>variables</em>, double <em>obj_factor</em>, <em class="property">const</em> double *<em>lambda</em>, double *<em>lag_hessian</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N3NLP21evalLagrangianHessianEPKddPKdPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Hessian of the Lagrangian, computed by automatic differentiation (CppAD) in sparse format. Note: currently Hessian is computed fully ie for both primal and dual variables, while only the derivatives wrt X are used. Todo: use cppad DYNAMIC type for the dual variables. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dOCPCppAD.html" class="btn btn-neutral float-right" title="Class dOCPCppAD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="dOCP.html" class="btn btn-neutral float-left" title="Class dOCP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, PM
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

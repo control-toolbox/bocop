@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="dir_bff5f52d7335ca89bd26ef567e56aadd" kind="dir">
+    <compoundname>/home/martinon/bocop/bocop3/bocop/src/OCP</compoundname>
+    <innerfile refid="OCP_8cpp">OCP.cpp</innerfile>
+    <innerfile refid="OCP_8h">OCP.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/martinon/bocop/bocop3/bocop/src/OCP/"/>
+  </compounddef>
+</doxygen>

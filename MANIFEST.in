@@ -1,0 +1,19 @@
+# SEEMS TO INCLUDE ONLY THE FILES UNDER BOCOP/ ...
+
+# list of files for bocop module
+graft bocop
+prune bocop/lib
+prune bocop/examples
+
+# examples: install all files in problem folder except build/, executable, backup files and result.out
+graft bocop/examples/default
+graft bocop/examples/beam
+graft bocop/examples/fuller
+graft bocop/examples/goddard
+graft bocop/examples/smooth_case
+graft bocop/examples/vanderpol
+
+recursive-exclude bocop/examples/* bocop.exe bocop result.out *.backup
+prune bocop/examples/*/build/
+
+prune __pycache__
