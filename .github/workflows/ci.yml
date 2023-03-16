@@ -42,7 +42,10 @@ jobs:
               run: |
                 mamba env create -n bocop-dev -f pkg/env/bocop-linux.yaml
                 conda activate bocop-dev
-                conda list
+                conda env list
+                cd bocop/examples/vanderpol
+                bash build.sh
+                ./bocopApp
                 
 #python test_bocop.py 0
 
