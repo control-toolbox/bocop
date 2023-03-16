@@ -11,8 +11,8 @@ jobs:
               with:
                 python-version: 3.7
                 mamba-version: "*"
-#                channels: conda-forge,defaults
-#                channel-priority: true
+                channels: conda-forge,defaults
+                channel-priority: true
             - run: "mamba env create -f pkg/env/bocop-linux.yaml; conda activate bocop-dev"
 #python test_bocop.py 1
             - run: "cd ./bocop/examples/vanderpol; ls; bash build.sh; bocopApp"
