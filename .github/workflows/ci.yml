@@ -7,10 +7,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
-#            - uses: conda-incubator/setup-miniconda@v2
-#            with:
-#                python-version: 3.7
-#                mamba-version: "*"
+            - uses: conda-incubator/setup-miniconda@v2
+              with:
+                python-version: 3.7
+                mamba-version: "*"
 #                channels: conda-forge,defaults
 #                channel-priority: true
             - run: "mamba env create -f pkg/env/bocop-linux.yaml; conda activate bocop-dev"
