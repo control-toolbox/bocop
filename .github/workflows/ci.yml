@@ -2,6 +2,9 @@ name: CI basic test
 
 on: [push, pull_request]
 
+env:
+    CACHE_NUMBER: 0
+
 jobs:
     test_examples:
         runs-on: ubuntu-latest
@@ -10,16 +13,33 @@ jobs:
                 shell: bash -el {0}
         steps:
             - uses: actions/checkout@v3
-            - uses: conda-incubator/setup-miniconda@v2
+
+            - name: setup mambaforge
+              uses: conda-incubator/setup-miniconda@v2
               with:
-                python-version: 3.7
-                mamba-version: "*"
-                channels: conda-forge,defaults
-                channel-priority: true
+                miniforge-variant: Mambaforge
+                miniforge-version: latest
                 activate-environment: bocop-dev
-                environment-file: pkg/env/bocop-linux.yaml
-                auto-activate-base: false
-            -  run: python test_bocop.py 0
+                use-mamba: true
+                python-version: 3.7
+
+            - name: get date
+              id: get-date
+              run: echo "today=$(/bin/date -u '+%Y%m%d')" >> $GITHUB_OUTPUT
+
+            - name: cache conda
+              uses: actions/cache@v2
+              with:
+                path: ${{ env.CONDA }}/envs
+                key: conda-${{ runner.os }}--${{ runner.arch }}--${{steps.get-date.outputs.today }}-${{hashFiles('etc/example-environment-caching.yml') }}-${{ env.CACHE_NUMBER}}
+              id: cache
+
+            - name: update environment
+              run: mamba env update -n bocop-dev -f pkg/env/bocop-linux.yaml
+              if: steps.cache.outputs.cache-hit != 'true'
+            
+            - name: python manual test
+              run: python test_bocop.py 0
 
 
 # TODO
