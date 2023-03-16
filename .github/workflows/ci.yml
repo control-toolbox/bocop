@@ -5,7 +5,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
-            - run: "conda env create -f pkg/env/bocop-linux.yaml; conda activate bocop-dev"
+            - run: "mamba env create -f pkg/env/bocop-linux.yaml; conda activate bocop-dev"
 #python test_bocop.py 1
             - run: "cd ./bocop/examples/vanderpol; ls; bash build.sh; bocopApp"
             #- uses: conda-incubator/setup-miniconda@v2
