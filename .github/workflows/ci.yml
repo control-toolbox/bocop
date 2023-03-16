@@ -19,7 +19,7 @@ jobs:
               with:
                 miniforge-variant: Mambaforge
                 miniforge-version: latest
-                activate-environment: bocop-dev
+                #activate-environment: bocop-dev
                 use-mamba: true
                 python-version: 3.7
 
