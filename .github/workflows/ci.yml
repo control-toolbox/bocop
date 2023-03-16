@@ -5,6 +5,9 @@ on: [push, pull_request]
 jobs:
     test_examples:
         runs-on: ubuntu-latest
+        defaults:
+            run:
+                shell: bash -el {0}
         steps:
             - uses: actions/checkout@v3
             - uses: conda-incubator/setup-miniconda@v2
@@ -19,7 +22,13 @@ jobs:
             - run: conda env list
 #            - run: "mamba env create -f pkg/env/bocop-linux.yaml; conda activate bocop-dev"
 #python test_bocop.py 1
-            - run: "cd ./bocop/examples/vanderpol; ls; bash build.sh; bocopApp"
+            - run: |
+                conda activate bocop-dev
+                conda env list
+                cd ./bocop/examples/vanderpol
+                ls
+                bash build.sh
+                bocopApp
             #- name: run manual python test script
             #  run: python test_bocop.py 2
 
