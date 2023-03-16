@@ -20,7 +20,6 @@ jobs:
                 environment-file: pkg/env/bocop-linux.yaml
                 auto-activate-base: false
             - run: |
-#                conda activate bocop-dev
                 conda env list
                 cd ./bocop/examples/vanderpol
                 ls
@@ -31,6 +30,7 @@ jobs:
             #  run: python test_bocop.py 2
 
 
-# mamba
-# multi os
+# TODO
+# add cache
+# try multi os
 # later use pytest and or manual/auto julia tests ?
