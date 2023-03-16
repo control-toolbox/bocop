@@ -5,11 +5,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
-            - name: manual cli test
-                run: cd ./bocop/eamples/vanderpol
-                run: ls
-                run: bash build.sh
-                run: bocopApp
+            - run: cd ./bocop/eamples/vanderpol
+            - run: ls
+            - run: bash build.sh
+            - run: bocopApp
             #- uses: conda-incubator/setup-miniconda@v2
             #  with:
             #    activate-environment: bocop-dev
