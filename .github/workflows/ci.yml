@@ -39,7 +39,9 @@ jobs:
               if: steps.cache.outputs.cache-hit != 'true'
             
             - name: python manual test
-              run: python test_bocop.py 0
+              run: |
+                conda activate bocop-dev
+                python test_bocop.py 0
 
 
 # TODO
