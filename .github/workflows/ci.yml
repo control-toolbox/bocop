@@ -19,14 +19,7 @@ jobs:
                 activate-environment: bocop-dev
                 environment-file: pkg/env/bocop-linux.yaml
                 auto-activate-base: false
-            # - run: |
-            #     conda env list
-            #     cd ./bocop/examples/vanderpol
-            #     ls
-            #     bash build.sh
-            #     ls
-            #     ./bocopApp
-            -  run: python test_bocop.py 2
+            -  run: python test_bocop.py 1
 
 
 # TODO
