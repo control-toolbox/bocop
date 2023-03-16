@@ -17,7 +17,7 @@ jobs:
                 environment-file: pkg/env/bocop-linux.yaml
 #            - run: "mamba env create -f pkg/env/bocop-linux.yaml; conda activate bocop-dev"
 #python test_bocop.py 1
-            - run: "cd ./bocop/examples/vanderpol; ls; bash build.sh; bocopApp"
+            - run: "conda activate bocop-dev; cd ./bocop/examples/vanderpol; ls; bash build.sh; bocopApp"
             #- name: run manual python test script
             #  run: python test_bocop.py 2
 
