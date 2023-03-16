@@ -15,9 +15,11 @@ jobs:
                 channel-priority: true
                 activate-environment: bocop-dev
                 environment-file: pkg/env/bocop-linux.yaml
+                auto-activate-base: false
+            - run: conda env list
 #            - run: "mamba env create -f pkg/env/bocop-linux.yaml; conda activate bocop-dev"
 #python test_bocop.py 1
-            - run: "conda activate bocop-dev; cd ./bocop/examples/vanderpol; ls; bash build.sh; bocopApp"
+            - run: "cd ./bocop/examples/vanderpol; ls; bash build.sh; bocopApp"
             #- name: run manual python test script
             #  run: python test_bocop.py 2
 
