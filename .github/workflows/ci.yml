@@ -23,23 +23,24 @@ jobs:
                 use-mamba: true
                 python-version: 3.7
 
-            - name: get date
-              id: get-date
-              run: echo "today=$(/bin/date -u '+%Y%m%d')" >> $GITHUB_OUTPUT
+            # - name: get date
+            #   id: get-date
+            #   run: echo "today=$(/bin/date -u '+%Y%m%d')" >> $GITHUB_OUTPUT
 
-            - name: cache conda
-              uses: actions/cache@v2
-              with:
-                path: ${{ env.CONDA }}/envs
-                key: conda-${{ runner.os }}--${{ runner.arch }}--${{steps.get-date.outputs.today }}-${{hashFiles('etc/example-environment-caching.yml') }}-${{ env.CACHE_NUMBER}}
-              id: cache
+            # - name: cache conda
+            #   uses: actions/cache@v2
+            #   with:
+            #     path: ${{ env.CONDA }}/envs
+            #     key: conda-${{ runner.os }}--${{ runner.arch }}--${{steps.get-date.outputs.today }}-${{hashFiles('etc/example-environment-caching.yml') }}-${{ env.CACHE_NUMBER}}
+            #   id: cache
 
-            - name: update environment
-              run: mamba env update -n bocop-dev -f pkg/env/bocop-linux.yaml
-              if: steps.cache.outputs.cache-hit != 'true'
+            # - name: update environment
+            #   run: mamba env update -n bocop-dev -f pkg/env/bocop-linux.yaml
+            #   if: steps.cache.outputs.cache-hit != 'true'
             
             - name: python manual test
               run: |
+                mamba env create -n bocop-dev -f pkg/env/bocop-linux.yaml
                 conda activate bocop-dev
                 python test_bocop.py 0
 
