@@ -14,10 +14,11 @@ jobs:
               with:
                 miniforge-variant: Mambaforge
                 miniforge-version: latest
+                use-mamba: true
                 activate-environment: bocop-dev
                 environment-file: pkg/env/bocop-linux.yaml
-                use-mamba: true
-                #python-version: 3.7
+                auto-activate-base: false
+                python-version: 3.7
             -  run: python test_bocop.py 0
 
 
