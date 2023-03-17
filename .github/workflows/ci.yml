@@ -39,7 +39,8 @@ jobs:
 
             - name: update environment
               run:
-                mamba env update -n bocop-dev -f pkg/env/bocop-linux.yaml
+                mamba env update -n bocop-dev -f pkg/env/bocop-linux.yaml # try create if needed
+              if: steps.cache.outputs.cache-hit != 'true'
 
             - name: python manual test
               run: |
