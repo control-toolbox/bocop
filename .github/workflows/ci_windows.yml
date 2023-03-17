@@ -5,9 +5,7 @@ on: [push, pull_request]
 jobs:
     test_examples:
         runs-on: windows-latest
-        defaults:
-            run:
-                shell: bash -el {0}
+
         steps:
             - uses: actions/checkout@v3
             - uses: conda-incubator/setup-miniconda@v2
@@ -19,7 +17,7 @@ jobs:
             #-  run: python test_bocop.py 0
 
             - run: |
-            cd bocop/examples/vanderpol
+            cd bocop\examples\vanderpol
             dir
             build.bat
             dir
