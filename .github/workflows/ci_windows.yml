@@ -19,8 +19,8 @@ jobs:
             - run: |
                 cd bocop\examples\vanderpol
                 dir
-                build.bat
+                build.ps1
                 dir
                 bocopApp.exe
-              shell: cmd
+              #shell: cmd
 
