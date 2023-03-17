@@ -8,6 +8,7 @@ jobs:
 
         steps:
             - uses: actions/checkout@v3
+            - uses: ilammy/msvc-dev-cmd@v1
             - uses: conda-incubator/setup-miniconda@v2
               with:
                 miniforge-variant: Mambaforge
@@ -19,8 +20,8 @@ jobs:
             - run: |
                 cd bocop\examples\vanderpol
                 dir
-                build.ps1
+                build.bat
                 dir
                 bocopApp.exe
-              #shell: cmd
+              shell: cmd
 
