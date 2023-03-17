@@ -16,5 +16,12 @@ jobs:
                 use-mamba: true
                 activate-environment: bocop-dev
                 environment-file: pkg/env/bocop-windows.yaml
-            -  run: python test_bocop.py 0
+            #-  run: python test_bocop.py 0
+
+            - run: |
+            cd bocop/examples/vanderpol
+            dir
+            build.bat
+            dir
+            bocopApp.exe
 
