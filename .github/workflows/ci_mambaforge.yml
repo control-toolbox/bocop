@@ -16,8 +16,6 @@ jobs:
                 use-mamba: true
                 activate-environment: bocop-dev
                 environment-file: pkg/env/bocop-linux.yaml
-                auto-activate-base: false
-                python-version: 3.7
             -  run: python test_bocop.py 0
 
 
