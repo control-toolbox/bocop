@@ -1,4 +1,4 @@
-name: CI basic test (mambaforge)
+name: CI basic test
 
 on: [push, pull_request]
 
