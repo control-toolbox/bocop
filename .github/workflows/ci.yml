@@ -23,9 +23,8 @@ jobs:
                 channel-priority: true
 
             - name: update environment
-              run: |
+              run:
                 mamba env update -n bocop-dev -f pkg/env/bocop-linux.yaml
-                mamba env create -n bocop-dev2 -f pkg/env/bocop-linux.yaml
 
             - name: python manual test
               run: |
@@ -38,6 +37,8 @@ jobs:
 
 
 # TODO
-# add cache NB. mambaforge causes an error with cmake...
+# add cache
+# NB. trying to update the env created during conda setup does not work: 
+# need to create new env (or use update but without activating the env at setup, which creates a new one as well)
 # try multi os (start with a matrix for linux only)
 # later use pytest and or manual/auto julia tests ?
