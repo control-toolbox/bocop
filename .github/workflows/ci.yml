@@ -14,14 +14,16 @@ jobs:
         steps:
             - uses: actions/checkout@v3
 
-            - name: setup mambaforge
+            - name: setup mamba
               uses: conda-incubator/setup-miniconda@v2
               with:
-                miniforge-variant: Mambaforge
-                miniforge-version: latest
-                #activate-environment: bocop-dev
-                use-mamba: true
-                #python-version: 3.7
+                python-version: 3.7
+                mamba-version: "*"
+                channels: conda-forge,defaults
+                channel-priority: true
+                activate-environment: bocop-dev
+                #environment-file: pkg/env/bocop-linux.yaml
+                auto-activate-base: false
 
             # - name: get date
             #   id: get-date
@@ -51,6 +53,6 @@ jobs:
 
 
 # TODO
-# add cache
+# add cache NB. mambaforge causes an error with cmake...
 # try multi os
 # later use pytest and or manual/auto julia tests ?
