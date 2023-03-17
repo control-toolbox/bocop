@@ -1,4 +1,4 @@
-name: CI basic test
+name: CI basic test (mambaforge)
 
 on: [push, pull_request]
 
@@ -17,7 +17,7 @@ jobs:
                 activate-environment: bocop-dev
                 environment-file: pkg/env/bocop-linux.yaml
                 use-mamba: true
-                python-version: 3.7
+                #python-version: 3.7
             -  run: python test_bocop.py 0
 
 
