@@ -21,7 +21,7 @@ jobs:
                 mamba-version: "*"
                 channels: conda-forge,defaults
                 channel-priority: true
-                activate-environment: bocop-dev
+                #activate-environment: bocop-dev
                 #environment-file: pkg/env/bocop-linux.yaml
                 auto-activate-base: false
 
@@ -54,5 +54,5 @@ jobs:
 
 # TODO
 # add cache NB. mambaforge causes an error with cmake...
-# try multi os
+# try multi os (start with a matrix for linux only)
 # later use pytest and or manual/auto julia tests ?
