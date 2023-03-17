@@ -17,9 +17,9 @@ jobs:
             #-  run: python test_bocop.py 0
 
             - run: |
-            cd bocop\examples\vanderpol
-            dir
-            build.bat
-            dir
-            bocopApp.exe
+                cd bocop\examples\vanderpol
+                dir
+                build.bat
+                dir
+                bocopApp.exe
 
