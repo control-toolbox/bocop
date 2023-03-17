@@ -1,4 +1,4 @@
-name: CI basic test (macos)
+name: CI basic test (windows)
 
 on: [push, pull_request]
 
