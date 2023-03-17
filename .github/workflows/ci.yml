@@ -22,11 +22,10 @@ jobs:
                 channels: conda-forge,defaults
                 channel-priority: true
                 activate-environment: bocop-dev
-                environment-file: pkg/env/bocop-linux.yaml
-                #auto-activate-base: false
+                #environment-file: pkg/env/bocop-linux.yaml
 
-            #- name: update environment
-              #run: mamba env update -n bocop-dev -f pkg/env/bocop-linux.yaml
+            - name: update environment
+              run: mamba env update -n bocop-dev -f pkg/env/bocop-linux.yaml
               #run: mamba env create -n bocop-dev -f pkg/env/bocop-linux.yaml
             #   if: steps.cache.outputs.cache-hit != 'true'
             
