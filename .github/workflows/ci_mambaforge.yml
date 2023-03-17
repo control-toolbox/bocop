@@ -12,17 +12,16 @@ jobs:
             - uses: actions/checkout@v3
             - uses: conda-incubator/setup-miniconda@v2
               with:
-                python-version: 3.7
-                mamba-version: "*"
-                channels: conda-forge,defaults
-                channel-priority: true
+                miniforge-variant: Mambaforge
+                miniforge-version: latest
                 activate-environment: bocop-dev
                 environment-file: pkg/env/bocop-linux.yaml
-                auto-activate-base: false
+                use-mamba: true
+                python-version: 3.7
             -  run: python test_bocop.py 0
 
 
 # TODO
-# add cache
+# add cache (NB. steps from github.org fail, more generally using update on an env activated at conda setup does not work)
 # try multi os
 # later use pytest and or manual/auto julia tests ?

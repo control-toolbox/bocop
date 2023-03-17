@@ -2,9 +2,6 @@ name: CI basic test
 
 on: [push, pull_request]
 
-env:
-    CACHE_NUMBER: 0
-
 jobs:
     test_examples:
         runs-on: ubuntu-latest
@@ -13,50 +10,19 @@ jobs:
                 shell: bash -el {0}
         steps:
             - uses: actions/checkout@v3
-
-            - name: setup mamba
-              uses: conda-incubator/setup-miniconda@v2
+            - uses: conda-incubator/setup-miniconda@v2
               with:
                 python-version: 3.7
                 mamba-version: "*"
                 channels: conda-forge,defaults
                 channel-priority: true
-
-            - name: Get Date
-              id: get-date
-              run: echo "today=$(/bin/date -u '+%Y%m%d')" >> $GITHUB_OUTPUT
-              shell: bash
-
-            - run: mamba env create -n bocop-dev  #using activate in conda setup above fails
-
-            - name: Cache Conda env
-              uses: actions/cache@v2
-              with:
-                path: ${{ env.CONDA }}/envs
-                key: conda-${{ runner.os }}--${{ runner.arch }}--${{steps.get-date.outputs.today }}-${{hashFiles('pkg/env/bocop-linux.yaml') }}-${{ env.CACHE_NUMBER }}
-              env:
-                # Increase this value to reset cache if yaml file has not changed
-                CACHE_NUMBER: 0
-              id: cache
-
-            - name: update environment
-              run:
-                mamba env update -n bocop-dev -f pkg/env/bocop-linux.yaml # try create if needed
-              if: steps.cache.outputs.cache-hit != 'true'
-
-            - name: python manual test
-              run: |
-                conda activate bocop-dev
-                cd bocop/examples/vanderpol
-                bash build.sh
-                ./bocopApp
-                
-#python test_bocop.py 0
+                activate-environment: bocop-dev
+                environment-file: pkg/env/bocop-linux.yaml
+                auto-activate-base: false
+            -  run: python test_bocop.py 0
 
 
 # TODO
-# add cache
-# NB. trying to update the env created during conda setup does not work: 
-# need to create new env (or use update but without activating the env at setup, which creates a new one as well)
-# try multi os (start with a matrix for linux only)
+# add cache (NB. steps from github.org fail, more generally using update on an env activated at conda setup does not work)
+# try multi os
 # later use pytest and or manual/auto julia tests ?
