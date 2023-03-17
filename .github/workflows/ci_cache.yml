@@ -1,4 +1,4 @@
-name: CI basic test (mamba)
+name: CI basic test (mambaforge)
 
 on: [push, pull_request]
 
@@ -12,11 +12,17 @@ jobs:
             - uses: actions/checkout@v3
             - uses: conda-incubator/setup-miniconda@v2
               with:
-                mamba-version: "*"
-                channels: conda-forge,defaults
-                channel-priority: true
+                miniforge-variant: Mambaforge
+                use-mamba: true
                 activate-environment: bocop-dev
                 environment-file: pkg/env/bocop-linux.yaml
+
+            - uses: actions/cache@v3
+              with:
+                path: /usr/share/miniconda3/envs/bocop-dev
+                key: conda-cache
+              id: cache
+
             -  run: python test_bocop.py 0
 
 
