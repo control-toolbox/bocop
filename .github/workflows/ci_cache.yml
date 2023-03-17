@@ -1,4 +1,4 @@
-name: CI basic test
+name: CI basic test (cached conda)
 
 on: [push, pull_request]
 
@@ -14,13 +14,11 @@ jobs:
               with:
                 miniforge-variant: Mambaforge
                 use-mamba: true
-                #activate-environment: bocop-dev
-                #environment-file: pkg/env/bocop-linux.yaml
 
             - uses: actions/cache@v3
               with:
-                path: /usr/share/miniconda3/envs/bocop-dev
-                key: conda-cache
+                path: /usr/share/miniconda3/envs/bocop-dev # on ubuntu
+                key: conda-cache # unconditional cache, reset manually if env is updated
               id: cache
 
             - name: Update environment
@@ -33,6 +31,6 @@ jobs:
 
 
 # TODO
-# add cache (NB. steps from github.org fail, more generally using update on an env activated at conda setup does not work)
+# improve cache (automatic daily reset ?)
 # try multi os
 # later use pytest and or manual/auto julia tests ?

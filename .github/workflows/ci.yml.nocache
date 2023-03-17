@@ -1,4 +1,4 @@
-name: CI basic test
+name: CI basic test (no cache)
 
 on: [push, pull_request]
 
@@ -18,8 +18,3 @@ jobs:
                 environment-file: pkg/env/bocop-linux.yaml
             -  run: python test_bocop.py 0
 
-
-# TODO
-# add cache (NB. steps from github.org fail, more generally using update on an env activated at conda setup does not work)
-# try multi os
-# later use pytest and or manual/auto julia tests ?
