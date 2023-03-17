@@ -15,6 +15,6 @@ jobs:
                 miniforge-variant: Mambaforge
                 use-mamba: true
                 activate-environment: bocop-dev
-                environment-file: pkg/env/bocop-linux.yaml
+                environment-file: pkg/env/bocop-mac.yaml
             -  run: python test_bocop.py 0
 
