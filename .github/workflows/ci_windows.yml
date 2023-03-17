@@ -22,4 +22,5 @@ jobs:
                 build.bat
                 dir
                 bocopApp.exe
+              shell: cmd
 
