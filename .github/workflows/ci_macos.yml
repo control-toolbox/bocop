@@ -1,10 +1,10 @@
-name: CI basic test (no cache)
+name: CI basic test (macos)
 
 on: [push, pull_request]
 
 jobs:
     test_examples:
-        runs-on: ubuntu-latest
+        runs-on: macos-latest
         defaults:
             run:
                 shell: bash -el {0}

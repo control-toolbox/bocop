@@ -1,0 +1,20 @@
+name: CI basic test (ubuntu)
+
+on: [push, pull_request]
+
+jobs:
+    test_examples:
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                shell: bash -el {0}
+        steps:
+            - uses: actions/checkout@v3
+            - uses: conda-incubator/setup-miniconda@v2
+              with:
+                miniforge-variant: Mambaforge
+                use-mamba: true
+                activate-environment: bocop-dev
+                environment-file: pkg/env/bocop-linux.yaml
+            -  run: python test_bocop.py 0
+
