@@ -21,7 +21,7 @@ jobs:
                 mamba-version: "*"
                 channels: conda-forge,defaults
                 channel-priority: true
-                #activate-environment: bocop-dev
+                activate-environment: bocop-dev
                 #environment-file: pkg/env/bocop-linux.yaml
                 auto-activate-base: false
 
@@ -42,7 +42,7 @@ jobs:
             
             - name: python manual test
               run: |
-                mamba env create -n bocop-dev -f pkg/env/bocop-linux.yaml
+                mamba env update -n bocop-dev -f pkg/env/bocop-linux.yaml
                 conda activate bocop-dev
                 conda env list
                 cd bocop/examples/vanderpol
