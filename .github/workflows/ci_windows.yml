@@ -21,16 +21,14 @@ jobs:
                 activate-environment: bocop-dev
                 environment-file: pkg/env/bocop-windows-light.yaml
 
-            - run: conda activate bocop-dev  # env does not seem to be activated cf above ?
+            #- run: conda activate bocop-dev  # env does not seem to be activated cf above ?
 
-            - name: build bocopApp
-              working-directory: .\bocop\examples\vanderpol
-              run: build.bat
-              shell: cmd # required to run .bat file
+            #- name: build bocopApp
+            #  working-directory: .\bocop\examples\vanderpol
+            #  run: build.bat
+            #  shell: cmd # required to run .bat file
+            #- name: run bocopApp
+            #  working-directory: .\bocop\examples\vanderpol 
+            #  run: bocopApp.exe
 
-            - name: run bocopApp
-              working-directory: .\bocop\examples\vanderpol 
-              run: bocopApp.exe
-              
-
-            #-  run: python test_bocop.py 0  # try this anyway, does not use bat file...
+            -  run: python test_bocop.py 0  # try this anyway, does not use bat file...
