@@ -12,7 +12,7 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - uses: ilammy/msvc-dev-cmd@v1 # msvc build tools
-            #- uses: microsoft/setup-msbuild@v1.3 # needed ?
+            - uses: microsoft/setup-msbuild@v1.3 # needed ?
             - name: setup conda
               uses: conda-incubator/setup-miniconda@v2
               with:
@@ -21,14 +21,7 @@ jobs:
                 activate-environment: bocop-dev
                 environment-file: pkg/env/bocop-windows-light.yaml
 
-            #- run: conda activate bocop-dev  # env does not seem to be activated cf above ?
+            -  run: python test_bocop.py 2  # try this anyway, does not use bat file...
 
-            #- name: build bocopApp
-            #  working-directory: .\bocop\examples\vanderpol
-            #  run: build.bat
-            #  shell: cmd # required to run .bat file
-            #- name: run bocopApp
-            #  working-directory: .\bocop\examples\vanderpol 
-            #  run: bocopApp.exe
-
-            -  run: python test_bocop.py 0  # try this anyway, does not use bat file...
+# NB. shell: cmd is required to run .bat file, while shell: bash -el {0} is required for proper env activation -_-
+# if possible try to bypass the .bat files completely and use a unified build.py in each problem folder ?
