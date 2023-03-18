@@ -18,11 +18,11 @@ jobs:
                 environment-file: pkg/env/bocop-windows-light.yaml
             #-  run: python test_bocop.py 0
 
-            - run: |
-                conda activate bocop-dev
-                cd bocop\examples\vanderpol
-                build.bat
-                dir
-                bocopApp.exe
+            - run: conda activate bocop-dev
+            - run: cd bocop\examples\vanderpol
+            - run: build.bat
               shell: cmd # required to run .bat file
+            - run: dir
+            - run: bocopApp.exe
+              
 
