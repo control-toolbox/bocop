@@ -12,7 +12,6 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - uses: ilammy/msvc-dev-cmd@v1 # msvc build tools
-            - uses: microsoft/setup-msbuild@v1.3 # needed ?
             - name: setup conda
               uses: conda-incubator/setup-miniconda@v2
               with:
