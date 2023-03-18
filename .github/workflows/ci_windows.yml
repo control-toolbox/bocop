@@ -5,6 +5,9 @@ on: [push, pull_request]
 jobs:
     test_examples:
         runs-on: windows-latest
+        defaults:
+          run:
+            shell: bash -el {0}
 
         steps:
             - uses: actions/checkout@v3
@@ -30,4 +33,4 @@ jobs:
               run: bocopApp.exe
               
 
-            #-  run: python test_bocop.py 0  # try this anyway ?
+            #-  run: python test_bocop.py 0  # try this anyway, does not use bat file...
