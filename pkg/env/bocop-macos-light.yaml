@@ -20,7 +20,7 @@ dependencies:
 #  - doxygen
 #  - sphinx_rtd_theme
 #  - breathe
-#  - ipywidgets
+  - ipywidgets
 #  - ipympl
 #  - jupyterlab
 #  - nodejs
