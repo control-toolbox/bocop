@@ -20,7 +20,6 @@ jobs:
 
             - run: |
                 cd bocop\examples\vanderpol
-                dir
                 build.bat
                 dir
                 bocopApp.exe
