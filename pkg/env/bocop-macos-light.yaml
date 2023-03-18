@@ -16,11 +16,12 @@ dependencies:
   - cppad
   - ipopt
   - numpy
-  - pysimpleguiqt
-  - doxygen
-  - sphinx_rtd_theme
-  - breathe
-  - ipywidgets
-  - ipympl
-  - jupyterlab
-  - nodejs
+#  - pysimpleguiqt
+#  - doxygen
+#  - sphinx_rtd_theme
+#  - breathe
+#  - ipywidgets
+#  - ipympl
+#  - jupyterlab
+#  - nodejs
+
