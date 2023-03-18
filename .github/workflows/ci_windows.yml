@@ -18,7 +18,7 @@ jobs:
                 activate-environment: bocop-dev
                 environment-file: pkg/env/bocop-windows-light.yaml
 
-            #- run: conda activate bocop-dev  # env does not seem to be activated cf above ?
+            - run: conda activate bocop-dev  # env does not seem to be activated cf above ?
 
             - name: build bocopApp
               working-directory: .\bocop\examples\vanderpol
