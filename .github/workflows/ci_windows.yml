@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
     test_examples:
-        runs-on: windows-latest
+        runs-on: windows-2019  # windows-latest does not have VS 16 2019
         defaults:
           run:
             shell: bash -el {0}
@@ -21,6 +21,9 @@ jobs:
                 environment-file: pkg/env/bocop-windows-light.yaml
 
             -  run: python test_bocop.py 2  # try this anyway, does not use bat file...
+
+# NB. the cmake command in function build() from bocop.py (l.188) is hardcoded to use Visual Studio 16 2019
+# however the windows-latest image uses VS 2022 instead -_-
 
 # NB. shell: cmd is required to run .bat file, while shell: bash -el {0} is required for proper env activation -_-
 # if possible try to bypass the .bat files completely and use a unified build.py in each problem folder ?
