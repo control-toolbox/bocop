@@ -5,6 +5,9 @@ on: [push, pull_request]
 jobs:
     test_examples:
         runs-on: windows-latest
+        defaults:
+            run:
+                shell: cmd # required to run .bat file
 
         steps:
             - uses: actions/checkout@v3
@@ -21,7 +24,6 @@ jobs:
             - run: conda activate bocop-dev
             - run: cd bocop\examples\vanderpol
             - run: build.bat
-              shell: cmd # required to run .bat file
             - run: dir
             - run: bocopApp.exe
               
