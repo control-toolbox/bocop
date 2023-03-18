@@ -19,6 +19,9 @@ jobs:
             #-  run: python test_bocop.py 0
 
             - run: |
+                conda env list
+                conda list
+                conda activate bocop-dev
                 cd bocop\examples\vanderpol
                 build.bat
                 dir
