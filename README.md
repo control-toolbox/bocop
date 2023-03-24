@@ -45,8 +45,8 @@ Into folder doc/, run Doxygen
 doxygen
 
 ```
-which will generate the doxygen files in html/ and xml/ (used for sphinx import).
-Then run Sphinx with Breathe extension to import the xml/ files from doxygen
+which will generate the doxygen files in `html/` and `xml/` (used for sphinx import).
+Then run Sphinx with Breathe extension to import the `xml/ files from doxygen
 ```
 make html
 ```
