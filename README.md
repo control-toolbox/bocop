@@ -50,4 +50,12 @@ Then run Sphinx with Breathe extension to import the `xml/ files from doxygen
 ```
 make html
 ```
-which will put the sphinx-rtd files in _build/html.
+which will put the `sphinx-rtd` files in `_build/html`.
+
+
+
+
+
+
+
+
