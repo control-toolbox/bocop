@@ -1,12 +1,12 @@
-// dODE.cpp
+// dODERK.cpp
 //
 
 #include <iostream>
 
-#include <dODE.h>
+#include <dODERK.h>
 
 
-void dODE::initialize()
+void dODERK::initialize()
 {
 }
 
@@ -114,8 +114,7 @@ void dODE::setRKcoeffs(const std::string RKmethod)
     }
 }
 
-
-void dODE::setTimeGrids(const double t0, const double tf, const std::size_t discretisation_steps, double &time_step, std::vector<double> &time_step_grid, std::vector<double> &time_stage_grid)
+void dODERK::setTimeGrids(const double t0, const double tf, const std::size_t discretisation_steps, double &time_step, std::vector<double> &time_step_grid, std::vector<double> &time_stage_grid)
 {
 
   // fill time step/stage vectors
@@ -133,7 +132,7 @@ void dODE::setTimeGrids(const double t0, const double tf, const std::size_t disc
 }
 
 
-void dODE::setInitialParam(OCP *ocp, std::vector<double> &starting_point, std::vector<double> &variables_lower_bounds, std::vector<double> &variables_upper_bounds)
+void dODERK::setInitialParam(OCP *ocp, std::vector<double> &starting_point, std::vector<double> &variables_lower_bounds, std::vector<double> &variables_upper_bounds)
 {
   // set parameters
   for (size_t k = 0; k < ocp->parametersSize(); ++k)
@@ -151,7 +150,7 @@ void dODE::setInitialParam(OCP *ocp, std::vector<double> &starting_point, std::v
 }
 
 
-void dODE::setRKStageVars(size_t discretisation_steps, OCP *ocp, std::vector<double> &starting_point, std::vector<double> &variables_lower_bounds, std::vector<double> &variables_upper_bounds)
+void dODERK::setRKStageVars(size_t discretisation_steps, OCP *ocp, std::vector<double> &starting_point, std::vector<double> &variables_lower_bounds, std::vector<double> &variables_upper_bounds)
 {
   // set RK stage variables initialisation
   for (size_t i = 0; i < discretisation_steps; ++i)
@@ -166,7 +165,7 @@ void dODE::setRKStageVars(size_t discretisation_steps, OCP *ocp, std::vector<dou
 
 
 // Layout of C: {boundarycond [dynstep (dynstage...dynstage) pathcond] ... [dynstep (dynstage...dynstage) pathcond] }
-void dODE::setBoundaryConditionsBounds(OCP *ocp, std::vector<double> &constraints_lower_bounds, std::vector<double> &constraints_upper_bounds)
+void dODERK::setBoundaryConditionsBounds(OCP *ocp, std::vector<double> &constraints_lower_bounds, std::vector<double> &constraints_upper_bounds)
 {
   for (size_t i = 0; i < ocp->boundaryConditionsSize(); ++i)
   {
@@ -175,7 +174,7 @@ void dODE::setBoundaryConditionsBounds(OCP *ocp, std::vector<double> &constraint
   }
 }
 
-void dODE::setDiscretisedConstraintsBounds(size_t discretisation_steps, OCP *ocp, std::vector<double> &constraints_lower_bounds, std::vector<double> &constraints_upper_bounds)
+void dODERK::setDiscretisedConstraintsBounds(size_t discretisation_steps, OCP *ocp, std::vector<double> &constraints_lower_bounds, std::vector<double> &constraints_upper_bounds)
 {
 
   for (size_t l = 0; l < discretisation_steps; ++l)
@@ -205,16 +204,55 @@ void dODE::setDiscretisedConstraintsBounds(size_t discretisation_steps, OCP *ocp
   }
 }
 
-void dODE::getParam(const double* x, size_t param_offset, size_t dimParam, std::vector<double>& parameter)
+
+void dODERK::getVariables(const double* x, const double* mult_lowerbounds, const double* mult_upperbounds, OCP *ocp,
+                          std::vector<std::vector<double> >& state, std::vector<std::vector<double> >& control, std::vector<double>& parameter, 
+                          std::vector<std::vector<double> >& state_lowerbound_multiplier, std::vector<std::vector<double> >& control_lowerbound_multiplier, std::vector<double>& parameter_lowerbound_multiplier,
+                          std::vector<std::vector<double> >& state_upperbound_multiplier, std::vector<std::vector<double> >& control_upperbound_multiplier, std::vector<double>& parameter_upperbound_multiplier)
 {
-  size_t index_x = param_offset;
-  for (size_t j = 0; j < dimParam; j++)
+  // retrieve dimensions
+  int dimState = ocp->stateSize();
+  int dimControl = ocp->controlSize();
+  int dimParameter = ocp->parametersSize();
+  int dimSteps = state[0].size() - 1;
+  int dimStages = RKStages();
+  
+  size_t index_x = variables_offset_state;
+  for (size_t i=0; i < dimSteps+1; i++)
+    for (size_t j = 0; j < dimState; j++)
+    {
+      state_lowerbound_multiplier[j][i] = mult_lowerbounds[index_x];
+      state_upperbound_multiplier[j][i] = mult_upperbounds[index_x];        
+      state[j][i] = x[index_x++];
+    }
+
+  index_x = variables_offset_control;
+  size_t index_u = 0;
+  for (size_t i = 0; i < dimSteps; i++)
+    for (size_t l = 0; l < dimStages; l++)
+    {
+      for (size_t j = 0; j < dimControl; j++)
+      {
+        control_lowerbound_multiplier[j][index_u] = mult_lowerbounds[index_x];
+        control_upperbound_multiplier[j][index_u] = mult_upperbounds[index_x];     
+        control[j][index_u] = x[index_x++];
+      }
+      index_u++;
+    }
+    
+  index_x = variables_offset_param;
+  for (size_t j = 0; j < dimParameter; j++)
+  {
+    parameter_lowerbound_multiplier[j] = mult_lowerbounds[index_x];
+    parameter_upperbound_multiplier[j] = mult_upperbounds[index_x];  
     parameter[j] = x[index_x++];
+  }
 }
+
 
 // extract multipliers for the constraints C(X) of (NLP)
 // Layout of C: {boundarycond [dynstep (dynstage...dynstage) pathcond] ... [dynstep (dynstage...dynstage) pathcond] }
-void dODE::getMultipliers(const double* lambda, std::vector<double>& boundaryCondMultiplier, std::vector<std::vector<double> >&  pathConstrMultiplier, std::vector<std::vector<double> >&  adjointState)
+void dODERK::getMultipliers(const double* lambda, std::vector<double>& boundaryCondMultiplier, std::vector<std::vector<double> >&  pathConstrMultiplier, std::vector<std::vector<double> >&  adjointState)
 {
   // retrieve dimensions
   int dimState = adjointState.size();
@@ -253,7 +291,7 @@ void dODE::getMultipliers(const double* lambda, std::vector<double>& boundaryCon
 // dynstep is the dynamics equation: y^{i+1} - ( y^i + sum_{i=1..s} b_j k_j ) = 0
 // dynstage are the s equations at stages: k^i_j - f(t_i + c_i h, y^i + sum_{i=1..s} a_lj k_l, u^i_j) = 0     //check indexes for a +++
 // pathcond are the constraints at steps: LB <= g(t_i, y^i, u^i) <= UB   with  u^i e.g. the 'average' control on step
-void dODE::getConstraints(const double* g, std::vector<double>& boundaryConditions, std::vector<std::vector<double> >&  pathConstraints, std::vector<std::vector<double> >& dynEquations)
+void dODERK::getConstraints(const double* g, std::vector<double>& boundaryConditions, std::vector<std::vector<double> >&  pathConstraints, std::vector<std::vector<double> >& dynEquations)
 {
   // retrieve dimensions
   int dimState = dynEquations.size();
@@ -287,5 +325,105 @@ void dODE::getConstraints(const double* g, std::vector<double>& boundaryConditio
 }
 
 
+// each function fill will increment the offset for the next call
+// +++ maybe mutualise a bit with setControl and setParam via aux functions ?
+void dODERK::setInitialState(const std::vector<double> time_steps, OCP *ocp, std::vector<double> &starting_point, std::vector<double> &variables_lower_bounds, std::vector<double> &variables_upper_bounds)
+{
+
+  size_t discretisation_steps = time_steps.size() - 1;
+
+  // compute initial values for state
+  std::vector<std::vector<double> > state_init(ocp->stateSize(), std::vector<double>(discretisation_steps+1,666));
+  for (std::size_t k = 0; k < ocp->stateSize(); k++)
+  {
+    // get initialisation type
+    std::stringstream label;
+    label << "state." << k << ".init";
+    std::string state_init_type = ocp->getDefinitionForKey(label.str());
+
+    // set initial values
+    if (state_init_type.find(".init") != std::string::npos)
+    {
+      // read initialisation data in .init file (2-column format)
+      std::vector<std::vector<double> > init_data;
+      bcp::readCSVToMatrix(state_init_type, init_data, ' ');
+      std::cout << init_data.size() << " by " << init_data[0].size() << std::endl;
+      //+++add here some check on dims !
+      bcp::transpose(init_data);
+      std::cout << init_data.size() << " by " << init_data[0].size() << std::endl;
+
+      // interpolate over time steps
+      bcp::interpolatelValuesOnGrid(time_steps, init_data[0], init_data[1], state_init[k]);
+
+    }
+    else
+      // constant initialisation from .def file
+      for (std::size_t i = 0; i < discretisation_steps+1; i++)
+        state_init[k][i] = stod(state_init_type);
+
+
+    // DEBUG
+    /*for (size_t i=0;i<time_steps.size();i++)
+      std::cout << state_init[k][i] << " ";
+    std::cout << std::endl;
+    exit(1);*/
+  }
+
+  // set state variables bounds and initialisation
+  for (std::size_t i = 0; i < discretisation_steps+1; i++)
+    for (std::size_t k = 0; k < ocp->stateSize(); k++)
+    {
+      variables_lower_bounds.push_back(ocp->stateLowerBounds()[k]);
+      variables_upper_bounds.push_back(ocp->stateUpperBounds()[k]);
+      starting_point.push_back(state_init[k][i]);
+    }
+}
+
+
+// each function fill will increment the offset for the next call
+// +++ maybe mutualise a bit with setState and setParam via aux functions ?
+// +++ rk can be removed now
+void dODERK::setInitialControl(const std::vector<double> time_stages, OCP *ocp, dODERK *rk, std::vector<double> &starting_point, std::vector<double> &variables_lower_bounds, std::vector<double> &variables_upper_bounds)
+{
+  size_t discretisation_stages = time_stages.size();
+
+  // compute initial values for control
+  std::vector<std::vector<double> > control_init(ocp->controlSize(), std::vector<double>(discretisation_stages, 666));
+  for (std::size_t k = 0; k < ocp->controlSize(); k++)
+  {
+    // get initialisation type
+    std::stringstream label;
+    label << "control." << k << ".init";
+    std::string control_init_type = ocp->getDefinitionForKey(label.str());
+
+    // set initial values
+    if (control_init_type.find(".init") != std::string::npos)
+    {
+      // read initialisation data in .init file (2-column format)
+      std::vector<std::vector<double> > init_data;
+      bcp::readCSVToMatrix(control_init_type, init_data, ' ');
+      bcp::transpose(init_data);
+      //+++ check dims here
+
+      // interpolate over time steps
+      bcp::interpolatelValuesOnGrid(time_stages, init_data[0], init_data[1], control_init[k]);
+    }
+    else
+      // constant initialisation from .def file
+      for (std::size_t i = 0; i < discretisation_stages; i++)
+          control_init[k][i] = stod(control_init_type);
+  }
+
+  // set control variables bounds and initialisation
+  for (size_t i = 0; i < discretisation_stages; i++)
+      for (size_t k = 0; k < ocp->controlSize(); k++)
+      {
+        variables_lower_bounds.push_back(ocp->controlLowerBounds()[k]);
+        variables_upper_bounds.push_back(ocp->controlUpperBounds()[k]);
+        starting_point.push_back(control_init[k][i]);
+      }
+}
+
+
 //
-// dODE.cpp ends here
+// dODERK.cpp ends here

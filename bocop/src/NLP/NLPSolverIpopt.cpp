@@ -213,7 +213,7 @@ void TNLPImpl::finalize_solution(Ipopt::SolverReturn status, Ipopt::Index n, con
 
   // save solution (NB reuse this for intermediate callback to save iterations !)
   if (!bocopNLP->solutionFile().empty())
-    bocopNLP->writeSolution(status_int, iter, obj_value, constraints_viol, x, lambda, g);
+    bocopNLP->writeSolution(status_int, iter, obj_value, constraints_viol, x, lambda, g, z_L, z_U);
 }
 
 

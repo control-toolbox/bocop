@@ -6,15 +6,13 @@
 
 
 // dOCP implementation
-dOCP::dOCP(void) : NLP(), rk(new dODE)
+dOCP::dOCP(void) : NLP(), rk(new dODERK)
 {
   // note: ocp is not initialized here since it is supposed to be created before dOCP and passed to it by setOCP
 }
 
 dOCP::~dOCP(void)
-{
-    delete rk;
-}
+{}
 
 void dOCP::initialize(void)
 {
@@ -29,18 +27,19 @@ void dOCP::initialize(void)
   solution_file = "problem.sol";
 
   // PREPARE NLP TRANSCRIPTION
+  rk->initialize();
+
   // setup time discretization
-  RKmethod = ocp->getDefinitionForKey("ode.discretization");  //+++ default value midpoint
+  RKmethod = ocp->getDefinitionForKey("ode.discretization");  //+++ 
   discretisation_steps = stoi(ocp->getDefinitionForKey("time.steps"));
-  rk->setRKcoeffs(RKmethod);
   rk->setTimeGrids(ocp->initialTime(), ocp->finalTime(), discretisation_steps, time_step, time_step_grid, time_stage_grid);
 
   // setup NLP variables bounds and initial value
-  variables_offset_state = 0;
-  xd->setInitialState(time_step_grid, ocp, starting_point, variables_lower_bounds, variables_upper_bounds);
-  variables_offset_control = starting_point.size();
-  ud->setInitialControl(time_stage_grid, ocp, rk, starting_point, variables_lower_bounds, variables_upper_bounds);
-  variables_offset_param = starting_point.size();
+  rk->variables_offset_state = 0;
+  rk->setInitialState(time_step_grid, ocp, starting_point, variables_lower_bounds, variables_upper_bounds);
+  rk->variables_offset_control = starting_point.size();
+  rk->setInitialControl(time_stage_grid, ocp, rk, starting_point, variables_lower_bounds, variables_upper_bounds);
+  rk->variables_offset_param = starting_point.size();
   rk->setInitialParam(ocp, starting_point, variables_lower_bounds, variables_upper_bounds);
   rk->setRKStageVars(discretisation_steps, ocp, starting_point, variables_lower_bounds, variables_upper_bounds);
   variables_size = starting_point.size();
@@ -53,7 +52,10 @@ void dOCP::initialize(void)
 }
 
 
-void dOCP::writeSolution(const int status, const int iter, const double objective, const double constraints_viol, const double *variables, const double *multipliers, const double *constraints)
+// +++ explicitely pass solution file name, use member as default (for iteration buffer output in callback)
+void dOCP::writeSolution(const int status, const int iter, const double objective, const double constraints_viol, 
+                         const double *variables, const double *multipliers, const double *constraints, 
+                         const double * mult_lowerbounds, const double *mult_upperbounds)
 {
 
   // recover dimensions
@@ -65,21 +67,24 @@ void dOCP::writeSolution(const int status, const int iter, const double objectiv
   int dimSteps = discretisationSteps();
   int dimStages = RKStages();
 
-  // fill solution object
+  // fill solution object +++ pass ocp ?
   dOCPsolution solution(dimState, dimSteps, dimControl, dimParameter, dimStages, dimBoundaryConditions, dimPathConstraints);
   solution.status = status;
   solution.iterations = iter;
   solution.constraint = constraints_viol;
   solution.objective = objective;
-  xd->getState(variables, variables_offset_state, discretisationSteps(), ocp->stateSize(), *solution.state);
-  ud->getControl(variables, variables_offset_control, discretisationSteps(), RKStages(), ocp->controlSize(), *solution.control);
-  rk->getParam(variables, variables_offset_param, ocp->parametersSize(), *solution.parameter);
-  rk->getMultipliers(multipliers, *solution.boundary_conditions_multiplier, *solution.path_constraints_multiplier, *solution.adjoint_state);
+  rk->getVariables(variables, mult_lowerbounds, mult_upperbounds, ocp,
+                  *solution.state, *solution.control, *solution.parameter, 
+                  *solution.state_lowerbound_multiplier, *solution.control_lowerbound_multiplier, *solution.parameter_lowerbound_multiplier,
+                  *solution.state_upperbound_multiplier, *solution.control_upperbound_multiplier, *solution.parameter_upperbound_multiplier);
+  // +++ add RK 'k' variables above
+  // +++ merge the two below
   rk->getConstraints(constraints, *solution.boundary_conditions, *solution.path_constraints, *solution.dyn_equations);
+  rk->getMultipliers(multipliers, *solution.boundary_conditions_multiplier, *solution.path_constraints_multiplier, *solution.adjoint_state);
 
   // (backup and) open solution file
   bool exists;
-  std::ifstream file_check(solution_file.c_str());
+  std::ifstream file_check(solution_file.c_str()); // use argument here instead of member
   exists = !file_check.fail();
   file_check.close();
   if (exists)
@@ -128,6 +133,14 @@ void dOCP::writeSolution(const int status, const int iter, const double objectiv
   bcp::writeDataBlock2D(file_out, MULTI_PATH_CONSTRAINTS_TITLE, *solution.path_constraints_multiplier);
   bcp::writeDataBlock2D(file_out, ADJOINT_STATE_TITLE, *solution.adjoint_state);
 
+  // bound multipliers
+  bcp::writeDataBlock2D(file_out, MULTI_STATE_LOWERBOUNDS_TITLE, *solution.state_lowerbound_multiplier);
+  bcp::writeDataBlock2D(file_out, MULTI_STATE_UPPERBOUNDS_TITLE, *solution.state_upperbound_multiplier);
+  bcp::writeDataBlock2D(file_out, MULTI_CONTROL_LOWERBOUNDS_TITLE, *solution.control_lowerbound_multiplier);
+  bcp::writeDataBlock2D(file_out, MULTI_CONTROL_UPPERBOUNDS_TITLE, *solution.control_upperbound_multiplier);
+  bcp::writeDataBlock1D(file_out, MULTI_PARAMETER_LOWERBOUNDS_TITLE, *solution.parameter_lowerbound_multiplier);
+  bcp::writeDataBlock1D(file_out, MULTI_PARAMETER_UPPERBOUNDS_TITLE, *solution.parameter_upperbound_multiplier);
+
   // average control (on steps) (NB. cannot reuse controlAtStep because fscking template)
   std::vector<std::vector <double>> avg_control(dimControl,std::vector<double>(dimSteps));
   for (int k=0;k<dimSteps;k++)
@@ -143,8 +156,6 @@ void dOCP::writeSolution(const int status, const int iter, const double objectiv
 
 
 }
-
-
 
 //
 // dOCP.cpp ends here

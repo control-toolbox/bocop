@@ -4,13 +4,9 @@
 #pragma once
 
 #include <NLP.h>
-
 #include <tools.h>
 #include <OCP.h>
-#include <dODE.h>
-#include <dState.h>
-#include <dControl.h>
-
+#include <dODERK.h>
 #include <solution.h>
 
 #include <vector>
@@ -50,7 +46,7 @@ public:
     // NLP solution
     std::string solutionFile(void) const override {return solution_file;}
     void setSolutionFile(const std::string solfile) override {solution_file = solfile;}
-    void writeSolution(const int status, const int iter, const double objective, const double constraints_viol, const double *variables, const double *multipliers, const double *constraints) override;
+    void writeSolution(const int status, const int iter, const double objective, const double constraints_viol, const double *variables, const double *multipliers, const double *constraints, const double * mult_lowerbounds, const double *mult_upperbounds) override;
 
     // NLP variables and bounds
     std::size_t variablesSize(void) const override {return variables_size;}
@@ -65,9 +61,7 @@ public:
     OCP *ocp;
     /** \name direct transcription parts */
     /**@{*/
-    dODE *rk;
-    dState *xd;
-    dControl *ud;
+    dODERK *rk;
     /**@}*/
     void setOCP(OCP *ocp){ this->ocp = ocp; }
 
@@ -114,9 +108,6 @@ public:
     // dimensions
     std::size_t variables_size;
     std::size_t constraints_size;
-    std::size_t variables_offset_state;
-    std::size_t variables_offset_control;
-    std::size_t variables_offset_param;
 
     // bounds
     std::vector<double> variables_lower_bounds;

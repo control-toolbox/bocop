@@ -35,7 +35,13 @@ dOCPsolution::~dOCPsolution()
   delete this->boundary_conditions_multiplier;
   delete this->path_constraints_multiplier;
   delete this->adjoint_state;
-
+  delete this->state_lowerbound_multiplier;
+  delete this->control_lowerbound_multiplier;
+  delete this->parameter_lowerbound_multiplier;
+  delete this->state_upperbound_multiplier;
+  delete this->control_upperbound_multiplier;
+  delete this->parameter_upperbound_multiplier;
+  
   // constraints (bounds info should be retrievable from .def copy)
   delete this->boundary_conditions;
   delete this->path_constraints;
@@ -64,7 +70,13 @@ void dOCPsolution::init(int dimState,
   this->boundary_conditions_multiplier = new std::vector<double>(dimBoundaryConditions);
   this->path_constraints_multiplier = new std::vector<std::vector<double> >(dimPathConstraints,std::vector<double>(dimSteps));
   this->adjoint_state = new std::vector<std::vector<double> >(dimState,std::vector<double>(dimSteps));
-
+  this->state_lowerbound_multiplier = new std::vector<std::vector<double> >(dimState,std::vector<double>(dimSteps+1));
+  this->control_lowerbound_multiplier = new std::vector<std::vector<double> >(dimControl,std::vector<double>(dimSteps*dimStages));
+  this->parameter_lowerbound_multiplier = new std::vector<double>(dimParameter);
+  this->state_upperbound_multiplier = new std::vector<std::vector<double> >(dimState,std::vector<double>(dimSteps+1));
+  this->control_upperbound_multiplier = new std::vector<std::vector<double> >(dimControl,std::vector<double>(dimSteps*dimStages));
+  this->parameter_upperbound_multiplier = new std::vector<double>(dimParameter);
+    
   // constraints (bounds info should be retrievable from .def copy)
   this->boundary_conditions = new std::vector<double>(dimBoundaryConditions);
   this->path_constraints = new std::vector<std::vector<double> >(dimPathConstraints,std::vector<double>(dimSteps));

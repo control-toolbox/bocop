@@ -8,9 +8,7 @@ include_directories(${INC_DIR})
 set(BOCOP_HEADERS
   AD/dOCPCppAD.h
   DOCP/dOCP.h
-  DOCP/dODE.h
-  DOCP/dControl.h
-  DOCP/dState.h
+  DOCP/dODERK.h
   DOCP/solution.h
   NLP/NLP.h
   NLP/NLPSolver.h
@@ -24,9 +22,7 @@ set(BOCOP_HEADERS
 set(BOCOP_SOURCES
   AD/dOCPCppAD.cpp
   DOCP/dOCP.cpp
-  DOCP/dODE.cpp
-  DOCP/dControl.cpp
-  DOCP/dState.cpp
+  DOCP/dODERK.cpp
   DOCP/solution.cpp
   NLP/NLPSolverIpopt.cpp
   OCP/OCP.cpp

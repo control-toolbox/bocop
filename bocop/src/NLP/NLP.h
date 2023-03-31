@@ -32,7 +32,7 @@ public:
   // NLP solution
   virtual std::string solutionFile(void) const = 0;
   virtual void setSolutionFile(const std::string solFile) = 0;
-  virtual void writeSolution(const int status, const int iter, const double objective, const double constraints_viol, const double *variables, const double *multipliers, const double *constraints) = 0;
+  virtual void writeSolution(const int status, const int iter, const double objective, const double constraints_viol, const double *variables, const double *multipliers, const double *constraints, const double * mult_lowerbounds, const double *mult_upperbounds) = 0;
 
   // NLP variables and bounds
   virtual std::size_t variablesSize(void) const = 0;
