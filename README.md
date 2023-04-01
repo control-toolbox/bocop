@@ -1,4 +1,7 @@
 # Bocop3 - optimal control toolbox (direct transcription approach)
+
+[gh-ci-img]: https://github.com/control-toolbox/bocop.jl/actions/workflows/ci_linux.yml/badge.svg?branch=main
+[gh-ci-url]: https://github.com/control-toolbox/bocop.jl/actions/workflows/ci_linux.yml?query=branch%3Amain
  
 ## User install
 
