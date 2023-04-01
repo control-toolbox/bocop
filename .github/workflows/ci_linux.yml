@@ -17,3 +17,5 @@ jobs:
                 activate-environment: bocop-dev
                 environment-file: pkg/env/bocop-linux-light.yaml
             -  run: python test_bocop.py 0
+            - name: Upload coverage reports to Codecov
+              uses: codecov/codecov-action@v3
