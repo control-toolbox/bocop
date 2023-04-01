@@ -17,4 +17,6 @@ jobs:
                 activate-environment: bocop-dev
                 environment-file: pkg/env/bocop-linux-light.yaml
             -  run: python test_bocop.py 0
-
+            - uses: julia-actions/julia-uploadcodecov@latest
+              env:
+                CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
