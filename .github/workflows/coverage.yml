@@ -1,4 +1,4 @@
-name: CI (ubuntu)
+name: coverage
 on:
   push:
     branches:
@@ -21,7 +21,6 @@ jobs:
                 environment-file: pkg/env/bocop-linux-light.yaml
             - name: build single problem with coverage info
               run: |
-                pwd
                 cd ./bocop/examples/fuller
                 ./build.sh -cd
                 ./bocopApp
@@ -29,5 +28,5 @@ jobs:
               uses: codecov/codecov-action@v3
               with:
                 gcov: true
-                gcov_include: main.cpp #need to locate the files !
+                gcov_include: bocop/src
 
