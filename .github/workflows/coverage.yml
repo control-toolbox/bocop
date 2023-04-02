@@ -1,0 +1,33 @@
+name: CI (ubuntu)
+on:
+  push:
+    branches:
+      - cov
+  pull_request:
+
+jobs:
+    test_examples:
+        runs-on: ubuntu-latest
+        defaults:
+          run:
+            shell: bash -el {0}
+        steps:
+            - uses: actions/checkout@v3
+            - uses: conda-incubator/setup-miniconda@v2
+              with:
+                miniforge-variant: Mambaforge
+                use-mamba: true
+                activate-environment: bocop-dev
+                environment-file: pkg/env/bocop-linux-light.yaml
+            - name: build single problem with coverage info
+              run: |
+                pwd
+                cd ./bocop/examples/fuller
+                ./build.sh -cd
+                ./bocopApp
+            - name: Upload coverage to Codecov
+              uses: codecov/codecov-action@v3
+              with:
+                gcov: true
+                gcov_include: main.cpp #need to locate the files !
+
