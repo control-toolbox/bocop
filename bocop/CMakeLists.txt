@@ -28,8 +28,10 @@ find_package(Python3 COMPONENTS Interpreter Development REQUIRED) # not found on
 include_directories(${Python3_INCLUDE_DIRS})
 
 # swig
-find_package(SWIG 4 REQUIRED)
-include(${SWIG_USE_FILE})
-
+if(NOT NOWRAPPER)
+  message(STATUS "swig for wrapper")
+  find_package(SWIG 4 REQUIRED)
+  include(${SWIG_USE_FILE})
+endif()
 add_subdirectory(src)
 #### CMakeLists.txt ends here

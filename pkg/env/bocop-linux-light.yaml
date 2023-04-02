@@ -16,6 +16,7 @@ dependencies:
   - numpy
   - cppad
   - ipopt
+  - lcov
 #  - pysimpleguiqt
 #  - doxygen
 #  - sphinx_rtd_theme
