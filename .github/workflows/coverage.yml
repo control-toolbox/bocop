@@ -24,9 +24,7 @@ jobs:
                 cd ./bocop/examples/fuller
                 ./build.sh -cd
                 ./bocopApp
-                cd build/src/CMakeFiles/bocopApp.dir
-                gcov -pb main.cpp.gcda
-                ls
+                ls build/src/CMakeFiles/bocopApp.dir
             - name: Upload coverage to Codecov
               uses: codecov/codecov-action@v3
               with:
@@ -34,4 +32,4 @@ jobs:
                 gcov: true
                 #gcov_include: bocop/examples/fuller/build/src/CMakeFiles/bocopApp.dir/main.cpp.gcda
                 #directory: bocop/examples/fuller/build/src/CMakeFiles/bocopApp.dir
-
+            - run: ls
