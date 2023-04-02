@@ -25,7 +25,7 @@ jobs:
                 ./build.sh -cd
                 ./bocopApp
                 cd build/src/CMakeFiles/bocopApp.dir
-                gcov main.cpp.gcda
+                gcov -pb main.cpp.gcda
                 ls
             - name: Upload coverage to Codecov
               uses: codecov/codecov-action@v3
