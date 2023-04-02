@@ -30,6 +30,6 @@ jobs:
               with:
                 verbose: true
                 gcov: true
-                gcov_include: bocop/examples/fuller/build/src/CMakeFiles/bocopApp.dir
+                gcov_include: bocop/examples/fuller/build/src/CMakeFiles/bocopApp.dir/main.cpp.gcda
                 #directory: bocop/examples/fuller/build/src/CMakeFiles/bocopApp.dir
 
