@@ -1,13 +1,14 @@
-name: CI basic test (ubuntu)
-
-on: [push, pull_request]
+name: CI (ubuntu)
+on:
+  push:
+  pull_request:
 
 jobs:
     test_examples:
         runs-on: ubuntu-latest
         defaults:
-            run:
-                shell: bash -el {0}
+          run:
+            shell: bash -el {0}
         steps:
             - uses: actions/checkout@v3
             - uses: conda-incubator/setup-miniconda@v2
@@ -17,5 +18,4 @@ jobs:
                 activate-environment: bocop-dev
                 environment-file: pkg/env/bocop-linux-light.yaml
             -  run: python test_bocop.py 0
-            - name: Upload coverage reports to Codecov
-              uses: codecov/codecov-action@v3
+

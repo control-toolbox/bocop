@@ -1,13 +1,16 @@
-name: CI basic test (macos)
-
-on: [push, pull_request]
+name: CI (macos)
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
     test_examples:
         runs-on: macos-latest
         defaults:
-            run:
-                shell: bash -el {0}
+          run:
+            shell: bash -el {0}
         steps:
             - uses: actions/checkout@v3
             - uses: conda-incubator/setup-miniconda@v2
