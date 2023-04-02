@@ -1,6 +1,7 @@
-name: CI basic test (ubuntu)
-
-on: [push, pull_request]
+name: CI (ubuntu)
+on:
+  push:
+  pull_request:
 
 jobs:
     test_examples:

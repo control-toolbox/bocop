@@ -1,6 +1,9 @@
-name: CI basic test (macos)
-
-on: [push, pull_request]
+name: CI (macos)
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
     test_examples:
