@@ -28,5 +28,6 @@ jobs:
               uses: codecov/codecov-action@v3
               with:
                 gcov: true
-                gcov_include: bocop/src
+                gcov_include: bocop/examples/fuller/build/src/CMakeFiles/bocopApp.dir
+                directory: bocop/examples/fuller/build/src/CMakeFiles/bocopApp.dir
 
