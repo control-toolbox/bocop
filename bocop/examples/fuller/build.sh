@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ## shell script for Bocop build
-## Pierre Martinon, Inria
-## 2020
+## Pierre Martinon
+## 2023
 
 ## set build folder
 mkdir -p build

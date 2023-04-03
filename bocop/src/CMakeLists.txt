@@ -52,7 +52,6 @@ endif()
 # Code coverage
 message(STATUS "Coverage option: ${COVERAGE}")
 if(COVERAGE)
-  message("Activate coverage")
   include(CodeCoverage)
   append_coverage_compiler_flags()
 endif()
