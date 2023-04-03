@@ -10,7 +10,7 @@ cd build
 
 ## default cmake options
 BOCOP_ROOT_PATH="../../../"
-BUIDTYPEE="Release"
+BUILDTYPE="Release"
 COVERAGE="False"
 NOWRAPPER="True"
 
