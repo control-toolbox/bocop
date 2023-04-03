@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-    test_examples:
+    test_coverage:
         runs-on: ubuntu-latest
         defaults:
           run:
@@ -28,6 +28,7 @@ jobs:
               uses: codecov/codecov-action@v3
               with:
                 verbose: true
+                working-directory: ./bocop/examples/fuller
                 gcov: true
                 gcov_args: -pd
-                gcov_include: ./bocop/examples/fuller/build/
+                gcov_include: ./build
