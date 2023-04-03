@@ -28,7 +28,5 @@ jobs:
               uses: codecov/codecov-action@v3
               with:
                 verbose: true
-                working-directory: ./bocop/examples/fuller
                 gcov: true
-                gcov_args: -pd
-                gcov_include: ./build
+                gcov_include: ./bocop/examples/fuller/build/src/CMakeFiles/bocopApp.dir
