@@ -7,8 +7,9 @@ channels:
 dependencies:
   - make
   - cmake >= 3.16.0
-  - gcc_linux-64
-  - gxx_linux-64
+  - gcc_linux-64=11.*.*
+  - gxx_linux-64=11.*.*
+  - lcov
   - python =3.7.*
   - swig =4.0.*
   - scipy =1.4.*

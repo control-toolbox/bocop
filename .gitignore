@@ -8,6 +8,7 @@ libbocop.so
 !bocop/
 *.backup
 lib/
+coverage/
 problem.sol
 # build result for windows
 *.exe

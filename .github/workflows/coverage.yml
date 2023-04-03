@@ -1,0 +1,32 @@
+name: coverage
+on:
+  push:
+    branches:
+      - cov
+  pull_request:
+
+jobs:
+    test_coverage:
+        runs-on: ubuntu-latest
+        defaults:
+          run:
+            shell: bash -el {0}
+        steps:
+            - uses: actions/checkout@v3
+            - uses: conda-incubator/setup-miniconda@v2
+              with:
+                miniforge-variant: Mambaforge
+                use-mamba: true
+                activate-environment: bocop-dev
+                environment-file: pkg/env/bocop-linux-light.yaml
+            - name: build single problem with coverage info
+              run: |
+                cd ./bocop/examples/fuller
+                ./build.sh -cd
+                ./bocopApp
+            - name: Upload coverage to Codecov
+              uses: codecov/codecov-action@v3
+              with:
+                verbose: true
+                gcov: true
+
