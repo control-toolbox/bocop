@@ -19,8 +19,8 @@ constant.2 500
 constant.3 2
 
 # Time discretisation
-ode.discretization heun
-time.steps 100
+ode.discretization trapeze
+time.steps 10
 
 # Bounds for constraints
 boundarycond.0.lowerbound 1
@@ -37,7 +37,7 @@ state.1.lowerbound 0
 state.1.upperbound 0.1
 state.2.lowerbound 0.6
 state.2.upperbound 1.0
-control.0.lowerbound -1
+control.0.lowerbound 0
 control.0.upperbound 1
 parameter.0.lowerbound 0.001
 parameter.0.upperbound 2e20
@@ -46,7 +46,7 @@ parameter.0.upperbound 2e20
 state.0.init 1.01
 state.1.init 0.05
 state.2.init 0.8
-control.0.init 0.5
+control.0.init 0.1
 parameter.0.init 1.0
 
 # Names
