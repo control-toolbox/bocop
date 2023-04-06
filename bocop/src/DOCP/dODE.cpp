@@ -39,20 +39,20 @@ void dODE::setRKcoeffs(const std::string RKmethod)
         butcher_b[0] = 1e0;
         butcher_c[0] = 0.5e0;
     }
-    else if (!RKmethod.compare("heun"))
+    else if (!RKmethod.compare("trapeze"))
     {
-        // Explicit trapeze aka Heun (2-stage, order 2)
-        //  0   0       0
-        //  1   1       0
-        //      1/2    1/2
+        // Explicit trapeze (2-stage, order 2)
+        //  0     0       0
+        //  1   1/2     1/2
+        //      1/2     1/2
         rk_stages = 2;
         butcher_a.resize(rk_stages, std::vector<double>(rk_stages));
         butcher_b.resize(rk_stages);
         butcher_c.resize(rk_stages);
         butcher_a[0][0] = 0e0;
         butcher_a[0][1] = 0e0;
-        butcher_a[1][0] = 1e0;
-        butcher_a[1][1] = 0e0;
+        butcher_a[1][0] = 0.5e0;
+        butcher_a[1][1] = 0.5e0;
         butcher_b[0] = 0.5e0;
         butcher_b[1] = 0.5e0;
         butcher_c[0] = 0e0;
