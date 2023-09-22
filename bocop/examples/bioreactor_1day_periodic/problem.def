@@ -5,8 +5,8 @@ dim.state 4
 dim.control 1
 dim.boundaryconditions 7
 dim.pathconstraints 1
-dim.parameters 11
-dim.constants 1
+dim.parameters 1
+dim.constants 11
 
 # Time interval
 initial.time 0

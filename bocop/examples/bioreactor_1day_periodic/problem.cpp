@@ -10,6 +10,36 @@
 #include <OCP.h>
 
 // ///////////////////////////////////////////////////////////////////
+// AUX FUNCTIONS
+
+// BIOMASS GROWTH
+// Arguments:
+// s: substrate
+// mu2m: parameter
+// K: parameter
+template<typename Variable> Variable growth(const Variable s, const double mu2m, const double K)
+{
+  // MONOD
+	Variable growth = mu2m * s / (s+K);
+  return growth;
+}
+
+// ALGAE GROWTH
+// Arguments:
+// mubar: day growth
+// time: current time
+// halfperiod: day duration
+template<typename Variable> Variable daynightgrowth(const double mubar, const Variable time, const double halfperiod)
+{
+	// light model: max^2 (0,sin) * mubar
+	// DAY/NIGHT CYCLE: [0,2 halfperiod] rescaled to [0,2pi]
+	double pi = 3.141592653589793;
+	Variable days = time / (halfperiod*2e0);
+  Variable tau = (days - CppAD::Integer(days)) * 2e0*pi;
+	Variable zero = 0e0;
+  Variable	mu = pow(fmax(zero,sin(tau)),2) * mubar;
+	return mu;
+}
 
 
 template <typename Variable>
@@ -91,40 +121,6 @@ inline void OCP::pathConstraints(double time, const Variable *state, const Varia
 
 void OCP::preProcessing()
 {}
-
-// AUX FUNCTIONS
-
-// BIOMASS GROWTH
-// Arguments:
-// s: substrate
-// mu2m: parameter
-// K: parameter
-template<typename Variable> Variable growth(const Variable s, const double mu2m, const double K)
-{
-  // MONOD
-	Variable growth = mu2m * s / (s+K);
-  return growth;
-}
-
-// ALGAE GROWTH
-// Arguments:
-// mubar: day growth
-// time: current time
-// halfperiod: day duration
-template<typename Variable> Variable daynightgrowth(const double mubar, const Variable time, const double halfperiod)
-{
-	// light model: max^2 (0,sin) * mubar
-	// DAY/NIGHT CYCLE: [0,2 halfperiod] rescaled to [0,2pi]
-	double pi = 3.141592653589793;
-	Variable days = time / (halfperiod*2e0);
-  Variable tau = (days - CppAD::Integer(days)) * 2e0*pi;
-	Variable zero = 0e0;
-  Variable	mu = pow(max(zero,sin(tau)),2) * mubar;
-	return mu;
-}
-
-
-
 
 
 // ///////////////////////////////////////////////////////////////////
