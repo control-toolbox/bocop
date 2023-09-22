@@ -15,21 +15,22 @@
 ## Developper install
 
 Before developing, you should try to install bocop as user, so that you have our usual tools to run bocop. Refer to the abovementioned installation guides.
+Regarding conda, the miniconda install is enough, although we recommend to use the much faster mamba instead, for instance with the mambaforge install. 
 
 In short, you should have:
-- on Windows: Microsoft Build Tools, Miniconda, git (go to [the Git Website](https://git-scm.com) to get you started)
-- on macOS: *maybe XCode*, Miniconda, git (it should be installed with XCode anyway)
-- on Linux: Miniconda, git
+- on Windows: Microsoft Build Tools, conda/mamba, git (go to [the Git Website](https://git-scm.com) to get you started)
+- on macOS: *maybe XCode*, conda/mamba, git (it should be installed with XCode anyway)
+- on Linux: conda/mamba, git
 
 Alternatively you can install git on any OS using conda with `conda install git` (but in this case, remember it will be tied to the conda environment where you install it.)
 
 You should then clone the environment, create the conda environment for development and check if the tests are running correctly:
 
 ```bash
-git clone https://gitlab.inria.fr/ct/bocop3
-cd bocop3
-conda env create -f pkg/env/bocop-linux.yaml ## or bocop-windows.yaml or bocop-macos.yaml
-conda activate bocop-dev
+git clone https://github.com/control-toolbox/bocop
+cd bocop
+mamba env create -f pkg/env/bocop-linux.yaml ## or bocop-windows.yaml or bocop-macos.yaml
+mamba activate bocop-dev
 python test_bocop.py 1 ## check that the tests are running
 ```
 
