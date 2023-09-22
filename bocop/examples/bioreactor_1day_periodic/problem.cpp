@@ -21,7 +21,7 @@ template<typename Variable> Variable growth(const Variable s, const double mu2m,
 {
   // MONOD
 	Variable growth = mu2m * s / (s+K);
-  return growth;
+	return growth;
 }
 
 // ALGAE GROWTH
@@ -31,13 +31,13 @@ template<typename Variable> Variable growth(const Variable s, const double mu2m,
 // halfperiod: day duration
 template<typename Variable> Variable daynightgrowth(const double mubar, const Variable time, const double halfperiod)
 {
-	// light model: max^2 (0,sin) * mubar
+// light model: max^2 (0,sin) * mubar
 	// DAY/NIGHT CYCLE: [0,2 halfperiod] rescaled to [0,2pi]
 	double pi = 3.141592653589793;
 	Variable days = time / (halfperiod*2e0);
-  Variable tau = (days - CppAD::Integer(days)) * 2e0*pi;
+  Variable tau = (days - floor(days)) * 2e0*pi;
 	Variable zero = 0e0;
-  Variable	mu = pow(fmax(zero,sin(tau)),2) * mubar;
+	Variable mu = pow(fmax(zero,sin(tau)),2) * mubar;
 	return mu;
 }
 
