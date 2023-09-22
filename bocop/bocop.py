@@ -367,7 +367,7 @@ def setInDef(key, value, deffile = "problem.def"):
 
 # -----------------------------------------------------------------------------------
 # -----------------------------------------------------------------------------------
-def readSolution(filename='problem.sol', verbose=1):
+def readSolution(filename='problem.sol', verbose=0):
 
     if verbose > 0:
         print("Loading solution: ",filename)
@@ -505,11 +505,14 @@ def test(examples_root_path=bocop_root_path+'/examples', examples_list_prefix=bo
     with open(examples_list_file,'r') as infile:
         blob = infile.readlines()
 
+    total = len(blob)
+    current = 0
     failed = 0
     for line in blob:
+        current = current + 1
         ls = line.split()
         problem_path = os.path.normpath(os.path.join(examples_root_path,ls[0])) #NB. join uses / on mingw...
-        print("Testing problem {:30s}     ".format(os.path.basename(os.path.normpath(problem_path))),end='')
+        print("{}/{} {:30s}     ".format(current,total,os.path.basename(os.path.normpath(problem_path))),end='',flush=True)
         # NB. we must run bocop in separate processes when we run different examples (to avoid reimporting the same lib)
         solution = solve(problem_path=problem_path, clean=clean, debug=debug, graph=graph, verbose=verbose, separateProcess = 1)
         if verbose > 0:
@@ -528,11 +531,10 @@ def test(examples_root_path=bocop_root_path+'/examples', examples_list_prefix=bo
             failed = failed + 1
 
     # final summary
-    test_number = len(blob)
     if failed == 0:
-        print("ALL {} TESTS PASSED".format(test_number))
+        print("ALL {} TESTS PASSED".format(total))
     else:
-        print("{}/{} TESTS FAILED".format(failed,test_number))
+        print("{}/{} TESTS PASSED".format(total-failed,total))
 
     return failed
 

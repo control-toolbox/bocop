@@ -1,0 +1,81 @@
+# Definition file
+
+# Dimensions
+dim.state 4
+dim.control 1
+dim.boundaryconditions 7
+dim.pathconstraints 1
+dim.parameters 1
+dim.constants 11
+
+# Time interval
+initial.time 0
+final.time 10
+
+# Constants
+constant.0 1e0
+constant.1 5e-3
+constant.2 1e0
+constant.3 1e0
+constant.4 1e-1
+constant.5 5e-2
+constant.6 5e0
+constant.7 2e0
+constant.8 1e0
+constant.9 0e0
+constant.10 0e0
+
+# Time discretisation
+ode.discretization midpoint_implicit
+time.steps 100
+
+# Bounds for constraints
+boundarycond.0.lowerbound 1
+boundarycond.0.upperbound 2e20
+boundarycond.1.lowerbound -2e20
+boundarycond.1.upperbound 2e20
+boundarycond.2.lowerbound 1
+boundarycond.2.upperbound 2e20
+boundarycond.3.lowerbound 0
+boundarycond.3.upperbound 0
+boundarycond.4.lowerbound 0
+boundarycond.4.upperbound 0
+boundarycond.5.lowerbound 0
+boundarycond.5.upperbound 0
+boundarycond.6.lowerbound 0
+boundarycond.6.upperbound 0
+pathconstraint.0.lowerbound -2e20
+pathconstraint.0.upperbound 2e20
+
+# Bounds for variables
+state.0.lowerbound 0
+state.0.upperbound 2e20
+state.1.lowerbound 0
+state.1.upperbound 2e20
+state.2.lowerbound 0.001
+state.2.upperbound 2e20
+state.3.lowerbound 0
+state.3.upperbound 2e20
+control.0.lowerbound 0
+control.0.upperbound 1
+parameter.0.lowerbound 1
+parameter.0.upperbound 1
+
+# Initialization for discretized problem
+state.0.init 50
+state.1.init 50
+state.2.init 50
+state.3.init 0.1
+control.0.init 0.1
+parameter.0.init 1
+
+# Names
+
+# Ipopt
+ipoptIntOption.print_level 5
+ipoptIntOption.max_iter 1000
+ipoptStrOption.mu_strategy adaptive
+ipoptNumOption.tol 1e-12
+
+# Misc
+ad.retape 0
