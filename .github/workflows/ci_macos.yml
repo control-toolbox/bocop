@@ -1,8 +1,8 @@
 name: CI (macos)
 on:
-  push:
-    branches:
-      - main
+#  push:
+#    branches:
+#      - main
   pull_request:
 
 jobs:
