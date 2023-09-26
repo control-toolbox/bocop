@@ -56,7 +56,7 @@ inline void OCP::dynamics(double time, const Variable *state, const Variable *co
   state_dynamics[4] = pow(10e0,-regcoeff) * ux * ux;
 
   //manual time normalization
-  for (int i=0;i<dim_state;i++) state_dynamics[i] *= Tmin * tmincoeff * 2.0 * pi;
+  for (int i=0;i<stateSize();i++) state_dynamics[i] *= Tmin * tmincoeff * 2.0 * pi;
 
 }
 

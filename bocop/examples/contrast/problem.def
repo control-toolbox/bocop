@@ -23,7 +23,7 @@ constant.6 2
 constant.7 3
 
 # Time discretisation
-ode.discretization midpoint_implicit
+ode.discretization trapeze
 time.steps 1000
 
 # Bounds for constraints
@@ -63,7 +63,6 @@ state.2.init 0.1
 state.3.init 1
 state.4.init 0
 control.0.init 0.5
-parameter.0.init 0.1
 
 # Names
 
