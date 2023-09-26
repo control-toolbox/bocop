@@ -1,7 +1,7 @@
 name: CI (ubuntu)
 on:
   push:
-#  pull_request:
+  pull_request:
 
 jobs:
     test_examples:
