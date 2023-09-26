@@ -15,23 +15,35 @@
 template <typename Variable>
 inline void OCP::finalCost(double initial_time, double final_time, const Variable *initial_state, const Variable *final_state, const Variable *parameters, const double *constants, Variable &final_cost)
 {
-    final_cost = 0;
+  // max c(tf)
+  final_cost = -final_state[2];
 }
 
 template <typename Variable>
 inline void OCP::dynamics(double time, const Variable *state, const Variable *control, const Variable *parameters, const double *constants, Variable *state_dynamics)
 {
-
-    state_dynamics[0] = 0;
-
+  // constants
+  double k1 = constants[0];
+	double k2 = constants[1];
+	double k3 = constants[2];
+  
+  // variables
+	Variable a = state[0];
+	Variable b = state[1];
+	Variable u = control[0];
+  
+  // dynamics
+	state_dynamics[0] = -u*(k1*a-k2*b);
+	state_dynamics[1] = u*(k1*a-k2*b) - (1-u)*k3*b;
+	state_dynamics[2] = (1-u)*k3*b;
 }
 
 template <typename Variable>
 inline void OCP::boundaryConditions(double initial_time, double final_time, const Variable *initial_state, const Variable *final_state, const Variable *parameters, const double *constants, Variable *boundary_conditions)
 {
-
-    boundary_conditions[0] =  initial_state[0];
-
+	boundary_conditions[0] = initial_state[0];
+	boundary_conditions[1] = initial_state[1];
+	boundary_conditions[2] = initial_state[2];
 }
 
 template <typename Variable>
