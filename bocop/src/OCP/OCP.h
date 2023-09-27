@@ -99,7 +99,9 @@ public:
    * */
   template <typename Variable> void pathConstraints(double time, const Variable *state, const Variable *control, const Variable *parameters, const double *constants, Variable *path_constraints);
   /** \fn preProcessing
-   * Prepocessing operations (performed once before the optimisation)
+   * Preprocessing operations (performed once before the optimisation)
+   * WARNING: CURRENTLY CALLED AT OCP initialize(), NAMELY *BEFORE* READING THE PROBLEM .DEF FILE
+   * CONSTANTS IN PARTICULAR ARE NOT AVAILABLE -_-
    * */
   void preProcessing(void);
   /**@}*/

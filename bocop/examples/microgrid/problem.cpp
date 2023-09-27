@@ -12,7 +12,7 @@
 // ///////////////////////////////////////////////////////////////////
 
 // interpolation
-int DataSize = 192;
+int DataSize = 193;
 std::vector<double> TimeGrid;
 std::vector<double> SolarPower;
 std::vector<double> LoadPower;
@@ -133,25 +133,20 @@ inline void OCP::pathConstraints(double time, const Variable *state, const Varia
 void OCP::preProcessing()
 {
   // set time grid for interpolated data
+  printf("%d\n", DataSize);
   TimeGrid.resize(DataSize);
-  for (int i=0; i<DataSize; i++)
+  for (int i=0; i<TimeGrid.size(); i++)
     TimeGrid[i] = (double) i / 4e0;
-    
-  for (int i=0; i<DataSize; i++)
-    printf("%f ",TimeGrid[i]);    
 
 	//read solar power and power load data
-	int dataset = (int) constants[9];
-	if (dataset == 0)
-	{
-    bcp::readFileToVector("data/Summer-Solar.data",SolarPower);
-    bcp::readFileToVector("data/Summer-Load.data",LoadPower);
-	}
-	else
-	{    
-		bcp::readFileToVector("data/Winter-Solar.data",SolarPower);
-    bcp::readFileToVector("data/Winter-Load.data",LoadPower);
-	}
+  // NB. constants are not available here since preprocessing is called at OCP initialization, before reading the .def file -_-
+  printf("Read solar and load power data...\n");
+  int verbose = 1;
+//  bcp::readFileToVector("data/Summer-Solar.data", SolarPower, verbose);
+//  bcp::readFileToVector("data/Summer-Load.data", LoadPower, verbose);    
+  bcp::readFileToVector("data/Winter-Solar.data", SolarPower, verbose);
+  bcp::readFileToVector("data/Winter-Load.data", LoadPower, verbose);
+
 
 }
 

@@ -6,7 +6,7 @@ dim.control 5
 dim.boundaryconditions 8
 dim.pathconstraints 3
 dim.parameters 3
-dim.constants 10
+dim.constants 9
 
 # Time interval
 initial.time 0
@@ -22,11 +22,10 @@ constant.5 0.7
 constant.6 5
 constant.7 0
 constant.8 0
-constant.9 1
 
 # Time discretisation
 ode.discretization midpoint_implicit
-time.steps 192
+time.steps 100
 
 # Bounds for constraints
 boundarycond.0.lowerbound 0
@@ -125,7 +124,6 @@ constant.5.name SOC0
 constant.6.name reg_coeff
 constant.7.name enable_reg
 constant.8.name aging_bat
-constant.9.name dataset
 
 # Ipopt
 ipoptIntOption.print_level 5
