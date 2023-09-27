@@ -1,44 +1,131 @@
 # Definition file
 
 # Dimensions
-dim.state 1
-dim.control 1
-dim.boundaryconditions 1
-dim.pathconstraints 1
-dim.parameters 1
-dim.constants 1
+dim.state 4
+dim.control 5
+dim.boundaryconditions 8
+dim.pathconstraints 3
+dim.parameters 3
+dim.constants 10
 
 # Time interval
 initial.time 0
-final.time 1
+final.time 48
 
 # Constants
-constant.0 1.0
+constant.0 0.85
+constant.1 123
+constant.2 576
+constant.3 124200
+constant.4 1e7
+constant.5 0.7
+constant.6 5
+constant.7 0
+constant.8 0
+constant.9 1
 
 # Time discretisation
 ode.discretization midpoint_implicit
-time.steps 100
+time.steps 192
 
 # Bounds for constraints
 boundarycond.0.lowerbound 0
 boundarycond.0.upperbound 0
-pathconstraint.0.lowerbound -2e20
+boundarycond.1.lowerbound 0
+boundarycond.1.upperbound 0
+boundarycond.2.lowerbound -2e20
+boundarycond.2.upperbound 2e20
+boundarycond.3.lowerbound 0
+boundarycond.3.upperbound 0
+boundarycond.4.lowerbound 0
+boundarycond.4.upperbound 0
+boundarycond.5.lowerbound 0
+boundarycond.5.upperbound 0
+boundarycond.6.lowerbound 0
+boundarycond.6.upperbound 0
+boundarycond.7.lowerbound 0
+boundarycond.7.upperbound 0
+pathconstraint.0.lowerbound 0
 pathconstraint.0.upperbound 0
+pathconstraint.1.lowerbound -2e20
+pathconstraint.1.upperbound 2e20
+pathconstraint.2.lowerbound -2e20
+pathconstraint.2.upperbound 2e20
 
 # Bounds for variables
-state.0.lowerbound 0
-state.0.upperbound 2e20
-control.0.lowerbound -1
-control.0.upperbound 1
-parameter.0.lowerbound 0.001
+state.0.lowerbound 0.2
+state.0.upperbound 1
+state.1.lowerbound -2e20
+state.1.upperbound 2e20
+state.2.lowerbound -2e20
+state.2.upperbound 2e20
+state.3.lowerbound -2e20
+state.3.upperbound 2e20
+control.0.lowerbound 0
+control.0.upperbound 120
+control.1.lowerbound 0
+control.1.upperbound 2e20
+control.2.lowerbound 0
+control.2.upperbound 40
+control.3.lowerbound 0
+control.3.upperbound 10
+control.4.lowerbound 0
+control.4.upperbound 10
+parameter.0.lowerbound -2e20
 parameter.0.upperbound 2e20
+parameter.1.lowerbound -2e20
+parameter.1.upperbound 2e20
+parameter.2.lowerbound -2e20
+parameter.2.upperbound 2e20
 
 # Initialization for discretized problem
-state.0.init 0.1
-control.0.init 0.1
-parameter.0.init 0.1
+state.0.init 0.5
+state.1.init 0
+state.2.init 0
+state.3.init 0
+control.0.init 10
+control.1.init 0
+control.2.init 0
+control.3.init 0
+control.4.init 0
+parameter.0.init 0
+parameter.1.init 0
+parameter.2.init 0
 
 # Names
+state.0.name BATTERY_SOC
+state.1.name DIESEL_COST
+state.2.name BATTERY_COST
+state.3.name REGULARIZATION
+control.0.name DIESEL_POWER
+control.1.name BATTERY_POWER_IN
+control.2.name BATTERY_POWER_OUT
+control.3.name SLACK_EXCESS
+control.4.name SLACK_DEFAULT
+parameter.0.name diesel_cost
+parameter.1.name battery_cost
+parameter.2.name reg_cost
+boundarycond.0.name SOC(tf)-SOC(0)
+boundarycond.1.name dieselcost_0
+boundarycond.2.name SOC(0)-SOC_0
+boundarycond.3.name batterycost_0
+boundarycond.4.name regularization_0
+boundarycond.5.name diesel_cost
+boundarycond.6.name battery_cost
+boundarycond.7.name reg_cost
+constraint.0.name POWER_BALANCE
+constraint.1.name VISU_SOLAR
+constraint.2.name VISU_LOAD
+constant.0.name rho
+constant.1.name capacity_bat
+constant.2.name U_bat
+constant.3.name Ah_bat
+constant.4.name cost_bat
+constant.5.name SOC0
+constant.6.name reg_coeff
+constant.7.name enable_reg
+constant.8.name aging_bat
+constant.9.name dataset
 
 # Ipopt
 ipoptIntOption.print_level 5
