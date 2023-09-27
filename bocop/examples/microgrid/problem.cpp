@@ -12,8 +12,10 @@
 // ///////////////////////////////////////////////////////////////////
 
 // interpolation
-vector<double> SolarPower;
-vector<double> LoadPower;
+int DataSize = 192;
+std::vector<double> TimeGrid;
+std::vector<double> SolarPower;
+std::vector<double> LoadPower;
 
 
 template <typename Variable>
@@ -99,9 +101,9 @@ inline void OCP::boundaryConditions(double initial_time, double final_time, cons
   boundary_conditions[2] = initial_state[0] - constants[5];
 
   // retrieve cost terms
-  boundary_conditions[5] = optimvars[0] - final_state[1];
-  boundary_conditions[6] = optimvars[1] - final_state[2];
-  boundary_conditions[7] = optimvars[2] - final_state[3];
+  boundary_conditions[5] = parameters[0] - final_state[1];
+  boundary_conditions[6] = parameters[1] - final_state[2];
+  boundary_conditions[7] = parameters[2] - final_state[3];
 
 }
 
@@ -109,8 +111,9 @@ template <typename Variable>
 inline void OCP::pathConstraints(double time, const Variable *state, const Variable *control, const Variable *parameters, const double *constants, Variable *path_constraints)
 {
   // use interpolated data
-  double P_solar = normalizedTimeInterpolation(normalized_time, SolarPower);
-  double P_load = normalizedTimeInterpolation(normalized_time, LoadPower);
+  int verbose = 1;
+  double P_solar = bcp::interpolation1Dlinear(time, TimeGrid, SolarPower, DataSize, verbose);
+  double P_load = bcp::interpolation1Dlinear(time, TimeGrid, LoadPower, DataSize, verbose);
 
   // controls
   Variable P_diesel = control[0];
@@ -129,18 +132,25 @@ inline void OCP::pathConstraints(double time, const Variable *state, const Varia
 
 void OCP::preProcessing()
 {
+  // set time grid for interpolated data
+  TimeGrid.resize(DataSize);
+  for (int i=0; i<DataSize; i++)
+    TimeGrid[i] = (double) i / 4e0;
+    
+  for (int i=0; i<DataSize; i++)
+    printf("%f ",TimeGrid[i]);    
 
 	//read solar power and power load data
 	int dataset = (int) constants[9];
 	if (dataset == 0)
 	{
-    readFileToVector("data/Summer-Solar.data",SolarPower);
-    readFileToVector("data/Summer-Load.data",LoadPower);
+    bcp::readFileToVector("data/Summer-Solar.data",SolarPower);
+    bcp::readFileToVector("data/Summer-Load.data",LoadPower);
 	}
 	else
 	{    
-		readFileToVector("data/Winter-Solar.data",SolarPower);
-    readFileToVector("data/Winter-Load.data",LoadPower);
+		bcp::readFileToVector("data/Winter-Solar.data",SolarPower);
+    bcp::readFileToVector("data/Winter-Load.data",LoadPower);
 	}
 
 }
