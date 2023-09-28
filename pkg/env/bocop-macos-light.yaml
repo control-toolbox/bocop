@@ -1,7 +1,7 @@
 name: bocop-dev
 
 channels:
-  - dtk-forge
+#  - dtk-forge
   - conda-forge
 
 dependencies:
