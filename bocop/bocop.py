@@ -512,7 +512,7 @@ def test(examples_root_path=bocop_root_path+'/examples', examples_list_prefix=bo
         current = current + 1
         ls = line.split()
         problem_path = os.path.normpath(os.path.join(examples_root_path,ls[0])) #NB. join uses / on mingw...
-        print("{}/{} {:30s}     ".format(current,total,os.path.basename(os.path.normpath(problem_path))),end='',flush=True)
+        print("{:2d}/{:2d} {:30s}     ".format(current,total,os.path.basename(os.path.normpath(problem_path))),end='',flush=True)
         # NB. we must run bocop in separate processes when we run different examples (to avoid reimporting the same lib)
         solution = solve(problem_path=problem_path, clean=clean, debug=debug, graph=graph, verbose=verbose, separateProcess = 1)
         if verbose > 0:
