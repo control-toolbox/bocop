@@ -1,7 +1,6 @@
 name: bocop-dev
 
 channels:
-#  - dtk-forge
   - conda-forge
 
 dependencies:
@@ -16,11 +15,5 @@ dependencies:
   - numpy
   - cppad
   - ipopt
-#  - pysimpleguiqt
-#  - doxygen
-#  - sphinx_rtd_theme
-#  - breathe
   - ipywidgets
-#  - ipympl
-#  - jupyterlab
-#  - nodejs
+
