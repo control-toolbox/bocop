@@ -5,6 +5,7 @@ jackson_basic -1.918e-01  1.92e-14  56  7.70e-1 0
 goddard		-6.341e-01 	6.39e-14 	 45 	2.93e-01 	 1
 heat_dirichlet  7.716e-02 7.11e-15  11    1.09e+00  0
 heat_neumann    1.629e-01 7.11e-15  7     7.15e-01  0
+insurance_non_audit -2.058e+00 8.13e-12 58  8.71e+00  0
 integrator_1D   8.000e+01 4.26e-15  367   4.08e+00  0
 integrator_2D   6.000e+00 5.26e-16  2   8.00e-02  0
 regulator_1D    3.749e-01 2.58e-13  14  1.65e-02  0  
