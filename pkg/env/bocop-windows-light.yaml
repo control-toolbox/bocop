@@ -14,14 +14,7 @@ dependencies:
   - cppad
   - dtk-forge::ipopt =3.12.13     # there's only one anyway
   - dtk-forge::mumps-seq =5.1.2   # there's only one anyway
-#  - pysimpleguiqt
-#  - doxygen
-#  - sphinx_rtd_theme
-#  - breathe
   - ipywidgets
-#  - ipympl
-#  - jupyterlab
-#  - nodejs
 
 # note: macOS and Linux have gcc / clang compilers for code generation
 # on Windows we use the Microsoft Build Tools to compile stuff.

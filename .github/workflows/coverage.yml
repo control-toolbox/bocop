@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - cov
-  pull_request:
+#  pull_request:
 
 jobs:
     test_coverage:

@@ -1,0 +1,123 @@
+# Definition file
+
+# Dimensions
+dim.state 4
+dim.control 5
+dim.boundaryconditions 5
+dim.pathconstraints 4
+dim.parameters 1
+dim.constants 10
+
+# Time interval
+initial.time 0
+final.time 10
+
+# Constants
+constant.0 0.2
+constant.1 0.25
+constant.2 1.5
+constant.3 1
+constant.4 10
+constant.5 0
+constant.6 0
+constant.7 0
+constant.8 0
+constant.9 4
+
+# Time discretisation
+ode.discretization midpoint_implicit
+time.steps 500
+
+# Bounds for constraints
+boundarycond.0.lowerbound 0
+boundarycond.0.upperbound 0
+boundarycond.1.lowerbound 0
+boundarycond.1.upperbound 0
+boundarycond.2.lowerbound 0
+boundarycond.2.upperbound 0
+boundarycond.3.lowerbound 0
+boundarycond.3.upperbound 0
+boundarycond.4.lowerbound 0.001
+boundarycond.4.upperbound 0.001
+pathconstraint.0.lowerbound 0
+pathconstraint.0.upperbound 0
+pathconstraint.1.lowerbound 0
+pathconstraint.1.upperbound 0
+pathconstraint.2.lowerbound 0
+pathconstraint.2.upperbound 0
+pathconstraint.3.lowerbound 0
+pathconstraint.3.upperbound 0
+
+# Bounds for variables
+state.0.lowerbound 0
+state.0.upperbound 2e20
+state.1.lowerbound 0
+state.1.upperbound 2e20
+state.2.lowerbound -2e20
+state.2.upperbound 2e20
+state.3.lowerbound -2e20
+state.3.upperbound 2e20
+control.0.lowerbound 0
+control.0.upperbound 25
+control.1.lowerbound 0
+control.1.upperbound 2e20
+control.2.lowerbound 0
+control.2.upperbound 2e20
+control.3.lowerbound 0
+control.3.upperbound 2e20
+control.4.lowerbound 0.001
+control.4.upperbound 2e20
+parameter.0.lowerbound 0
+parameter.0.upperbound 2e20
+
+# Initialization for discretized problem
+state.0.init 0.1
+state.1.init 0.1
+state.2.init 0.1
+state.3.init 0.1
+control.0.init 0.1
+control.1.init 0.1
+control.2.init 0.1
+control.3.init 0.1
+control.4.init 0.1
+parameter.0.init 0.1
+
+# Names
+state.0.name I
+state.1.name m
+state.2.name P_integral
+state.3.name J_integral
+control.0.name h
+control.1.name Revenue
+control.2.name Health
+control.3.name Utility
+control.4.name dUdR
+parameter.0.name P
+boundarycond.0.name I(0)
+boundarycond.1.name P_int(0)
+boundarycond.2.name J_int(0)
+boundarycond.3.name P_int(T)-P
+boundarycond.4.name m(0)
+constraint.0.name R_alg
+constraint.1.name H_alh
+constraint.2.name U_alg
+constraint.3.name dUdR_alg
+constant.0.name gamma
+constant.1.name lambda
+constant.2.name h0
+constant.3.name w
+constant.4.name s
+constant.5.name k
+constant.6.name sigma
+constant.7.name vtype
+constant.8.name ftype
+constant.9.name alpha
+
+# Ipopt
+ipoptIntOption.print_level 5
+ipoptIntOption.max_iter 1000
+ipoptStrOption.mu_strategy adaptive
+ipoptNumOption.tol 1e-10
+
+# Misc
+ad.retape 0
