@@ -334,7 +334,6 @@ def readDefFile(deffile = "problem.def"):
 
 	with open(deffile) as f:
 		for line in f:
-#			if line.strip() and line[0] is not '#':
 			if line.strip() and line[0] != '#':
 				(key, val) = line.split()
 				options[key] = val
