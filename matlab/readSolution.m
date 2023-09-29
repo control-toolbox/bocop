@@ -40,11 +40,11 @@ function [time_steps, time_stages, state, control, parameters,...
 
   % +++bc and path are after multipliers, change that
   boundarycond = getBlock1D(solfile,'# Boundary Conditions',dim_boundary_conditions);
-  pathcond = getBlock2D(solfile,'# Path constraints',dim_path_constraints,dim_steps);
+  pathcond = getBlock2D(solfile,'# Path constraints',dim_path_constraints,dim_steps+1);
 
   % read boundary conditions multipliers, costate
   boundarycond_multipliers = getBlock1D(solfile,'# Multipliers associated to the boundary conditions',dim_boundary_conditions);
-  pathcond_multipliers = getBlock2D(solfile,'# Multipliers associated to the path constraints',dim_path_constraints,dim_steps);
+  pathcond_multipliers = getBlock2D(solfile,'# Multipliers associated to the path constraints',dim_path_constraints,dim_steps+1);
   costate = getBlock2D(solfile,'# Adjoint state',dim_state,dim_steps);
   
 end

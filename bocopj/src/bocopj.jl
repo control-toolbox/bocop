@@ -183,11 +183,11 @@ function read_bocop_sol(solfile_path)
 
         # read boundary conditions and path constraints
         sol.boundary_conditions = getBlock1D(solfile,"# Boundary Conditions",sol.dim_boundary_conditions,false)
-        sol.path_constraints = getBlock2D(solfile,"# Path constraints",sol.dim_path_constraints,sol.dim_steps,false)
+        sol.path_constraints = getBlock2D(solfile,"# Path constraints",sol.dim_path_constraints,sol.dim_steps+1,false)
 
         # read boundary conditions multipliers, path constraints multipliers, costate
         sol.boundary_conditions_multipliers = getBlock1D(solfile,"# Multipliers associated to the boundary conditions",sol.dim_boundary_conditions,false)
-        sol.path_constraints_multipliers = getBlock2D(solfile,"# Multipliers associated to the path constraints",sol.dim_path_constraints,sol.dim_steps,false)
+        sol.path_constraints_multipliers = getBlock2D(solfile,"# Multipliers associated to the path constraints",sol.dim_path_constraints,sol.dim_steps+1,false)
         sol.costate = getBlock2D(solfile,"# Adjoint state",sol.dim_state,sol.dim_steps,false)
 
         # read average control on steps
