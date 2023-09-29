@@ -1,6 +1,7 @@
 # bocop
 build/
 bocopApp
+bocopproblem
 _bocopwrapper.so
 bocopwrapper.py
 libbocop.dylib
