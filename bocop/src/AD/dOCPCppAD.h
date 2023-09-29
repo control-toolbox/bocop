@@ -99,7 +99,7 @@ public:
 template <typename Variable>
 inline bool dOCPCppAD::evalObjective_t(const Variable& v, Variable& o)
 {
-  //std::cout << "dOCPCppAD::evalObjective_t" << std::endl;
+
   double initial_time = ocp->initialTime();
   double final_time = ocp->finalTime();
   auto initial_state = stateAtStep(v, 0);
@@ -164,7 +164,7 @@ inline bool dOCPCppAD::evalConstraints_t(const Variable& v, Variable& g)
       double stage_time = timeAtStage(l, j);
       auto stage_state = stateAtStage(v, l, j);
       auto stage_control = controlAtStage(v, l, j);
-      std::vector<value_t> state_dynamics(ocp->stateSize());
+      std::vector<value_t> state_dynamics(ocp->stateSize()); //+++ put out of loop ?
 
       ocp->dynamics(stage_time, stage_state.data(), stage_control.data(), parameters.data(), constants.data(), state_dynamics.data());
 
@@ -175,14 +175,22 @@ inline bool dOCPCppAD::evalConstraints_t(const Variable& v, Variable& g)
     // 2.3 path constraints (on step with average control)
     double step_time = timeAtStep(l);
     auto step_control = controlAtStep(v, l);
-    std::vector<value_t> path_constraints(ocp->pathConstraintsSize());
+    std::vector<value_t> path_constraints(ocp->pathConstraintsSize()); //+++ put out of loop ?
 
     ocp->pathConstraints(step_time, step_state.data(), step_control.data(), parameters.data(), constants.data(), path_constraints.data());
 
     for (std::size_t i = 0; i < ocp->pathConstraintsSize(); ++i)
       g[index++] = path_constraints[i];
 
-  }
+  } // end main loop over time steps
+  
+  // 3 add path constraints at final time (since main loop stops at penultimate time step)
+  auto step_control = controlAtStep(v, discretisationSteps()-1); // reuse average control for last time step
+  std::vector<value_t> path_constraints(ocp->pathConstraintsSize());
+  ocp->pathConstraints(final_time, final_state.data(), step_control.data(), parameters.data(), constants.data(), path_constraints.data());
+
+  for (std::size_t i = 0; i < ocp->pathConstraintsSize(); ++i)
+    g[index++] = path_constraints[i];  
 
   if (index != constraintsSize())
   {

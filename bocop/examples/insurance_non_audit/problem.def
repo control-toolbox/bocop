@@ -26,7 +26,7 @@ constant.9 4
 
 # Time discretisation
 ode.discretization midpoint_implicit
-time.steps 500
+time.steps 200
 
 # Bounds for constraints
 boundarycond.0.lowerbound 0
@@ -50,7 +50,9 @@ pathconstraint.3.upperbound 0
 
 # Bounds for variables
 state.0.lowerbound 0
+state.0.upperbound 1.5
 state.1.lowerbound 0
+state.1.upperbound 1.5
 control.0.lowerbound 0
 control.0.upperbound 25
 control.1.lowerbound 0
@@ -92,3 +94,5 @@ constant.7.name vtype
 constant.8.name ftype
 constant.9.name alpha
 
+# Ipopt
+ipoptNumOption.tol 1e-6

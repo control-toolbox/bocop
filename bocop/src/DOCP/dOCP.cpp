@@ -30,7 +30,7 @@ void dOCP::initialize(void)
 
   // PREPARE NLP TRANSCRIPTION
   // setup time discretization
-  RKmethod = ocp->getDefinitionForKey("ode.discretization");  //+++ default value midpoint
+  RKmethod = ocp->getDefinitionForKey("ode.discretization");  //+++ default value midpoint ?
   discretisation_steps = stoi(ocp->getDefinitionForKey("time.steps"));
   rk->setRKcoeffs(RKmethod);
   rk->setTimeGrids(ocp->initialTime(), ocp->finalTime(), discretisation_steps, time_step, time_step_grid, time_stage_grid);
