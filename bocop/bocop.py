@@ -420,11 +420,11 @@ def readSolution(filename='problem.sol', verbose=0):
 
         # read boundary conditions and path constraints
         sol.boundary_conditions = getBlock1D(solfile=solfile,label='# Boundary Conditions',dim1=sol.dim_boundary_conditions)
-        sol.path_constraints = getBlock2D(solfile=solfile,label='# Path constraints',dim1=sol.dim_path_constraints,dim2=sol.dim_steps)
+        sol.path_constraints = getBlock2D(solfile=solfile,label='# Path constraints',dim1=sol.dim_path_constraints,dim2=sol.dim_steps+1)
 
         # read boundary conditions multipliers, path constraints multipliers, costate
         sol.boundary_conditions_multipliers = getBlock1D(solfile=solfile,label='# Multipliers associated to the boundary conditions',dim1=sol.dim_boundary_conditions)
-        sol.path_constraints_multipliers = getBlock2D(solfile=solfile,label='# Multipliers associated to the path constraints',dim1=sol.dim_path_constraints,dim2=sol.dim_steps)
+        sol.path_constraints_multipliers = getBlock2D(solfile=solfile,label='# Multipliers associated to the path constraints',dim1=sol.dim_path_constraints,dim2=sol.dim_steps+1)
         sol.costate = getBlock2D(solfile=solfile,label='# Adjoint state',dim1=sol.dim_state,dim2=sol.dim_steps)
 
         # read average control on steps
