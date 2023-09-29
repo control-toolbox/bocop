@@ -53,11 +53,3 @@ control.1.upperbound 1
 
 # Names
 
-# Ipopt
-ipoptIntOption.print_level 5
-ipoptIntOption.max_iter 1000
-ipoptStrOption.mu_strategy adaptive
-ipoptNumOption.tol 1e-12
-
-# Misc
-ad.retape 0

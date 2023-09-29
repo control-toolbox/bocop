@@ -92,11 +92,3 @@ constant.7.name vtype
 constant.8.name ftype
 constant.9.name alpha
 
-# Ipopt
-ipoptIntOption.print_level 5
-ipoptIntOption.max_iter 1000
-ipoptStrOption.mu_strategy adaptive
-ipoptNumOption.tol 1e-10
-
-# Misc
-ad.retape 0

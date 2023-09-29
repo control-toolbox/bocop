@@ -230,7 +230,7 @@ NLPSolverIpopt::NLPSolverIpopt(void) : NLPSolver()
   // default base options
   app->Options()->SetIntegerValue("max_iter", 1000);
   app->Options()->SetIntegerValue("print_level", 5);
-  app->Options()->SetNumericValue("tol", 1e-12);
+  app->Options()->SetNumericValue("tol", 1e-8);
   app->Options()->SetStringValue("mu_strategy", "adaptive");
 }
 

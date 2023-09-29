@@ -22,16 +22,16 @@ time.steps 100
 # Bounds for constraints
 boundarycond.0.lowerbound 0
 boundarycond.0.upperbound 0
-pathconstraint.0.lowerbound -2e20
-pathconstraint.0.upperbound 0
+pathconstraint.0.lowerbound 0
+pathconstraint.0.upperbound 1
 
 # Bounds for variables
 state.0.lowerbound 0
-state.0.upperbound 2e20
+state.0.upperbound 1
 control.0.lowerbound -1
 control.0.upperbound 1
 parameter.0.lowerbound 0.001
-parameter.0.upperbound 2e20
+parameter.0.upperbound 100
 
 # Initialization for discretized problem
 state.0.init 0.1
@@ -43,8 +43,7 @@ parameter.0.init 0.1
 # Ipopt
 ipoptIntOption.print_level 5
 ipoptIntOption.max_iter 1000
-ipoptStrOption.mu_strategy adaptive
-ipoptNumOption.tol 1e-12
+ipoptNumOption.tol 1e-8
 
 # Misc
 ad.retape 0
