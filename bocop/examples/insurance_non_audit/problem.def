@@ -50,25 +50,14 @@ pathconstraint.3.upperbound 0
 
 # Bounds for variables
 state.0.lowerbound 0
-state.0.upperbound 2e20
 state.1.lowerbound 0
-state.1.upperbound 2e20
-state.2.lowerbound -2e20
-state.2.upperbound 2e20
-state.3.lowerbound -2e20
-state.3.upperbound 2e20
 control.0.lowerbound 0
 control.0.upperbound 25
 control.1.lowerbound 0
-control.1.upperbound 2e20
 control.2.lowerbound 0
-control.2.upperbound 2e20
 control.3.lowerbound 0
-control.3.upperbound 2e20
 control.4.lowerbound 0.001
-control.4.upperbound 2e20
 parameter.0.lowerbound 0
-parameter.0.upperbound 2e20
 
 # Initialization for discretized problem
 

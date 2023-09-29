@@ -31,11 +31,7 @@ time.steps 100
 
 # Bounds for constraints
 boundarycond.0.lowerbound 1
-boundarycond.0.upperbound 2e20
-boundarycond.1.lowerbound -2e20
-boundarycond.1.upperbound 2e20
 boundarycond.2.lowerbound 1
-boundarycond.2.upperbound 2e20
 boundarycond.3.lowerbound 0
 boundarycond.3.upperbound 0
 boundarycond.4.lowerbound 0
@@ -44,18 +40,12 @@ boundarycond.5.lowerbound 0
 boundarycond.5.upperbound 0
 boundarycond.6.lowerbound 0
 boundarycond.6.upperbound 0
-pathconstraint.0.lowerbound -2e20
-pathconstraint.0.upperbound 2e20
 
 # Bounds for variables
 state.0.lowerbound 0
-state.0.upperbound 2e20
 state.1.lowerbound 0
-state.1.upperbound 2e20
 state.2.lowerbound 0.001
-state.2.upperbound 2e20
 state.3.lowerbound 0
-state.3.upperbound 2e20
 control.0.lowerbound 0
 control.0.upperbound 1
 parameter.0.lowerbound 1

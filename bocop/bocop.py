@@ -53,6 +53,7 @@ import shutil
 import subprocess
 import sys
 import shlex
+import time
 
 bocop_root_path = os.path.dirname(__file__)
 
@@ -499,6 +500,7 @@ def hello(message):
 # +++ check messages refresh (when verbose=0)
 def test(examples_root_path=bocop_root_path+'/examples', examples_list_prefix=bocop_root_path+'/test/examples', clean = 1, debug = 0, graph = 0, verbose = 0):
 
+    start_time = time.time()
     examples_list_file = examples_list_prefix+'.list.csv'
     print("Bocop root path: {}".format(bocop_root_path))
     print("Examples path: {}".format(examples_root_path))
@@ -536,6 +538,8 @@ def test(examples_root_path=bocop_root_path+'/examples', examples_list_prefix=bo
         print("ALL {} TESTS PASSED".format(total))
     else:
         print("{}/{} TESTS PASSED".format(total-failed,total))
+
+    print("TOTAL TIME {:.2f}".format(time.time()-start_time))
 
     return failed
 
