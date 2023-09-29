@@ -32,21 +32,15 @@ boundarycond.1.upperbound 0
 boundarycond.2.lowerbound 1
 boundarycond.2.upperbound 1
 boundarycond.3.lowerbound 1.01
-boundarycond.3.upperbound 2e20
-pathconstraint.0.lowerbound -2e20
 pathconstraint.0.upperbound 0
 
 # Bounds for variables
 state.0.lowerbound 1
-state.0.upperbound 2e20
 state.1.lowerbound 0
-state.1.upperbound 2e20
 state.2.lowerbound 0
-state.2.upperbound 2e20
 control.0.lowerbound 0
 control.0.upperbound 1
 parameter.0.lowerbound 0.001
-parameter.0.upperbound 2e20
 
 # Initialization for discretized problem
 state.0.init state0.init

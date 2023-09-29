@@ -39,15 +39,6 @@ boundarycond.6.upperbound 0
 
 # Bounds for variables
 state.0.lowerbound 0
-state.0.upperbound 2e20
-state.1.lowerbound -2e20
-state.1.upperbound 2e20
-state.2.lowerbound -2e20
-state.2.upperbound 2e20
-state.3.lowerbound -2e20
-state.3.upperbound 2e20
-control.0.lowerbound -2e20
-control.0.upperbound 2e20
 
 # Initialization for discretized problem
 state.0.init 0.1
