@@ -210,7 +210,8 @@ void dODE::setDiscretisedConstraintsBounds(size_t discretisation_steps, OCP *ocp
   {
     constraints_lower_bounds.push_back(ocp->pathLowerBounds()[i]);
     constraints_upper_bounds.push_back(ocp->pathUpperBounds()[i]);
-  }  
+  }
+
 }
 
 void dODE::getParam(const double* x, size_t param_offset, size_t dimParam, std::vector<double>& parameter)
