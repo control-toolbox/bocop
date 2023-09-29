@@ -92,8 +92,6 @@ public:
   sparse_hess_work work_hess;
   std::vector<double> xlf2, hess;
 
-
-  // +++ add here derivatives of dynamics for python wrapping in nutopy. is it even possible to wrap without the explicit code ?
 };
 
 template <typename Variable>
@@ -112,41 +110,31 @@ inline bool dOCPCppAD::evalObjective_t(const Variable& v, Variable& o)
   return true;
 }
 
-// Layout of C: {boundarycond [dynstep (dynstage...dynstage) pathcond] ... [dynstep (dynstage...dynstage) pathcond] }
-// +++ NB. here the path constraint is not enforced at final time !
-
+// Layout of NLP constraints C for discretized OCP
+// {boundarycond [dynstep (dynstage...dynstage) pathcond] ... [dynstep (dynstage...dynstage) pathcond] pathcond_tf}
 template <typename Variable>
 inline bool dOCPCppAD::evalConstraints_t(const Variable& v, Variable& g)
 {
 
   using value_t = typename Variable::value_type;
 
-  double initial_time = ocp->initialTime();
-  double final_time = ocp->finalTime();
-  auto initial_state = stateAtStep(v, 0);
-  auto final_state = stateAtStep(v, discretisationSteps());
-  auto parameters = getParameters(v);
-  auto constants = ocp->getConstants();
-
-  // +++ NB for more genericity use aux functions fillDynamicsConstraints, fillPathConstraints etc in dODE
+  // NB for more genericity use aux functions fillDynamicsConstraints, fillPathConstraints etc in dODE ?
 
   // 1. boundary conditions
   std::size_t index = 0;
-  std::vector<value_t> boundary_conditions(ocp->boundaryConditionsSize());
-
-  ocp->boundaryConditions(initial_time, final_time, initial_state.data(), final_state.data(), parameters.data(), constants.data(), boundary_conditions.data());
-
-  for (std::size_t i = 0; i < ocp->boundaryConditionsSize(); ++i)
-    g[index++] = boundary_conditions[i];
+  double final_time = ocp->finalTime();
+  auto final_state = stateAtStep(v, discretisationSteps());
+  auto parameters = getParameters(v);
+  auto constants = ocp->getConstants();
+  ocp->boundaryConditions(ocp->initialTime(), final_time, stateAtStep(v, 0).data(), final_state.data(), parameters.data(), constants.data(), &g[index]);
+  index += ocp->boundaryConditionsSize();
 
   // 2. loop over steps: discretized dynamics + path constraints
   std::vector<value_t> state_dynamics(ocp->stateSize());
-  std::vector<value_t> path_constraints(ocp->pathConstraintsSize());
   for (std::size_t l = 0; l < discretisationSteps(); ++l)
   {
 
     // 2.1 dynamics constraint at time step: y_l + h sum(b_j*k_j) - y_{l+1} = 0
-    double h = timeStep();
     auto step_state = stateAtStep(v, l);
     auto next_step_state = stateAtStep(v, l+1);
     for (std::size_t i = 0; i < ocp->stateSize(); ++i)
@@ -155,45 +143,30 @@ inline bool dOCPCppAD::evalConstraints_t(const Variable& v, Variable& g)
       for (std::size_t j = 0; j < RKStages(); ++j)
         sum_bk_i += rk->butcherB()[j] * kComponent(v, l, j, i);
 
-      // here we have 2 possible choices for the 'sign' of the equality constraint
-      // this formulation is consistent with multipliers for initial conditions x=x0...
-      g[index++] = next_step_state[i] - (step_state[i] + h * sum_bk_i);      
+      // NB. here we have 2 possible choices for the 'sign' of the equality constraint
+      // this formulation is consistent with multipliers for initial conditions x=x0
+      g[index++] = next_step_state[i] - (step_state[i] + timeStep() * sum_bk_i);      
     }
 
     // 2.2 loop on stages for k_j equations: f(...) - k_j = 0
     for (std::size_t j = 0; j < RKStages(); ++j)
     {
-      double stage_time = timeAtStage(l, j);
-      auto stage_state = stateAtStage(v, l, j);
-      auto stage_control = controlAtStage(v, l, j);
-      //std::vector<value_t> state_dynamics(ocp->stateSize()); //+++ put out of loop ?
-
-      ocp->dynamics(stage_time, stage_state.data(), stage_control.data(), parameters.data(), constants.data(), state_dynamics.data());
-
+      ocp->dynamics(timeAtStage(l, j), stateAtStage(v, l, j).data(), controlAtStage(v, l, j).data(), parameters.data(), constants.data(), state_dynamics.data());
       for (std::size_t i = 0; i < ocp->stateSize(); ++i)
         g[index++] = state_dynamics[i] - kComponent(v, l, j, i);
     }
 
     // 2.3 path constraints (on step with average control)
-    double step_time = timeAtStep(l);
-    auto step_control = controlAtStep(v, l);
-    //std::vector<value_t> path_constraints(ocp->pathConstraintsSize()); //+++ put out of loop ?
-
-    ocp->pathConstraints(step_time, step_state.data(), step_control.data(), parameters.data(), constants.data(), path_constraints.data());
-
-    for (std::size_t i = 0; i < ocp->pathConstraintsSize(); ++i)
-      g[index++] = path_constraints[i];
+    ocp->pathConstraints(timeAtStep(l), step_state.data(), controlAtStep(v, l).data(), parameters.data(), constants.data(), &g[index]);
+    index += ocp->pathConstraintsSize();
 
   } // end main loop over time steps
   
-  // 3 add path constraints at final time (since main loop stops at penultimate time step)
-  auto step_control = controlAtStep(v, discretisationSteps()-1); // reuse average control for last time step
-  //std::vector<value_t> path_constraints(ocp->pathConstraintsSize());
-  ocp->pathConstraints(final_time, final_state.data(), step_control.data(), parameters.data(), constants.data(), path_constraints.data());
-
-  for (std::size_t i = 0; i < ocp->pathConstraintsSize(); ++i)
-    g[index++] = path_constraints[i];  
-
+  // 3 add path constraints at final time (since main loop stops at penultimate time step); reuse average control for last time step
+  ocp->pathConstraints(final_time, final_state.data(), controlAtStep(v, discretisationSteps()-1).data(), parameters.data(), constants.data(), &g[index]);
+  index += ocp->pathConstraintsSize();
+  
+  // check final index filled vs constraints vector size  
   if (index != constraintsSize())
   {
     std::cout << "dOCPCppAD::evalConstraints_t >>> constraints last index " << index << " vs total size " << constraintsSize() << std::endl;
