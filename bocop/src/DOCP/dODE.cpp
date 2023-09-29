@@ -145,7 +145,7 @@ void dODE::setInitialParam(OCP *ocp, std::vector<double> &starting_point, std::v
     // set initial value from .def file
     std::stringstream label;
     label << "parameter." << k << ".init";
-    std::string param_init_type = ocp->getDefinitionForKey(label.str());
+    std::string param_init_type = ocp->getDefinitionForKey(label.str(), "0.1");
     starting_point.push_back(stod(param_init_type));
   }
 }
