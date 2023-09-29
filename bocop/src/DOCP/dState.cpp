@@ -18,7 +18,7 @@ void dState::setInitialState(const std::vector<double> time_steps, OCP *ocp, std
     // get initialisation type
     std::stringstream label;
     label << "state." << k << ".init";
-    std::string state_init_type = ocp->getDefinitionForKey(label.str());
+    std::string state_init_type = ocp->getDefinitionForKey(label.str(), "0.1");
 
     // set initial values
     if (state_init_type.find(".init") != std::string::npos)

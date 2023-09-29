@@ -60,16 +60,6 @@ control.4.lowerbound 0.001
 parameter.0.lowerbound 0
 
 # Initialization for discretized problem
-state.0.init 0.1
-state.1.init 0.1
-state.2.init 0.1
-state.3.init 0.1
-control.0.init 0.1
-control.1.init 0.1
-control.2.init 0.1
-control.3.init 0.1
-control.4.init 0.1
-parameter.0.init 0.1
 
 # Names
 state.0.name I
