@@ -31,11 +31,8 @@ boundarycond.2.upperbound 0
 
 # Bounds for variables
 state.0.lowerbound 0
-state.0.upperbound 2e20
 state.1.lowerbound 0
-state.1.upperbound 2e20
 state.2.lowerbound 0
-state.2.upperbound 2e20
 control.0.lowerbound 0
 control.0.upperbound 1
 
