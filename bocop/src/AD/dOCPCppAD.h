@@ -151,7 +151,7 @@ inline bool dOCPCppAD::evalConstraints_t(const Variable& v, Variable& g)
     // 2.2 loop on stages for k_j equations: f(...) - k_j = 0
     for (std::size_t j = 0; j < RKStages(); ++j)
     {
-      ocp->dynamics(timeAtStage(l, j), stateAtStage(v, l, j).data(), controlAtStage(v, l, j).data(), parameters.data(), constants.data(), state_dynamics.data());     
+      ocp->dynamics(timeAtStage(l, j), stateAtStage(v, l, j).data(), controlAtStage(v, l, j).data(), parameters.data(), constants.data(), state_dynamics.data());
       for (std::size_t i = 0; i < ocp->stateSize(); ++i)
         g[index++] = state_dynamics[i] - kComponent(v, l, j, i);
     }
