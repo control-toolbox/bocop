@@ -62,12 +62,12 @@ void dOCPsolution::init(int dimState,
 
   // multipliers
   this->boundary_conditions_multiplier = new std::vector<double>(dimBoundaryConditions);
-  this->path_constraints_multiplier = new std::vector<std::vector<double> >(dimPathConstraints,std::vector<double>(dimSteps));
+  this->path_constraints_multiplier = new std::vector<std::vector<double> >(dimPathConstraints,std::vector<double>(dimSteps+1));
   this->adjoint_state = new std::vector<std::vector<double> >(dimState,std::vector<double>(dimSteps));
 
   // constraints (bounds info should be retrievable from .def copy)
   this->boundary_conditions = new std::vector<double>(dimBoundaryConditions);
-  this->path_constraints = new std::vector<std::vector<double> >(dimPathConstraints,std::vector<double>(dimSteps));
+  this->path_constraints = new std::vector<std::vector<double> >(dimPathConstraints,std::vector<double>(dimSteps+1));
   this->dyn_equations = new std::vector<std::vector<double> >(dimState,std::vector<double>(dimSteps));
 
 }

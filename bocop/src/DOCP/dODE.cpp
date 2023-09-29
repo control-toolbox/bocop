@@ -165,7 +165,8 @@ void dODE::setRKStageVars(size_t discretisation_steps, OCP *ocp, std::vector<dou
 }
 
 
-// Layout of C: {boundarycond [dynstep (dynstage...dynstage) pathcond] ... [dynstep (dynstage...dynstage) pathcond] }
+// Layout of NLP constraints C for discretized OCP 
+// {boundarycond [dynstep (dynstage...dynstage) pathcond] ... [dynstep (dynstage...dynstage) pathcond] pathcond_tf}
 void dODE::setBoundaryConditionsBounds(OCP *ocp, std::vector<double> &constraints_lower_bounds, std::vector<double> &constraints_upper_bounds)
 {
   for (size_t i = 0; i < ocp->boundaryConditionsSize(); ++i)
@@ -177,7 +178,8 @@ void dODE::setBoundaryConditionsBounds(OCP *ocp, std::vector<double> &constraint
 
 void dODE::setDiscretisedConstraintsBounds(size_t discretisation_steps, OCP *ocp, std::vector<double> &constraints_lower_bounds, std::vector<double> &constraints_upper_bounds)
 {
-
+  
+  // main loop over time steps
   for (size_t l = 0; l < discretisation_steps; ++l)
   {
     // 1. dynamics constraint at time step: y_l + h sum(b_j*k_j) - y_{l+1} = 0
@@ -201,8 +203,14 @@ void dODE::setDiscretisedConstraintsBounds(size_t discretisation_steps, OCP *ocp
       constraints_lower_bounds.push_back(ocp->pathLowerBounds()[i]);
       constraints_upper_bounds.push_back(ocp->pathUpperBounds()[i]);
     }
-
-  }
+  } // end main loop over time steps
+  
+  // add path constraints at final time
+  for (size_t i = 0; i < ocp->pathConstraintsSize(); ++i)
+  {
+    constraints_lower_bounds.push_back(ocp->pathLowerBounds()[i]);
+    constraints_upper_bounds.push_back(ocp->pathUpperBounds()[i]);
+  }  
 }
 
 void dODE::getParam(const double* x, size_t param_offset, size_t dimParam, std::vector<double>& parameter)
@@ -213,7 +221,7 @@ void dODE::getParam(const double* x, size_t param_offset, size_t dimParam, std::
 }
 
 // extract multipliers for the constraints C(X) of (NLP)
-// Layout of C: {boundarycond [dynstep (dynstage...dynstage) pathcond] ... [dynstep (dynstage...dynstage) pathcond] }
+// Layout of C: {boundarycond [dynstep (dynstage...dynstage) pathcond] ... [dynstep (dynstage...dynstage) pathcond] pathcond_tf}
 void dODE::getMultipliers(const double* lambda, std::vector<double>& boundaryCondMultiplier, std::vector<std::vector<double> >&  pathConstrMultiplier, std::vector<std::vector<double> >&  adjointState)
 {
   // retrieve dimensions
@@ -243,12 +251,15 @@ void dODE::getMultipliers(const double* lambda, std::vector<double>& boundaryCon
     for (int k = 0; k < dimPathConstraints; k++)
       pathConstrMultiplier[k][i] = lambda[index_lambda++];
   }
-
+  
+  // pathcond at final time
+  for (int k = 0; k < dimPathConstraints; k++)
+    pathConstrMultiplier[k][dimSteps] = lambda[index_lambda++];
 }
 
 
 // extract components from constraints C(X) of (NLP)
-// Layout of C: {boundarycond [dynstep (dynstage...dynstage) pathcond] ... [dynstep (dynstage...dynstage) pathcond] }
+// Layout of C: {boundarycond [dynstep (dynstage...dynstage) pathcond] ... [dynstep (dynstage...dynstage) pathcond] pathcond_tf}
 // where boundarycond is the constraint: lb <= \phi(y^0,Y^N) <= ub
 // dynstep is the dynamics equation: y^{i+1} - ( y^i + sum_{i=1..s} b_j k_j ) = 0
 // dynstage are the s equations at stages: k^i_j - f(t_i + c_i h, y^i + sum_{i=1..s} a_lj k_l, u^i_j) = 0     //check indexes for a +++
@@ -283,6 +294,10 @@ void dODE::getConstraints(const double* g, std::vector<double>& boundaryConditio
       pathConstraints[k][i] = g[index_g++];
 
   }
+  
+  // path constraints at final time
+  for (int k = 0; k < dimPathConstraints; k++)
+    pathConstraints[k][dimSteps] = g[index_g++];  
 
 }
 
