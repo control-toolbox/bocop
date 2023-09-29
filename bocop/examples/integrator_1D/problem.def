@@ -37,10 +37,6 @@ parameter.0.lowerbound 0.1
 parameter.0.upperbound 100
 
 # Initialization for discretized problem
-state.0.init 0.1
-state.1.init 0.1
-control.0.init 0.1
-parameter.0.init 0.1
 
 # Names
 

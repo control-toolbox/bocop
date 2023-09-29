@@ -124,7 +124,6 @@ private:
   std::vector<double> constants;
 
   // bounds for variables and constraints
-
   std::vector<double> state_lower_bounds;
   std::vector<double> state_upper_bounds;
   std::vector<double> control_lower_bounds;

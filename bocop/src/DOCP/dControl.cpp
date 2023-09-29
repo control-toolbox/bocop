@@ -5,7 +5,7 @@
 
 
 // each function fill will increment the offset for the next call
-// +++ mutualise a bit more with dState ?
+// +++ mutualise a bit more with dState ? See the question of control on steps/stages first...
 void dControl::setInitialControl(const std::vector<double> time_stages, OCP *ocp, dODE *rk, std::vector<double> &starting_point, std::vector<double> &variables_lower_bounds, std::vector<double> &variables_upper_bounds)
 {
   size_t discretisation_stages = time_stages.size();
@@ -17,7 +17,7 @@ void dControl::setInitialControl(const std::vector<double> time_stages, OCP *ocp
     // get initialisation type
     std::stringstream label;
     label << "control." << k << ".init";
-    std::string control_init_type = ocp->getDefinitionForKey(label.str());
+    std::string control_init_type = ocp->getDefinitionForKey(label.str(), "0.1");
 
     // set initial values
     if (control_init_type.find(".init") != std::string::npos)
