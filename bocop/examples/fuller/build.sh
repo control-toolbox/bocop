@@ -24,12 +24,7 @@ esac
 done
 
 ## launch cmake, make and go back to problem folder
-KERNEL=`uname -s`
-if [[ "$KERNEL" == *"MINGW"* ]]; then
-cmake -G "MSYS Makefiles" -DCMAKE_BUILD_TYPE=${BUILDTYPE} -DPROBLEM_DIR=${PWD}/.. ${BOCOP_ROOT_PATH}
-else
-cmake -DCMAKE_BUILD_TYPE=${BUILDTYPE} -DCOVERAGE=${COVERAGE} -DNOWRAPPER=${NOWRAPPER} -DPROBLEM_DIR=${PWD}/.. ${BOCOP_ROOT_PATH}
-fi
+cmake -DCMAKE_BUILD_TYPE=${BUILDTYPE} -DPROBLEM_DIR=${PWD}/.. ${BOCOP_ROOT_PATH}
 status=$?
 if [ "$status" -eq "0" ]; then
 make -j

@@ -11,6 +11,15 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 
+# Default build type (RelWithDebInfo)
+if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
+  message(STATUS "Setting build type to 'RelWithDebInfo' as none was specified.")
+  set(CMAKE_BUILD_TYPE RelWithDebInfo CACHE STRING "Choose the type of build." FORCE)
+  set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
+else()
+  message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
+endif()
+
 # cppad (no lib, only headers)
 find_package(CPPAD REQUIRED)
 message(STATUS "Using CPPAD found at " ${CPPAD_INCLUDE_DIR})
@@ -27,11 +36,5 @@ set(Python3_FIND_VIRTUALENV ONLY)
 find_package(Python3 COMPONENTS Interpreter Development REQUIRED) # not found on Windows
 include_directories(${Python3_INCLUDE_DIRS})
 
-# swig
-if(NOT NOWRAPPER)
-  message(STATUS "swig for wrapper")
-  find_package(SWIG 4 REQUIRED)
-  include(${SWIG_USE_FILE})
-endif()
 add_subdirectory(src)
 #### CMakeLists.txt ends here
