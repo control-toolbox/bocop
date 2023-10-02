@@ -60,7 +60,7 @@ endif()
 ########################################################################
 # BUILD BOCOP CORE LIBRARY
 include(ExternalProject)
-ExternalProject_Add(bocopcorelib 
+ExternalProject_Add(bocopcore_external
                     SOURCE_DIR ${CMAKE_SOURCE_DIR}/src/
                     DOWNLOAD_COMMAND ""
                     BINARY_DIR ${CMAKE_SOURCE_DIR}/build/
@@ -71,9 +71,6 @@ ExternalProject_Add(bocopcorelib
 ########################################################################
 # BUILD SPECIFIC PROBLEM
 
-find_library(BOCOP_CORE_LIB NAMES bocopcore${SUFFIX} PATHS ${CMAKE_SOURCE_DIR}/lib/ REQUIRED)
-message(STATUS "BOCOP CORE LIB FOUND AT ${BOCOP_CORE_LIB}")   
-
 # command line executable
 #if(EXEC)
 message(STATUS "Build executable for problem at ${PROBLEM_DIR}")
@@ -83,10 +80,9 @@ set(CPP_FILE "problem.cpp" CACHE STRING "Problem cpp file") # can be overriden a
 file(TO_CMAKE_PATH "${PROBLEM_DIR}" PROBLEM_DIR)
 set(EXECUTABLE_OUTPUT_PATH ${PROBLEM_DIR})
 add_executable(bocopApp ${PROBLEM_DIR}/${CPP_FILE} src/main.cpp)
-add_dependencies(bocopApp bocopcorelib)
-target_link_libraries(bocopApp ${BOCOP_CORE_LIB} ${IPOPT_LIBRARIES}) # public ?
-#target_link_directories(bocopApp PUBLIC ${CMAKE_SOURCE_DIR}/lib/) # NB. find_library may be more robust...
-
+add_dependencies(bocopApp bocopcore_external)
+target_link_libraries(bocopApp bocopcore${SUFFIX} ${IPOPT_LIBRARIES}) # public ?
+target_link_directories(bocopApp PUBLIC ${CMAKE_SOURCE_DIR}/lib/) # NB. find_library may be more robust...
 
 # python wrapper # need to add problem.cpp since not in bocopcore lib unlike previous bocop lib ?
 if(NOT NOWRAPPER)
@@ -94,8 +90,14 @@ if(NOT NOWRAPPER)
   # local lib including problem sources, to be wrapped
   set(LIBRARY_OUTPUT_PATH ${PROBLEM_DIR})
   add_library(bocopproblem${SUFFIX} SHARED ${PROBLEM_DIR}/${CPP_FILE})
-  add_dependencies(bocopproblem bocopcorelib) 
+  add_dependencies(bocopproblem bocopcore_external)
+# +++ find_library(BOCOP_CORE_LIB NAMES bocopcore${SUFFIX} PATHS ${CMAKE_SOURCE_DIR}/lib/ REQUIRED)
+# this seems to work for the python wrapper build, once the lib is built 
+# (targetlinkdirectories gives undefined error at runtime, maybe because we moved the python module ?)
+# but from scratch how to force the lib building before this command fails ? 
+# try to solve this on the cli exec case first !
   target_link_libraries(bocopproblem${SUFFIX} ${BOCOP_CORE_LIB} ${IPOPT_LIBRARIES}) # public ?
+  target_link_directories(bocopApp PUBLIC ${CMAKE_SOURCE_DIR}/lib/) # NB. find_library may be more robust...
 
   list(INSERT WRAPPER_INCLUDES 0 ${BOCOP_INCLUDE_DIR})
   list(INSERT WRAPPER_INCLUDES 0 ${DTK_SWIG_INCLUDE_PATH} ${Python3_INCLUDE_DIRS})
