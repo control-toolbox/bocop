@@ -2,17 +2,24 @@
 cmake_minimum_required(VERSION 3.16)
 project(bocopcorelib)
 
-# ipopt (include and lib)
+########################################################################
+# FIND THIRD PARTY LIBRAIRIES
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake")
+
+# ipopt (include and lib)
 find_package(IPOPT REQUIRED)
 include_directories(${IPOPT_INCLUDE_DIR})
 message(STATUS "Using IPOPT found at " ${IPOPT_LIBRARIES})
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE) # to find the dylib on mac
 
-# build settings
+########################################################################
+# BUILD SETTINGS
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
+if(APPLE)
+  set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -flat_namespace")
+endif()
 
 # default build type (RelWithDebInfo)
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
@@ -21,6 +28,13 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
   set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
 else()
   message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
+endif()
+
+# code coverage
+message(STATUS "Coverage option: ${COVERAGE}")
+if(COVERAGE)
+  include(CodeCoverage)
+  append_coverage_compiler_flags()
 endif()
 
 # core includes and sources
