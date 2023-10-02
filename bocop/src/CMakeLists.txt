@@ -1,3 +1,9 @@
+cmake_minimum_required(VERSION 3.16)
+project(bocopcorelib)
+
+set(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/lib")
+message("Build Bocop core lib at ${LIBRARY_OUTPUT_PATH}")
+
 # Sources
 set(INCLUDE_DIR AD DOCP NLP OCP tools)
 include_directories(${INCLUDE_DIR})
@@ -33,19 +39,8 @@ set(BOCOP_SOURCES
   tools/tools_interpolation.cpp
   )
 
-# core library +++ currently rebuilt every time if the build/ folder is deleted -_- (putting the build above does not change this)
-message("build lib")
-set(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/lib")
+# core library
 add_library(bocopcore${SUFFIX} SHARED ${BOCOP_SOURCES} ${BOCOP_HEADERS})
 target_link_libraries(bocopcore${SUFFIX} ${IPOPT_LIBRARIES})
-#set_target_properties(bocopcore PROPERTIES EXCLUDE_FROM_ALL TRUE)
-
-# problem exec
-message("build exec")
-set(CPP_FILE "problem.cpp" CACHE STRING "Problem cpp file") # can be overriden at cmake call
-file(TO_CMAKE_PATH "${PROBLEM_DIR}" PROBLEM_DIR)
-set(EXECUTABLE_OUTPUT_PATH ${PROBLEM_DIR})
-add_executable(bocopproblem ${BOCOP_HEADERS} ${PROBLEM_DIR}/${CPP_FILE} main.cpp)
-target_link_libraries(bocopproblem bocopcore${SUFFIX} ${IPOPT_LIBRARIES})
 
 # CMakeLists.txt ends here
