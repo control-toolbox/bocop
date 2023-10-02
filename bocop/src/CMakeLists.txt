@@ -1,31 +1,32 @@
+# BOCOP CORE LIB
 cmake_minimum_required(VERSION 3.16)
 project(bocopcorelib)
 
-set(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/lib")
-message("Build Bocop core lib at ${LIBRARY_OUTPUT_PATH}")
+# ipopt (include and lib)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake")
+find_package(IPOPT REQUIRED)
+include_directories(${IPOPT_INCLUDE_DIR})
+message(STATUS "Using IPOPT found at " ${IPOPT_LIBRARIES})
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE) # to find the dylib on mac
 
-# Sources
-set(INCLUDE_DIR AD DOCP NLP OCP tools)
-include_directories(${INCLUDE_DIR})
+# build settings
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 
-# core headers
-set(BOCOP_HEADERS
-  AD/dOCPCppAD.h
-  DOCP/dOCP.h
-  DOCP/dODE.h
-  DOCP/dControl.h
-  DOCP/dState.h
-  DOCP/solution.h
-  NLP/NLP.h
-  NLP/NLPSolver.h
-  NLP/NLPSolverIpopt.h
-  OCP/OCP.h
-  tools/bufferAdaptor.h
-  tools/tools.h
-  tools/tools_interpolation.h
-  )
+# default build type (RelWithDebInfo)
+if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
+  message(STATUS "Setting build type to 'RelWithDebInfo' as none was specified.")
+  set(CMAKE_BUILD_TYPE RelWithDebInfo CACHE STRING "Choose the type of build." FORCE)
+  set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
+else()
+  message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
+endif()
 
-# core sources
+# core includes and sources
+set(BOCOP_INCLUDE_DIR AD DOCP NLP OCP tools)
+include_directories(${BOCOP_INCLUDE_DIR})
+
 set(BOCOP_SOURCES
   AD/dOCPCppAD.cpp
   DOCP/dOCP.cpp
@@ -40,7 +41,8 @@ set(BOCOP_SOURCES
   )
 
 # core library
-add_library(bocopcore${SUFFIX} SHARED ${BOCOP_SOURCES} ${BOCOP_HEADERS})
+set(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/../lib")
+add_library(bocopcore${SUFFIX} SHARED ${BOCOP_SOURCES})
 target_link_libraries(bocopcore${SUFFIX} ${IPOPT_LIBRARIES})
 
 # CMakeLists.txt ends here
