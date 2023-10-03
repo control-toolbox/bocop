@@ -189,11 +189,11 @@ def build(problem_path = '.', verbose = 1, clean = 1, debug = 0, window = None, 
         cmake_configuration = {
             "name": "x64-RelWithDebInfo",
             "generator": "Visual Studio 16 2019",
-            "configurationType": buildtype,
+            "configurationType": buildtype,     # does not seem to work
             "buildRoot": "${projectDir}/out/build/${name}",
             "installRoot": "%CONDA_PREFIX%/Library/",
-            "cmakeCommandArgs": "",
-            "buildCommandArgs": "",
+            "cmakeCommandArgs": "",   # use this instead of variables below ?
+            "buildCommandArgs": "",   # use this instead of variables below ?
             "ctestCommandArgs": "",
             "inheritEnvironments": [
                 "msvc_x64_x64"
@@ -215,14 +215,24 @@ def build(problem_path = '.', verbose = 1, clean = 1, debug = 0, window = None, 
                     "name": "PROBLEM_DIR",
                     "value": problem_path
                 },
-                                {
+                {
                     "name": "EXEC",
                     "value": "False"
                 },
-                                {
+                {
                     "name": "WRAPPER",
                     "value": "True"
-                }
+                },
+                {
+                    "name": "CMAKE_BUILD_TYPE",
+                    "value": builtype
+                },
+                {
+                    "name": "COVERAGE",
+                    "value": "False"
+                }                              
+                
+                
             ]
         }
         cmake_command = [ "cmake" ]

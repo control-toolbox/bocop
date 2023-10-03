@@ -22,10 +22,6 @@ set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE) # +++ to find the dylib on mac ?
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
-if(APPLE)
-  #set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -undefined dynamic_lookup -flat_namespace")
-  SET_TARGET_PROPERTIES(bocopcore${SUFFIX} PROPERTIES LINK_FLAGS "-undefined dynamic_lookup -flat_namespace")
-endif()
 
 # default build type (RelWithDebInfo)
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
@@ -64,6 +60,11 @@ set(BOCOP_SOURCES
 set(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/../lib")
 add_library(bocopcore${SUFFIX} SHARED ${BOCOP_SOURCES})
 target_link_libraries(bocopcore${SUFFIX} ${IPOPT_LIBRARIES})
+if(APPLE)
+  #set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -undefined dynamic_lookup -flat_namespace")
+  SET_TARGET_PROPERTIES(bocopcore${SUFFIX} PROPERTIES LINK_FLAGS "-undefined dynamic_lookup -flat_namespace")
+endif()
+
 # add some install step here so that the lib is better recognized toplevel ?
 
 # CMakeLists.txt ends here
