@@ -10,11 +10,12 @@ set(${PROJECT_NAME}_VERSION ver)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
 
 # cppad (no lib, only headers)
-find_package(CPPAD REQUIRED)
-message(STATUS "Using CPPAD found at " ${CPPAD_INCLUDE_DIR})
-include_directories(${CPPAD_INCLUDE_DIR})
+#find_package(CPPAD REQUIRED)
+#message(STATUS "Using CPPAD found at " ${CPPAD_INCLUDE_DIR})
+#include_directories(${CPPAD_INCLUDE_DIR})
 
 # ipopt (include and lib). +++NB. this is done also for the core lib in src/, try to avoid the duplicate
+# get property to retrieve the includes from core lib ?
 find_package(IPOPT REQUIRED)
 include_directories(${IPOPT_INCLUDE_DIR})
 message(STATUS "Using IPOPT found at " ${IPOPT_LIBRARIES})

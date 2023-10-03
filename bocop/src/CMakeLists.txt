@@ -6,6 +6,11 @@ project(bocopcorelib)
 # FIND THIRD PARTY LIBRAIRIES
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake")
 
+# cppad (no lib, only headers)
+find_package(CPPAD REQUIRED)
+message(STATUS "Using CPPAD found at " ${CPPAD_INCLUDE_DIR})
+include_directories(${CPPAD_INCLUDE_DIR})
+
 # ipopt (include and lib)
 find_package(IPOPT REQUIRED)
 include_directories(${IPOPT_INCLUDE_DIR})
