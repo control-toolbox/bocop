@@ -88,20 +88,14 @@ endif()
 # python wrapper 
 if(WRAPPER)
   message(STATUS "Build python wrapper for problem at ${PROBLEM_DIR}")
-  # 1. local lib including problem sources, to be wrapped
-  #set(LIBRARY_OUTPUT_PATH ${PROBLEM_DIR})
-  #add_library(bocopproblem${SUFFIX} SHARED ${PROBLEM_DIR}/${CPP_FILE})
-  #add_dependencies(bocopproblem bocopcore_external)
-  #target_link_libraries(bocopproblem${SUFFIX} ${BOCOP_CORE_LIB} ${IPOPT_LIBRARIES}) # public ?
-  #target_link_directories(bocopproblem PUBLIC ${CMAKE_SOURCE_DIR}/lib/) # NB. find_library may be more robust...
-
-  # 2. swig wrapper
   list(INSERT WRAPPER_INCLUDES 0 ${BOCOP_INCLUDE_DIR} ${DTK_SWIG_INCLUDE_PATH} ${Python3_INCLUDE_DIRS})
   set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/src/bocopwrapper.i PROPERTIES CPLUSPLUS ON ${DOCSTRING_DEPS})
   set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/src/bocopwrapper.i PROPERTIES INCLUDE_DIRECTORIES "${WRAPPER_INCLUDES}")
   set(SWIG_MODULE_NAME bocopwrapper)
   list(APPEND CMAKE_SWIG_FLAGS -v -O -python -py3 -shadow -c++)
   swig_add_library(bocopwrapper${SUFFIX} LANGUAGE python SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/bocopwrapper.i ${PROBLEM_DIR}/${CPP_FILE})
+  add_dependencies(bocopwrapper${SUFFIX} bocopcore_external)
+  #set_property(TARGET bocopwrapper${SUFFIX} PROPERTY USE_TARGET_INCLUDE_DIRECTORIES TRUE)
   swig_link_libraries(bocopwrapper${SUFFIX} ${Python3_LIBRARIES} bocopcore${SUFFIX})
   target_link_directories(bocopwrapper${SUFFIX} PUBLIC ${CMAKE_SOURCE_DIR}/lib/)
   add_custom_command(TARGET bocopwrapper${SUFFIX} POST_BUILD
