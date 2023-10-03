@@ -4,6 +4,8 @@
 ## Pierre Martinon
 ## 2023
 
+PROBLEM_PATH=${PWD}
+
 ## set build folder
 mkdir -p build
 cd build
@@ -12,29 +14,30 @@ cd build
 BOCOP_ROOT_PATH="../../../"
 BUILDTYPE="Release"
 COVERAGE="False"
-NOWRAPPER="True"
+EXEC="True"
+WRAPPER="False"
 
 ## set specific cmake options
-while getopts "cdw" options; do
+while getopts "cdew" options; do
 case "${options}" in
 c) COVERAGE="True";;
 d) BUILDTYPE="Debug";;
-w) NOWRAPPER="False";;
+e) EXEC="False";;
+w) WRAPPER="True";;
 esac
 done
 
-## launch cmake, make and go back to problem folder
-KERNEL=`uname -s`
-if [[ "$KERNEL" == *"MINGW"* ]]; then
-cmake -G "MSYS Makefiles" -DCMAKE_BUILD_TYPE=${BUILDTYPE} -DPROBLEM_DIR=${PWD}/.. ${BOCOP_ROOT_PATH}
-else
-cmake -DCMAKE_BUILD_TYPE=${BUILDTYPE} -DCOVERAGE=${COVERAGE} -DNOWRAPPER=${NOWRAPPER} -DPROBLEM_DIR=${PWD}/.. ${BOCOP_ROOT_PATH}
-fi
+## cmake step
+cmake -DCMAKE_BUILD_TYPE=${BUILDTYPE} -DCOVERAGE=${COVERAGE} -DEXEC=${EXEC} -DWRAPPER=${WRAPPER} -DPROBLEM_DIR=${PROBLEM_PATH} ${BOCOP_ROOT_PATH}
 status=$?
+
+## build step
 if [ "$status" -eq "0" ]; then
-make -j
+cmake --build . -j
 status=$?
 fi
-cd -
+
+## back to problem folder
+cd ${PROBLEM_PATH}
 
 exit $status
