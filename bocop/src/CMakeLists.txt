@@ -61,7 +61,6 @@ set(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/../lib")
 add_library(bocopcore${SUFFIX} SHARED ${BOCOP_SOURCES})
 target_link_libraries(bocopcore${SUFFIX} ${IPOPT_LIBRARIES})
 if(APPLE)
-  #set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -undefined dynamic_lookup -flat_namespace")
   SET_TARGET_PROPERTIES(bocopcore${SUFFIX} PROPERTIES LINK_FLAGS "-undefined dynamic_lookup -flat_namespace")
 endif()
 
