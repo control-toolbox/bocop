@@ -14,11 +14,11 @@ find_package(CPPAD REQUIRED)
 message(STATUS "Using CPPAD found at " ${CPPAD_INCLUDE_DIR})
 include_directories(${CPPAD_INCLUDE_DIR})
 
-# ipopt (include and lib)
+# ipopt (include and lib). +++NB. this is done also for the core lib in src/, try to avoid the duplicate
 find_package(IPOPT REQUIRED)
 include_directories(${IPOPT_INCLUDE_DIR})
 message(STATUS "Using IPOPT found at " ${IPOPT_LIBRARIES})
-set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE) # to find the dylib on mac
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE) # +++ to find the dylib on mac ?
 
 # swig for python wrapper
 if(WRAPPER)
@@ -38,7 +38,7 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 if(APPLE)
-  set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -flat_namespace")
+  set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -undefined dynamic_lookup -flat_namespace")
 endif()
 
 # default build type (RelWithDebInfo)
@@ -95,7 +95,7 @@ if(WRAPPER)
   list(APPEND CMAKE_SWIG_FLAGS -v -O -python -py3 -shadow -c++)
   swig_add_library(bocopwrapper${SUFFIX} LANGUAGE python SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/bocopwrapper.i ${PROBLEM_DIR}/${CPP_FILE})
   add_dependencies(bocopwrapper${SUFFIX} bocopcore_external)
-  #set_property(TARGET bocopwrapper${SUFFIX} PROPERTY USE_TARGET_INCLUDE_DIRECTORIES TRUE)
+  set_property(TARGET bocopwrapper${SUFFIX} PROPERTY USE_TARGET_INCLUDE_DIRECTORIES TRUE)
   swig_link_libraries(bocopwrapper${SUFFIX} ${Python3_LIBRARIES} bocopcore${SUFFIX})
   target_link_directories(bocopwrapper${SUFFIX} PUBLIC ${CMAKE_SOURCE_DIR}/lib/)
   add_custom_command(TARGET bocopwrapper${SUFFIX} POST_BUILD

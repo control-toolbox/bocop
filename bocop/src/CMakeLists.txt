@@ -10,7 +10,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake")
 find_package(IPOPT REQUIRED)
 include_directories(${IPOPT_INCLUDE_DIR})
 message(STATUS "Using IPOPT found at " ${IPOPT_LIBRARIES})
-set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE) # to find the dylib on mac
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE) # +++ to find the dylib on mac ?
 
 ########################################################################
 # BUILD SETTINGS
@@ -18,7 +18,7 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 if(APPLE)
-  set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -flat_namespace")
+  set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -undefined dynamic_lookup -flat_namespace")
 endif()
 
 # default build type (RelWithDebInfo)
