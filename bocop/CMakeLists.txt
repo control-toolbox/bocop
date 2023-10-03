@@ -39,7 +39,8 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 if(APPLE)
-  set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -undefined dynamic_lookup -flat_namespace")
+  set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -flat_namespace")
+  #SET_TARGET_PROPERTIES( PROPERTIES LINK_FLAGS "-undefined dynamic_lookup -flat_namespace")
 endif()
 
 # default build type (RelWithDebInfo)
@@ -64,6 +65,7 @@ include(ExternalProject)
 ExternalProject_Add(bocopcore_external
                     SOURCE_DIR ${CMAKE_SOURCE_DIR}/src/
                     DOWNLOAD_COMMAND ""
+                    CMAKE_ARGS "-DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}" # +++ pass coverage also, which separator ?
                     BINARY_DIR ${CMAKE_SOURCE_DIR}/build/
                     BUILD_ALWAYS TRUE  # try to remove this later and check if rebuild is done when sources change
                     INSTALL_COMMAND ""
@@ -93,7 +95,7 @@ if(WRAPPER)
   set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/src/bocopwrapper.i PROPERTIES CPLUSPLUS ON ${DOCSTRING_DEPS})
   set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/src/bocopwrapper.i PROPERTIES INCLUDE_DIRECTORIES "${WRAPPER_INCLUDES}")
   set(SWIG_MODULE_NAME bocopwrapper)
-  list(APPEND CMAKE_SWIG_FLAGS -v -O -python -py3 -shadow -c++)
+  list(APPEND CMAKE_SWIG_FLAGS -v -O -python -shadow -c++)
   swig_add_library(bocopwrapper${SUFFIX} LANGUAGE python SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/bocopwrapper.i ${PROBLEM_DIR}/${CPP_FILE})
   add_dependencies(bocopwrapper${SUFFIX} bocopcore_external)
   set_property(TARGET bocopwrapper${SUFFIX} PROPERTY USE_TARGET_INCLUDE_DIRECTORIES TRUE)
