@@ -21,7 +21,7 @@ message(STATUS "Using IPOPT found at " ${IPOPT_LIBRARIES})
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE) # to find the dylib on mac
 
 # swig for python wrapper
-if(NOT NOWRAPPER)
+if(WRAPPER)
   # must find Python3 before IPOPT, probably because FindIPOPT sets 
   # LIBRARY_PREFIXES to "lib" and "libpython" doesn't exist on Windows
   set(Python3_FIND_VIRTUALENV ONLY)
@@ -64,43 +64,50 @@ ExternalProject_Add(bocopcore_external
                     SOURCE_DIR ${CMAKE_SOURCE_DIR}/src/
                     DOWNLOAD_COMMAND ""
                     BINARY_DIR ${CMAKE_SOURCE_DIR}/build/
-                    BUILD_ALWAYS TRUE
+                    BUILD_ALWAYS TRUE  # try to remove this later and check if rebuild is done when sources change
                     INSTALL_COMMAND ""
                     )
 
+# fetchcontent allows to better force the lib building, compared to external project
+FetchContent_Declare(
+FetchContent_MakeAvailable(
+#find lib ici si besoin ?
+
+
 ########################################################################
 # BUILD SPECIFIC PROBLEM
-
-# command line executable
-#if(EXEC)
-message(STATUS "Build executable for problem at ${PROBLEM_DIR}")
 set(BOCOP_INCLUDE_DIR src/AD src/DOCP src/NLP src/OCP src/tools)
 include_directories(${BOCOP_INCLUDE_DIR})
 set(CPP_FILE "problem.cpp" CACHE STRING "Problem cpp file") # can be overriden at cmake call
 file(TO_CMAKE_PATH "${PROBLEM_DIR}" PROBLEM_DIR)
-set(EXECUTABLE_OUTPUT_PATH ${PROBLEM_DIR})
-add_executable(bocopApp ${PROBLEM_DIR}/${CPP_FILE} src/main.cpp)
-add_dependencies(bocopApp bocopcore_external)
-target_link_libraries(bocopApp bocopcore${SUFFIX} ${IPOPT_LIBRARIES}) # public ?
-target_link_directories(bocopApp PUBLIC ${CMAKE_SOURCE_DIR}/lib/) # NB. find_library may be more robust...
+  
+# command line executable
+if(EXEC)
+  message(STATUS "Build executable for problem at ${PROBLEM_DIR}")
+  set(EXECUTABLE_OUTPUT_PATH ${PROBLEM_DIR})
+  add_executable(bocopApp ${PROBLEM_DIR}/${CPP_FILE} src/main.cpp)
+  add_dependencies(bocopApp bocopcore_external)
+  target_link_libraries(bocopApp bocopcore${SUFFIX} ${IPOPT_LIBRARIES}) # public ?
+  target_link_directories(bocopApp PUBLIC ${CMAKE_SOURCE_DIR}/lib/) # NB. find_library may be more robust...
+endif()
 
-# python wrapper # need to add problem.cpp since not in bocopcore lib unlike previous bocop lib ?
-if(NOT NOWRAPPER)
-
-  # local lib including problem sources, to be wrapped
-  set(LIBRARY_OUTPUT_PATH ${PROBLEM_DIR})
-  add_library(bocopproblem${SUFFIX} SHARED ${PROBLEM_DIR}/${CPP_FILE})
-  add_dependencies(bocopproblem bocopcore_external)
+# python wrapper 
 # +++ find_library(BOCOP_CORE_LIB NAMES bocopcore${SUFFIX} PATHS ${CMAKE_SOURCE_DIR}/lib/ REQUIRED)
 # this seems to work for the python wrapper build, once the lib is built 
 # (targetlinkdirectories gives undefined error at runtime, maybe because we moved the python module ?)
 # but from scratch how to force the lib building before this command fails ? 
 # try to solve this on the cli exec case first !
+if(WRAPPER)
+  message(STATUS "Build python wrapper for problem at ${PROBLEM_DIR}")
+  # 1. local lib including problem sources, to be wrapped
+  set(LIBRARY_OUTPUT_PATH ${PROBLEM_DIR})
+  add_library(bocopproblem${SUFFIX} SHARED ${PROBLEM_DIR}/${CPP_FILE})
+  add_dependencies(bocopproblem bocopcore_external)
   target_link_libraries(bocopproblem${SUFFIX} ${BOCOP_CORE_LIB} ${IPOPT_LIBRARIES}) # public ?
-  target_link_directories(bocopApp PUBLIC ${CMAKE_SOURCE_DIR}/lib/) # NB. find_library may be more robust...
+  target_link_directories(bocopproblem PUBLIC ${CMAKE_SOURCE_DIR}/lib/) # NB. find_library may be more robust...
 
-  list(INSERT WRAPPER_INCLUDES 0 ${BOCOP_INCLUDE_DIR})
-  list(INSERT WRAPPER_INCLUDES 0 ${DTK_SWIG_INCLUDE_PATH} ${Python3_INCLUDE_DIRS})
+  # 2. swig wrapper
+  list(INSERT WRAPPER_INCLUDES 0 ${BOCOP_INCLUDE_DIR} ${DTK_SWIG_INCLUDE_PATH} ${Python3_INCLUDE_DIRS})
   set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/src/bocopwrapper.i PROPERTIES CPLUSPLUS ON ${DOCSTRING_DEPS})
   set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/src/bocopwrapper.i PROPERTIES INCLUDE_DIRECTORIES "${WRAPPER_INCLUDES}")
   set(SWIG_MODULE_NAME bocopwrapper)
@@ -110,7 +117,7 @@ if(NOT NOWRAPPER)
   add_custom_command(TARGET bocopwrapper${SUFFIX} POST_BUILD
     DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/src/bocopwrapper.i
     COMMAND ${CMAKE_COMMAND} ARGS -E copy_if_different ${CMAKE_BINARY_DIR}/bocopwrapper.py ${PROBLEM_DIR}
-    COMMENT "-- Moving python modules to ${PROBLEM_DIR}")
+    )
 endif()
 
 

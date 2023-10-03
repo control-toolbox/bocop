@@ -58,5 +58,6 @@ set(BOCOP_SOURCES
 set(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/../lib")
 add_library(bocopcore${SUFFIX} SHARED ${BOCOP_SOURCES})
 target_link_libraries(bocopcore${SUFFIX} ${IPOPT_LIBRARIES})
+# add some install step here so that the lib is better recognized toplevel ?
 
 # CMakeLists.txt ends here
