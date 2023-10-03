@@ -223,10 +223,10 @@ def build(problem_path = '.', verbose = 1, clean = 1, debug = 0, window = None, 
                     "name": "WRAPPER",
                     "value": "True"
                 },
-                #{
-                #    "name": "CMAKE_BUILD_TYPE",
-                #    "value": "Release"
-                #},
+                {
+                    "name": "CMAKE_BUILD_TYPE",
+                    "value": "Release"
+                },
                 {
                     "name": "COVERAGE",
                     "value": "False"
