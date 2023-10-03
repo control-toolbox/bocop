@@ -1,10 +1,10 @@
 # bocop
 build/
 bocopApp
-_bocopwrapper.so
+bocopproblem
 bocopwrapper.py
 libbocop.dylib
-libbocop.so
+*.so
 !bocop/
 *.backup
 lib/

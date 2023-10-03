@@ -17,5 +17,5 @@ jobs:
                 use-mamba: true
                 activate-environment: bocop-dev
                 environment-file: pkg/env/bocop-linux-light.yaml
-            -  run: python test_bocop.py 0
+            -  run: python test_bocop.py 2
 

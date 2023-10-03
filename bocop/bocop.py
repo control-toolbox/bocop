@@ -133,11 +133,11 @@ def solve(problem_path = '.', verbose = 1, clean = 1, debug = 0, graph = 1, sepa
 
 # -----------------------------------------------------------------------------------
 # -----------------------------------------------------------------------------------
-def build(problem_path = '.', verbose = 1, clean = 1, debug = 1, window = None, cmake_options = ''):
+def build(problem_path = '.', verbose = 1, clean = 1, debug = 0, window = None, cmake_options = ''):
 
     # debug is currently not available on windows...
     if (platform.system() == 'Windows') and debug == 1:
-        print("Warning: Python on Windows is not shipping debug libs, so you can't build target Debug on Windows. Switching to Release.")
+        print("Warning: Python on Windows is not shipping debug libs, switching to Release build.")
         debug = 0
 
     status = 0
@@ -175,23 +175,25 @@ def build(problem_path = '.', verbose = 1, clean = 1, debug = 1, window = None, 
     if (platform.system() != 'Windows'):
 
         # construct cmake command
-        cmake_command = [ f'cmake -DCMAKE_BUILD_TYPE={buildtype} -DPROBLEM_DIR={problem_path} {cmake_options} {bocop_root_path}' ]
+        cmake_command = [ f'cmake -DCMAKE_BUILD_TYPE={buildtype} -DCOVERAGE=False -DEXEC=False -DWRAPPER=True -DPROBLEM_DIR={problem_path} {cmake_options} {bocop_root_path}' ]
 
         # construct make command
-        make_command = ["make -j"]
+        #make_command = ["make -j"]
+        make_command = ["cmake --build . -j"]
 
     else:
         # WINDOWS
         
-        # construct cmake command (NB. this cmake_configuration syntax is directly copied from Visual Studio CmakeSettings.json)
+        # construct cmake command (NB. copied from Visual Studio CmakeSettings.json)
+        # +++ this unortunately ties the build to the specific VS16 ... try to make this more generic !
         cmake_configuration = {
             "name": "x64-RelWithDebInfo",
             "generator": "Visual Studio 16 2019",
-            "configurationType": buildtype,
+            "configurationType": "Release",     # does not seem to work
             "buildRoot": "${projectDir}/out/build/${name}",
             "installRoot": "%CONDA_PREFIX%/Library/",
-            "cmakeCommandArgs": "",
-            "buildCommandArgs": "",
+            "cmakeCommandArgs": "",   # use this instead of variables below ?
+            "buildCommandArgs": "",   # use this instead of variables below ?
             "ctestCommandArgs": "",
             "inheritEnvironments": [
                 "msvc_x64_x64"
@@ -212,7 +214,25 @@ def build(problem_path = '.', verbose = 1, clean = 1, debug = 1, window = None, 
                 {
                     "name": "PROBLEM_DIR",
                     "value": problem_path
-                }             
+                },
+                {
+                    "name": "EXEC",
+                    "value": "False"
+                },
+                {
+                    "name": "WRAPPER",
+                    "value": "True"
+                },
+                {
+                    "name": "CMAKE_BUILD_TYPE",
+                    "value": "Release"
+                },
+                {
+                    "name": "COVERAGE",
+                    "value": "False"
+                }                              
+                
+                
             ]
         }
         cmake_command = [ "cmake" ]
