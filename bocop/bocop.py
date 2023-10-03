@@ -189,7 +189,7 @@ def build(problem_path = '.', verbose = 1, clean = 1, debug = 0, window = None, 
         cmake_configuration = {
             "name": "x64-RelWithDebInfo",
             "generator": "Visual Studio 16 2019",
-            "configurationType": buildtype,     # does not seem to work
+            "configurationType": "Release",     # does not seem to work
             "buildRoot": "${projectDir}/out/build/${name}",
             "installRoot": "%CONDA_PREFIX%/Library/",
             "cmakeCommandArgs": "",   # use this instead of variables below ?
@@ -223,10 +223,10 @@ def build(problem_path = '.', verbose = 1, clean = 1, debug = 0, window = None, 
                     "name": "WRAPPER",
                     "value": "True"
                 },
-                {
-                    "name": "CMAKE_BUILD_TYPE",
-                    "value": builtype
-                },
+                #{
+                #    "name": "CMAKE_BUILD_TYPE",
+                #    "value": "Release"
+                #},
                 {
                     "name": "COVERAGE",
                     "value": "False"
