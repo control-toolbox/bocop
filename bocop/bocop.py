@@ -214,7 +214,15 @@ def build(problem_path = '.', verbose = 1, clean = 1, debug = 0, window = None, 
                 {
                     "name": "PROBLEM_DIR",
                     "value": problem_path
-                }             
+                },
+                                {
+                    "name": "EXEC",
+                    "value": "False"
+                },
+                                {
+                    "name": "WRAPPER",
+                    "value": "True"
+                }
             ]
         }
         cmake_command = [ "cmake" ]
