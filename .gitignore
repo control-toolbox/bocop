@@ -13,6 +13,7 @@ bocopwrapper.py
 # bocop output files
 *.sol
 *.backup
+*.out.csv
 
 # python
 __pycache__

@@ -496,8 +496,8 @@ def hello(message):
 
 # -----------------------------------------------------------------------------------
 # -----------------------------------------------------------------------------------
-# TODO: add build options and bocop options
-# +++ check messages refresh (when verbose=0)
+# +++todo add build options and bocop options to be broadcast over all problems
+# maybe use a dict and setindef ?
 def test(examples_root_path=bocop_root_path+'/examples', examples_list_prefix=bocop_root_path+'/test/examples', clean = 1, debug = 0, graph = 0, verbose = 0, benchmark = 0):
 
     # retrieve problem list
@@ -511,6 +511,7 @@ def test(examples_root_path=bocop_root_path+'/examples', examples_list_prefix=bo
         blob = infile.readlines()
 
     # initialisations
+    debrief = ["# Problem                       \tSta\tObjective\tConstraints\tIter\tCpu(s)\n"] 
     total = len(blob)
     current = 0
     failed = 0
@@ -523,34 +524,49 @@ def test(examples_root_path=bocop_root_path+'/examples', examples_list_prefix=bo
     for line in blob:
         current = current + 1
         ls = line.split()
-        problem_path = os.path.normpath(os.path.join(examples_root_path,ls[0])) #NB. join uses / on mingw...
+        problem_name = ls[0]
+        objective_ref = float(ls[1])
+        problem_path = os.path.normpath(os.path.join(examples_root_path,problem_name)) #NB. join uses / on mingw...
         print("{:2d}/{:2d} {:32s}".format(current,total,os.path.basename(os.path.normpath(problem_path))),end='',flush=True)
         # NB. we must run bocop in separate processes when we run different examples (to avoid reimporting the same lib)
         # +++ check this in more details, is it still needed ?
         solution = solve(problem_path=problem_path, prefix=prefix, clean=clean, debug=debug, graph=graph, verbose=verbose, separateProcess = 1)
+        total_time = total_time + solution.runtime
         if verbose > 0:
             print("Bocop returns status {} with objective {} and constraint violation {}".format(solution.status,solution.objective,solution.constraints))
 
         # +++ check also status (note: several ipopt status correspond to a successful run...)
         # btw 'acceptable' is saved as 4 instead of 1, check the save()
         # check objective
-        objective_ref = float(ls[1])
-        total_time = total_time + solution.runtime
+
         if abs((solution.objective - objective_ref)/objective_ref) < 1e-2:
             if benchmark == 0:
                 print("PASSED")
             else:
-                print("{:3.2f}s   ".format(solution.runtime))
+                print("{:5.2f}s   ".format(solution.runtime))
         else:
             print("FAILED")
             print("      Objective mismatch: found {} vs reference {}".format(solution.objective,objective_ref))
             failed = failed + 1
 
-    # final summary
-    print("--------------------------------------------")
-    print("{:2d}/{:2d} TESTS PASSED    TOTAL RUN TIME {:4.2f}s".format(total-failed,total,total_time))
-    return failed
+        # save problem run debrief
+        run_debrief = ["{:32s}".format(problem_name) + '\t' + "{:d}  ".format(solution.status) + '\t' + "{:5.2e}".format(solution.objective) + '\t' + "   {:5.2e}".format(solution.constraints) + '\t' + "{:4d}".format(solution.iterations) + '\t' + "{:5.2f}".format(solution.runtime) + '\n']
+        debrief.append(run_debrief)
 
+    # final summary
+    summary = "> {:2d}/{:2d} TESTS PASSED - TOTAL RUN TIME {:6.2f}s".format(total-failed,total,total_time)
+    print("--------------------------------------------")
+    print(summary)
+
+    # save debrief file
+    debrief.append(summary)
+    debrief_file = examples_list_prefix + '.out.csv'
+    with open(debrief_file,'w') as outfile:
+        for line in debrief:
+            outfile.writelines(line)
+
+    # returns 0 if all tests passed
+    return failed
 
 # -----------------------------------------------------------------------------------
 # -----------------------------------------------------------------------------------

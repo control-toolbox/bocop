@@ -18,7 +18,7 @@ constant.1 1
 
 # Time discretisation
 ode.discretization midpoint_implicit
-time.steps 100
+time.steps 1000
 
 # Bounds for constraints
 boundarycond.0.lowerbound 1

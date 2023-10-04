@@ -11,4 +11,5 @@ integrator_2D             6.000e+00   0 0 0 0
 regulator_1D              3.749e-01   0 0 0 0
 regulator_2D              3.770e-01   0 0 0 0
 robbins                   1.943e+01   0 0 0 0
+swimmer                   -6.673e-01  0 0 0 0
 vanderpol                 1.048e+00   0 0 0 0
