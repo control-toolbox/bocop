@@ -1,0 +1,36 @@
+# Definition file
+
+# Dimensions
+dim.state 2
+dim.control 1
+dim.boundaryconditions 3
+dim.pathconstraints 0
+dim.parameters 1
+dim.constants 0
+
+# Time interval
+initial.time 0
+final.time 1
+
+# Constants
+
+# Time discretisation
+ode.discretization midpoint_implicit
+time.steps 100
+
+# Bounds for constraints
+boundarycond.0.lowerbound 0
+boundarycond.0.upperbound 0
+boundarycond.1.lowerbound 0
+boundarycond.1.upperbound 0
+boundarycond.2.lowerbound 0
+boundarycond.2.upperbound 0
+
+# Bounds for variables
+parameter.0.lowerbound 0.1
+parameter.0.upperbound 100
+
+# Initialization for discretized problem
+
+# Names
+

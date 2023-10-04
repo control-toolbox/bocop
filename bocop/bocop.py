@@ -122,12 +122,13 @@ def solve(problem_path = '.', prefix = 'problem', verbose = 1, clean = 1, debug 
     # launch executable
     if verbose >= 0:
         print('run...  ',end='',flush=True)    
-    run(problem_path=problem_path, prefix=prefix, verbose=verbose, clean=clean, debug=debug, graph=graph, separateProcess=separateProcess, warmstart=warmstart)
+    runtime = run(problem_path=problem_path, prefix=prefix, verbose=verbose, clean=clean, debug=debug, graph=graph, separateProcess=separateProcess, warmstart=warmstart)
     if verbose >= 0:
         print('\b\b\b\b\b\b\b\b',end='',flush=True)
         
     # read solution
     solution = readSolution(problem_path + "/" + prefix + ".sol")
+    solution.runtime = runtime
 
     # plot solution
     if graph > 0:
@@ -158,7 +159,8 @@ def build(problem_path = '.', verbose = 1, clean = 1, debug = 0, window = None, 
     else:
         exec_name = 'bocopApp'
 
-    # clean old files if required (+++ if possible use commands that dont need to test existence first)
+    # clean old files if required
+    # +++ try cmake --build . --target clean, or option --clean-first in cmake --build
     if clean == 1:
         if os.path.exists('build'):
             shutil.rmtree('build')
@@ -221,6 +223,7 @@ def build(problem_path = '.', verbose = 1, clean = 1, debug = 0, window = None, 
         # construct make command
         make_command = [ "cmake", "--build", os.path.join(problem_path, "build"), "--config", cmake_configuration["configurationType"] ]
 
+
     # execute cmake command
     status = runCommand(command=cmake_command, verbose=verbose, window=window)
     if status != 0:
@@ -235,6 +238,8 @@ def build(problem_path = '.', verbose = 1, clean = 1, debug = 0, window = None, 
         os.chdir(origin_dir)
         return status
 
+    # +++windows put here the copy operation found in run() !
+
     # go back to original path and return status
     os.chdir(origin_dir)
     return status
@@ -244,6 +249,8 @@ def build(problem_path = '.', verbose = 1, clean = 1, debug = 0, window = None, 
 # -----------------------------------------------------------------------------------
 # TODO: pass options as dictionary ?
 def run(problem_path = '.', prefix = 'problem', verbose = 1, clean = 1, debug = 1, graph = 0, window = None, separateProcess = 0, warmstart = None):
+
+    start_time = time.time()
 
     # init
     fnull = open(os.devnull, 'w')
@@ -296,6 +303,9 @@ def run(problem_path = '.', prefix = 'problem', verbose = 1, clean = 1, debug = 
         print("Done")    
     os.chdir(starting_path)
 
+    # crude run time for toplevel display
+    runtime = time.time() - start_time
+    return runtime
 
 # -----------------------------------------------------------------------------------
 # NB. internal variables for the Runge Kutta formula (ie 'k_i') are not taken into account here... 
@@ -490,8 +500,6 @@ def hello(message):
 # +++ check messages refresh (when verbose=0)
 def test(examples_root_path=bocop_root_path+'/examples', examples_list_prefix=bocop_root_path+'/test/examples', clean = 1, debug = 0, graph = 0, verbose = 0, benchmark = 0):
 
-    start_time = time.time() # NB. time will include all build times
-
     # retrieve problem list
     examples_list_file = examples_list_prefix+'.list.csv'
     if verbose > 0:
@@ -506,6 +514,7 @@ def test(examples_root_path=bocop_root_path+'/examples', examples_list_prefix=bo
     total = len(blob)
     current = 0
     failed = 0
+    total_time = 0
     if benchmark == 1:
         prefix = 'benchmark'
     else:
@@ -522,21 +531,24 @@ def test(examples_root_path=bocop_root_path+'/examples', examples_list_prefix=bo
         if verbose > 0:
             print("Bocop returns status {} with objective {} and constraint violation {}".format(solution.status,solution.objective,solution.constraints))
 
-    # +++ check status
-    #note: several ipopt status correspond to a successful run...
-    #+++ btw 'acceptable' is saved as 4 instead of 1, check the save()
-
+        # +++ check also status (note: several ipopt status correspond to a successful run...)
+        # btw 'acceptable' is saved as 4 instead of 1, check the save()
         # check objective
         objective_ref = float(ls[1])
+        total_time = total_time + solution.runtime
         if abs((solution.objective - objective_ref)/objective_ref) < 1e-2:
-            print("PASSED")
+            if benchmark == 0:
+                print("PASSED")
+            else:
+                print("{:3.2f}s   ".format(solution.runtime))
         else:
-            print("FAILED\n with objective {} vs reference {}".format(solution.objective,objective_ref))
+            print("FAILED")
+            print("      Objective mismatch: found {} vs reference {}".format(solution.objective,objective_ref))
             failed = failed + 1
 
     # final summary
     print("--------------------------------------------")
-    print("{:2d}/{:2d} TESTS PASSED           TOTAL TIME {:.2f}".format(total-failed,total,time.time()-start_time))
+    print("{:2d}/{:2d} TESTS PASSED    TOTAL RUN TIME {:4.2f}s".format(total-failed,total,total_time))
     return failed
 
 
@@ -576,6 +588,7 @@ class dOCPSolution:
         self.constraints = 0
         self.status = 0
         self.iterations = 0
+        self.runtime = 0
 
         # np array here ? freaking annoying to initialize without the dims...
         self.time_steps = []
