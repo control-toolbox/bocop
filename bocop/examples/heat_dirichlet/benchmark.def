@@ -1,0 +1,69 @@
+# Definition file
+
+# Dimensions
+dim.state 11
+dim.control 1
+dim.boundaryconditions 11
+dim.pathconstraints 0
+dim.parameters 0
+dim.constants 5
+
+# Time interval
+initial.time 0
+final.time 20
+
+# Constants
+constant.0 0.2
+constant.1 20
+constant.2 1
+constant.3 0
+constant.4 0
+
+# Time discretisation
+ode.discretization euler_implicit
+time.steps 200
+
+# Bounds for constraints
+boundarycond.0.lowerbound 1
+boundarycond.0.upperbound 1
+boundarycond.1.lowerbound 1
+boundarycond.1.upperbound 1
+boundarycond.2.lowerbound 1
+boundarycond.2.upperbound 1
+boundarycond.3.lowerbound 1
+boundarycond.3.upperbound 1
+boundarycond.4.lowerbound 1
+boundarycond.4.upperbound 1
+boundarycond.5.lowerbound 1
+boundarycond.5.upperbound 1
+boundarycond.6.lowerbound 1
+boundarycond.6.upperbound 1
+boundarycond.7.lowerbound 1
+boundarycond.7.upperbound 1
+boundarycond.8.lowerbound 1
+boundarycond.8.upperbound 1
+boundarycond.9.lowerbound 1
+boundarycond.9.upperbound 1
+boundarycond.10.lowerbound 0
+boundarycond.10.upperbound 0
+
+# Bounds for variables
+control.0.lowerbound -1
+control.0.upperbound 1
+
+# Initialization for discretized problem
+state.0.init 1
+state.1.init 1
+state.2.init 1
+state.3.init 1
+state.4.init 1
+state.5.init 1
+state.6.init 1
+state.7.init 1
+state.8.init 1
+state.9.init 1
+state.10.init 1
+control.0.init 1
+
+# Names
+

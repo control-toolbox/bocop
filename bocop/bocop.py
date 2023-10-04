@@ -78,13 +78,12 @@ def newProblem(new_problem_path):
 # -----------------------------------------------------------------------------------
 # -----------------------------------------------------------------------------------
 # TODO: pass bocop_options as dictionary ? 
-# +++ def/sol file (need first exec to use def prefix for sol file)
-def solve(problem_path = '.', verbose = 1, clean = 1, debug = 0, graph = 1, separateProcess = 0, warmstart = None, cmake_options = ''):
+def solve(problem_path = '.', prefix = 'problem', verbose = 1, clean = 1, debug = 0, graph = 1, separateProcess = 0, warmstart = None, cmake_options = ''):
     """
     Solve an OCP via direct trancription method
 
     The solver builds a discretized approximation of the original OCP problem, and solves the resulting NLP problem.
-    This method currently wraps up the build and run process (in command line) for the C++ bocop code.
+    This method currently wraps up the build and run process for the C++ bocop code.
     Results are returned a :class: dOCPSolution object.
 
     Parameters
@@ -109,19 +108,27 @@ def solve(problem_path = '.', verbose = 1, clean = 1, debug = 0, graph = 1, sepa
 
     problem_path = os.path.abspath(problem_path)
 
-    # +++ use options later (?)
-
     # build executable (will use bocop path)
+    if verbose >= 0:
+        print('build...',end='',flush=True)
     status = build(problem_path=problem_path, verbose=verbose, clean=clean, debug=debug, cmake_options=cmake_options)
+    if verbose >= 0:
+        print('\b\b\b\b\b\b\b\b',end='',flush=True)
+    
     if status != 0:
         print("Build step failed with status",status)
         return dOCPSolution()
 
     # launch executable
-    run(problem_path=problem_path, verbose=verbose, clean=clean, debug=debug, graph=graph, separateProcess=separateProcess, warmstart=warmstart)
-
+    if verbose >= 0:
+        print('run...  ',end='',flush=True)    
+    runtime = run(problem_path=problem_path, prefix=prefix, verbose=verbose, clean=clean, debug=debug, graph=graph, separateProcess=separateProcess, warmstart=warmstart)
+    if verbose >= 0:
+        print('\b\b\b\b\b\b\b\b',end='',flush=True)
+        
     # read solution
-    solution = readSolution(problem_path + "/problem.sol")
+    solution = readSolution(problem_path + "/" + prefix + ".sol")
+    solution.runtime = runtime
 
     # plot solution
     if graph > 0:
@@ -152,7 +159,8 @@ def build(problem_path = '.', verbose = 1, clean = 1, debug = 0, window = None, 
     else:
         exec_name = 'bocopApp'
 
-    # clean old files if required (+++ if possible use commands that dont need to test existence first)
+    # clean old files if required
+    # +++ try cmake --build . --target clean, or option --clean-first in cmake --build
     if clean == 1:
         if os.path.exists('build'):
             shutil.rmtree('build')
@@ -171,19 +179,17 @@ def build(problem_path = '.', verbose = 1, clean = 1, debug = 0, window = None, 
     os.chdir('build')
 
     ## construct cmake/make build commands
-    # LINUX / MACOS
     if (platform.system() != 'Windows'):
 
+        # LINUX / MACOS
         # construct cmake command
         cmake_command = [ f'cmake -DCMAKE_BUILD_TYPE={buildtype} -DCOVERAGE=False -DEXEC=False -DWRAPPER=True -DPROBLEM_DIR={problem_path} {cmake_options} {bocop_root_path}' ]
 
         # construct make command
-        #make_command = ["make -j"]
         make_command = ["cmake --build . -j"]
 
     else:
         # WINDOWS
-        
         # construct cmake command (NB. copied from Visual Studio CmakeSettings.json)
         # +++ this unortunately ties the build to the specific VS16 ... try to make this more generic !
         cmake_configuration = {
@@ -195,44 +201,16 @@ def build(problem_path = '.', verbose = 1, clean = 1, debug = 0, window = None, 
             "cmakeCommandArgs": "",   # use this instead of variables below ?
             "buildCommandArgs": "",   # use this instead of variables below ?
             "ctestCommandArgs": "",
-            "inheritEnvironments": [
-                "msvc_x64_x64"
-            ],
+            "inheritEnvironments": [ "msvc_x64_x64" ],
             "variables": [
-                {
-                    "name": "CMAKE_PREFIX_PATH",
-                    "value": "%CONDA_PREFIX%/Library/",
-                },
-                {
-                    "name": "CMAKE_INSTALL_RPATH",
-                    "value": "%CONDA_PREFIX%/Library/lib/",
-                },
-                {
-                    "name": "CMAKE_INSTALL_NAME_DIR",
-                    "value": "%CONDA_PREFIX%/Library/lib/",
-                },
-                {
-                    "name": "PROBLEM_DIR",
-                    "value": problem_path
-                },
-                {
-                    "name": "EXEC",
-                    "value": "False"
-                },
-                {
-                    "name": "WRAPPER",
-                    "value": "True"
-                },
-                {
-                    "name": "CMAKE_BUILD_TYPE",
-                    "value": "Release"
-                },
-                {
-                    "name": "COVERAGE",
-                    "value": "False"
-                }                              
-                
-                
+                { "name": "CMAKE_PREFIX_PATH", "value": "%CONDA_PREFIX%/Library/", },
+                { "name": "CMAKE_INSTALL_RPATH", "value": "%CONDA_PREFIX%/Library/lib/", },
+                { "name": "CMAKE_INSTALL_NAME_DIR", "value": "%CONDA_PREFIX%/Library/lib/", },
+                { "name": "PROBLEM_DIR", "value": problem_path },
+                { "name": "EXEC", "value": "False" },
+                { "name": "WRAPPER", "value": "True" },
+                { "name": "CMAKE_BUILD_TYPE", "value": "Release" },
+                { "name": "COVERAGE", "value": "False" }                              
             ]
         }
         cmake_command = [ "cmake" ]
@@ -244,6 +222,7 @@ def build(problem_path = '.', verbose = 1, clean = 1, debug = 0, window = None, 
 
         # construct make command
         make_command = [ "cmake", "--build", os.path.join(problem_path, "build"), "--config", cmake_configuration["configurationType"] ]
+
 
     # execute cmake command
     status = runCommand(command=cmake_command, verbose=verbose, window=window)
@@ -259,6 +238,8 @@ def build(problem_path = '.', verbose = 1, clean = 1, debug = 0, window = None, 
         os.chdir(origin_dir)
         return status
 
+    # +++windows put here the copy operation found in run() !
+
     # go back to original path and return status
     os.chdir(origin_dir)
     return status
@@ -266,22 +247,23 @@ def build(problem_path = '.', verbose = 1, clean = 1, debug = 0, window = None, 
 
 # -----------------------------------------------------------------------------------
 # -----------------------------------------------------------------------------------
-# TODO: pass options as dictionary ? +++ pass def/sol file
-# +++ why even passing debug here ? weird windows command see below
-def run(problem_path = '.', verbose = 1, clean = 1, debug = 1, graph = 0, window = None, separateProcess = 0, warmstart = None):
+# TODO: pass options as dictionary ?
+def run(problem_path = '.', prefix = 'problem', verbose = 1, clean = 1, debug = 1, graph = 0, window = None, separateProcess = 0, warmstart = None):
 
-    if (platform.system() == 'Windows') and debug == 1:
-        print("Warning: Python on Windows is not shipping debug libs, so you can't run target Debug on Windows. Switching to Release.")
-        debug = 0
+    start_time = time.time()
 
-    problem_path = os.path.abspath(problem_path)
-
+    # init
     fnull = open(os.devnull, 'w')
     starting_path = os.getcwd()
 
     # go to problem location
+    problem_path = os.path.abspath(problem_path)
     os.chdir(problem_path)
     sys.path.append(problem_path)
+    
+    # set .def and sol. files names (for non callback runs)
+    def_file = prefix + ".def"
+    sol_file = prefix + ".sol"
 
     # set .def and .init for warmstart
     if warmstart is not None:
@@ -291,40 +273,39 @@ def run(problem_path = '.', verbose = 1, clean = 1, debug = 1, graph = 0, window
     if clean == 1:
         if os.path.exists("result.out"):
             os.remove("result.out")
-        if os.path.exists("problem.sol"):
-            os.remove("problem.sol")
+        if os.path.exists(sol_file):
+            os.remove(sol_file)
 
-    # wth is this ???
+    # need the debug mode to retrieve files from subfolder Debug/Release ?
+    # weird, this should be done in the build instead !
     if (platform.system() == 'Windows'):
         s = ("Release", "Debug")[debug]
         command_copy = ["copy", "/y", f"{s}\\*", "."]
         runCommand(command_copy, verbose=verbose, window=window)
 
-    # when running tests we have to run in separate processes
-    if separateProcess > 0:
-        example_command = "python -c \"import bocopwrapper; bocopwrapper.solve()\""
-        runCommand(example_command, verbose=verbose, window=window)
+    # when running tests we have to run in separate processes (nb. check this)
+    command = f"python -c \"import bocopwrapper; bocopwrapper.solve(None, \'{def_file}\', \'{sol_file}\')\""
+    if separateProcess > 0 or graph <= 0:
+        # execute with basic iteration text display (use runCommand for display in GUI/notebook instead of shell)
+        runCommand(command, verbose=verbose, window=window)
     else:
+        # execute with iteration graphical display via callback
         import bocopwrapper
-        if graph > 0:
-            # execute with iteration graphical display via callback
-            from IPython.display import clear_output
-            from ipywidgets import interact, IntSlider
-            callback = bocopwrapper.PyCallback()
-            bocopwrapper.solve(callback)
-            clear_output()
-            interact(callback.update, iteration=IntSlider(min=0,max=len(callback.g_state)-1, value=len(callback.g_state)-1, continuous_update=False))
-        else:
-            # execute with basic iteration text display
-            #bocopwrapper.solve()
-            # use runCommand to display iterations in GUI / notebook (instead of parent shell)
-            command = "python -c \"import bocopwrapper; bocopwrapper.solve()\""
-            runCommand(command, verbose=verbose, window=window)            
+        from IPython.display import clear_output
+        from ipywidgets import interact, IntSlider
+        callback = bocopwrapper.PyCallback()
+        bocopwrapper.solve(callback)
+        clear_output()
+        interact(callback.update, iteration=IntSlider(min=0,max=len(callback.g_state)-1, value=len(callback.g_state)-1, continuous_update=False))
 
     # go back to original path
     if verbose > 0:
         print("Done")    
     os.chdir(starting_path)
+
+    # crude run time for toplevel display
+    runtime = time.time() - start_time
+    return runtime
 
 # -----------------------------------------------------------------------------------
 # NB. internal variables for the Runge Kutta formula (ie 'k_i') are not taken into account here... 
@@ -355,7 +336,6 @@ def readDefFile(deffile = "problem.def"):
 
 	with open(deffile) as f:
 		for line in f:
-#			if line.strip() and line[0] is not '#':
 			if line.strip() and line[0] != '#':
 				(key, val) = line.split()
 				options[key] = val
@@ -516,53 +496,77 @@ def hello(message):
 
 # -----------------------------------------------------------------------------------
 # -----------------------------------------------------------------------------------
-# TODO: add build options and bocop options
-# +++ check messages refresh (when verbose=0)
-def test(examples_root_path=bocop_root_path+'/examples', examples_list_prefix=bocop_root_path+'/test/examples', clean = 1, debug = 0, graph = 0, verbose = 0):
+# +++todo add build options and bocop options to be broadcast over all problems
+# maybe use a dict and setindef ?
+def test(examples_root_path=bocop_root_path+'/examples', examples_list_prefix=bocop_root_path+'/test/examples', clean = 1, debug = 0, graph = 0, verbose = 0, benchmark = 0):
 
-    start_time = time.time()
+    # retrieve problem list
     examples_list_file = examples_list_prefix+'.list.csv'
-    print("Bocop root path: {}".format(bocop_root_path))
-    print("Examples path: {}".format(examples_root_path))
-    print("Examples list: {}".format(examples_list_file))
+    if verbose > 0:
+        print("Bocop root path: {}".format(bocop_root_path))
+        print("Problems path: {}".format(examples_root_path))
+        print("Problems list: {}".format(examples_list_file))
+      
     with open(examples_list_file,'r') as infile:
         blob = infile.readlines()
 
+    # initialisations
+    debrief = ["# Problem                       \tSta\tObjective\tConstraints\tIter\tCpu(s)\n"] 
     total = len(blob)
     current = 0
     failed = 0
+    total_time = 0
+    if benchmark == 1:
+        prefix = 'benchmark'
+    else:
+        prefix = 'problem'
+
     for line in blob:
         current = current + 1
         ls = line.split()
-        problem_path = os.path.normpath(os.path.join(examples_root_path,ls[0])) #NB. join uses / on mingw...
-        print("{:2d}/{:2d} {:30s}     ".format(current,total,os.path.basename(os.path.normpath(problem_path))),end='',flush=True)
+        problem_name = ls[0]
+        objective_ref = float(ls[1])
+        problem_path = os.path.normpath(os.path.join(examples_root_path,problem_name)) #NB. join uses / on mingw...
+        print("{:2d}/{:2d} {:32s}".format(current,total,os.path.basename(os.path.normpath(problem_path))),end='',flush=True)
         # NB. we must run bocop in separate processes when we run different examples (to avoid reimporting the same lib)
-        solution = solve(problem_path=problem_path, clean=clean, debug=debug, graph=graph, verbose=verbose, separateProcess = 1)
+        # +++ check this in more details, is it still needed ?
+        solution = solve(problem_path=problem_path, prefix=prefix, clean=clean, debug=debug, graph=graph, verbose=verbose, separateProcess = 1)
+        total_time = total_time + solution.runtime
         if verbose > 0:
             print("Bocop returns status {} with objective {} and constraint violation {}".format(solution.status,solution.objective,solution.constraints))
 
-    # +++ check status
-    #note: several ipopt status correspond to a successful run...
-    #+++ btw 'acceptable' is saved as 4 instead of 1, check the save()
-
+        # +++ check also status (note: several ipopt status correspond to a successful run...)
+        # btw 'acceptable' is saved as 4 instead of 1, check the save()
         # check objective
-        objective_ref = float(ls[1])
+
         if abs((solution.objective - objective_ref)/objective_ref) < 1e-2:
-            print("PASSED")
+            if benchmark == 0:
+                print("PASSED")
+            else:
+                print("{:5.2f}s   ".format(solution.runtime))
         else:
-            print("FAILED\n with objective {} vs reference {}".format(solution.objective,objective_ref))
+            print("FAILED")
+            print("      Objective mismatch: found {} vs reference {}".format(solution.objective,objective_ref))
             failed = failed + 1
 
+        # save problem run debrief
+        run_debrief = ["{:32s}".format(problem_name) + '\t' + "{:d}  ".format(solution.status) + '\t' + "{:5.2e}".format(solution.objective) + '\t' + "   {:5.2e}".format(solution.constraints) + '\t' + "{:4d}".format(solution.iterations) + '\t' + "{:5.2f}".format(solution.runtime) + '\n']
+        debrief.append(run_debrief)
+
     # final summary
-    if failed == 0:
-        print("ALL {} TESTS PASSED".format(total))
-    else:
-        print("{}/{} TESTS PASSED".format(total-failed,total))
+    summary = "> {:2d}/{:2d} TESTS PASSED - TOTAL RUN TIME {:6.2f}s".format(total-failed,total,total_time)
+    print("--------------------------------------------")
+    print(summary)
 
-    print("TOTAL TIME {:.2f}".format(time.time()-start_time))
+    # save debrief file
+    debrief.append(summary)
+    debrief_file = examples_list_prefix + '.out.csv'
+    with open(debrief_file,'w') as outfile:
+        for line in debrief:
+            outfile.writelines(line)
 
+    # returns 0 if all tests passed
     return failed
-
 
 # -----------------------------------------------------------------------------------
 # -----------------------------------------------------------------------------------
@@ -600,6 +604,7 @@ class dOCPSolution:
         self.constraints = 0
         self.status = 0
         self.iterations = 0
+        self.runtime = 0
 
         # np array here ? freaking annoying to initialize without the dims...
         self.time_steps = []

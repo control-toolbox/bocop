@@ -31,7 +31,8 @@
 // virtual wrapper
 %feature("director") CallbackF;
 %inline %{
-struct CallbackF {
+struct CallbackF 
+{
     virtual void handle(const std::vector<std::vector<double>>& state,
                         const std::vector<std::vector<double>>& control) const {};
   virtual std::string def_file_path() const {return "./problem.def";};
@@ -45,7 +46,8 @@ struct CallbackF {
 %{
 static CallbackF *handler_ptr = NULL;
 static void handler_helper(const std::vector<std::vector<double>>& state,
-                           const std::vector<std::vector<double>>& control) {
+                           const std::vector<std::vector<double>>& control) 
+{
   // Make the call up to the target language when handler_ptr
   // is an instance of a target language director class
     return handler_ptr->handle(state, control);
@@ -53,26 +55,26 @@ static void handler_helper(const std::vector<std::vector<double>>& state,
 %}
 
 %inline %{
-void solve(CallbackF *callback = nullptr) {
+void solve(CallbackF *callback = nullptr, std::string def_file = "./problem.def", std::string sol_file = "./problem.sol") 
+{
   handler_ptr = callback;
 
   // OCP definition and initialization
   OCP *myocp = new OCP();
   myocp->initialize();
-  if (callback) {
+  if (callback)
     myocp->load(callback->def_file_path()); 
-  } else {
-    myocp->load("./problem.def"); //+++ pass definition file name instead
-  }
+  else
+    myocp->load(def_file); //+++ pass definition file name instead
 
   // dOCP initialization
   dOCP *mydocp = new dOCPCppAD();
   mydocp->setOCP(myocp);
   mydocp->initialize();
-  
-  if (callback) {
+  if (callback)
     mydocp->solution_file = callback->sol_file_path();    
-  }
+  else
+    mydocp->solution_file = sol_file;
 
   // NLP solver initialization
   NLPSolver *mysolver = new NLPSolverIpopt();
@@ -80,10 +82,9 @@ void solve(CallbackF *callback = nullptr) {
       mysolver->setNLP(mydocp, &handler_helper);
   else
       mysolver->setNLP(mydocp);
-
   mysolver->setOptions(myocp->getDefinitionMap());
 
-  // Solve problem and save solution  +++ later use a save() instead of saving at the end of solve()
+  // Solve problem and save solution
   mysolver->solve();
   
   // Clean

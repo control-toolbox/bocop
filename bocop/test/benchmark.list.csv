@@ -1,5 +1,6 @@
 beam                      8.889e+00   0 0 0 0
 bioreactor_1day_periodic  -6.141e-01  0 0 0 0
+bioreactor_Ndays          -1.907e+01  0 0 0 0
 fuller                    2.684e-01   0 0 0 0
 jackson_basic             -1.918e-01  0 0 0 0
 goddard                   -6.341e-01  0 0 0 0
@@ -10,4 +11,5 @@ integrator_2D             6.000e+00   0 0 0 0
 regulator_1D              3.749e-01   0 0 0 0
 regulator_2D              3.770e-01   0 0 0 0
 robbins                   1.943e+01   0 0 0 0
+swimmer                   -6.673e-01  0 0 0 0
 vanderpol                 1.048e+00   0 0 0 0
