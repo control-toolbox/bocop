@@ -1,11 +1,11 @@
-name: coverage
+name: benchmark (ubuntu)
 on:
   push:
     branches:
-      - cov
+      - benchmark
 
 jobs:
-    test_coverage:
+    benchmark:
         runs-on: ubuntu-latest
         defaults:
           run:
@@ -18,14 +18,5 @@ jobs:
                 use-mamba: true
                 activate-environment: bocop-dev
                 environment-file: pkg/env/bocop-linux-light.yaml
-            - name: build single problem with coverage info
-              run: |
-                cd ./bocop/examples/fuller
-                ./build.sh -cd
-                ./bocopApp
-            - name: Upload coverage to Codecov
-              uses: codecov/codecov-action@v3
-              with:
-                verbose: true
-                gcov: true
+            -  run: python benchmark_bocop.py
 
