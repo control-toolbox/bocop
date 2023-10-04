@@ -1,18 +1,18 @@
-# bocop
+# bocop build process
 build/
+lib/
+coverage/
 bocopApp
 bocopproblem
 bocopwrapper.py
-libbocop.dylib
+*.dylib
 *.so
-!bocop/
-*.backup
-lib/
-coverage/
-problem.sol
-# build result for windows
 *.exe
 *.dll
+
+# bocop output files
+*.sol
+*.backup
 
 # python
 __pycache__
