@@ -78,7 +78,7 @@ def newProblem(new_problem_path):
 # -----------------------------------------------------------------------------------
 # -----------------------------------------------------------------------------------
 # TODO: pass bocop_options as dictionary ? 
-def solve(problem_path = '.', prefix = 'problem', verbose = 1, clean = 1, debug = 0, graph = 1, separateProcess = 0, warmstart = None, cmake_options = ''):
+def solve(problem_path='.', prefix='problem', verbose=1, clean=1, debug=0, graph=1, separateProcess=0, warmstart=None, cmake_options='', def_options={}):
     """
     Solve an OCP via direct trancription method
 
@@ -122,7 +122,7 @@ def solve(problem_path = '.', prefix = 'problem', verbose = 1, clean = 1, debug 
     # launch executable
     if verbose >= 0:
         print('run...  ',end='',flush=True)    
-    runtime = run(problem_path=problem_path, prefix=prefix, verbose=verbose, clean=clean, debug=debug, graph=graph, separateProcess=separateProcess, warmstart=warmstart)
+    runtime = run(problem_path=problem_path, prefix=prefix, verbose=verbose, clean=clean, debug=debug, graph=graph, separateProcess=separateProcess, warmstart=warmstart, def_options=def_options)
     if verbose >= 0:
         print('\b\b\b\b\b\b\b\b',end='',flush=True)
         
@@ -140,7 +140,7 @@ def solve(problem_path = '.', prefix = 'problem', verbose = 1, clean = 1, debug 
 
 # -----------------------------------------------------------------------------------
 # -----------------------------------------------------------------------------------
-def build(problem_path = '.', verbose = 1, clean = 1, debug = 0, window = None, cmake_options = ''):
+def build(problem_path='.', verbose=1, clean=1, debug=0, window=None, cmake_options=''):
 
     # debug is currently not available on windows...
     if (platform.system() == 'Windows') and debug == 1:
@@ -248,7 +248,7 @@ def build(problem_path = '.', verbose = 1, clean = 1, debug = 0, window = None, 
 # -----------------------------------------------------------------------------------
 # -----------------------------------------------------------------------------------
 # TODO: pass options as dictionary ?
-def run(problem_path = '.', prefix = 'problem', verbose = 1, clean = 1, debug = 1, graph = 0, window = None, separateProcess = 0, warmstart = None):
+def run(problem_path='.', prefix='problem', verbose=1, clean=1, debug=1, graph=0, window=None, separateProcess=0, warmstart=None, def_options={}):
 
     start_time = time.time()
 
@@ -267,7 +267,11 @@ def run(problem_path = '.', prefix = 'problem', verbose = 1, clean = 1, debug = 
 
     # set .def and .init for warmstart
     if warmstart is not None:
-        setWarmstart(warmstart)
+        setWarmstart(warmstart, def_file=def_file)
+        
+    # set specific options in .def
+    for option in def_options.items():
+        setInDef(option[0], option[1], def_file=def_file)
 
     # clean previous output files +++ single command if possible
     if clean == 1:
@@ -310,7 +314,7 @@ def run(problem_path = '.', prefix = 'problem', verbose = 1, clean = 1, debug = 
 # -----------------------------------------------------------------------------------
 # NB. internal variables for the Runge Kutta formula (ie 'k_i') are not taken into account here... 
 # -----------------------------------------------------------------------------------
-def setWarmstart(sol_file, verbose = 1):
+def setWarmstart(sol_file, def_file='problem.df', verbose=1):
     
     # read .sol file
     solution = readSolution(filename=sol_file, verbose=verbose)
@@ -319,22 +323,22 @@ def setWarmstart(sol_file, verbose = 1):
     for i in range(solution.dim_state):
         init_file= ('state.'+str(i)+'.init')
         np.savetxt(init_file, np.transpose(np.vstack((solution.time_steps, solution.state[i]))))
-        setInDef(init_file, init_file)
+        setInDef(init_file, init_file, def_file=def_file)
     for i in range(solution.dim_control):
         init_file= ('control.'+str(i)+'.init')
         np.savetxt(init_file, np.transpose(np.vstack((solution.time_stages, solution.control[i]))))
-        setInDef(init_file, init_file)
+        setInDef(init_file, init_file, def_file=def_file)
     for i in range(solution.dim_parameters):
-        setInDef('parameter.'+str(i)+'.init', solution.parameters[i])
+        setInDef('parameter.'+str(i)+'.init', solution.parameters[i], def_file=def_file)
 
 
 # -----------------------------------------------------------------------------------
 # -----------------------------------------------------------------------------------
-def readDefFile(deffile = "problem.def"):
+def readDefFile(def_file = "problem.def"):
 
 	options = {}
 
-	with open(deffile) as f:
+	with open(def_file) as f:
 		for line in f:
 			if line.strip() and line[0] != '#':
 				(key, val) = line.split()
@@ -345,11 +349,11 @@ def readDefFile(deffile = "problem.def"):
 
 # -----------------------------------------------------------------------------------
 # -----------------------------------------------------------------------------------
-def setInDef(key, value, deffile = "problem.def"):
+def setInDef(key, value, def_file = "problem.def"):
 
     pattern = key + " " + str(value) + "\n"
 
-    with open(deffile) as f:
+    with open(def_file) as f:
         lines = f.readlines()
 
     # replace if present, append if not
@@ -363,7 +367,7 @@ def setInDef(key, value, deffile = "problem.def"):
     if k == len(lines):
         lines.append(pattern)
 
-    with open(deffile,'w+') as f:
+    with open(def_file,'w+') as f:
         f.writelines(lines)
 
 
@@ -498,7 +502,7 @@ def hello(message):
 # -----------------------------------------------------------------------------------
 # +++todo add build options and bocop options to be broadcast over all problems
 # maybe use a dict and setindef ?
-def test(examples_root_path=bocop_root_path+'/examples', examples_list_prefix=bocop_root_path+'/test/examples', clean = 1, debug = 0, graph = 0, verbose = 0, benchmark = 0):
+def test(examples_root_path=bocop_root_path+'/examples', examples_list_prefix=bocop_root_path+'/test/examples', clean = 1, debug = 0, graph = 0, verbose = 0, benchmark = 0, broadcast_options={}):
 
     # retrieve problem list
     examples_list_file = examples_list_prefix+'.list.csv'
@@ -530,7 +534,7 @@ def test(examples_root_path=bocop_root_path+'/examples', examples_list_prefix=bo
         print("{:2d}/{:2d} {:32s}".format(current,total,os.path.basename(os.path.normpath(problem_path))),end='',flush=True)
         # NB. we must run bocop in separate processes when we run different examples (to avoid reimporting the same lib)
         # +++ check this in more details, is it still needed ?
-        solution = solve(problem_path=problem_path, prefix=prefix, clean=clean, debug=debug, graph=graph, verbose=verbose, separateProcess = 1)
+        solution = solve(problem_path=problem_path, prefix=prefix, clean=clean, debug=debug, graph=graph, verbose=verbose, separateProcess = 1, def_options=broadcast_options)
         total_time = total_time + solution.runtime
         if verbose > 0:
             print("Bocop returns status {} with objective {} and constraint violation {}".format(solution.status,solution.objective,solution.constraints))

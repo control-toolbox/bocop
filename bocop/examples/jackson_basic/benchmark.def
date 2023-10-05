@@ -18,7 +18,7 @@ constant.1 10
 constant.2 1
 
 # Time discretisation
-ode.discretization gauss3
+ode.discretization midpoint_implicit
 time.steps 1000
 
 # Bounds for constraints

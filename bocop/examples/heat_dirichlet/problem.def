@@ -21,7 +21,7 @@ constant.4 0
 
 # Time discretisation
 ode.discretization euler_implicit
-time.steps 200
+time.steps 1000
 
 # Bounds for constraints
 boundarycond.0.lowerbound 1
