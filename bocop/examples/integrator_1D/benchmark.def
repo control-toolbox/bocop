@@ -16,7 +16,7 @@ final.time 1
 
 # Time discretisation
 ode.discretization midpoint_implicit
-time.steps 100
+time.steps 1000
 
 # Bounds for constraints
 boundarycond.0.lowerbound 0
@@ -33,4 +33,3 @@ parameter.0.upperbound 100
 # Initialization for discretized problem
 
 # Names
-
