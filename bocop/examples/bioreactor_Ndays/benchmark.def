@@ -56,4 +56,5 @@ state.2.init 50
 parameter.0.init 1
 
 # Names
-
+ipoptIntOption.max_iter 500
+ipoptStrOption.mu_strategy adaptive

@@ -43,4 +43,5 @@ state.0.lowerbound 0
 # Initialization for discretized problem
 
 # Names
-
+ipoptIntOption.max_iter 500
+ipoptStrOption.mu_strategy adaptive

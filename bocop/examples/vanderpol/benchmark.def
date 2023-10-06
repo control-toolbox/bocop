@@ -33,4 +33,5 @@ boundarycond.2.upperbound 0
 # Initialization for discretized problem
 
 # Names
-
+ipoptIntOption.max_iter 500
+ipoptStrOption.mu_strategy adaptive
