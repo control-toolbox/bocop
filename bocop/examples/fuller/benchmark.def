@@ -39,5 +39,5 @@ control.0.upperbound 1
 # Initialization for discretized problem
 
 # Names
-
-ipoptIntOption.max_iter 1000
+ipoptIntOption.max_iter 500
+ipoptStrOption.mu_strategy adaptive

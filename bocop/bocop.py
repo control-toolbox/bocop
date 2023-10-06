@@ -541,7 +541,7 @@ def test(examples_root_path=bocop_root_path+'/examples', examples_list_prefix=bo
         # check if solution is correct
         if solution.status == 0:
             if abs((solution.objective - objective_ref)/objective_ref) < 1e-2:
-                print("PASSED {:5.2f}s   ".format(solution.runtime))
+                print("PASSED {:6.2f}s   ".format(solution.runtime))
                 success = success + 1
             else:
                 print("FAILED: objective {:5.2e} instead of {:5.2e}".format(solution.objective,objective_ref))
