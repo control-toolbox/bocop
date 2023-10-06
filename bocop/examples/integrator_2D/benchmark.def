@@ -36,3 +36,4 @@ boundarycond.4.upperbound 0
 
 # Names
 
+ipoptIntOption.max_iter 1000

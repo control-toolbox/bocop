@@ -57,3 +57,4 @@ parameter.0.init 1
 
 # Names
 
+ipoptIntOption.max_iter 1000

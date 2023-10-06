@@ -40,3 +40,4 @@ control.0.upperbound 10
 
 # Names
 
+ipoptIntOption.max_iter 1000

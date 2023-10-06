@@ -58,3 +58,4 @@ state.2.init 50
 
 # Names
 
+ipoptIntOption.max_iter 1000

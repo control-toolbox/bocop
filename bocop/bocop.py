@@ -393,7 +393,6 @@ def readSolution(filename='problem.sol', verbose=0):
         sol.dim_state = getValue(solfile=solfile,label='dim.state',value_type='int')
         sol.dim_steps = getValue(solfile=solfile,label='time.steps',value_type='int')
         sol.ode_disc = getValue(solfile=solfile,label='ode.discretization',value_type='string',reset=True)
-        # +++ use a function with proper switch case ?
         if sol.ode_disc == 'gauss3':
             sol.dim_stages = 3
         elif sol.ode_disc == 'gauss2' or sol.ode_disc == 'heun':
@@ -500,8 +499,7 @@ def hello(message):
 
 # -----------------------------------------------------------------------------------
 # -----------------------------------------------------------------------------------
-# +++todo add build options and bocop options to be broadcast over all problems
-# maybe use a dict and setindef ?
+# run a series of problems and check solutions; used for test / benchmark
 def test(examples_root_path=bocop_root_path+'/examples', examples_list_prefix=bocop_root_path+'/test/examples', clean = 1, debug = 0, graph = 0, verbose = 0, benchmark = 0, broadcast_options={}):
 
     # retrieve problem list
@@ -518,7 +516,7 @@ def test(examples_root_path=bocop_root_path+'/examples', examples_list_prefix=bo
     debrief = ["# Problem                       \tSta\tObjective\tConstraints\tIter\tCpu(s)\n"] 
     total = len(blob)
     current = 0
-    failed = 0
+    success = 0
     total_time = 0
     if benchmark == 1:
         prefix = 'benchmark'
@@ -532,33 +530,30 @@ def test(examples_root_path=bocop_root_path+'/examples', examples_list_prefix=bo
         objective_ref = float(ls[1])
         problem_path = os.path.normpath(os.path.join(examples_root_path,problem_name)) #NB. join uses / on mingw...
         print("{:2d}/{:2d} {:32s}".format(current,total,os.path.basename(os.path.normpath(problem_path))),end='',flush=True)
-        # NB. we must run bocop in separate processes when we run different examples (to avoid reimporting the same lib)
-        # +++ check this in more details, is it still needed ?
+        # NB. run bocop in separate processes when we run different examples (to avoid reimporting the same lib) +++ check this
         solution = solve(problem_path=problem_path, prefix=prefix, clean=clean, debug=debug, graph=graph, verbose=verbose, separateProcess = 1, def_options=broadcast_options)
         total_time = total_time + solution.runtime
         if verbose > 0:
             print("Bocop returns status {} with objective {} and constraint violation {}".format(solution.status,solution.objective,solution.constraints))
 
-        # +++ check also status (note: several ipopt status correspond to a successful run...)
-        # btw 'acceptable' is saved as 4 instead of 1, check the save()
-        # check objective
-
-        if abs((solution.objective - objective_ref)/objective_ref) < 1e-2:
-            if benchmark == 0:
-                print("PASSED")
+        # +++ note: several ipopt status correspond to a successful run ! Test 0 for now, adjust later. 
+        # 'acceptable' is saved as 4 instead of 1, check the save() ?
+        # check if solution is correct
+        if solution.status == 0:
+            if abs((solution.objective - objective_ref)/objective_ref) < 1e-2:
+                print("PASSED {:5.2f}s   ".format(solution.runtime))
+                success = success + 1
             else:
-                print("{:5.2f}s   ".format(solution.runtime))
+                print("FAILED: objective {:5.2e} instead of {:5.2e}".format(solution.objective,objective_ref))
         else:
-            print("FAILED")
-            print("      Objective mismatch: found {} vs reference {}".format(solution.objective,objective_ref))
-            failed = failed + 1
+            print("FAILED: return status {}".format(solution.status))
 
         # save problem run debrief
         run_debrief = ["{:32s}".format(problem_name) + '\t' + "{:d}  ".format(solution.status) + '\t' + "{:5.2e}".format(solution.objective) + '\t' + "   {:5.2e}".format(solution.constraints) + '\t' + "{:4d}".format(solution.iterations) + '\t' + "{:5.2f}".format(solution.runtime) + '\n']
         debrief.append(run_debrief)
 
     # final summary
-    summary = "> {:2d}/{:2d} TESTS PASSED - TOTAL RUN TIME {:6.2f}s".format(total-failed,total,total_time)
+    summary = "> {:2d}/{:2d} TESTS PASSED - TOTAL RUN TIME {:6.2f}s".format(success,total,total_time)
     print("--------------------------------------------")
     print(summary)
 
@@ -570,7 +565,7 @@ def test(examples_root_path=bocop_root_path+'/examples', examples_list_prefix=bo
             outfile.writelines(line)
 
     # returns 0 if all tests passed
-    return failed
+    return total-success
 
 # -----------------------------------------------------------------------------------
 # -----------------------------------------------------------------------------------
