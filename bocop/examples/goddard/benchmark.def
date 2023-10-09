@@ -50,5 +50,6 @@ control.0.init control.init
 parameter.0.init 0.1
 
 # Names
-ipoptIntOption.max_iter 500
+ipoptIntOption.max_iter 1000
 ipoptStrOption.mu_strategy adaptive
+ipoptNumOption.tol 1e-8

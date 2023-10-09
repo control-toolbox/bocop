@@ -1,0 +1,13 @@
+# Problem                       	Sta	Objective	Constraints	Iter	Cpu(s)
+beam                            	0  	8.89e+00	   9.91e-10	  28	 1.01
+bioreactor_1day_periodic        	0  	-6.14e-01	   1.31e-08	  34	 1.39
+bioreactor_Ndays                	0  	-1.91e+01	   5.22e-09	  50	 1.79
+fuller                          	0  	2.68e-01	   8.44e-10	  22	 0.95
+jackson_basic                   	0  	-1.92e-01	   1.62e-08	  19	 0.89
+goddard                         	0  	-6.30e-01	   2.60e-10	  48	 1.85
+integrator_2D                   	0  	6.00e+00	   2.40e-14	   2	 0.71
+regulator_1D                    	0  	3.75e-01	   1.26e-09	  15	 0.78
+regulator_2D                    	0  	3.77e-01	   1.02e-08	  15	 0.91
+robbins                         	0  	1.94e+01	   7.14e-09	  23	 1.12
+vanderpol                       	0  	1.05e+00	   3.78e-08	   3	 0.78
+> 11/11 TESTS PASSED - TOTAL RUN TIME  12.17s
