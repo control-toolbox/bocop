@@ -98,6 +98,7 @@ public:
     * eg. full disc, direct collocation, CVP, ...
     * */
     /**@{*/
+    double initialTime() {return ocp->OCP_initialTime();}
     template <typename C> typename C::value_type finalTime(const C& NLP_variables); 
     template <typename C> typename C::value_type denormalizeTime(const C& NLP_variables, double normalized_time);
     template <typename C> typename C::value_type timeStep(const C& NLP_variables);
@@ -140,24 +141,27 @@ public:
 template <typename C> 
 inline auto dOCP::finalTime(const C& NLP_variables) -> typename C::value_type
 {
-    if ocp->hasFreeFinalTime()
+    if (ocp->hasFreeFinalTime())
         // free final time set as first additional parameter
-        return getParameters(NLP_variables)[NLP_parametersSize()]
+        return getParameters(NLP_variables)[NLP_parametersSize()];
     else
-        return ocp->finalTime();
+        return ocp->OCP_finalTime();
 }
 
 template <typename C> 
 inline auto dOCP::denormalizeTime(const C& NLP_variables, double normalized_time) -> typename C::value_type
 {    
+    using value_t = typename C::value_type;
     // rescale time from [0,1] to [t0,tf]
-    return initialTime() + normalized_time * (finalTime(NLP_variables) - initialTime());
+    value_t t0 = initialTime();
+    value_t tf = finalTime(NLP_variables);
+    return t0 + normalized_time * (tf - t0);
 }
 
 template <typename C> 
 inline auto dOCP::timeStep(const C& NLP_variables) -> typename C::value_type
 {
-    if ocp->hasFreeFinalTime()
+    if (ocp->hasFreeFinalTime())
         return time_step * (finalTime(NLP_variables) - initialTime());
     else
         return time_step;
@@ -167,18 +171,18 @@ template <typename C>
 inline auto dOCP::timeAtStep(const C& NLP_variables, std::size_t step) -> typename C::value_type
 {   
     double t_i = time_step_grid[step];
-    if ocp->hasFreeFinalTime()
-        return denormalizeTime(NLP_variables, t_i)
+    if (ocp->hasFreeFinalTime())
+        return denormalizeTime(NLP_variables, t_i);
     else
         return t_i;   
 }
 
 template <typename C> 
-inline auto timeAtStage(const C& NLP_variables, std::size_t step, std::size_t stage) -> typename C::value_type
+inline auto dOCP::timeAtStage(const C& NLP_variables, std::size_t step, std::size_t stage) -> typename C::value_type
 {
     double t_ij = time_stage_grid[step * rk->RKStages() + stage];
-    if ocp->hasFreeFinalTime()
-        return denormalizeTime(NLP_variables, t_ij)
+    if (ocp->hasFreeFinalTime())
+        return denormalizeTime(NLP_variables, t_ij);
     else
         return t_ij;     
 }

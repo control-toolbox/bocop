@@ -33,7 +33,7 @@ void dOCP::initialize(void)
   RKmethod = ocp->getDefinitionForKey("ode.discretization");  //+++ default value midpoint ?
   discretisation_steps = stoi(ocp->getDefinitionForKey("time.steps"));
   rk->setRKcoeffs(RKmethod);
-  rk->setTimeGrids(ocp->initialTime(), ocp->finalTime(), discretisation_steps, time_step, time_step_grid, time_stage_grid);
+  rk->setTimeGrids(ocp->OCP_initialTime(), ocp->OCP_finalTime(), discretisation_steps, time_step, time_step_grid, time_stage_grid);
 
   // setup NLP variables bounds and initial value
   variables_offset_state = 0;
@@ -73,7 +73,10 @@ void dOCP::writeSolution(const int status, const int iter, const double objectiv
   solution.objective = objective;
   xd->getState(variables, variables_offset_state, discretisationSteps(), ocp->stateSize(), *solution.state);
   ud->getControl(variables, variables_offset_control, discretisationSteps(), RKStages(), ocp->controlSize(), *solution.control);
-  rk->getParam(variables, variables_offset_param, ocp->parametersSize(), *solution.parameter);
+  //rk->getParam(variables, variables_offset_param, ocp->parametersSize(), *solution.parameter);
+  std::cout << "getparams " << ocp->parametersSize() << " " << NLP_parametersSize() << std::endl;
+  rk->getParam(variables, variables_offset_param, NLP_parametersSize(), *solution.parameter);
+  std::cout << "getmults" << std::endl;  
   rk->getMultipliers(multipliers, *solution.boundary_conditions_multiplier, *solution.path_constraints_multiplier, *solution.adjoint_state);
   rk->getConstraints(constraints, *solution.boundary_conditions, *solution.path_constraints, *solution.dyn_equations);
 
@@ -109,10 +112,30 @@ void dOCP::writeSolution(const int status, const int iter, const double objectiv
   file_out << CONSTRAINT_VIOLATION_TITLE << solution.constraint << std::endl;
   file_out << std::endl;
 
-  // times
-  +++ free tf case here, rezcale both time grids
-  bcp::writeDataBlock1D(file_out, TIME_STEPS_TITLE, time_step_grid);
-  bcp::writeDataBlock1D(file_out, TIME_STAGES_TITLE, time_stage_grid);
+  // times (denormalize time grids if needed) 
+  // +++ cant seem to be able to reuse the dOCP getter for final time, type mismatch for v -_-, see also below
+  if (ocp->hasFreeFinalTime())
+  {
+    std::cout << "times" << std::endl;
+    double t0 = initialTime();
+    double tf = (*solution.parameter)[ocp->parametersSize()];
+    std::cout << tf << std::endl;
+    
+    std::vector<double> true_time_step_grid(time_step_grid.size());
+    for (std::size_t i = 0; i<time_step_grid.size(); i++)
+      true_time_step_grid[i] = t0 + time_step_grid[i] * (tf - t0);
+    bcp::writeDataBlock1D(file_out, TIME_STEPS_TITLE, true_time_step_grid);
+  
+    std::vector<double> true_time_stage_grid(time_stage_grid.size());  
+    for (std::size_t i = 0; i<time_stage_grid.size(); i++)
+      true_time_stage_grid[i] = t0 + time_stage_grid[i] * (tf - t0);
+    bcp::writeDataBlock1D(file_out, TIME_STAGES_TITLE, true_time_stage_grid);      
+  }
+  else
+  {
+    bcp::writeDataBlock1D(file_out, TIME_STEPS_TITLE, time_step_grid);
+    bcp::writeDataBlock1D(file_out, TIME_STAGES_TITLE, time_stage_grid);
+  }
 
   // variables
   bcp::writeDataBlock2D(file_out, STATE_TITLE, *solution.state);

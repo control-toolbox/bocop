@@ -57,8 +57,8 @@ public:
   std::size_t constantsSize() {return constants_size;}
   std::size_t boundaryConditionsSize() {return boundary_conditions_size;}
   std::size_t pathConstraintsSize() {return path_constraints_size;}
-  double initialTime() {return initial_time;}
-  //double finalTime() {return final_time;}
+  double OCP_initialTime() {return initial_time;}
+  double OCP_finalTime() {return final_time;}
   bool hasFreeFinalTime() {return free_final_time;}
   std::vector<double> getConstants() {return constants;}
   //std::stringstream getFreeBounds() {return freebounds;}
@@ -86,19 +86,19 @@ public:
   /** \fn finalCost
    * Final cost \f$g_0\f$ (Mayer)
    * */
-  template <typename Variable> void finalCost(double initial_time, double final_time, const Variable *initial_state, const Variable *final_state, const Variable *parameters, const double *constants, Variable &final_cost);
+  template <typename Variable> void finalCost(double initial_time, Variable final_time, const Variable *initial_state, const Variable *final_state, const Variable *parameters, const double *constants, Variable &final_cost);
   /** \fn dynamics
    * State dynamics \f$f\f$
    * */
-  template <typename Variable> void dynamics(double time, const Variable *state, const Variable *control, const Variable *parameters, const double *constants, Variable *state_dynamics);
+  template <typename Variable> void dynamics(Variable time, const Variable *state, const Variable *control, const Variable *parameters, const double *constants, Variable *state_dynamics);
   /** \fn boundaryConditions
    *  Boundary conditions \f$\phi\f$ at initial and final time
    * */
-  template <typename Variable> void boundaryConditions(double initial_time, double final_time, const Variable *initial_state, const Variable *final_state, const Variable *parameters, const double *constants, Variable *boundary_conditions);
+  template <typename Variable> void boundaryConditions(double initial_time, Variable final_time, const Variable *initial_state, const Variable *final_state, const Variable *parameters, const double *constants, Variable *boundary_conditions);
   /** \fn pathConstraints
    * Path constraints \f$g\f$ (includes both mixed and pure state constraints)
    * */
-  template <typename Variable> void pathConstraints(double time, const Variable *state, const Variable *control, const Variable *parameters, const double *constants, Variable *path_constraints);
+  template <typename Variable> void pathConstraints(Variable time, const Variable *state, const Variable *control, const Variable *parameters, const double *constants, Variable *path_constraints);
   /** \fn preProcessing
    * Prepocessing operations (performed once before the optimisation)
    * */

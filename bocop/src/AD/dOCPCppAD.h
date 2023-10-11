@@ -98,8 +98,8 @@ template <typename Variable>
 inline bool dOCPCppAD::evalObjective_t(const Variable& v, Variable& o)
 {
 
-  double initial_time = ocp->initialTime();
-  double final_time = ocp->finalTime();
+  double initial_time = initialTime();
+  auto final_time = finalTime(v);
   auto initial_state = stateAtStep(v, 0);
   auto final_state = stateAtStep(v, discretisationSteps());
   auto parameters = getParameters(v);
@@ -122,12 +122,12 @@ inline bool dOCPCppAD::evalConstraints_t(const Variable& v, Variable& g)
 
   // 1. boundary conditions
   std::size_t index = 0;
-  //double final_time = ocp->finalTime();
-  auto final_time = finalTime();
+  double initial_time = initialTime();
+  auto final_time = finalTime(v);
   auto final_state = stateAtStep(v, discretisationSteps());
   auto parameters = getParameters(v);
   auto constants = ocp->getConstants();
-  ocp->boundaryConditions(ocp->initialTime(), final_time, stateAtStep(v, 0).data(), final_state.data(), parameters.data(), constants.data(), &g[index]);
+  ocp->boundaryConditions(initial_time, final_time, stateAtStep(v, 0).data(), final_state.data(), parameters.data(), constants.data(), &g[index]);
   index += ocp->boundaryConditionsSize();
 
   // 2. loop over steps: discretized dynamics + path constraints
@@ -146,19 +146,19 @@ inline bool dOCPCppAD::evalConstraints_t(const Variable& v, Variable& g)
 
       // NB. here we have 2 possible choices for the 'sign' of the equality constraint
       // this formulation is consistent with multipliers for initial conditions x=x0
-      g[index++] = next_step_state[i] - (step_state[i] + timeStep() * sum_bk_i);      
+      g[index++] = next_step_state[i] - (step_state[i] + timeStep(v) * sum_bk_i);      
     }
 
     // 2.2 loop on stages for k_j equations: f(...) - k_j = 0
     for (std::size_t j = 0; j < RKStages(); ++j)
     {
-      ocp->dynamics(timeAtStage(l, j), stateAtStage(v, l, j).data(), controlAtStage(v, l, j).data(), parameters.data(), constants.data(), state_dynamics.data());
+      ocp->dynamics(timeAtStage(v, l, j), stateAtStage(v, l, j).data(), controlAtStage(v, l, j).data(), parameters.data(), constants.data(), state_dynamics.data());
       for (std::size_t i = 0; i < ocp->stateSize(); ++i)
         g[index++] = state_dynamics[i] - kComponent(v, l, j, i);
     }
 
     // 2.3 path constraints (on step with average control)
-    ocp->pathConstraints(timeAtStep(l), step_state.data(), controlAtStep(v, l).data(), parameters.data(), constants.data(), &g[index]);
+    ocp->pathConstraints(timeAtStep(v, l), step_state.data(), controlAtStep(v, l).data(), parameters.data(), constants.data(), &g[index]);
     index += ocp->pathConstraintsSize();
 
   } // end main loop over time steps

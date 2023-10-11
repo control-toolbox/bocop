@@ -124,7 +124,7 @@ void OCP::load(const std::string& problem_file)
     initial_time = std::stod(getDefinitionForKey("initial.time"));
     //final_time = std::stod(getDefinitionForKey("final.time"));
     // detect free final time case
-    std::string final_time_type = ocp->getDefinitionForKey("final.time");
+    std::string final_time_type = getDefinitionForKey("final.time");
     if (final_time_type.find("free") != std::string::npos)
     {
       free_final_time = true;
