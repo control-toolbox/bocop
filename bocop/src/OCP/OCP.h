@@ -58,7 +58,8 @@ public:
   std::size_t boundaryConditionsSize() {return boundary_conditions_size;}
   std::size_t pathConstraintsSize() {return path_constraints_size;}
   double initialTime() {return initial_time;}
-  double finalTime() {return final_time;}
+  //double finalTime() {return final_time;}
+  bool hasFreeFinalTime() {return free_final_time;}
   std::vector<double> getConstants() {return constants;}
   //std::stringstream getFreeBounds() {return freebounds;}
   std::vector<double> stateLowerBounds() {return state_lower_bounds;}
@@ -119,6 +120,7 @@ private:
   // initial and final time
   double initial_time = 0;
   double final_time = 0;
+  bool free_final_time = false;
 
   // constants
   std::vector<double> constants;

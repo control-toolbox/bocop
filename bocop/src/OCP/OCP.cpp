@@ -120,9 +120,22 @@ void OCP::load(const std::string& problem_file)
     path_constraints_size = std::stoi(getDefinitionForKey("dim.pathconstraints"));
     parameters_size = std::stoi(getDefinitionForKey("dim.parameters"));
     constants_size = std::stoi(getDefinitionForKey("dim.constants"));
-    // set time interval
+    // set time interval. NB normalized to [0,1] if final time is free
     initial_time = std::stod(getDefinitionForKey("initial.time"));
-    final_time = std::stod(getDefinitionForKey("final.time"));
+    //final_time = std::stod(getDefinitionForKey("final.time"));
+    // detect free final time case
+    std::string final_time_type = ocp->getDefinitionForKey("final.time");
+    if (final_time_type.find("free") != std::string::npos)
+    {
+      free_final_time = true;
+      final_time = 1.0;
+    }
+    else
+    {
+      free_final_time = false;
+      final_time = stod(final_time_type);
+    }
+
     // set constants
     for (size_t i = 0; i < constants_size; ++i)
     {

@@ -41,7 +41,7 @@ void dOCP::initialize(void)
   variables_offset_control = starting_point.size();
   ud->setInitialControl(time_stage_grid, ocp, rk, starting_point, variables_lower_bounds, variables_upper_bounds);
   variables_offset_param = starting_point.size();
-  rk->setInitialParam(ocp, starting_point, variables_lower_bounds, variables_upper_bounds);
+  NLP_parameters_size = rk->setInitialParam(ocp, starting_point, variables_lower_bounds, variables_upper_bounds);
   rk->setRKStageVars(discretisation_steps, ocp, starting_point, variables_lower_bounds, variables_upper_bounds);
   variables_size = starting_point.size();
 
@@ -110,6 +110,7 @@ void dOCP::writeSolution(const int status, const int iter, const double objectiv
   file_out << std::endl;
 
   // times
+  +++ free tf case here, rezcale both time grids
   bcp::writeDataBlock1D(file_out, TIME_STEPS_TITLE, time_step_grid);
   bcp::writeDataBlock1D(file_out, TIME_STAGES_TITLE, time_stage_grid);
 

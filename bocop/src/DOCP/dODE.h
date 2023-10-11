@@ -21,7 +21,7 @@ public:
   void setRKcoeffs(const std::string RKmethod);
   void setTimeGrids(const double t0, const double tf, const std::size_t discretisation_steps, double &time_step, std::vector<double> &time_step_grid, std::vector<double> &time_stage_grid);
 
-  void setInitialParam(OCP *ocp, std::vector<double> &starting_point, std::vector<double> &variables_lower_bounds, std::vector<double> &variables_upper_bounds);
+  size_t setInitialParam(OCP *ocp, std::vector<double> &starting_point, std::vector<double> &variables_lower_bounds, std::vector<double> &variables_upper_bounds);
   void setRKStageVars(size_t discretisation_steps, OCP *ocp, std::vector<double> &starting_point, std::vector<double> &variables_lower_bounds, std::vector<double> &variables_upper_bounds);
 
   // +++ merge as setConstraints

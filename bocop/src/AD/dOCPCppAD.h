@@ -122,7 +122,8 @@ inline bool dOCPCppAD::evalConstraints_t(const Variable& v, Variable& g)
 
   // 1. boundary conditions
   std::size_t index = 0;
-  double final_time = ocp->finalTime();
+  //double final_time = ocp->finalTime();
+  auto final_time = finalTime();
   auto final_state = stateAtStep(v, discretisationSteps());
   auto parameters = getParameters(v);
   auto constants = ocp->getConstants();
