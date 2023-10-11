@@ -51,7 +51,7 @@ inline Variable thrust(const Variable u, double Tmax)
 
 
 template <typename Variable>
-void OCP::finalCost(double initial_time, double final_time, const Variable *initial_state, const Variable *final_state, const Variable *parameters, const double *constants, Variable &final_cost)
+void OCP::finalCost(double initial_time, Variable final_time, const Variable *initial_state, const Variable *final_state, const Variable *parameters, const double *constants, Variable &final_cost)
 {
   // CRITERION FOR GODDARD PROBLEM
   // MAXIMIZE FINAL MASS
@@ -59,7 +59,7 @@ void OCP::finalCost(double initial_time, double final_time, const Variable *init
 }
 
 template <typename Variable>
-void OCP::dynamics(double time, const Variable *state, const Variable *control, const Variable *parameters, const double *constants, Variable *state_dynamics)
+void OCP::dynamics(Variable time, const Variable *state, const Variable *control, const Variable *parameters, const double *constants, Variable *state_dynamics)
 {
   // DYNAMICS FOR GODDARD PROBLEM
   // dr/dt = v
@@ -87,7 +87,7 @@ void OCP::dynamics(double time, const Variable *state, const Variable *control, 
 }
 
 template <typename Variable>
-void OCP::boundaryConditions(double initial_time, double final_time, const Variable *initial_state, const Variable *final_state, const Variable *parameters, const double *constants, Variable *boundary_conditions)
+void OCP::boundaryConditions(double initial_time, Variable final_time, const Variable *initial_state, const Variable *final_state, const Variable *parameters, const double *constants, Variable *boundary_conditions)
 {
   // INITIAL CONDITIONS FOR GODDARD PROBLEM
   // r0 = 1    v0 = 0   m0 = 1
@@ -102,7 +102,7 @@ void OCP::boundaryConditions(double initial_time, double final_time, const Varia
 }
 
 template <typename Variable>
-void OCP::pathConstraints(double time, const Variable *state, const Variable *control, const Variable *parameters, const double *constants, Variable *path_constraints)
+void OCP::pathConstraints(Variable time, const Variable *state, const Variable *control, const Variable *parameters, const double *constants, Variable *path_constraints)
 {
   // CONSTRAINT ON MAX DRAG FOR GODDARD PROBLEM
   // Drag <= C ie Drag - C <= 0
@@ -130,7 +130,7 @@ template void OCP::dynamics<double>(double time, const double *state, const doub
 template void OCP::boundaryConditions<double>(double initial_time, double final_time, const double *initial_state, const double *final_state, const double *parameters, const double *constants, double *boundary_conditions);
 template void OCP::pathConstraints<double>(double time, const double *state, const double *control, const double *parameters, const double *constants, double *path_constraints);
 
-template void OCP::finalCost<double_ad>(double initial_time, double final_time, const double_ad *initial_state, const double_ad *final_state, const double_ad *parameters, const double *constants, double_ad &final_cost);
-template void OCP::dynamics<double_ad>(double time, const double_ad *state, const double_ad *control, const double_ad *parameters, const double *constants, double_ad *state_dynamics);
-template void OCP::boundaryConditions<double_ad>(double initial_time, double final_time, const double_ad *initial_state, const double_ad *final_state, const double_ad *parameters, const double *constants, double_ad *boundary_conditions);
-template void OCP::pathConstraints<double_ad>(double time, const double_ad *state, const double_ad *control, const double_ad *parameters, const double *constants, double_ad *path_constraints);
+template void OCP::finalCost<double_ad>(double initial_time, double_ad final_time, const double_ad *initial_state, const double_ad *final_state, const double_ad *parameters, const double *constants, double_ad &final_cost);
+template void OCP::dynamics<double_ad>(double_ad time, const double_ad *state, const double_ad *control, const double_ad *parameters, const double *constants, double_ad *state_dynamics);
+template void OCP::boundaryConditions<double_ad>(double initial_time, double_ad final_time, const double_ad *initial_state, const double_ad *final_state, const double_ad *parameters, const double *constants, double_ad *boundary_conditions);
+template void OCP::pathConstraints<double_ad>(double_ad time, const double_ad *state, const double_ad *control, const double_ad *parameters, const double *constants, double_ad *path_constraints);

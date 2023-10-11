@@ -44,6 +44,7 @@ void dOCP::initialize(void)
   NLP_parameters_size = rk->setInitialParam(ocp, starting_point, variables_lower_bounds, variables_upper_bounds);
   rk->setRKStageVars(discretisation_steps, ocp, starting_point, variables_lower_bounds, variables_upper_bounds);
   variables_size = starting_point.size();
+  std::cout << variables_size << std::endl;
 
   // setup NLP constraints bounds
   rk->setBoundaryConditionsBounds(ocp, constraints_lower_bounds, constraints_upper_bounds);
@@ -73,10 +74,7 @@ void dOCP::writeSolution(const int status, const int iter, const double objectiv
   solution.objective = objective;
   xd->getState(variables, variables_offset_state, discretisationSteps(), ocp->stateSize(), *solution.state);
   ud->getControl(variables, variables_offset_control, discretisationSteps(), RKStages(), ocp->controlSize(), *solution.control);
-  //rk->getParam(variables, variables_offset_param, ocp->parametersSize(), *solution.parameter);
-  std::cout << "getparams " << ocp->parametersSize() << " " << NLP_parametersSize() << std::endl;
-  rk->getParam(variables, variables_offset_param, NLP_parametersSize(), *solution.parameter);
-  std::cout << "getmults" << std::endl;  
+  rk->getParam(variables, variables_offset_param, ocp->parametersSize(), *solution.parameter); 
   rk->getMultipliers(multipliers, *solution.boundary_conditions_multiplier, *solution.path_constraints_multiplier, *solution.adjoint_state);
   rk->getConstraints(constraints, *solution.boundary_conditions, *solution.path_constraints, *solution.dyn_equations);
 
@@ -116,10 +114,8 @@ void dOCP::writeSolution(const int status, const int iter, const double objectiv
   // +++ cant seem to be able to reuse the dOCP getter for final time, type mismatch for v -_-, see also below
   if (ocp->hasFreeFinalTime())
   {
-    std::cout << "times" << std::endl;
     double t0 = initialTime();
-    double tf = (*solution.parameter)[ocp->parametersSize()];
-    std::cout << tf << std::endl;
+    double tf = variables[variables_offset_param];
     
     std::vector<double> true_time_step_grid(time_step_grid.size());
     for (std::size_t i = 0; i<time_step_grid.size(); i++)
