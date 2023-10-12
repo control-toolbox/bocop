@@ -157,7 +157,7 @@ size_t dODE::setInitialParam(OCP *ocp, std::vector<double> &starting_point, std:
     std::cout << "set additional parameter for free final time" << std::endl;
     total_param_size ++;
     // set lower bound to max(t0, 1e-3)
-    variables_lower_bounds.push_back(std::max(ocp->OCP_initialTime(), 0.01));
+    variables_lower_bounds.push_back(std::max(ocp->OCP_initialTime(), 1e-3));
     variables_upper_bounds.push_back(2e20);
     // set initial value to 1 
     starting_point.push_back(1.0);
