@@ -89,7 +89,7 @@ public:
 
     std::size_t discretisationSteps() {return discretisation_steps;}
     std::size_t RKStages() {return rk->RKStages();}
-    //double timeStep() {return time_step;}
+    double timeStep() {return time_step;}
     double timeAtStep(std::size_t step) const {return time_step_grid[step];}
     double timeAtStage(std::size_t step, std::size_t stage) const {return time_stage_grid[step * rk->RKStages() + stage];}
 
@@ -101,7 +101,7 @@ public:
     double initialTime() {return ocp->OCP_initialTime();}
     template <typename C> typename C::value_type finalTime(const C& NLP_variables); 
     template <typename C> typename C::value_type denormalizeTime(const C& NLP_variables, double normalized_time);
-    template <typename C> typename C::value_type timeStep(const C& NLP_variables);
+    //template <typename C> typename C::value_type timeStep(const C& NLP_variables);
     //template <typename C> typename C::value_type timeAtStep(const C& NLP_variables, std::size_t step);
     //template <typename C> typename C::value_type timeAtStage(const C& NLP_variables, std::size_t step, std::size_t stage);                 
     template <typename C> view_t<typename C::value_type> stateAtStep(const C&, std::size_t);
@@ -161,7 +161,7 @@ inline auto dOCP::denormalizeTime(const C& NLP_variables, double normalized_time
     return t0 + normalized_time * (tf - t0);
 }
 
-
+/*
 template <typename C> 
 inline auto dOCP::timeStep(const C& NLP_variables) -> typename C::value_type
 {
@@ -171,7 +171,6 @@ inline auto dOCP::timeStep(const C& NLP_variables) -> typename C::value_type
         return time_step;
 }
 
-/*
 template <typename C> 
 inline auto dOCP::timeAtStep(const C& NLP_variables, std::size_t step) -> typename C::value_type
 {   

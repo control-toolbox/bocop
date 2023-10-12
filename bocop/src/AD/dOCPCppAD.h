@@ -105,7 +105,8 @@ inline bool dOCPCppAD::evalObjective_t(const Variable& v, Variable& o)
   auto final_state = stateAtStep(v, discretisationSteps());
   auto parameters = getParameters(v);
   auto constants = ocp->getConstants();
-  std::cout << "free final time " << finalTime(v) << std::endl;
+  if (ocp->hasFreeFinalTime())
+    std::cout << "free final time " << finalTime(v) << std::endl;
   ocp->finalCost(initial_time, final_time, initial_state.data(), final_state.data(), parameters.data(), constants.data(), o[0]);
 
   return true;
@@ -116,16 +117,18 @@ inline bool dOCPCppAD::evalObjective_t(const Variable& v, Variable& o)
 template <typename Variable>
 inline bool dOCPCppAD::evalConstraints_t(const Variable& v, Variable& g)
 {
-
+  // NB for more genericity use aux functions fillDynamicsConstraints, fillPathConstraints etc in dODE ?
   using value_t = typename Variable::value_type;
 
-  // NB for more genericity use aux functions fillDynamicsConstraints, fillPathConstraints etc in dODE ?
-
-  // 1. boundary conditions
+  // general index for constraints vector
   std::size_t index = 0;
+  
+  // time discretization  
   double initial_time = initialTime();
   double final_time = ocp->OCP_finalTime();
-  //auto final_time = finalTime(v);
+  double h = timeStep();
+
+  // 1. boundary conditions
   auto final_state = stateAtStep(v, discretisationSteps());
   auto parameters = getParameters(v);
   auto constants = ocp->getConstants();
@@ -134,10 +137,8 @@ inline bool dOCPCppAD::evalConstraints_t(const Variable& v, Variable& g)
 
   // 2. loop over steps: discretized dynamics + path constraints
   std::vector<value_t> state_dynamics(ocp->stateSize());
-  auto h = timeStep(v);
   for (std::size_t l = 0; l < discretisationSteps(); ++l)
   {
-
     // 2.1 dynamics constraint at time step: y_l + h sum(b_j*k_j) - y_{l+1} = 0
     auto step_state = stateAtStep(v, l);
     auto next_step_state = stateAtStep(v, l+1);
@@ -158,7 +159,11 @@ inline bool dOCPCppAD::evalConstraints_t(const Variable& v, Variable& g)
       //std::cout << "time stage for dynamics " << timeAtStage(v, l, j) << std::endl;
       ocp->dynamics(timeAtStage(l, j), stateAtStage(v, l, j).data(), controlAtStage(v, l, j).data(), parameters.data(), constants.data(), state_dynamics.data());
       for (std::size_t i = 0; i < ocp->stateSize(); ++i)
-        g[index++] = state_dynamics[i] - kComponent(v, l, j, i);
+        if (ocp->hasFreeFinalTime())
+          // factor for rescaling time interval from [t0,1] to [t0,tf] +++ check case when t0 is different from 0 !
+          g[index++] = (finalTime(v) - initial_time) / (1.0 - initial_time) * state_dynamics[i] - kComponent(v, l, j, i);
+        else
+          g[index++] = state_dynamics[i] - kComponent(v, l, j, i);          
     }
 
     // 2.3 path constraints (on step with average control)
