@@ -90,8 +90,8 @@ public:
     std::size_t discretisationSteps() {return discretisation_steps;}
     std::size_t RKStages() {return rk->RKStages();}
     //double timeStep() {return time_step;}
-    //double timeAtStep(std::size_t step) const {return time_step_grid[step];}
-    //double timeAtStage(std::size_t step, std::size_t stage) const {return time_stage_grid[step * rk->RKStages() + stage];}
+    double timeAtStep(std::size_t step) const {return time_step_grid[step];}
+    double timeAtStage(std::size_t step, std::size_t stage) const {return time_stage_grid[step * rk->RKStages() + stage];}
 
     /** \name Optimal Control Problem specific functions
     * note: later this class could be abstracted and specified according to the transcription method used ?
@@ -102,8 +102,8 @@ public:
     template <typename C> typename C::value_type finalTime(const C& NLP_variables); 
     template <typename C> typename C::value_type denormalizeTime(const C& NLP_variables, double normalized_time);
     template <typename C> typename C::value_type timeStep(const C& NLP_variables);
-    template <typename C> typename C::value_type timeAtStep(const C& NLP_variables, std::size_t step);
-    template <typename C> typename C::value_type timeAtStage(const C& NLP_variables, std::size_t step, std::size_t stage);                 
+    //template <typename C> typename C::value_type timeAtStep(const C& NLP_variables, std::size_t step);
+    //template <typename C> typename C::value_type timeAtStage(const C& NLP_variables, std::size_t step, std::size_t stage);                 
     template <typename C> view_t<typename C::value_type> stateAtStep(const C&, std::size_t);
     template <typename C> view_t<typename C::value_type> controlAtStage(const C&, std::size_t, std::size_t);
     template <typename C> view_t<typename C::value_type> getParameters(const C&);
@@ -142,8 +142,11 @@ template <typename C>
 inline auto dOCP::finalTime(const C& NLP_variables) -> typename C::value_type
 {
     if (ocp->hasFreeFinalTime())
+    {
         // free final time set as first additional parameter
-        return getParameters(NLP_variables)[NLP_parametersSize()];
+        //std::cout << "fetch parameter " << NLP_parametersSize() << " for free final time " << std::endl;
+        return getParameters(NLP_variables)[NLP_parametersSize()-1];
+    }
     else
         return ocp->OCP_finalTime();
 }
@@ -158,6 +161,7 @@ inline auto dOCP::denormalizeTime(const C& NLP_variables, double normalized_time
     return t0 + normalized_time * (tf - t0);
 }
 
+
 template <typename C> 
 inline auto dOCP::timeStep(const C& NLP_variables) -> typename C::value_type
 {
@@ -167,6 +171,7 @@ inline auto dOCP::timeStep(const C& NLP_variables) -> typename C::value_type
         return time_step;
 }
 
+/*
 template <typename C> 
 inline auto dOCP::timeAtStep(const C& NLP_variables, std::size_t step) -> typename C::value_type
 {   
@@ -186,6 +191,7 @@ inline auto dOCP::timeAtStage(const C& NLP_variables, std::size_t step, std::siz
     else
         return t_ij;     
 }
+*/
 
 // +++ put this in dState
 template <typename C>
@@ -211,13 +217,13 @@ inline auto dOCP::controlAtStage(const C& v, std::size_t step, std::size_t stage
     return view_t<typename C::value_type>(control_size, v.data() + start);
 }
 
-// +++ put this in dODE
+// +++ reuse offset_param her ?  variables_offset_param
 template <typename C>
 inline auto dOCP::getParameters(const C& v) -> view_t<typename C::value_type>
 {
     auto state_size = ocp->stateSize();
     auto control_size = ocp->controlSize();
-    auto param_size = ocp->parametersSize();
+    auto param_size = NLP_parametersSize(); // account for posssible internal parameters eg free final time
     auto start = (discretisation_steps + 1) * state_size
                + discretisation_steps * RKStages() * control_size;
 
