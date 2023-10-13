@@ -48,7 +48,7 @@ int OCP::readDefinitionFile(const std::string& definition_file)
     }
   }
   definition_stream.close();
-
+  
   return 0;
 }
 
@@ -125,15 +125,16 @@ void OCP::load(const std::string& problem_file)
     //final_time = std::stod(getDefinitionForKey("final.time"));
     
     // detect free final time case
-    // set time interval. NB normalized to [0,1] if final time is free
+    // set time interval. NB normalized to [t0,1] if final time is free
     // +++ t0 assumed 0 for now, finish this properly once mintf and goddard tests pass
     std::string final_time_type = getDefinitionForKey("final.time");
     if (final_time_type.find("free") != std::string::npos)
     {
       free_final_time = true;
       final_time = 1.0;
-      // append parameter for free final time
+      // append parameter for free final time, and update definition map (for solution file)
       parameters_size ++;
+      definition_map["dim.parameters"] = std::to_string(parameters_size);
     }
     else
     {
