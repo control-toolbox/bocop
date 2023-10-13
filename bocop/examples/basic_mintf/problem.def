@@ -3,7 +3,7 @@
 # Dimensions
 dim.state 2
 dim.control 1
-dim.boundaryconditions 4
+dim.boundaryconditions 5
 dim.pathconstraints 0
 dim.parameters 0
 dim.constants 0
@@ -27,6 +27,7 @@ boundarycond.2.lowerbound 1
 boundarycond.2.upperbound 1
 boundarycond.3.lowerbound 0
 boundarycond.3.upperbound 0
+boundarycond.4.lowerbound 2.5
 
 # Bounds for variables
 control.0.lowerbound -1

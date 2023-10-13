@@ -99,8 +99,8 @@ inline bool dOCPCppAD::evalObjective_t(const Variable& v, Variable& o)
 {
 
   double initial_time = initialTime();
-  double final_time = ocp->OCP_finalTime();
-  //auto final_time = finalTime(v);
+  //double final_time = ocp->OCP_finalTime();
+  auto final_time = finalTime(v); // useful for minimum time problems
   auto initial_state = stateAtStep(v, 0);
   auto final_state = stateAtStep(v, discretisationSteps());
   auto parameters = getParameters(v);
@@ -130,7 +130,7 @@ inline bool dOCPCppAD::evalConstraints_t(const Variable& v, Variable& g)
   auto final_state = stateAtStep(v, discretisationSteps());
   auto parameters = getParameters(v);
   auto constants = ocp->getConstants();
-  ocp->boundaryConditions(initial_time, final_time, stateAtStep(v, 0).data(), final_state.data(), parameters.data(), constants.data(), &g[index]);
+  ocp->boundaryConditions(initial_time, finalTime(v), stateAtStep(v, 0).data(), final_state.data(), parameters.data(), constants.data(), &g[index]);
   index += ocp->boundaryConditionsSize();
 
   // 2. loop over steps: discretized dynamics + path constraints

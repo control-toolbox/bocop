@@ -25,6 +25,7 @@ void OCP::initialize(void)
 }
 
 
+// +++ todo: error message for duplicate keys (eg typo in .def)
 int OCP::readDefinitionFile(const std::string& definition_file)
 {
   std::ifstream definition_stream(definition_file);
@@ -133,6 +134,7 @@ void OCP::load(const std::string& problem_file)
       free_final_time = true;
       final_time = 1.0;
       // append parameter for free final time, and update definition map (for solution file)
+      // +++ todo: add/replace keys for bounds and initial value here instead of manual handling in setParam
       parameters_size ++;
       definition_map["dim.parameters"] = std::to_string(parameters_size);
     }
