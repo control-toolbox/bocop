@@ -148,12 +148,11 @@ inline bool dOCPCppAD::evalConstraints_t(const Variable& v, Variable& g)
 
       // NB. here we have 2 possible choices for the 'sign' of the equality constraint
       // this formulation is consistent with multipliers for initial conditions x=x0
-      if (ocp->hasFreeFinalTime())
+/*      if (ocp->hasFreeFinalTime())
         // factor for rescaling time interval from [t0,1] to [t0,tf] +++ check case when t0 is different from 0 !
         g[index++] = next_step_state[i] - (step_state[i] + h * (finalTime(v) - initial_time) / (1.0 - initial_time) * sum_bk_i);
-        //g[index++] = next_step_state[i] - (step_state[i] + h * v[variables_offset_param] * sum_bk_i);
-      else 
-        g[index++] = next_step_state[i] - (step_state[i] + h * sum_bk_i);      
+      else */
+      g[index++] = next_step_state[i] - (step_state[i] + h * sum_bk_i);      
     }
 
     // 2.2 loop on stages for k_j equations: f(...) - k_j = 0
@@ -162,7 +161,8 @@ inline bool dOCPCppAD::evalConstraints_t(const Variable& v, Variable& g)
       //std::cout << "time stage for dynamics " << timeAtStage(v, l, j) << std::endl;
       ocp->dynamics(timeAtStage(l, j), stateAtStage(v, l, j).data(), controlAtStage(v, l, j).data(), parameters.data(), constants.data(), state_dynamics.data());
       for (std::size_t i = 0; i < ocp->stateSize(); ++i)
-        g[index++] = state_dynamics[i] - kComponent(v, l, j, i);          
+        //g[index++] = state_dynamics[i] - kComponent(v, l, j, i);
+        g[index++] = (finalTime(v) - initial_time) / (1.0 - initial_time) * state_dynamics[i] - kComponent(v, l, j, i);        
     }
 
     // 2.3 path constraints (on step with average control)

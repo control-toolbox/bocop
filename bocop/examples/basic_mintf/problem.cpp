@@ -15,6 +15,7 @@
 template <typename Variable>
 inline void OCP::finalCost(double initial_time, double final_time, const Variable *initial_state, const Variable *final_state, const Variable *parameters, const double *constants, Variable &final_cost)
 {
+  // +++ later pass at least final_time as Variable so we can use final_cost = final_time;
   final_cost = parameters[0];
 }
 
