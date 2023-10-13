@@ -55,7 +55,6 @@ public:
     // NLP variables and bounds
     std::size_t variablesSize(void) const override {return variables_size;}
     std::size_t constraintsSize(void) const override {return constraints_size;}
-    std::size_t NLP_parametersSize() {return NLP_parameters_size;}
     std::vector<double> startingPoint(void) const override {return starting_point;}
     std::vector<double> variablesLowerBounds(void) const override {return variables_lower_bounds;}
     std::vector<double> variablesUpperBounds(void) const override {return variables_upper_bounds;}
@@ -100,7 +99,7 @@ public:
     /**@{*/
     double initialTime() {return ocp->OCP_initialTime();}
     template <typename C> typename C::value_type finalTime(const C& NLP_variables); 
-    template <typename C> typename C::value_type denormalizeTime(const C& NLP_variables, double normalized_time);
+    //template <typename C> typename C::value_type denormalizeTime(const C& NLP_variables, double normalized_time);
     //template <typename C> typename C::value_type timeStep(const C& NLP_variables);
     //template <typename C> typename C::value_type timeAtStep(const C& NLP_variables, std::size_t step);
     //template <typename C> typename C::value_type timeAtStage(const C& NLP_variables, std::size_t step, std::size_t stage);                 
@@ -122,7 +121,6 @@ public:
     // dimensions
     std::size_t variables_size;
     std::size_t constraints_size;
-    std::size_t NLP_parameters_size;
     std::size_t variables_offset_state;
     std::size_t variables_offset_control;
     std::size_t variables_offset_param;
@@ -144,13 +142,14 @@ inline auto dOCP::finalTime(const C& NLP_variables) -> typename C::value_type
     if (ocp->hasFreeFinalTime())
     {
         // free final time set as first additional parameter
-        //std::cout << "fetch parameter " << NLP_parametersSize() << " for free final time " << std::endl;
-        return getParameters(NLP_variables)[NLP_parametersSize()-1];
+        std::cout << "fetch parameter " << ocp->parametersSize() << " for free final time " << std::endl;
+        return getParameters(NLP_variables)[ocp->parametersSize()-1];
     }
     else
         return ocp->OCP_finalTime();
 }
 
+/*
 template <typename C> 
 inline auto dOCP::denormalizeTime(const C& NLP_variables, double normalized_time) -> typename C::value_type
 {    
@@ -161,7 +160,7 @@ inline auto dOCP::denormalizeTime(const C& NLP_variables, double normalized_time
     return t0 + normalized_time * (tf - t0);
 }
 
-/*
+
 template <typename C> 
 inline auto dOCP::timeStep(const C& NLP_variables) -> typename C::value_type
 {
@@ -197,7 +196,6 @@ template <typename C>
 inline auto dOCP::stateAtStep(const C& v, std::size_t step) -> view_t<typename C::value_type>
 {
     using value_t = typename C::value_type;
-
     auto size = ocp->stateSize();
     size_t start = step * size;
 
@@ -222,7 +220,7 @@ inline auto dOCP::getParameters(const C& v) -> view_t<typename C::value_type>
 {
     auto state_size = ocp->stateSize();
     auto control_size = ocp->controlSize();
-    auto param_size = NLP_parametersSize(); // account for posssible internal parameters eg free final time
+    auto param_size = ocp->parametersSize(); // including internal parameters eg free final time
     auto start = (discretisation_steps + 1) * state_size
                + discretisation_steps * RKStages() * control_size;
 
@@ -247,16 +245,15 @@ template <typename C>
 inline auto dOCP::stateAtStage(const C& v, std::size_t step, std::size_t stage) -> std::vector<typename C::value_type>
 {
     using value_t = typename C::value_type;
-
     double h = time_step;
     auto state = stateAtStep(v, step);
     std::vector<value_t> stage_state(state.begin(), state.end());
 
-    for (std::size_t n = 0;  n < ocp->stateSize(); ++n) {
+    for (std::size_t n = 0;  n < ocp->stateSize(); ++n) 
+    {
         value_t sum_ak_n = 0.0;
-        for (std::size_t i = 0;  i < RKStages(); ++i) {
+        for (std::size_t i = 0;  i < RKStages(); ++i)
             sum_ak_n += rk->butcherA()[stage][i] * kComponent(v, step, i, n);
-        }
         stage_state[n] += h * sum_ak_n;
     }
     return stage_state;
@@ -269,15 +266,14 @@ template <typename C>
 inline auto dOCP::controlAtStep(const C& v, std::size_t step) -> std::vector<typename C::value_type>
 {
     using value_t = typename C::value_type;
-
     auto control_size = ocp->controlSize();
 
     std::vector<value_t> step_control(control_size, 0.0);
-    for (std::size_t j = 0; j < RKStages(); ++j) {
+    for (std::size_t j = 0; j < RKStages(); ++j) 
+    {
         auto u_j = controlAtStage(v, step, j);
-        for (std::size_t i = 0; i < control_size; ++i) {
+        for (std::size_t i = 0; i < control_size; ++i)
             step_control[i] += rk->butcherB()[j] * u_j[i];
-        }
     }
     return step_control;
 }

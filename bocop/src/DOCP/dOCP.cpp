@@ -41,11 +41,9 @@ void dOCP::initialize(void)
   variables_offset_control = starting_point.size();
   ud->setInitialControl(time_stage_grid, ocp, rk, starting_point, variables_lower_bounds, variables_upper_bounds);
   variables_offset_param = starting_point.size();
-  NLP_parameters_size = rk->setInitialParam(ocp, starting_point, variables_lower_bounds, variables_upper_bounds);
+  rk->setInitialParam(ocp, starting_point, variables_lower_bounds, variables_upper_bounds);
   rk->setRKStageVars(discretisation_steps, ocp, starting_point, variables_lower_bounds, variables_upper_bounds);
   variables_size = starting_point.size();
-  std::cout << "variables " << variables_size << " including parameters " << NLP_parameters_size << std::endl;
-
 
   // setup NLP constraints bounds
   rk->setBoundaryConditionsBounds(ocp, constraints_lower_bounds, constraints_upper_bounds);

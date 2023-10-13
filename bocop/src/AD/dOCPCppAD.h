@@ -127,7 +127,7 @@ inline bool dOCPCppAD::evalConstraints_t(const Variable& v, Variable& g)
   double initial_time = initialTime();
   double final_time = ocp->OCP_finalTime();
   double h = timeStep();
-  //std::cout << "raw tf from v " << v[variables_offset_param] << " and from finalTime() " << finalTime(v) << std::endl;
+  std::cout << "raw tf from v " << v[variables_offset_param] << " and from finalTime() " << finalTime(v) << std::endl;
 
   // 1. boundary conditions
   auto final_state = stateAtStep(v, discretisationSteps());
@@ -153,8 +153,8 @@ inline bool dOCPCppAD::evalConstraints_t(const Variable& v, Variable& g)
       // this formulation is consistent with multipliers for initial conditions x=x0
       if (ocp->hasFreeFinalTime())
         // factor for rescaling time interval from [t0,1] to [t0,tf] +++ check case when t0 is different from 0 !
-        //g[index++] = next_step_state[i] - (step_state[i] + h * (finalTime(v) - initial_time) / (1.0 - initial_time) * sum_bk_i);
-        g[index++] = next_step_state[i] - (step_state[i] + h * v[variables_offset_param] * sum_bk_i);
+        g[index++] = next_step_state[i] - (step_state[i] + h * (finalTime(v) - initial_time) / (1.0 - initial_time) * sum_bk_i);
+        //g[index++] = next_step_state[i] - (step_state[i] + h * v[variables_offset_param] * sum_bk_i);
       else 
         g[index++] = next_step_state[i] - (step_state[i] + h * sum_bk_i);      
     }

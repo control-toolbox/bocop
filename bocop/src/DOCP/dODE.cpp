@@ -133,10 +133,8 @@ void dODE::setTimeGrids(const double t0, const double tf, const std::size_t disc
 }
 
 
-size_t dODE::setInitialParam(OCP *ocp, std::vector<double> &starting_point, std::vector<double> &variables_lower_bounds, std::vector<double> &variables_upper_bounds)
+void dODE::setInitialParam(OCP *ocp, std::vector<double> &starting_point, std::vector<double> &variables_lower_bounds, std::vector<double> &variables_upper_bounds)
 {
-  size_t total_param_size = ocp->parametersSize();
-  
   // set OCP parameters
   for (size_t k = 0; k < ocp->parametersSize(); ++k)
   {
@@ -150,7 +148,8 @@ size_t dODE::setInitialParam(OCP *ocp, std::vector<double> &starting_point, std:
     std::string param_init_type = ocp->getDefinitionForKey(label.str(), "0.1");
     starting_point.push_back(stod(param_init_type));
   }
-  
+ 
+/*  
   // additional parameter for free final time
   if (ocp->hasFreeFinalTime())
   {
@@ -162,8 +161,7 @@ size_t dODE::setInitialParam(OCP *ocp, std::vector<double> &starting_point, std:
     // set initial value to 1 
     starting_point.push_back(1.0);
   }
-  
-  return total_param_size;
+ */
 }
 
 

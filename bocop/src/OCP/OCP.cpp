@@ -114,21 +114,26 @@ void OCP::load(const std::string& problem_file)
   if (ok == 0)
   {
     // set dimensions
-    state_size= std::stoi(getDefinitionForKey("dim.state"));
+    state_size = std::stoi(getDefinitionForKey("dim.state"));
     control_size = std::stoi(getDefinitionForKey("dim.control"));
     boundary_conditions_size = std::stoi(getDefinitionForKey("dim.boundaryconditions"));
     path_constraints_size = std::stoi(getDefinitionForKey("dim.pathconstraints"));
     parameters_size = std::stoi(getDefinitionForKey("dim.parameters"));
     constants_size = std::stoi(getDefinitionForKey("dim.constants"));
-    // set time interval. NB normalized to [0,1] if final time is free
+
     initial_time = std::stod(getDefinitionForKey("initial.time"));
     //final_time = std::stod(getDefinitionForKey("final.time"));
+    
     // detect free final time case
+    // set time interval. NB normalized to [0,1] if final time is free
+    // +++ t0 assumed 0 for now, finish this properly once mintf and goddard tests pass
     std::string final_time_type = getDefinitionForKey("final.time");
     if (final_time_type.find("free") != std::string::npos)
     {
       free_final_time = true;
       final_time = 1.0;
+      // append parameter for free final time
+      parameters_size ++;
     }
     else
     {
@@ -144,12 +149,20 @@ void OCP::load(const std::string& problem_file)
       constants.push_back(std::stod(getDefinitionForKey(label.str())));
     }
 
-    // set bounds for variables and constraints
+    // retrieve and set bounds for variables and constraints
     setBounds("boundarycond", boundary_conditions_size, boundary_conditions_lower_bounds, boundary_conditions_upper_bounds);
     setBounds("pathconstraint", path_constraints_size, path_constraints_lower_bounds, path_constraints_upper_bounds);
     setBounds("state", state_size, state_lower_bounds, state_upper_bounds);
     setBounds("control", control_size, control_lower_bounds, control_upper_bounds);
     setBounds("parameter", parameters_size, param_lower_bounds, param_upper_bounds);
+    
+    // adjust lower bound for free final time if needed
+    if (free_final_time)
+      if (param_lower_bounds[parameters_size - 1] == std::numeric_limits<double>::lowest())
+      {
+        param_lower_bounds[parameters_size - 1] = 1e-3;
+        std::cout << "Set automatic lower bound for free final time: " << param_lower_bounds[parameters_size - 1] << std::endl;
+      }
 
     if (freebounds.rdbuf()->in_avail() != 0)
       std::cout << "INFO: using free bounds for variables: " << freebounds.str() << std::endl;
