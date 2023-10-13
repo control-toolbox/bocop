@@ -142,7 +142,6 @@ inline auto dOCP::finalTime(const C& NLP_variables) -> typename C::value_type
     if (ocp->hasFreeFinalTime())
     {
         // free final time set as first additional parameter
-        std::cout << "fetch parameter " << ocp->parametersSize() << " for free final time " << std::endl;
         return getParameters(NLP_variables)[ocp->parametersSize()-1];
     }
     else

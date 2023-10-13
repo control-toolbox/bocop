@@ -105,8 +105,6 @@ inline bool dOCPCppAD::evalObjective_t(const Variable& v, Variable& o)
   auto final_state = stateAtStep(v, discretisationSteps());
   auto parameters = getParameters(v);
   auto constants = ocp->getConstants();
-  if (ocp->hasFreeFinalTime())
-    std::cout << "free final time " << finalTime(v) << std::endl;
   ocp->finalCost(initial_time, final_time, initial_state.data(), final_state.data(), parameters.data(), constants.data(), o[0]);
 
   return true;
@@ -127,7 +125,6 @@ inline bool dOCPCppAD::evalConstraints_t(const Variable& v, Variable& g)
   double initial_time = initialTime();
   double final_time = ocp->OCP_finalTime();
   double h = timeStep();
-  std::cout << "raw tf from v " << v[variables_offset_param] << " and from finalTime() " << finalTime(v) << std::endl;
 
   // 1. boundary conditions
   auto final_state = stateAtStep(v, discretisationSteps());
