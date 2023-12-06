@@ -2,7 +2,10 @@
 
 [gh-ci-img]: https://github.com/control-toolbox/bocop.jl/actions/workflows/ci_linux.yml/badge.svg?branch=main
 [gh-ci-url]: https://github.com/control-toolbox/bocop.jl/actions/workflows/ci_linux.yml?query=branch%3Amain
- 
+
+## Panel application
+Try the code online with the provided demos or your own problem with the [Bocop wep app](http://control-toolbox.inria.fr/bocop-panel) (no installation required)
+
 ## User install
 
 ### [Windows Installation Guide](./bocop/README_WINDOWS.md)
@@ -42,8 +45,6 @@ Then you can use:
   jupyter labextension install @jupyter-widgets/jupyterlab-manager
   jupyter-lab bocop/notebook_test.ipynb
   ```
-## See also
-Try the code online with [Bocop wep app](http://control-toolbox.inria.fr/bocop-panel) (zero installation and full version)
 
 ![0DC1463B-9C56-4D01-85C5-198663A50047](https://user-images.githubusercontent.com/62183989/227493074-07842484-f573-4eb9-b728-c1c19b2a4eb1.jpeg)
 
