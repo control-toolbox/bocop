@@ -1,6 +1,8 @@
 # Bocop2
 [archive](https://mega.nz/folder/684DRI7L#SAkDs52KFlyjkCHSkS5X-w)
 
+[User guide 2.2.0](https://github.com/control-toolbox/bocop/blob/main/bocop/UserGuide-BOCOP.pdf)
+
 # Bocop3 - optimal control toolbox (direct transcription approach)
 
 [gh-ci-img]: https://github.com/control-toolbox/bocop.jl/actions/workflows/ci_linux.yml/badge.svg?branch=main
